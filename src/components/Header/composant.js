@@ -177,7 +177,11 @@ class Composant extends React.Component {
 
 							<Link to="/about-us">
 								<div style={{ display: 'flex', color: '#333' }}>
-									{<Explicit className={classes.dropdownIcons} />}{' '}
+									{
+										<i class="material-icons" className={classes.dropdownIcons}>
+											location_city
+										</i>
+									}{' '}
 									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>
 										Les structures de prise en charge
 									</div>

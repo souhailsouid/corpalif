@@ -12,7 +12,7 @@ const customSelectStyle = {
 		lineHeight: '1.42857',
 		textDecoration: 'none',
 		textTransform: 'uppercase',
-		color: '#cc4949',
+		color: '#3C4858',
 		letterSpacing: '0',
 		'&:focus': {
 			backgroundColor: 'transparent'
@@ -41,7 +41,7 @@ const customSelectStyle = {
 		'& > div': {
 			'&:before': {
 				borderBottomWidth: '1px !important',
-				borderBottomColor: '#cc4949 !important'
+				borderBottomColor: '#3C4858 !important'
 			},
 			'&:after': {
 				borderBottomColor: greenColor + '!important'
@@ -52,7 +52,8 @@ const customSelectStyle = {
 		fontSize: '12px',
 		textTransform: 'uppercase',
 		color: '#3C4858 !important',
-		top: '8px'
+		top: '8px',
+		marginLeft: 10
 	},
 	selectMenu: {
 		'& > div > ul': {

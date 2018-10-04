@@ -10,7 +10,8 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Icon from '@material-ui/core/Icon'
-
+import SignUp from '../SignUp'
+import SeConnecter from '../login.js'
 // @material-ui/icons
 import Apps from '@material-ui/icons/Apps'
 
@@ -141,6 +142,10 @@ function HeaderLinks({ ...props }) {
 				>
 					<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire d'admission
 				</Button>
+			</ListItem>
+			<ListItem className={classes.listItem} style={{ marginLeft: 20, marginBottom: 25 }}>
+				<SeConnecter />
+				<SignUp />
 			</ListItem>
 		</List>
 	)

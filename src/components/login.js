@@ -49,6 +49,7 @@ class SeConnecter extends React.Component {
 		return (
 			<div>
 				<Button
+					round
 					onClick={() => this.handleClickOpen('loginModal')}
 					style={{
 						marginLeft: 20,

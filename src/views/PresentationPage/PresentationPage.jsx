@@ -66,7 +66,7 @@ class PresentationPage extends React.Component {
 						}}
 					/>
 				</div>
-				<SectionNavbars />
+				{/* <SectionNavbars /> */}
 
 				<Parallax
 					image={require('assets/img/paris.jpg')}
@@ -82,7 +82,9 @@ class PresentationPage extends React.Component {
 								className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}
 							>
 								<div className={classes.brand}>
-									<h1 className={classes.title}>Annuaire régionale</h1>
+									<h1 className={classes.title}>
+										<b>Annuaire régionale</b>
+									</h1>
 									<b>
 										{' '}
 										<h3 style={{ marginTop: 0 }} /> Recherchez une structure de soins spalliatif{' '}
@@ -96,37 +98,6 @@ class PresentationPage extends React.Component {
 										</div>
 
 										<Example />
-										<GridItem xs={12} sm={6} md={5} lg={5}>
-											<FormControl
-												fullWidth
-												className={classes.selectFormControl}
-												style={{
-													backgroundColor: '#fff',
-													height: 50,
-													padding: 26,
-
-													fontWeight: 'bold'
-												}}
-											>
-												<IntegrationAutosuggest />
-											</FormControl>
-
-											<GridItem xs={12} sm={6} md={5} lg={5}>
-												<FormControl
-													fullWidth
-													className={classes.selectFormControl}
-													style={{
-														backgroundColor: '#fff',
-														height: 50,
-														padding: 26,
-
-														fontWeight: 'bold'
-													}}
-												>
-													<IntegrationLocation />
-												</FormControl>
-											</GridItem>
-										</GridItem>
 									</div>
 								</div>
 							</GridItem>
@@ -136,7 +107,7 @@ class PresentationPage extends React.Component {
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<SectionDescription />
-					<Example />
+					{/* <Example /> */}
 					{/*	<SectionComponents />
 					<SectionCards />
 					<SectionContent />

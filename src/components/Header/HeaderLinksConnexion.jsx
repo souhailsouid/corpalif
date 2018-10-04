@@ -31,42 +31,8 @@ function SectionNavbars(props) {
 	const { classes } = props
 	return (
 		<div className={`${classes.section} cd-section`} id="navigation">
-			<div id="navbar" className={classes.navbar} style={{ height: 80, padding: 0, display: 'flex' }}>
-				<HeaderConnexion
-					brand={<SeConnecter />}
-					color="dark"
-					links={
-						<List className={classes.list + classes.mlAuto}>
-							<ListItem className={classes.listItem}>
-								<Button
-									href="#pablo"
-									className={classes.navLink}
-									onClick={(e) => e.preventDefault()}
-									color="transparent"
-								>
-									<div>
-										{' '}
-										<SignUp />
-									</div>
-								</Button>
-							</ListItem>
-
-							<ListItem className={classes.listItem}>
-								<CustomDropdown
-									left
-									caret={false}
-									hoverColor="black"
-									dropdownHeader="Dropdown Header"
-									buttonProps={{
-										className: classes.navLink + ' ' + classes.imageDropdownButton,
-										color: 'transparent'
-									}}
-									dropdownList={[ 'Me', 'Settings and other stuff', 'Sign out' ]}
-								/>
-							</ListItem>
-						</List>
-					}
-				/>
+			<div id="navbar" className={classes.navbar} style={{ height: 50, padding: 0, display: 'flex' }}>
+				<HeaderConnexion brand="" color="dark" style={{ height: 2 }} />
 			</div>
 		</div>
 	)

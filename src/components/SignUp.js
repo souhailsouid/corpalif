@@ -55,6 +55,7 @@ class SignUp extends React.Component {
 		return (
 			<div>
 				<Button
+					round
 					onClick={() => this.handleClickOpen('signupModal')}
 					style={{
 						marginLeft: 20,
@@ -63,7 +64,8 @@ class SignUp extends React.Component {
 						paddingBottom: 0,
 						padding: 0,
 						margin: 0,
-						marginTop: 20
+						marginTop: 20,
+						height: 20
 					}}
 				>
 					Devenir membre
