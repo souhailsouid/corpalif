@@ -7,6 +7,7 @@ import EcommercePage from "views/EcommercePage/EcommercePage.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 import PresentationPage from "views/PresentationPage/PresentationPage.jsx";
+import Annuaire from "views/PresentationPage/Annuaire.jsx";
 import PricingPage from "views/PricingPage/PricingPage.jsx";
 import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import ProductPage from "views/ProductPage/ProductPage.jsx";
@@ -27,6 +28,7 @@ var indexRoutes = [
   { path: "/profile-page", name: "ProfilePage", component: ProfilePage },
   { path: "/product-page", name: "ProductPage", component: ProductPage },
   { path: "/sections", name: "SectionsPage", component: SectionsPage },
+  { path: "/annuaire-francilien", name: "Annuaire", component: Annuaire },
   {
     path: "/shopping-cart-page",
     name: "ShoppingCartPage",

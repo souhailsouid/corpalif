@@ -20,7 +20,7 @@ import classNames from 'classnames'
 import Icon from '@material-ui/core/Icon'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Search from '../components/search'
-class Example extends React.Component {
+class AnnuaireSuggestion extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -40,102 +40,8 @@ class Example extends React.Component {
 
 		return (
 			<GridContainer justify="center">
-				<GridItem xs={10} sm={10} md={8} lg={7} style={{ display: 'flex' }}>
-					{/* <GridItem xs={12} sm={7} md={7} lg={10}>
-						<FormControl
-							fullWidth
-							className={classes.selectFormControl}
-							style={{ backgroundColor: '#fff', height: 47 }}
-						>
-							<InputLabel htmlFor="multiple-select" className={classes.selectLabel}>
-								Les structures de prise en charge et associations
-							</InputLabel>
-							<Select
-								multiple
-								value={this.state.multipleSelect}
-								onChange={this.handleMultiple}
-								MenuProps={{ className: classes.selectMenu }}
-								classes={{ select: classes.select }}
-								inputProps={{
-									name: 'multipleSelect',
-									id: 'multiple-select'
-								}}
-							>
-								<MenuItem
-									disabled
-									classes={{
-										root: classes.selectMenuItem
-									}}
-								>
-									Selectionner une ou plusieurs structures
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="1"
-								>
-									Unités de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="2"
-								>
-									Lits identifiés soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="3"
-								>
-									Réseaux de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="4"
-								>
-									Équipes mobiles de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="5"
-								>
-									Hospitalisation à domicile
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="6"
-								>
-									Associations de bénévoles'
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="7"
-								>
-									Autres structures
-								</MenuItem>
-							</Select>
-						</FormControl>
-					</GridItem> */}
-					{/* <GridItem xs={12} sm={6} md={5} lg={6} style={{ paddingLeft: 0, paddingRight: 0 }}> */}
+				<GridItem xs={10} sm={10} md={8} lg={7} style={{ display: 'flex'}}>
+				
 					<FormControl
 						fullWidth
 						className={classes.selectFormControl}
@@ -229,20 +135,12 @@ class Example extends React.Component {
 						</Select>
 					</FormControl>
 					<Search />
-					{/* </GridItem> */}
-					{/* <GridItem xs={2} sm={2} md={2} lg={2}> */}
-					{/* <Button
-							style={{ backgroundColor: '#fff', height: 47 }}
-							aria-label="Edit"
-							className={classes.selectFormControl}
-						>
-							<Icon>near_me</Icon>
-						</Button> */}
+			
 				</GridItem>
-				{/* </GridItem> */}
+			
 			</GridContainer>
 		)
 	}
 }
 
-export default withStyles(styles)(Example)
+export default withStyles(styles)(AnnuaireSuggestion)

@@ -174,19 +174,37 @@ class Composant extends React.Component {
 									<div style={{ color: '#cc4949' }}>Vrai / Faux</div>
 								]}
 							/>,
-
-							<Link to="/about-us">
-								<div style={{ display: 'flex', color: '#333' }}>
-									{
-										<i class="material-icons" className={classes.dropdownIcons}>
+								
+									<CustomDropdown
+								ref="multi"
+								innerDropDown
+								buttonText={
+									<div style={{ margin: 2 }}>
+											{<i class="material-icons" className={classes.dropdownIcons}>
 											location_city
-										</i>
-									}{' '}
-									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>
-										Les structures de prise en charge
+										</i>} Les structures de prise en charge
 									</div>
-								</div>
-							</Link>,
+								}
+								buttonProps={{
+									simple: true,
+									block: true
+								}}
+								hoverColor="transparent"
+								dropPlacement="left-start"
+								dropdownList={[
+									
+										<Link to="/about-us" style={{ color: '#333' }}>
+									Qu'est-ce que les soins palliatifs
+									</Link>,
+									
+									<Link to="/annuaire-francilien" style={{ color: '#333' }}>Annuaire Francilien</Link>
+								]}
+							/>,
+
+
+					
+							
+							
 							<Link to="/about-us">
 								<div style={{ display: 'flex', color: '#333' }}>
 									{<ListIcon className={classes.dropdownIcons} />}

@@ -1,6 +1,7 @@
 import {
   container,
   title,
+  title1,
   main,
   mainRaised,
   mlAuto,

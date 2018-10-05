@@ -22,7 +22,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 import SectionDescription from 'views/PresentationPage/Sections/SectionDescription.jsx'
 import SectionContacts from 'views/SectionsPage/Sections/SectionContacts.jsx'
 import SectionComponents from 'views/PresentationPage/Sections/SectionComponents.jsx'
-import SectionCards from 'views/PresentationPage/Sections/SectionCards.jsx'
+// import SectionCards from 'views/PresentationPage/Sections/SectionCards.jsx'
 import SectionContent from 'views/PresentationPage/Sections/SectionContent.jsx'
 import SectionSections from 'views/PresentationPage/Sections/SectionSections.jsx'
 import SectionExamples from 'views/PresentationPage/Sections/SectionExamples.jsx'
@@ -33,7 +33,8 @@ import IntegrationReactSelect from '../auto'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import IntegrationAutosuggest from '../autosuggest'
 import IntegrationLocation from '../Location'
-import Example from '../suggest'
+import AnnuaireSuggestion from '../AnnuaireSuggestion'
+import SectionCards from 'views/PresentationPage/card.js'
 import '../style.css'
 class PresentationPage extends React.Component {
 	componentDidMount() {
@@ -66,13 +67,13 @@ class PresentationPage extends React.Component {
 						}}
 					/>
 				</div>
-				{/* <SectionNavbars /> */}
+				
 
 				<Parallax
-					image={require('assets/img/paris.jpg')}
+			image={require('assets/img/paris.jpg')}
 					className={classes.parallax}
 					small
-					style={{ height: 100 }}
+					style={{ height: 100 , }}
 				>
 					<div className={classes.container}>
 						<GridContainer justify="center">
@@ -82,22 +83,17 @@ class PresentationPage extends React.Component {
 								className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}
 							>
 								<div className={classes.brand} >
-									<h1  style={{color: '#000000'}}>
-										Annuaire régionale
+									<h1 style={{color: '#336774'}}>
+										Les structures<br/> en Île-de-France
 									</h1>
 									<b>
-										{' '}
+										
 										<h3 style={{ marginTop: 0 }} /> Recherchez une structure de soins spalliatif{' '}
 										<h3 />
 									</b>
 									<div>
-										<div className={classes.brand} style={{ display: 'flex' }}>
-											{/* <IntegrationReactSelect />
-											<IntegrationAutosuggest />
-											<IntegrationLocation /> */}
-										</div>
-
-										<Example />
+									
+										<AnnuaireSuggestion />
 									</div>
 								</div>
 							</GridItem>
@@ -106,17 +102,13 @@ class PresentationPage extends React.Component {
 				</Parallax>
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
-					<SectionDescription />
-					{/* <Example /> */}
-					{/*	<SectionComponents />
-					<SectionCards />
-					<SectionContent />
-					<SectionSections />
-					<SectionExamples />
-					<SectionFreeDemo />
-					<SectionOverview /> */}
-					<SectionContacts />
+				<GridContainer justify="center">
+				
+			
+			<SectionCards/>
+						</GridContainer>
 				</div>
+		
 				<div />
 				<Footer
 					theme="white"

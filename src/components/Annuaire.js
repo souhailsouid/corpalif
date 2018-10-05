@@ -35,7 +35,7 @@ import IntegrationAutosuggest from '../autosuggest'
 import IntegrationLocation from '../Location'
 import Example from '../suggest'
 import '../style.css'
-class PresentationPage extends React.Component {
+class Annuaire extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -74,7 +74,7 @@ class PresentationPage extends React.Component {
 					small
 					style={{ height: 100 }}
 				>
-					<div className={classes.container}>
+					<div className={classes.container3}>
 						<GridContainer justify="center">
 							<GridItem
 								md={8}
@@ -82,7 +82,7 @@ class PresentationPage extends React.Component {
 								className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}
 							>
 								<div className={classes.brand} >
-									<h1  style={{color: '#000000'}}>
+									<h1 className={classes.title1}>
 										Annuaire régionale
 									</h1>
 									<b>
@@ -181,4 +181,4 @@ class PresentationPage extends React.Component {
 	}
 }
 
-export default withStyles(presentationStyle)(PresentationPage)
+export default withStyles(presentationStyle)(Annuaire)

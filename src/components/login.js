@@ -61,7 +61,7 @@ class SeConnecter extends React.Component {
 						marginTop: 20
 					}}
 				>
-					<Assignment /> Se connecter
+					<Assignment /> <b>Se connecter</b>
 				</Button>
 				<Dialog
 					classes={{

@@ -60,7 +60,8 @@ class SignUp extends React.Component {
 					style={{
 						marginLeft: 20,
 						width: 120,
-						backgroundColor: '#212121',
+						backgroundColor: '#fff',
+						color: '#000000',
 						paddingBottom: 0,
 						padding: 0,
 						margin: 0,
@@ -68,7 +69,7 @@ class SignUp extends React.Component {
 						height: 20
 					}}
 				>
-					Devenir membre
+					<b>Devenir membre</b>
 				</Button>
 				<Dialog
 					classes={{

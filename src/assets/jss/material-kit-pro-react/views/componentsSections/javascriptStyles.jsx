@@ -79,8 +79,13 @@ const javascriptStyles = theme => ({
     justifyContent: "center !important"
   },
   infoArea: {
-    padding: "0px 0px 20px !important"
+    padding: "0px 0px 20px !important",
+   
+   
+
+
   },
+
   space50: {
     height: "50px",
     display: "block"

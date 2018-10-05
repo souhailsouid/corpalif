@@ -33,6 +33,7 @@ const containerFluid = {
 }
 const container = {
 	...containerFluid,
+	borderRadius: 10,
 	'@media (min-width: 576px)': {
 		maxWidth: '540px'
 	},
@@ -43,10 +44,24 @@ const container = {
 		maxWidth: '960px'
 	},
 	'@media (min-width: 1200px)': {
-		maxWidth: '1140px'
+		maxWidth: '1240px'
 	}
 }
-
+const container1 = {
+	...containerFluid,
+	'@media (min-width: 576px)': {
+		maxWidth: '540px'
+	},
+	'@media (min-width: 768px)': {
+		maxWidth: '720px'
+	},
+	'@media (min-width: 992px)': {
+		maxWidth: '960px'
+	},
+	'@media (min-width: 1500px)': {
+		maxWidth: '2000px'
+	}
+}
 const boxShadow = {
 	boxShadow:
 		'0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)'
@@ -163,7 +178,35 @@ const title = {
 	marginTop: '30px',
 	marginBottom: '25px',
 	minHeight: '32px',
-	fontFamily: `"Roboto Slab", "Times New Roman", serif`
+	// fontFamily: `"Roboto Slab", "Times New Roman", "serif"`,
+
+
+}
+
+const title1 = {
+	color: '#3C4858',
+	textDecoration: 'none',
+	fontWeight: '700',
+	marginTop: '30px',
+	marginBottom: '25px',
+	minHeight: '32px',
+	fontFamily: ` "Circular","Helvetica Neue","Helvetica","Arial","sans-serif","Roboto Slab", "Times New Roman", serif`,
+
+    fontsize: 14,
+    lineHeight: 1.43
+}
+const title2 = {
+	color: '#337467',
+	textDecoration: 'none',
+	fontWeight: '700',
+	marginTop: '30px',
+	marginBottom: '25px',
+	width: '100%',
+	minHeight: '32px',
+	fontFamily: ` "Circular","Helvetica Neue","Helvetica","Arial","sans-serif","Roboto Slab", "Times New Roman", serif`,
+
+    fontsize: 14,
+    lineHeight: 0.83
 }
 
 const cardTitle = {
@@ -225,8 +268,12 @@ const description = {
 }
 
 const mlAuto = {
-	marginLeft: 'auto'
+	marginLeft: 'auto',
+
 }
+
+
+
 
 const mrAuto = {
 	marginRight: 'auto'
@@ -289,6 +336,8 @@ export {
 	cardHeader,
 	defaultBoxShadow,
 	title,
+	title1,
+	title2,
 	cardTitle,
 	description,
 	cardLink,

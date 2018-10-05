@@ -22,7 +22,8 @@ const styles = {
   ...imageStyles,
   ...rotatingCards,
   sectionGray: {
-    background: "#E5E5E5"
+    background: "#E5E5E5",
+   
   },
   sectionWhite: {
     background: "#FFFFFF"
