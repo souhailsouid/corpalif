@@ -36,24 +36,33 @@ const customSelectStyle = {
 			}
 		}
 	},
-	selectFormControl1: {
+	selectFormControlBis: {
 		margin: '10px 1px 10px 0px !important',
 		'& > div': {
 			'&:before': {
-				borderBottomWidth: '1px !important',
-				borderBottomColor: '#3C4858 !important'
+				borderBottomWidth: '0px !important',
+				borderBottomColor: '#D2D2D2 !important'
 			},
 			'&:after': {
 				borderBottomColor: greenColor + '!important'
 			}
 		}
 	},
+
 	selectLabel: {
 		fontSize: '12px',
 		textTransform: 'uppercase',
 		color: '#3C4858 !important',
 		top: '8px',
 		marginLeft: 10
+	},
+	selectLabelBis: {
+		fontSize: '12px',
+		textTransform: 'uppercase',
+		color: '#3C4858 !important',
+		top: '0px',
+
+		marginLeft: 20
 	},
 	selectMenu: {
 		'& > div > ul': {

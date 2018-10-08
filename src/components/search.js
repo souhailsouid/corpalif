@@ -21,7 +21,7 @@ import Hotel from '@material-ui/icons/Hotel'
 import Share from '@material-ui/icons/Share'
 import Group from '@material-ui/icons/Group'
 import ThumbUp from '@material-ui/icons/ThumbUp'
-import Mood from '@material-ui/icons/Mood'
+
 import Email from '@material-ui/icons/Email'
 import Check from '@material-ui/icons/Check'
 import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle'
@@ -36,6 +36,12 @@ import InfoArea from 'components/InfoArea/InfoArea.jsx'
 import Tooltip from '@material-ui/core/Tooltip'
 import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
+import featuresStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/featuresStyle.jsx'
+const styles = (theme) => ({
+	button: {
+		margin: theme.spacing.unit
+	}
+})
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -59,14 +65,18 @@ class Search extends React.Component {
 		this.setState(x)
 	}
 	render() {
-		const { classes } = this.props
+		const { classes, ...rest } = this.props
 		return (
 			<div>
 				<Button
+					round
+					variant="fab"
 					onClick={() => this.handleClickOpen('searchModal')}
-					style={{ height: 47, marginTop: 10, marginLeft: 10, backgroundColor: '#fff' }}
+					style={{
+						backgroundColor: '#fff',
+						color: 'rgba(95,95,95,0.5)'
+					}}
 					aria-label="Edit"
-					className={classes.selectFormControl}
 				>
 					<Icon style={{ color: '#000000' }}>near_me</Icon>
 				</Button>
@@ -74,7 +84,7 @@ class Search extends React.Component {
 				<Dialog
 					classes={{
 						root: classes.modalRoot,
-						paper: classes.modal + ' ' + classes.modalSignup
+						paper: classes.modal + ' ' + classes.modalSearch
 					}}
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
@@ -95,30 +105,128 @@ class Search extends React.Component {
 								{' '}
 								<Close className={classes.modalClose} />
 							</Button>
-								<h3 className={`${classes.cardTitle} ${classes.modalTitle}`} style={{color: '#237467'}} justify="center">
-								Seine et Marne 
-							</h3>
+
 							{/* <h3 className={`${classes.cardTitle} ${classes.modalTitle}`} style={{color: '#cc4949'}}>
 								Les structures de prise en charge et associations 
 							</h3> */}
 						</DialogTitle>
 						<DialogContent id="search-modal-slide-description" className={classes.modalBody}>
-							<GridContainer >
-								<GridItem xs={12} sm={5} md={5} className={classes.mlAuto} >
-								
+							<div className="cd-section" {...rest}>
+								<div className={classes.features5}>
+									<GridContainer>
+										<GridContainer>
+											<GridItem
+												xs={12}
+												sm={8}
+												md={8}
+												className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
+											>
+												<h2 className={classes.title} style={{ marginTop: 0 }}>
+													L' offre de soins en Seine et Marne
+												</h2>
+											</GridItem>
+
+											<div className={classes.container}>
+												<GridContainer className={classes.gridContainer}>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={LocationCity}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>25</h3> Unités de
+																	soins palliatifs (USP)
+																</div>
+															}
+														/>
+													</GridItem>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={Share}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>23</h3> Réseaux de
+																	soins palliatifs
+																</div>
+															}
+														/>
+													</GridItem>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={Home}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>15</h3> Structures
+																	d'hospitalisation à domicile
+																</div>
+															}
+														/>
+													</GridItem>
+												</GridContainer>
+												<GridContainer className={classes.gridContainer}>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={Home}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>15</h3> Structures
+																	d'hospitalisation à domicile
+																</div>
+															}
+														/>
+													</GridItem>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={Group}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>72</h3> Équipes
+																	mobiles de soins palliatifs (HAD)
+																</div>
+															}
+														/>
+													</GridItem>
+													<GridItem xs={12} sm={4} className={classes.gridItem}>
+														<InfoArea
+															vertical
+															className={classes.infoArea5}
+															icon={SupervisedUserCircle}
+															title={
+																<div style={{ color: '#000000' }}>
+																	<h3 style={{ color: '#77be77' }}>51</h3> Association
+																	de bénévoles d'accompagnement
+																</div>
+															}
+														/>
+													</GridItem>
+												</GridContainer>
+											</div>
+											{/* <GridContainer>
+								<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
 									<InfoArea
 										className={classes.infoArea}
-										
 										title="Unités de Soins Palliatifs"
 										description={
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-													<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -128,12 +236,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -150,11 +254,14 @@ class Search extends React.Component {
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-															<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -164,12 +271,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -186,11 +289,14 @@ class Search extends React.Component {
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-														<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -200,12 +306,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -215,7 +317,6 @@ class Search extends React.Component {
 										icon={Group}
 										iconColor="dark"
 									/>
-								
 								</GridItem>
 								<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
 									<InfoArea
@@ -225,11 +326,14 @@ class Search extends React.Component {
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-												<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -239,12 +343,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -261,11 +361,14 @@ class Search extends React.Component {
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-															<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -275,12 +378,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -297,11 +396,14 @@ class Search extends React.Component {
 											<div style={{ display: 'flex' }}>
 												<span>
 													{' '}
-														<b>	<h3 style={{ color: '#77be77' }}>2</h3></b>
+													<b>
+														{' '}
+														<h3 style={{ color: '#77be77' }}>2</h3>
+													</b>
 												</span>
 
 												<Button
-															round
+													round
 													style={{
 														backgroundColor: '#237467',
 														color: '#fff',
@@ -311,12 +413,8 @@ class Search extends React.Component {
 														paddingBottom: 5,
 														paddingLeft: 10,
 														paddingRight: 10,
-													
-														marginLeft:30
-														
-														
-														
 
+														marginLeft: 30
 													}}
 												>
 													<Icon style={{ color: '#fff' }}>touch_app</Icon>Consulter
@@ -326,9 +424,9 @@ class Search extends React.Component {
 										icon={Hotel}
 										iconColor="dark"
 									/>
-								</GridItem>
+								</GridItem> */}
 
-								{/* <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+											{/* <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 									<div className={classes.textCenter} style={{ marginTop: 20 }}>
 										<Tooltip
 											id="tooltip-top"
@@ -400,7 +498,11 @@ class Search extends React.Component {
 										</div>
 									</form>
 								</GridItem> */}
-							</GridContainer>
+											{/* </GridContainer> */}
+										</GridContainer>
+									</GridContainer>
+								</div>
+							</div>
 						</DialogContent>
 					</Card>
 				</Dialog>

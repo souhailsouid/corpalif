@@ -59,7 +59,7 @@ const container1 = {
 		maxWidth: '960px'
 	},
 	'@media (min-width: 1500px)': {
-		maxWidth: '2000px'
+		maxWidth: '2500px'
 	}
 }
 const boxShadow = {
@@ -93,6 +93,7 @@ const infoColor = '#00acc1'
 const roseColor = '#e91e63'
 const greenColor = '#337467'
 const grayColor = '#999999'
+const redColor = '#cc4949'
 
 const primaryBoxShadow = {
 	boxShadow:
@@ -117,7 +118,9 @@ const dangerBoxShadow = {
 const roseBoxShadow = {
 	boxShadow: '0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4)'
 }
-
+const greenBoxShadow = {
+	boxShadow: '0 4px 20px 0px rgba(51, 116, 103, 1), 0 7px 10px -5px rgba(233, 30, 99, 0.4)'
+}
 const warningCardHeader = {
 	color: '#fff',
 	background: 'linear-gradient(60deg, #ffa726, #fb8c00)',
@@ -177,10 +180,8 @@ const title = {
 	fontWeight: '700',
 	marginTop: '30px',
 	marginBottom: '25px',
-	minHeight: '32px',
+	minHeight: '32px'
 	// fontFamily: `"Roboto Slab", "Times New Roman", "serif"`,
-
-
 }
 
 const title1 = {
@@ -192,8 +193,8 @@ const title1 = {
 	minHeight: '32px',
 	fontFamily: ` "Circular","Helvetica Neue","Helvetica","Arial","sans-serif","Roboto Slab", "Times New Roman", serif`,
 
-    fontsize: 14,
-    lineHeight: 1.43
+	fontsize: 14,
+	lineHeight: 1.43
 }
 const title2 = {
 	color: '#337467',
@@ -205,8 +206,8 @@ const title2 = {
 	minHeight: '32px',
 	fontFamily: ` "Circular","Helvetica Neue","Helvetica","Arial","sans-serif","Roboto Slab", "Times New Roman", serif`,
 
-    fontsize: 14,
-    lineHeight: 0.83
+	fontsize: 14,
+	lineHeight: 0.83
 }
 
 const cardTitle = {
@@ -268,12 +269,8 @@ const description = {
 }
 
 const mlAuto = {
-	marginLeft: 'auto',
-
+	marginLeft: 'auto'
 }
-
-
-
 
 const mrAuto = {
 	marginRight: 'auto'
@@ -307,6 +304,7 @@ export {
 	drawerWidth,
 	transition,
 	container,
+	container1,
 	containerFluid,
 	boxShadow,
 	card,
@@ -326,6 +324,7 @@ export {
 	warningBoxShadow,
 	dangerBoxShadow,
 	roseBoxShadow,
+	greenBoxShadow,
 	warningCardHeader,
 	successCardHeader,
 	dangerCardHeader,

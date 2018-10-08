@@ -20,6 +20,7 @@ import classNames from 'classnames'
 import Icon from '@material-ui/core/Icon'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Search from '../components/search'
+
 class Example extends React.Component {
 	constructor(props) {
 		super(props)
@@ -40,109 +41,26 @@ class Example extends React.Component {
 
 		return (
 			<GridContainer justify="center">
-				<GridItem xs={10} sm={10} md={8} lg={7} style={{ display: 'flex' }}>
-					{/* <GridItem xs={12} sm={7} md={7} lg={10}>
-						<FormControl
-							fullWidth
-							className={classes.selectFormControl}
-							style={{ backgroundColor: '#fff', height: 47 }}
-						>
-							<InputLabel htmlFor="multiple-select" className={classes.selectLabel}>
-								Les structures de prise en charge et associations
-							</InputLabel>
-							<Select
-								multiple
-								value={this.state.multipleSelect}
-								onChange={this.handleMultiple}
-								MenuProps={{ className: classes.selectMenu }}
-								classes={{ select: classes.select }}
-								inputProps={{
-									name: 'multipleSelect',
-									id: 'multiple-select'
-								}}
-							>
-								<MenuItem
-									disabled
-									classes={{
-										root: classes.selectMenuItem
-									}}
-								>
-									Selectionner une ou plusieurs structures
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="1"
-								>
-									Unités de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="2"
-								>
-									Lits identifiés soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="3"
-								>
-									Réseaux de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="4"
-								>
-									Équipes mobiles de soins palliatifs
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="5"
-								>
-									Hospitalisation à domicile
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="6"
-								>
-									Associations de bénévoles'
-								</MenuItem>
-								<MenuItem
-									classes={{
-										root: classes.selectMenuItem,
-										selected: classes.selectMenuItemSelected
-									}}
-									value="7"
-								>
-									Autres structures
-								</MenuItem>
-							</Select>
-						</FormControl>
-					</GridItem> */}
-					{/* <GridItem xs={12} sm={6} md={5} lg={6} style={{ paddingLeft: 0, paddingRight: 0 }}> */}
+				<GridItem
+					xs={10}
+					sm={10}
+					md={8}
+					lg={8}
+					style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}
+				>
+					{/* <GridItem xs={12} sm={7} md={7} lg={10}> */}
 					<FormControl
 						fullWidth
 						className={classes.selectFormControl}
-						style={{ backgroundColor: '#fff', height: 47 }}
+						style={{
+							backgroundColor: '#fff',
+							borderRadius: 50,
+							color: 'rgba(95,95,95,0.5)',
+							border: '1px solid'
+						}}
 					>
-						<InputLabel htmlFor="multiple-select" className={classes.selectLabel}>
-							Localisation:
+						<InputLabel htmlFor="multiple-select" className={classes.selectLabelBis}>
+							Les structures de prise en charge et associations
 						</InputLabel>
 						<Select
 							multiple
@@ -161,7 +79,7 @@ class Example extends React.Component {
 									root: classes.selectMenuItem
 								}}
 							>
-								Selectionner un ou plusieurs départements
+								Selectionner une ou plusieurs structures
 							</MenuItem>
 							<MenuItem
 								classes={{
@@ -225,6 +143,117 @@ class Example extends React.Component {
 								value="7"
 							>
 								Autres structures
+							</MenuItem>
+						</Select>
+					</FormControl>
+					{/* </GridItem>  */}
+					{/* <GridItem xs={12} sm={6} md={5} lg={6} style={{ paddingLeft: 0, paddingRight: 0 }}> */}
+					<FormControl
+						fullWidth
+						className={classes.selectFormControlBis}
+						style={{
+							backgroundColor: '#fff',
+							borderRadius: 50,
+							color: 'rgba(95,95,95,0.5)',
+
+							border: '1px solid'
+						}}
+					>
+						<InputLabel round htmlFor="multiple-select" className={classes.selectLabelBis}>
+							Votre département
+						</InputLabel>
+						<Select
+							round
+							variant="fab"
+							multiple
+							value={this.state.multipleSelect}
+							onChange={this.handleMultiple}
+							MenuProps={{ className: classes.selectMenu }}
+							classes={{ select: classes.select }}
+							inputProps={{
+								name: 'multipleSelect',
+								id: 'multiple-select'
+							}}
+						>
+							<MenuItem
+								disabled
+								classes={{
+									root: classes.selectMenuItem
+								}}
+							>
+								Selectionner un ou plusieurs départements
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="1"
+							>
+								75 - Paris
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="2"
+							>
+								77 - Seine-et-Marne
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="3"
+							>
+								78 - Yvelines
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="4"
+							>
+								91 - Essonne
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="5"
+							>
+								92 - Hauts-De-Seine
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="6"
+							>
+								93 - Seine-Saint-Denis
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="7"
+							>
+								94 - Val-de-Marne
+							</MenuItem>
+							<MenuItem
+								classes={{
+									root: classes.selectMenuItem,
+									selected: classes.selectMenuItemSelected
+								}}
+								value="7"
+							>
+								95 - Val-d'Oise
 							</MenuItem>
 						</Select>
 					</FormControl>

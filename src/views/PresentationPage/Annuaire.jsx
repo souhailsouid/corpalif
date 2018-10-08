@@ -18,6 +18,7 @@ import Footer from 'components/Footer/Footer.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
+
 // sections for this page
 import SectionDescription from 'views/PresentationPage/Sections/SectionDescription.jsx'
 import SectionContacts from 'views/SectionsPage/Sections/SectionContacts.jsx'
@@ -31,6 +32,7 @@ import SectionOverview from 'views/PresentationPage/Sections/SectionOverview.jsx
 import SectionPricing from 'views/PresentationPage/Sections/SectionPricing.jsx'
 import IntegrationReactSelect from '../auto'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
+import Example from '../suggest'
 import IntegrationAutosuggest from '../autosuggest'
 import IntegrationLocation from '../Location'
 import AnnuaireSuggestion from '../AnnuaireSuggestion'
@@ -67,10 +69,36 @@ class PresentationPage extends React.Component {
 						}}
 					/>
 				</div>
-				
+				<Parallax image={require('assets/img/paris.jpg')} className={classes.parallax} small>
+					<div className={classes.container}>
+						<GridContainer justify="center">
+							<GridItem
+								md={8}
+								sm={8}
+								className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}
+							>
+								<div className={classes.brand}>
+									<h1 style={{ marginTop: 100 }}>Annuaire régionale</h1>
+									<b>
+										<h3 /> Recherchez une structure de soins spalliatif <h3 />
+									</b>
+									<div>
+										<div className={classes.brand} style={{ display: 'flex' }}>
+											{/* <IntegrationReactSelect />
+											<IntegrationAutosuggest />
+											<IntegrationLocation /> */}
+										</div>
 
-				<Parallax
-			image={require('assets/img/paris.jpg')}
+										<Example />
+									</div>
+								</div>
+							</GridItem>
+						</GridContainer>
+					</div>
+				</Parallax>
+
+				{/* <Parallax */}
+				{/* image={require('assets/img/paris.jpg')}
 					className={classes.parallax}
 					small
 					style={{ height: 100 , }}
@@ -99,16 +127,14 @@ class PresentationPage extends React.Component {
 							</GridItem>
 						</GridContainer>
 					</div>
-				</Parallax>
+				</Parallax> */}
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
-				<GridContainer justify="center">
-				
-			
-			<SectionCards/>
-						</GridContainer>
+					<GridContainer justify="center">
+						<SectionCards />
+					</GridContainer>
 				</div>
-		
+
 				<div />
 				<Footer
 					theme="white"

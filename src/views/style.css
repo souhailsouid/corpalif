@@ -10,3 +10,13 @@
     font-size: 30px;
   }
 }
+
+.bouton {
+
+  background-color: #fff !important;
+}
+
+.bouton:hover {
+  background-color: #337467 !important;
+  color: #FFF;
+}

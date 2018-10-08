@@ -1,95 +1,178 @@
-import {
-  container,
-  title,
-  cardTitle,
-  description,
-  mlAuto,
-  mrAuto
-} from "assets/jss/material-kit-pro-react.jsx";
+import { container, title, cardTitle, description, mlAuto, mrAuto } from 'assets/jss/material-kit-pro-react.jsx'
 
-import modalStyle from "assets/jss/material-kit-pro-react/modalStyle.jsx";
-import tooltipsStyle from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
-import popoverStyles from "assets/jss/material-kit-pro-react/popoverStyles.jsx";
-import customCheckboxRadioSwitch from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
+import modalStyle from 'assets/jss/material-kit-pro-react/modalStyle.jsx'
+import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
+import popoverStyles from 'assets/jss/material-kit-pro-react/popoverStyles.jsx'
+import customCheckboxRadioSwitch from 'assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx'
 
-const javascriptStyles = theme => ({
-  container,
-  description,
-  cardTitle,
-  mlAuto,
-  mrAuto,
-  ...tooltipsStyle,
-  ...popoverStyles,
-  ...modalStyle(theme),
-  ...customCheckboxRadioSwitch,
-  section: {
-    padding: "70px 0 0"
-  },
-  title: {
-    ...title,
-    marginTop: "30px",
-    minHeight: "32px",
-    textDecoration: "none"
-  },
-  icon: {
-    width: "24px",
-    height: "24px",
-    color: "#495057"
-  },
-  label: {
-    color: "rgba(0, 0, 0, 0.26)",
-    cursor: "pointer",
-    display: "inline-flex",
-    fontSize: "14px",
-    transition: "0.3s ease all",
-    lineHeight: "1.428571429",
-    fontWeight: "400",
-    paddingLeft: "0"
-  },
-  textCenter: {
-    textAlign: "center"
-  },
-  cardTitleWhite: {
-    ...cardTitle,
-    color: "#FFFFFF !important"
-  },
-  socialLine: {
-    marginTop: "1rem",
-    textAlign: "center",
-    padding: "0"
-  },
-  socialLineButton: {
-    "&, &:hover": { color: "#fff" },
-    marginLeft: "5px",
-    marginRight: "5px"
-  },
-  cardLoginHeader: {
-    marginTop: "-40px",
-    padding: "20px 0",
-    width: "100%",
-    marginBottom: "15px"
-  },
-  cardLoginBody: {
-    paddingTop: "0",
-    paddingBottom: "0"
-  },
-  justifyContentCenter: {
-    WebkitBoxPack: "center !important",
-    MsFlexPack: "center !important",
-    justifyContent: "center !important"
-  },
-  infoArea: {
-    padding: "0px 0px 20px !important",
-   
-   
+const javascriptStyles = (theme) => ({
+	container,
+	description,
+	cardTitle,
+	mlAuto,
+	mrAuto,
+	title,
+	...tooltipsStyle,
+	...popoverStyles,
+	...modalStyle(theme),
+	...customCheckboxRadioSwitch,
+	section: {
+		padding: '70px 0 0'
+	},
+	title: {
+		...title,
+		marginTop: '30px',
+		minHeight: '32px',
+		textDecoration: 'none'
+	},
+	icon: {
+		width: '24px',
+		height: '24px',
+		color: '#495057'
+	},
+	label: {
+		color: 'rgba(0, 0, 0, 0.26)',
+		cursor: 'pointer',
+		display: 'inline-flex',
+		fontSize: '14px',
+		transition: '0.3s ease all',
+		lineHeight: '1.428571429',
+		fontWeight: '400',
+		paddingLeft: '0'
+	},
+	textCenter: {
+		textAlign: 'center'
+	},
+	cardTitleWhite: {
+		...cardTitle,
+		color: '#FFFFFF !important'
+	},
+	socialLine: {
+		marginTop: '1rem',
+		textAlign: 'center',
+		padding: '0'
+	},
+	socialLineButton: {
+		'&, &:hover': { color: '#fff' },
+		marginLeft: '5px',
+		marginRight: '5px'
+	},
+	cardLoginHeader: {
+		marginTop: '-40px',
+		padding: '20px 0',
+		width: '100%',
+		marginBottom: '15px'
+	},
+	cardLoginBody: {
+		paddingTop: '0',
+		paddingBottom: '0'
+	},
+	justifyContentCenter: {
+		WebkitBoxPack: 'center !important',
+		MsFlexPack: 'center !important',
+		justifyContent: 'center !important'
+	},
+	infoArea: {
+		padding: '0px 0px 20px !important'
+	},
 
+	space50: {
+		height: '50px',
+		display: 'block'
+	},
+	features1: {
+		textAlign: 'center',
+		padding: '80px 0'
+	},
+	features2: {
+		padding: '80px 0'
+	},
+	features3: {
+		padding: '80px 0',
+		'& $phoneContainer': {
+			maxWidth: '220px',
+			margin: '0 auto'
+		}
+	},
+	features4: {
+		padding: '80px 0',
+		'& $phoneContainer': {
+			maxWidth: '260px',
+			margin: '60px auto 0'
+		}
+	},
+	features5: {
+		padding: '10px 0',
+		backgroundSize: 'cover',
+		backgroundPosition: '50%',
+		backgroundRepeat: 'no-repeat',
+		position: 'relative',
+		'& $title': {
+			marginBottom: '30px'
+		},
+		'& $title,& $container': {
+			position: 'relative',
+			zIndex: '2',
+			color: '#000000'
+		},
+		'&:after': {
+			background: '#fff',
+			position: 'absolute',
+			width: '100%',
+			height: '100%',
+			content: "''",
+			zIndex: '0',
+			left: '0px',
+			top: '0px'
+		},
+		'& $container': {
+			'& $gridContainer:last-child': {
+				'& $gridItem': {
+					borderBottom: '0'
+				}
+			},
+			'& $gridItem': {
+				border: '1px solid ',
+				borderTop: '0',
+				borderLeft: '0',
+				color: '#D3D3D3',
+				'&:last-child': {
+					borderRight: '0'
+				}
+			}
+		},
+		'& $infoArea5': {
+			textAlign: 'center',
+			maxWidth: '310px',
+			minHeight: '320px',
+			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
+				color: '#cc4949'
+			},
+			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons:hover': {
+				color: '#cc4949'
+			}
+		},
+		'& $infoArea5:hover': {
+			backgroundColor: '#337467 !important',
+			color: '#fff'
+		}
+	},
+	gridContainer: {},
+	gridItem: {},
+	textCenter: {
+		textAlign: 'center'
+	},
+	phoneContainer: {
+		'& img': {
+			width: '100%'
+		}
+	},
+	infoArea: {
+		maxWidth: 'none',
+		margin: '0 auto',
+		padding: '10px 0 0px'
+	},
+	infoArea5: {}
+})
 
-  },
-
-  space50: {
-    height: "50px",
-    display: "block"
-  }
-});
-
-export default javascriptStyles;
+export default javascriptStyles

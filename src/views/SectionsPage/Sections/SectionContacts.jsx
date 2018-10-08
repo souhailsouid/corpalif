@@ -119,6 +119,7 @@ class SectionContacts extends React.Component {
 		return (
 			<div className="cd-section" {...rest}>
 				{/* Contact us 1 START */}
+
 				<div className={`${classes.contacts} ${classes.section}`} style={{ backgroundImage: `url(${maps})` }}>
 					<div className={classes.container}>
 						<GridContainer>
@@ -220,7 +221,13 @@ class SectionContacts extends React.Component {
 											/>
 										</CardBody>
 										<CardFooter className={classes.justifyContentBetween}>
-											<Grid container direction="row" justify="center" alignItems="center">
+											<Grid
+												container
+												direction="row"
+												justify="right"
+												alignItems="right"
+												style={{ justifyContent: 'flex-end' }}
+											>
 												<Button
 													style={{ backgroundColor: '#337467' }}
 													className={classes.pullRight}
