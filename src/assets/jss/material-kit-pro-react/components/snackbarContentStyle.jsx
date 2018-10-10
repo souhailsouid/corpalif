@@ -5,7 +5,6 @@ import {
 	successBoxShadow,
 	warningBoxShadow,
 	dangerBoxShadow,
-	greenBoxShadow,
 	container
 } from 'assets/jss/material-kit-pro-react.jsx'
 

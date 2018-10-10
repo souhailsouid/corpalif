@@ -6,7 +6,6 @@ import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
-import Tooltip from '@material-ui/core/Tooltip'
 class SectionNotifications extends React.Component {
 	render() {
 		const { classes } = this.props

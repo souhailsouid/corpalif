@@ -93,7 +93,6 @@ const infoColor = '#00acc1'
 const roseColor = '#e91e63'
 const greenColor = '#337467'
 const grayColor = '#999999'
-const redColor = '#cc4949'
 
 const primaryBoxShadow = {
 	boxShadow:

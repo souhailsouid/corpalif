@@ -95,7 +95,6 @@ const SectionFooter = (props) => {
 								</div>
 								<br />
 								<br />
-								<br />
 								<img
 									src={sfap}
 									className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}

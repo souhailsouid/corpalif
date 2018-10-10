@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// nodejs library that concatenates classes
-import classNames from 'classnames'
 // nodejs library to set properties for components
 import PropTypes from 'prop-types'
 // @material-ui/core components
@@ -48,17 +46,11 @@ class LesSoinsPalliatifs extends React.Component {
 		}
 	}
 	render() {
-		const { classes, color, links, brand, fixed, absolute } = this.props
-		const appBarClasses = classNames({
-			[classes.appBar]: true,
-			[classes[color]]: color,
-			[classes.absolute]: absolute,
-			[classes.fixed]: fixed
-		})
+		const { classes } = this.props
+
 		return (
 			<div style={{ display: 'flex' }}>
 				<div>
-					{' '}
 					<CustomDropdown
 						buttonText="COORDINATION RÉGIONALE"
 						buttonProps={{
@@ -121,7 +113,7 @@ class LesSoinsPalliatifs extends React.Component {
 							/>,
 							<Link to="/about-us" style={{ backgroundColor: '#104949' }}>
 								<div style={{ display: 'flex', color: '#cc4949' }}>
-									{<Icon className={classes.dropdownIcons}>content_paste</Icon>}{' '}
+									{<Icon className={classes.dropdownIcons}>content_paste</Icon>}
 									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Contact</div>
 								</div>
 							</Link>

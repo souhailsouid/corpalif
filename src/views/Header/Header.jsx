@@ -31,6 +31,7 @@ class HeaderComponent extends React.Component {
 						brand={
 							<img
 								src="http://image.noelshack.com/fichiers/2018/40/1/1538391836-corpalif-logo.png"
+								alt="logo"
 								style={{
 									width: 80,
 									marginRight: 200,
@@ -58,9 +59,7 @@ class HeaderComponent extends React.Component {
 							>
 								<div className={classes.brand}>
 									<h1 style={{ marginTop: 100 }}>Annuaire régionale</h1>
-									<b>
-										<h3 /> Recherchez une structure de soins spalliatif <h3 />
-									</b>
+									<h5>Recherchez une structure de soins spalliatif </h5>
 									<div>
 										<SearchBar />
 									</div>

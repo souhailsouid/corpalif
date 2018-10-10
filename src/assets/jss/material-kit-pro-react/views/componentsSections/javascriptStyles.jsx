@@ -19,12 +19,7 @@ const javascriptStyles = (theme) => ({
 	section: {
 		padding: '70px 0 0'
 	},
-	title: {
-		...title,
-		marginTop: '30px',
-		minHeight: '32px',
-		textDecoration: 'none'
-	},
+
 	icon: {
 		width: '24px',
 		height: '24px',
@@ -146,6 +141,9 @@ const javascriptStyles = (theme) => ({
 			maxWidth: '310px',
 
 			'& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
+				color: '#000000'
+			},
+			'& h3': {
 				color: '#cc4949'
 			}
 		},
@@ -165,19 +163,13 @@ const javascriptStyles = (theme) => ({
 	},
 	gridContainer: {},
 	gridItem: {},
-	textCenter: {
-		textAlign: 'center'
-	},
+
 	phoneContainer: {
 		'& img': {
 			width: '100%'
 		}
 	},
-	infoArea: {
-		maxWidth: 'none',
-		margin: '0 auto',
-		padding: '10px 0 0px'
-	},
+
 	infoArea5: {
 		maxWidth: '360px',
 		margin: '0 auto',

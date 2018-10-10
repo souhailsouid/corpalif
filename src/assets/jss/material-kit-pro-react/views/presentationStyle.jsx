@@ -1,4 +1,4 @@
-import { container, title, title1,title2, main, mainRaised } from 'assets/jss/material-kit-pro-react.jsx'
+import { container, title, title1, title2, main, mainRaised } from 'assets/jss/material-kit-pro-react.jsx'
 import footerStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/footerStyle.jsx'
 
 const presentationStyle = {
@@ -24,7 +24,7 @@ const presentationStyle = {
 		...title1,
 		color: '#337467 !important'
 	},
-		title2: {
+	title2: {
 		...title2,
 		color: '#337467 !important'
 	},
@@ -37,8 +37,15 @@ const presentationStyle = {
 			fontWeight: '600',
 			display: 'inline-block',
 			position: 'relative'
+		},
+		'& h5': {
+			fontSize: '1.1rem',
+			fontWeight: '600',
+			display: 'inline-block',
+			position: 'relative'
 		}
 	},
+
 	brand1: {
 		color: '#fff',
 		marginTop: 0,
