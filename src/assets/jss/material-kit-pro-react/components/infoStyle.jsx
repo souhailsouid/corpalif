@@ -49,9 +49,7 @@ const infoStyle = {
 	green: {
 		color: greenColor
 	},
-	// red: {
-	// 	color: redColor
-	// },
+
 	icon: {
 		width: '2.25rem',
 		height: '2.25rem',

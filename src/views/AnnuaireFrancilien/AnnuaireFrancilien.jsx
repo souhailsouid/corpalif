@@ -3,14 +3,14 @@ import React from 'react'
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-// sections for this page
-import SectionContacts from 'views/PresentationPage/Sections/SectionContacts.jsx'
-import SectionTeams from 'views/PresentationPage/Sections/SectionTeams.jsx'
+// import Example from 'components/Header/sub'
+import GridContainer from 'components/Grid/GridContainer.jsx'
+// import SectionCards from 'views/PresentationPage/Sections/SectionCards.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import HeaderComponent from '../Header/Header'
-import SectionFooter from 'views/Footer/SectionFooter.jsx'
-import SectionInfo from 'views/PresentationPage/Sections/SectionInfo.js'
-// sections CSS
+import HeaderComponent from 'views/Header/Header'
+import SectionFooter from 'views/Footer/SectionFooter'
+import AnnuaireIledeFrance from 'views/AnnuaireFrancilien/Sections/AnnuaireIledeFrance.jsx'
+// section CSS
 import '../style.css'
 
 class PresentationPage extends React.Component {
@@ -25,11 +25,13 @@ class PresentationPage extends React.Component {
 				<HeaderComponent />
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
-					<SectionInfo />
-					<SectionTeams />
-					<SectionContacts />
+					<GridContainer justify="center">
+						<AnnuaireIledeFrance />
+					</GridContainer>
 					<SectionFooter />
 				</div>
+
+				<div />
 			</div>
 		)
 	}

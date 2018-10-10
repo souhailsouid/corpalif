@@ -156,6 +156,9 @@ const javascriptStyles = (theme) => ({
 			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
 				color: '#fff'
 			},
+			'& h3': {
+				color: '#77be77 !important'
+			},
 			backgroundColor: '#337467 !important',
 			color: '#FFF'
 		}

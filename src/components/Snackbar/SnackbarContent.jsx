@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Snack from '@material-ui/core/SnackbarContent'
 import IconButton from '@material-ui/core/IconButton'
 import Icon from '@material-ui/core/Icon'
+import Tooltip from '@material-ui/core/Tooltip'
 // @material-ui/icons
 import Close from '@material-ui/icons/Close'
 import InfoOutlined from '@material-ui/icons/InfoOutlined'
@@ -22,15 +23,22 @@ class SnackbarContent extends React.Component {
 		var action = []
 		if (close !== undefined) {
 			action = [
-				<IconButton
-					className={classes.iconButton}
-					key="close"
-					aria-label="Close"
-					color="inherit"
-					// onClick={this.closeAlert}
+				<Tooltip
+					id="tooltip-right"
+					title="Tooltip on right"
+					placement="right"
+					classes={{ tooltip: classes.tooltip }}
 				>
-					<InfoOutlined className={classes.close} />
-				</IconButton>
+					<IconButton
+						className={classes.iconButton}
+						key="close"
+						aria-label="Close"
+						color="inherit"
+						// onClick={this.closeAlert}
+					>
+						<InfoOutlined className={classes.close} />
+					</IconButton>
+				</Tooltip>
 			]
 		}
 		let snackIcon = null

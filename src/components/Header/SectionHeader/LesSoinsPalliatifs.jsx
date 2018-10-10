@@ -6,19 +6,15 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import Button from '@material-ui/core/Button'
-import Hidden from '@material-ui/core/Hidden'
-import Drawer from '@material-ui/core/Drawer'
 // @material-ui/icons
-import Menu from '@material-ui/icons/Menu'
-import Close from '@material-ui/icons/Close'
+import ViewDay from '@material-ui/icons/ViewDay'
+import Dns from '@material-ui/icons/Dns'
+import ListIcon from '@material-ui/icons/List'
+import People from '@material-ui/icons/People'
 // core components
 import headerStyle from 'assets/jss/material-kit-pro-react/components/headerStyle.jsx'
-
-class Header extends React.Component {
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx'
+class LesSoinsPalliatifs extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -60,53 +56,103 @@ class Header extends React.Component {
 			[classes.fixed]: fixed
 		})
 		return (
-			<AppBar className={appBarClasses}>
-				<Toolbar className={classes.container}>
-					<Button className={classes.title}>
-						<Link to="/">{brand}</Link>
-					</Button>
+			<div style={{ display: 'flex' }}>
+				<CustomDropdown
+					buttonText="Les soins palliatifs"
+					hoverColor="transparent"
+					buttonProps={{
+						round: true,
+						block: true,
+						color: 'transparent'
+					}}
+					buttonIcon={ViewDay}
+					dropPlacement="bottom-start"
+					dropdownList={[
+						<CustomDropdown
+							ref="multi"
+							innerDropDown
+							buttonText={
+								<div style={{ margin: 2 }}>
+									{<Dns className={classes.dropdownIcons} />} La demarche palliative
+								</div>
+							}
+							buttonProps={{
+								simple: true,
+								block: true
+							}}
+							hoverColor="transparent"
+							dropPlacement="right-start"
+							dropdownList={[
+								"Qu'est-ce que les soins palliatifs",
+								<div style={{ color: '#cc4949' }}>Vrai / Faux</div>
+							]}
+						/>,
 
-					<Hidden smDown implementation="css" className={classes.hidden}>
-						<div className={classes.collapse}>{links}</div>
-					</Hidden>
-					<Hidden mdUp>
-						<IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}>
-							<Menu />
-						</IconButton>
-					</Hidden>
-				</Toolbar>
+						<CustomDropdown
+							ref="multi"
+							innerDropDown
+							buttonText={
+								<div style={{ margin: 2 }}>
+									{
+										<i class="material-icons" className={classes.dropdownIcons}>
+											location_city
+										</i>
+									}{' '}
+									Les structures de prise en charge
+								</div>
+							}
+							buttonProps={{
+								simple: true,
+								block: true
+							}}
+							hoverColor="transparent"
+							dropPlacement="left-start"
+							dropdownList={[
+								<Link to="/about-us" style={{ color: '#333' }}>
+									Qu'est-ce que les soins palliatifs
+								</Link>,
 
-				<Hidden mdUp implementation="css">
-					<Drawer
-						variant="temporary"
-						anchor={'right'}
-						open={this.state.mobileOpen}
-						classes={{
-							paper: classes.drawerPaper
-						}}
-						onClose={this.handleDrawerToggle}
-					>
-						<IconButton
-							color="inherit"
-							aria-label="open drawer"
-							onClick={this.handleDrawerToggle}
-							className={classes.closeButtonDrawer}
-						>
-							<Close />
-						</IconButton>
-						<div className={classes.appResponsive}>{links}</div>
-					</Drawer>
-				</Hidden>
-			</AppBar>
+								<Link to="/annuaire-francilien" style={{ color: '#333' }}>
+									Annuaire Francilien
+								</Link>
+							]}
+						/>,
+
+						<Link to="/about-us">
+							<div style={{ display: 'flex', color: '#333' }}>
+								{<ListIcon className={classes.dropdownIcons} />}
+								<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Legislation</div>
+							</div>
+						</Link>,
+
+						<CustomDropdown
+							ref="multi"
+							innerDropDown
+							buttonText={
+								<div style={{ margin: 2 }}>
+									{<People className={classes.dropdownIcons} />} Accompagner son proche
+								</div>
+							}
+							buttonProps={{
+								simple: true,
+								block: true
+							}}
+							hoverColor="transparent"
+							dropPlacement="right-start"
+							dropdownList={[ 'Être aidant', 'Liens utiles', 'Témoignages' ]}
+						/>
+					]}
+				/>
+			</div>
 		)
 	}
 }
 
-Header.defaultProp = {
+LesSoinsPalliatifs.defaultProp = {
 	color: 'white'
 }
 
-Header.propTypes = {
+LesSoinsPalliatifs.propTypes = {
 	classes: PropTypes.object.isRequired,
 	color: PropTypes.oneOf([
 		'primary',
@@ -145,4 +191,4 @@ Header.propTypes = {
 	})
 }
 
-export default withStyles(headerStyle)(Header)
+export default withStyles(headerStyle)(LesSoinsPalliatifs)
