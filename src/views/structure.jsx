@@ -21,211 +21,192 @@ import AttachMoney from '@material-ui/icons/AttachMoney'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import InfoArea from 'components/InfoArea/InfoArea.jsx'
-
+import InfoArea from 'components/InfoArea/InfoStructureArea.jsx'
+import maps from 'assets/img/maps.png'
 import featuresStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/featuresStyle.jsx'
-
+import PinDrop from '@material-ui/icons/PinDrop'
+import Phone from '@material-ui/icons/Phone'
+import Email from '@material-ui/icons/Email'
+import contactsStructureSection from 'assets/jss/material-kit-pro-react/views/sectionsSections/contactstructureStyle.jsx'
 import iphone from 'assets/img/sections/iphone.png'
 import iphone2 from 'assets/img/sections/iphone2.png'
 import bg9 from 'assets/img/bg9.jpg'
 import CardEvent from './cardEvent'
 import Notifications from './snackBars'
 import SectionNotifications from './ComponentsPage/Sections/SectionNotifications'
-function Structures({ ...props }) {
+function SectionStructure({ ...props }) {
 	const { classes, ...rest } = props
 	return (
 		<div className="cd-section" {...rest}>
-			<div className={classes.container}>
-				{/* Feature 2 START */}
-
-				{/* Feature 3 START */}
-				<div className={classes.features3}>
-					<GridContainer
-						style={{
-							display: 'flex',
-							justifyContent: 'space-evenly',
-							flexWrap: 'wrap',
-							border: '1px solid'
-						}}
-					>
-						<GridItem
-							xs={12}
-							sm={6}
-							md={6}
-							style={{
-								display: 'flex',
-
-								flexWrap: 'wrap',
-								border: '1px solid'
-							}}
-						>
-							<h2 className={classes.title} style={{ textAlign: 'center' }}>
-								Notre mission
+			<div className={`${classes.contacts} ${classes.section}`}>
+				<div className={classes.container}>
+					<GridContainer>
+						<GridItem xs={12} sm={10} md={12} justify="center">
+							<h2 className={classes.title} style={{ textAlign: 'center', color: '#cc4949' }}>
+								Structure d'accompagnement en Seine et Marne
 							</h2>
-							<InfoArea
-								className={classes.infoArea}
-								icon={Extension}
-								title="Assurer le lien entre les structures de prise en charge"
-								description=""
-								iconColor="success"
-							/>
-							<InfoArea
-								className={classes.infoArea}
-								icon={WatchLater}
-								title="Coordonner et participer au développement des soins palliatifs en Île-de-France"
-								description=""
-								iconColor="success"
-							/>
-							<InfoArea
-								className={classes.infoArea}
-								icon={Group}
-								title="Susciter des échanges et des rencontres avec et entre ces professionnels"
-								description=""
-								iconColor="success"
-							/>
-							<InfoArea
-								className={classes.infoArea}
-								icon={Help}
-								title="Promouvoir des actions d'information en soins palliatifs"
-								description=""
-								iconColor="success"
-							/>
 						</GridItem>
-
-						<GridItem xs={12} sm={6} md={3}>
-							<div className={classes.phoneContainer}>
-								<SectionNotifications />
-								{/* <CardEvent />
-								<img src={iphone} alt="..." /> */}
+						<GridItem xs={12} sm={10} md={12}>
+							<div>
+								<h3 className={classes.title} style={{ color: 'rgb(51, 116, 103)', marginLeft: 100 }}>
+									Corpalif
+								</h3>
+								<br />
+								<div
+									style={{
+										display: 'flex',
+										flexWrap: 'wrap',
+										justifyContent: 'center'
+									}}
+								>
+									<InfoArea
+										className={classes.infoArea}
+										title="Adresse"
+										description={
+											<span>
+												<b>
+													{' '}
+													108 avenue Emile Zola,
+													<br /> 75015 Paris,
+													<br /> France
+												</b>
+											</span>
+										}
+										icon={PinDrop}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Téléphone"
+										description={
+											<span>
+												<b>
+													Sarah LACROIX
+													<br /> +40 762 321 762
+												</b>
+											</span>
+										}
+										icon={Phone}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Email"
+										description={
+											<span>
+												<b>
+													{' '}
+													Sarah LACROIX
+													<br /> corpalif@gmail.com
+												</b>
+											</span>
+										}
+										icon={Email}
+									/>
+								</div>
 							</div>
 						</GridItem>
-					</GridContainer>
-				</div>
-				{/* Feature 3 END */}
-				<div className={classes.features2}>
-					<GridContainer>
-						<GridItem
-							xs={12}
-							sm={8}
-							md={8}
-							className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
-						>
-							<h2 className={classes.title}>Les soins palliatifs en 6 points</h2>
+						<GridItem xs={12} sm={10} md={12}>
+							<div>
+								<h3 className={classes.title} style={{ color: 'rgb(51, 116, 103)', marginLeft: 100 }}>
+									SFAP
+								</h3>
+								<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+									<br />
+									<InfoArea
+										className={classes.infoArea}
+										title="Adresse"
+										description={
+											<span>
+												<b>
+													{' '}
+													108 avenue Emile Zola,
+													<br /> 75015 Paris,
+													<br /> France
+												</b>
+											</span>
+										}
+										icon={PinDrop}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Téléphone"
+										description={
+											<span>
+												<b>
+													Sarah LACROIX
+													<br /> +40 762 321 762
+												</b>
+											</span>
+										}
+										icon={Phone}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Email"
+										description={
+											<span>
+												<b>
+													{' '}
+													Sarah LACROIX
+													<br /> corpalif@gmail.com
+												</b>
+											</span>
+										}
+										icon={Email}
+									/>
+								</div>
+							</div>
 						</GridItem>
-					</GridContainer>
-					<GridContainer>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={GroupWork}
-								title="Une approche globale (douleurs,symptômes,confort...)"
-								description={
-									<span>
-										<p>
-											The moment you use Material Kit, you know you’ve never felt anything like
-											it. With a single use, this powerfull UI Kit lets you do more than ever
-											before.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="info"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={Airplay}
-								title="Une prise en charge pour les maladies incurables"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="danger"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={LocationOn}
-								title="Un accompagnement pour le patient et ses proches"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="success"
-							/>
-						</GridItem>
-					</GridContainer>
-
-					<GridContainer>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={GroupWork}
-								title="Des prestations à l'hopital ou à domicile"
-								description={
-									<span>
-										<p>
-											The moment you use Material Kit, you know you’ve never felt anything like
-											it. With a single use, this powerfull UI Kit lets you do more than ever
-											before.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="info"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={Airplay}
-								title="Des décisions à prendre"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="danger"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={LocationOn}
-								title="Des interlocuteurs pluridisciplinaires"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
-									</span>
-								}
-								iconColor="success"
-							/>
+						<GridItem xs={12} sm={10} md={12}>
+							<div>
+								<h3 className={classes.title} style={{ color: 'rgb(51, 116, 103)', marginLeft: 100 }}>
+									ARS
+								</h3>
+								<div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+									<br />
+									<InfoArea
+										className={classes.infoArea}
+										title="Adresse"
+										description={
+											<span>
+												<b>
+													{' '}
+													108 avenue Emile Zola,
+													<br /> 75015 Paris,
+													<br /> France
+												</b>
+											</span>
+										}
+										icon={PinDrop}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Téléphone"
+										description={
+											<span>
+												<b>
+													Sarah LACROIX
+													<br /> +40 762 321 762
+												</b>
+											</span>
+										}
+										icon={Phone}
+									/>
+									<InfoArea
+										className={classes.infoArea}
+										title="Email"
+										description={
+											<span>
+												<b>
+													{' '}
+													Sarah LACROIX
+													<br /> corpalif@gmail.com
+												</b>
+											</span>
+										}
+										icon={Email}
+									/>
+								</div>
+							</div>
 						</GridItem>
 					</GridContainer>
 				</div>
@@ -235,4 +216,4 @@ function Structures({ ...props }) {
 	)
 }
 
-export default withStyles(featuresStyle)(Structures)
+export default withStyles(contactsStructureSection)(SectionStructure)

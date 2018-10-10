@@ -151,7 +151,7 @@ const modalStyle = (theme) => ({
 		}
 	},
 	modalSearch: {
-		maxWidth: '900px',
+		maxWidth: '800px',
 		width: '100%',
 		'& $modalHeader': {
 			paddingTop: '0'

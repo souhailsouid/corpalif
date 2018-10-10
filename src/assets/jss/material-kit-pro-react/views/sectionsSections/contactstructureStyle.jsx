@@ -22,23 +22,26 @@ const contactsSection = {
 		...sectionDark,
 		...section,
 		position: 'relative',
+		display: 'flex',
 		'& $container': {
 			zIndex: '2',
-			position: 'relative'
+			position: 'relative',
+
+			display: 'flex-end'
 		},
 		'&:after': {
 			position: 'absolute',
 			zIndex: '1',
 			width: '100%',
 			height: '100%',
-			display: 'block',
+			display: 'flex-end',
 			left: '0',
 			top: '0',
 			content: "''",
-			backgroundColor: 'rgba(0, 0, 0, 0.7)'
+			backgroundColor: '#fff'
 		},
 		'& $title': {
-			color: '#FFFFFF'
+			color: '#000000'
 		},
 
 		'& $description': {
@@ -50,14 +53,16 @@ const contactsSection = {
 		padding: '80px 0'
 	},
 	infoArea: {
+		display: 'flex-end',
 		padding: '0',
 		margin: '0',
+
 		'& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
-			color: '#fff'
+			color: '#000000'
 		},
 		'& h4': {
 			marginTop: '20px',
-			color: '#fff'
+			color: '#000000'
 		}
 	},
 	card1: {

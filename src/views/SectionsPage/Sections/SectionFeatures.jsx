@@ -47,9 +47,7 @@ function SectionFeatures({ ...props }) {
 							md={8}
 							className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 						>
-							<h2 className={classes.title} style={{ color: '#000000' }}>
-								L' offre de soins francilienne
-							</h2>
+							<h2 className={classes.title}>L' offre de soins francilienne</h2>
 						</GridItem>
 						<div className={classes.container}>
 							<GridContainer className={classes.gridContainer}>
@@ -59,7 +57,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={LocationCity}
 										title={
-											<div style={{ color: '#000000' }}>
+											<div>
 												<h3 style={{ color: '#77be77' }}>25</h3> Unités de soins palliatifs
 												(USP)
 											</div>
@@ -73,7 +71,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={Share}
 										title={
-											<div style={{ color: '#000000' }}>
+											<div>
 												<h3 style={{ color: '#77be77' }}>23</h3> Réseaux de soins palliatifs
 											</div>
 										}
@@ -87,11 +85,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={Home}
 										title={
-											<div
-												style={{
-													color: '#000000'
-												}}
-											>
+											<div>
 												<h3 style={{ color: '#77be77' }}>15</h3> Structures d'hospitalisation à
 												domicile
 											</div>
@@ -108,11 +102,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={Hotel}
 										title={
-											<div
-												style={{
-													color: '#000000'
-												}}
-											>
+											<div>
 												<h3
 													style={{
 														color: '#77be77'
@@ -120,7 +110,7 @@ function SectionFeatures({ ...props }) {
 												>
 													747
 												</h3>{' '}
-												 Lits identifiés soins palliatifs <br /> (USP)
+												Lits identifiés soins palliatifs <br /> (USP)
 											</div>
 										}
 										iconColor="red"
@@ -132,8 +122,8 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={Group}
 										title={
-											<div style={{ color: '#000000' }}>
-												<h3 style={{ color: '#77be77' }}>72</h3>  Équipes mobiles de soins
+											<div>
+												<h3 style={{ color: '#77be77' }}>72</h3> Équipes mobiles de soins
 												palliatifs (HAD)
 											</div>
 										}
@@ -146,7 +136,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={SupervisedUserCircle}
 										title={
-											<div style={{ color: '#000000' }}>
+											<div>
 												<h3 style={{ color: '#77be77' }}>51</h3> Association de bénévoles <br />d'accompagnement
 											</div>
 										}
@@ -172,7 +162,7 @@ function SectionFeatures({ ...props }) {
 										className={classes.infoArea5}
 										icon={LocationCity}
 										title={
-											<div style={{ color: '#000000' }}>
+											<div>
 												<h3 style={{ color: '#77be77' }}>32</h3>
 												Autres structures
 											</div>

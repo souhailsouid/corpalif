@@ -108,7 +108,7 @@ const javascriptStyles = (theme) => ({
 		backgroundRepeat: 'no-repeat',
 		position: 'relative',
 		'& $title': {
-			marginBottom: '30px'
+			marginBottom: '10px'
 		},
 		'& $title,& $container': {
 			position: 'relative',
@@ -144,17 +144,20 @@ const javascriptStyles = (theme) => ({
 		'& $infoArea5': {
 			textAlign: 'center',
 			maxWidth: '310px',
-			minHeight: '320px',
-			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
-				color: '#cc4949'
-			},
-			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons:hover': {
+
+			'& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
 				color: '#cc4949'
 			}
 		},
 		'& $infoArea5:hover': {
+			textAlign: 'center',
+			maxWidth: '310px',
+
+			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
+				color: '#fff'
+			},
 			backgroundColor: '#337467 !important',
-			color: '#fff'
+			color: '#FFF'
 		}
 	},
 	gridContainer: {},
@@ -172,7 +175,11 @@ const javascriptStyles = (theme) => ({
 		margin: '0 auto',
 		padding: '10px 0 0px'
 	},
-	infoArea5: {}
+	infoArea5: {
+		maxWidth: '360px',
+		margin: '0 auto',
+		padding: '15px 0 5px'
+	}
 })
 
 export default javascriptStyles

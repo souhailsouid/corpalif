@@ -41,15 +41,9 @@ class Example extends React.Component {
 
 		return (
 			<GridContainer justify="center">
-				<GridItem
-					xs={10}
-					sm={10}
-					md={8}
-					lg={8}
-					style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}
-				>
+				<GridItem xs={10} sm={10} md={8} lg={5} style={{ justifyContent: 'space-around', flexWrap: 'wrap' }}>
 					{/* <GridItem xs={12} sm={7} md={7} lg={10}> */}
-					<FormControl
+					{/* <FormControl
 						fullWidth
 						className={classes.selectFormControl}
 						style={{
@@ -58,8 +52,8 @@ class Example extends React.Component {
 							color: 'rgba(95,95,95,0.5)',
 							border: '1px solid'
 						}}
-					>
-						<InputLabel htmlFor="multiple-select" className={classes.selectLabelBis}>
+					> */}
+					{/* <InputLabel htmlFor="multiple-select" className={classes.selectLabelBis}>
 							Les structures de prise en charge et associations
 						</InputLabel>
 						<Select
@@ -145,7 +139,7 @@ class Example extends React.Component {
 								Autres structures
 							</MenuItem>
 						</Select>
-					</FormControl>
+					</FormControl> */}
 					{/* </GridItem>  */}
 					{/* <GridItem xs={12} sm={6} md={5} lg={6} style={{ paddingLeft: 0, paddingRight: 0 }}> */}
 					<FormControl
@@ -181,7 +175,7 @@ class Example extends React.Component {
 									root: classes.selectMenuItem
 								}}
 							>
-								Selectionner un ou plusieurs départements
+								Selectionner un département
 							</MenuItem>
 							<MenuItem
 								classes={{

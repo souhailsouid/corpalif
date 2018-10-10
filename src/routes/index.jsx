@@ -14,8 +14,8 @@ import ProductPage from 'views/ProductPage/ProductPage.jsx'
 import SectionsPage from 'views/SectionsPage/SectionsPage.jsx'
 import ShoppingCartPage from 'views/ShoppingCartPage/ShoppingCartPage.jsx'
 import SignupPage from 'views/SignupPage/SignupPage.jsx'
-import Tables from 'views/listStructures.jsx'
-import Structures from 'views/structure.jsx'
+import PresentationStructures from 'views/PresentationPage/ListStructures.jsx'
+
 var indexRoutes = [
 	{ path: '/about-us', name: 'AboutUsPage', component: AboutUsPage },
 	{ path: '/blog-post', name: 'BlogPostPage', component: BlogPostPage },
@@ -30,8 +30,8 @@ var indexRoutes = [
 	{ path: '/product-page', name: 'ProductPage', component: ProductPage },
 	{ path: '/sections', name: 'SectionsPage', component: SectionsPage },
 	{ path: '/annuaire-francilien', name: 'Annuaire', component: Annuaire },
-	{ path: '/structure', name: 'Tables', component: Tables },
-	{ path: '/structures', name: 'Structures', component: Structures },
+	{ path: '/structure', name: 'PresentationStructures', component: PresentationStructures },
+
 	{
 		path: '/shopping-cart-page',
 		name: 'ShoppingCartPage',

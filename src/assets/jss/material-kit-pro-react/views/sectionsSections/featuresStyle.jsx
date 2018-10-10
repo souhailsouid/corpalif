@@ -71,11 +71,17 @@ const features = {
 			textAlign: 'center',
 			maxWidth: '310px',
 			minHeight: '320px',
-			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
+			'& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
 				color: '#cc4949'
 			}
 		},
 		'& $infoArea5:hover': {
+			textAlign: 'center',
+			maxWidth: '310px',
+			minHeight: '320px',
+			'& h4,& p,& svg,& .fab,& .fas,& .far,& .fal,& .material-icons': {
+				color: '#fff'
+			},
 			backgroundColor: '#337467 !important',
 			color: '#FFF'
 		}
