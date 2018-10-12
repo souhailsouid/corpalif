@@ -14,6 +14,7 @@ const headerLinksStyle = (theme) => ({
 			alignItems: 'center',
 			WebkitBoxOrient: 'horizontal',
 			WebkitBoxDirection: 'normal',
+			width: 'auto',
 			MsFlexDirection: 'row',
 			flexDirection: 'row'
 		},
@@ -110,6 +111,7 @@ const headerLinksStyle = (theme) => ({
 		lineHeight: '20px',
 		textDecoration: 'none',
 		margin: '0px',
+
 		display: 'inline-flex',
 		[theme.breakpoints.down('sm')]: {
 			width: 'calc(100% - 30px)',
@@ -118,7 +120,7 @@ const headerLinksStyle = (theme) => ({
 			marginTop: '5px',
 			textAlign: 'left',
 			'& > span:first-child': {
-				justifyContent: 'flex-start'
+				justifyContent: 'center'
 			}
 		},
 		'& $icons': {

@@ -7,11 +7,13 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import SectionContacts from 'views/PresentationPage/Sections/SectionContacts.jsx'
 import SectionTeams from 'views/PresentationPage/Sections/SectionTeams.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import HeaderComponent from '../Header/Header'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
-import SectionInfo from 'views/PresentationPage/Sections/SectionInfo.js'
+import SectionInfo from 'views/PresentationPage/Sections/SectionInfo.jsx'
+import SectionMissions from 'views/PresentationPage/Sections/SectionMissions'
 // sections CSS
 import '../style.css'
+import SectionCarroussel from './Sections/SectionCarroussel'
 
 class PresentationPage extends React.Component {
 	componentDidMount() {
@@ -22,9 +24,11 @@ class PresentationPage extends React.Component {
 		const { classes } = this.props
 		return (
 			<div>
-				<HeaderComponent />
+				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
+					<SectionCarroussel />
+					<SectionMissions />
 					<SectionInfo />
 					<SectionTeams />
 					<SectionContacts />

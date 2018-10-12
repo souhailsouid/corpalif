@@ -7,13 +7,13 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 // import SectionCards from 'views/PresentationPage/Sections/SectionCards.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import HeaderSearchBar from 'views/Header/HeaderSearchBar'
+import HeaderComponent from 'views/Header/AppBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 
-import SectionBlogs from 'views/AnnuaireFrancilien/Sections/blog.jsx'
-// section CSS
-
-class PresentationPage extends React.Component {
+// Section CSS
+import '../style.css'
+import SectionBlogs from './Sections/SectionBlogs'
+class PresentationBlog extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -22,19 +22,17 @@ class PresentationPage extends React.Component {
 		const { classes } = this.props
 		return (
 			<div>
-				<HeaderSearchBar />
-
+				<HeaderComponent />
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<GridContainer justify="center">
 						<SectionBlogs />
 					</GridContainer>
 					<SectionFooter />
 				</div>
-
 				<div />
 			</div>
 		)
 	}
 }
 
-export default withStyles(presentationStyle)(PresentationPage)
+export default withStyles(presentationStyle)(PresentationBlog)

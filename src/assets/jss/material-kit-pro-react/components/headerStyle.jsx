@@ -20,6 +20,7 @@ import {
 const headerStyle = (theme) => ({
 	appBar: {
 		display: 'flex',
+
 		border: '0',
 		borderRadius: '3px',
 		padding: '0.625rem 0',
@@ -31,7 +32,7 @@ const headerStyle = (theme) => ({
 		transition: 'all 150ms ease 0s',
 		alignItems: 'center',
 		flexFlow: 'row nowrap',
-		justifyContent: 'flex-start',
+		justifyContent: 'flex-end',
 		position: 'relative'
 	},
 	absolute: {
@@ -66,7 +67,7 @@ const headerStyle = (theme) => ({
 	},
 	appResponsive: {
 		margin: '20px 10px',
-		marginTop: '0px'
+		marginTop: '50px'
 	},
 	primary: {
 		backgroundColor: primaryColor,

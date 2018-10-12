@@ -12,10 +12,12 @@ const customSelectStyle = {
 		lineHeight: '1.42857',
 		textDecoration: 'none',
 		textTransform: 'uppercase',
-		color: '#3C4858',
+
 		letterSpacing: '0',
+
 		'&:focus': {
-			backgroundColor: 'transparent'
+			backgroundColor: 'transparent',
+			color: '#3C4858'
 		},
 		'&[aria-owns] + input + svg': {
 			transform: 'rotate(180deg)'
@@ -26,6 +28,7 @@ const customSelectStyle = {
 	},
 	selectFormControl: {
 		margin: '10px 1px 10px 0px !important',
+
 		'& > div': {
 			'&:before': {
 				borderBottomWidth: '1px !important',
@@ -59,7 +62,7 @@ const customSelectStyle = {
 	selectLabelBis: {
 		fontSize: '12px',
 		textTransform: 'uppercase',
-		color: '#3C4858 !important',
+
 		top: '0px',
 
 		marginLeft: 20
@@ -67,6 +70,7 @@ const customSelectStyle = {
 	selectMenu: {
 		'& > div > ul': {
 			border: '0',
+			color: '#fff',
 			padding: '5px 0',
 			margin: '0',
 			boxShadow: 'none',
@@ -105,7 +109,7 @@ const customSelectStyle = {
 	},
 	selectMenuItemSelected: {
 		backgroundColor: greenColor + '!important',
-		color: '#FFFFFF'
+		color: '#fff'
 	},
 	selectMenuItemSelectedMultiple: {
 		'&:hover': {
@@ -124,7 +128,7 @@ const customSelectStyle = {
 			borderLeft: '2px solid currentColor',
 			transform: 'rotate(-45deg)',
 			opacity: '1',
-			color: '#3c4858',
+			color: '#fff',
 			position: 'absolute',
 			content: "''",
 			borderBottom: '2px solid currentColor',

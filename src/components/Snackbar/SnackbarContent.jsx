@@ -23,12 +23,7 @@ class SnackbarContent extends React.Component {
 		var action = []
 		if (close !== undefined) {
 			action = [
-				<Tooltip
-					id="tooltip-right"
-					title="Tooltip on right"
-					placement="right"
-					classes={{ tooltip: classes.tooltip }}
-				>
+				<Tooltip id="tooltip-top" title="Tooltip on top" placement="top" classes={{ tooltip: classes.tooltip }}>
 					<IconButton
 						className={classes.iconButton}
 						key="close"

@@ -16,13 +16,14 @@ import {
 
 const infoStyle = {
 	infoArea: {
+		maxWidth: '360px',
 		margin: '0 auto',
-		padding: '20px 0 30px'
+		padding: '0px 0 0px'
 	},
 	iconWrapper: {
 		float: 'left',
-		marginTop: '20px',
-		textAlign: 'center'
+		marginTop: '24px',
+		marginRight: '10px'
 	},
 	primary: {
 		color: primaryColor
@@ -48,9 +49,7 @@ const infoStyle = {
 	green: {
 		color: greenColor
 	},
-	// red: {
-	// 	color: redColor
-	// },
+
 	icon: {
 		width: '2.25rem',
 		height: '2.25rem',

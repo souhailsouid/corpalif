@@ -4,7 +4,7 @@ import modalStyle from 'assets/jss/material-kit-pro-react/modalStyle.jsx'
 import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
 import popoverStyles from 'assets/jss/material-kit-pro-react/popoverStyles.jsx'
 import customCheckboxRadioSwitch from 'assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx'
-
+import { greenColor } from 'assets/jss/material-kit-pro-react.jsx'
 const javascriptStyles = (theme) => ({
 	container,
 	description,
@@ -174,6 +174,26 @@ const javascriptStyles = (theme) => ({
 		maxWidth: '360px',
 		margin: '0 auto',
 		padding: '15px 0 5px'
+	},
+	selectLabelBis: {
+		fontSize: '12px',
+		textTransform: 'uppercase',
+
+		top: '0px',
+
+		marginLeft: 20
+	},
+	selectFormControlBis: {
+		margin: '10px 1px 10px 0px !important',
+		'& > div': {
+			'&:before': {
+				borderBottomWidth: '1px !important',
+				borderBottomColor: '#D2D2D2 !important'
+			},
+			'&:after': {
+				borderBottomColor: greenColor + '!important'
+			}
+		}
 	}
 })
 

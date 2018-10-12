@@ -17,7 +17,7 @@ import SearchBar from 'views/Header/Sections/SearchBar'
 // sections CSS
 import '../style.css'
 
-class HeaderComponent extends React.Component {
+class HeaderSearchBar extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -34,7 +34,7 @@ class HeaderComponent extends React.Component {
 								alt="logo"
 								style={{
 									width: 80,
-									marginRight: 200,
+
 									maxWidth: '100%',
 									height: 'auto'
 								}}
@@ -73,4 +73,4 @@ class HeaderComponent extends React.Component {
 	}
 }
 
-export default withStyles(presentationStyle)(HeaderComponent)
+export default withStyles(presentationStyle)(HeaderSearchBar)

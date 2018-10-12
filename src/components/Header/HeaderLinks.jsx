@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // react components for routing our app without refresh
 import { Link } from 'react-router-dom'
 // @material-ui/core components
+import GridItem from 'components/Grid/GridItem.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -121,12 +122,12 @@ function HeaderLinks({ ...props }) {
 			<ListItem className={classes.listItem}>
 				<Button
 					href="https://www.creative-tim.com/product/material-kit-pro-react"
-					style={{ backgroundColor: '#cc4949' }}
+					style={{ backgroundColor: '#cc4949', padding: 12 }}
 					target="_blank"
 					className={classes.navButton}
 					round
 				>
-					<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire d'admission
+					<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire <br />d'admission
 				</Button>
 			</ListItem>
 			<ListItem className={classes.listItem} style={{ marginLeft: 20, marginBottom: 25 }}>

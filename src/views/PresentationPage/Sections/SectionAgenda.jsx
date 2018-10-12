@@ -13,7 +13,7 @@ class SectionNotifications extends React.Component {
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
-					<div className={classes.container}>
+					<div className={classes.container} style={{ paddingTop: 0 }}>
 						<div />
 						<div className={classes.title}>
 							<h3 style={{ color: '#cc4949' }}>
@@ -21,7 +21,7 @@ class SectionNotifications extends React.Component {
 								<i class="material-icons" style={{ color: '#cc4949' }}>
 									date_range
 								</i>{' '}
-								Agenda
+								EVÈNEMENTS
 							</h3>
 						</div>
 					</div>
