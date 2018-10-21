@@ -5,6 +5,7 @@ import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
 import popoverStyles from 'assets/jss/material-kit-pro-react/popoverStyles.jsx'
 import customCheckboxRadioSwitch from 'assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx'
 import { greenColor } from 'assets/jss/material-kit-pro-react.jsx'
+
 const javascriptStyles = (theme) => ({
 	container,
 	description,

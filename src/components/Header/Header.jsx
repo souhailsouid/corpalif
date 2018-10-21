@@ -27,6 +27,7 @@ class Header extends React.Component {
 		this.handleDrawerToggle = this.handleDrawerToggle.bind(this)
 		this.headerColorChange = this.headerColorChange.bind(this)
 	}
+
 	handleDrawerToggle() {
 		this.setState({ mobileOpen: !this.state.mobileOpen })
 	}
@@ -59,6 +60,7 @@ class Header extends React.Component {
 			[classes.absolute]: absolute,
 			[classes.fixed]: fixed
 		})
+
 		return (
 			<AppBar className={appBarClasses}>
 				<Toolbar className={classes.container}>

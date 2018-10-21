@@ -11,7 +11,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 // import IntegrationAutosuggest from './autosuggest'
 import styles from 'assets/jss/material-kit-pro-react/customSelectStyle.jsx'
 import ModalSearch from 'views/Header/Sections/ModalSearch'
-
+import './style.css'
 class SearchBar extends React.Component {
 	constructor(props) {
 		super(props)
@@ -40,9 +40,14 @@ class SearchBar extends React.Component {
 							border: '1px solid'
 						}}
 					>
-						<InputLabel htmlFor="simple-select" className={classes.selectLabelBis}>
+						<InputLabel
+							htmlFor="simple-select"
+							className={classes.selectLabelBis}
+							style={{ disabled: true }}
+						>
 							Votre département
 						</InputLabel>
+
 						<Select
 							MenuProps={{
 								className: classes.selectMenu

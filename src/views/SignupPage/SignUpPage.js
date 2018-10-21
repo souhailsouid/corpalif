@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
@@ -6,25 +7,37 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
+import TextField from '@material-ui/core/TextField'
 // @material-ui/icons
+import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Face from '@material-ui/icons/Face'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
-import Email from '@material-ui/icons/Email'
+import LocationCity from '@material-ui/icons/LocationCity'
+import Mail from '@material-ui/icons/Mail'
 // core components
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
-import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import Tooltip from '@material-ui/core/Tooltip'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import MenuItem from '@material-ui/core/MenuItem'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+// Redux
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { registerUser } from '../../actions/authActions'
+import { withRouter } from 'react-router-dom'
+
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#337467'
+		}
+	}
+})
+
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -35,8 +48,76 @@ class SignUp extends React.Component {
 		this.state = {
 			signupModal: false,
 			simpleSelect: '',
-			value: 'female'
+			name: '',
+			email: '',
+			password: '',
+			password2: '',
+			structure: '',
+			fonction: '',
+			last_name: '',
+			location: '',
+			errors: {},
+			displaySnack: false
 		}
+		this.onChange = this.onChange.bind(this)
+		this.onSubmit = this.onSubmit.bind(this)
+	}
+	handleCloseAlert = (reason) => {
+		if (reason === 'clickaway') {
+			return
+		}
+
+		this.setState({ displaySnack: false })
+	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.errors) {
+			const snack = {
+				variant: 'error',
+				message: 'Connexion refusée!'
+			}
+			this.setState({
+				errors: nextProps.errors,
+				snack,
+				displaySnack: true
+			})
+			setTimeout(
+				function() {
+					this.setState({ displaySnack: false })
+				}.bind(this),
+				2500
+			)
+		}
+	}
+	onChange(e) {
+		this.setState({ [e.target.name]: e.target.value })
+	}
+	onSubmit(e) {
+		e.preventDefault()
+		const newUser = {
+			name: this.state.name,
+			email: this.state.email,
+			password: this.state.password,
+			password2: this.state.password2,
+			structure: this.state.structure,
+			fonction: this.state.fonction,
+			location: this.state.location,
+			last_name: this.state.last_name
+		}
+		const snack = {
+			variant: 'success',
+			message: 'Enregistrement avec succés!'
+		}
+
+		this.setState({ snack, displaySnack: true, signupModal: false })
+		setTimeout(
+			function() {
+				this.setState({ displaySnack: false })
+			}.bind(this),
+			3000
+		)
+		// this.props.history.push('/')
+
+		this.props.registerUser(newUser, this.props.history)
 	}
 	handleSimple = (event) => {
 		this.setState({ [event.target.name]: event.target.value })
@@ -56,6 +137,8 @@ class SignUp extends React.Component {
 		this.setState({ value: event.target.value })
 	}
 	render() {
+		const { errors } = this.state
+
 		const { classes } = this.props
 		return (
 			<div>
@@ -129,174 +212,255 @@ class SignUp extends React.Component {
 								{` `}
 							</div>
 						</DialogTitle>
+
 						<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
-							<GridContainer>
-								<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
-									<div style={{ display: 'flex', flexDirection: 'row' }}>
-										<RadioGroup
-											aria-label="gender"
-											name="gender2"
-											style={{ display: 'flex', flexDirection: 'row', marginLeft: 20 }}
-											className={classes.group}
-											value={this.state.value}
-											onChange={this.handleChange}
-										>
-											<FormControlLabel
-												style={{ display: 'flex' }}
-												value="female"
-												control={<Radio color="green" />}
-												label="particulier"
-												labelPlacement="start"
+							<form noValidate onSubmit={this.onSubmit} className={classes.form} style={{ marginTop: 0 }}>
+								<GridContainer>
+									<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre nom ..."
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="name"
+												value={this.state.name}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																{' '}
+																<Face />
+															</div>
+														</InputAdornment>
+													)
+												}}
 											/>
-											<FormControlLabel
-												style={{ display: 'flex' }}
-												value="male"
-												control={<Radio color="green" />}
-												label="professionnel"
-												labelPlacement="start"
+											{errors.name && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.name}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre prénom ..."
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="last_name"
+												value={this.state.last_name}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																{' '}
+																<Face />
+															</div>
+														</InputAdornment>
+													)
+												}}
 											/>
-										</RadioGroup>
-									</div>
-									<form className={classes.form} style={{ marginTop: 0 }}>
-										<CustomInput
-											formControlProps={{
-												fullWidth: true,
-												className: classes.customFormControlClasses
-											}}
-											inputProps={{
-												startAdornment: (
-													<InputAdornment position="start" className={classes.inputAdornment}>
-														<Face className={classes.inputAdornmentIcon} />
-													</InputAdornment>
-												),
-												placeholder: 'Votre nom...'
-											}}
-										/>
-										<CustomInput
-											formControlProps={{
-												fullWidth: true,
-												className: classes.customFormControlClasses
-											}}
-											inputProps={{
-												startAdornment: (
-													<InputAdornment position="start" className={classes.inputAdornment}>
-														<Face className={classes.inputAdornmentIcon} />
-													</InputAdornment>
-												),
-												placeholder: 'Votre prenom...'
-											}}
-										/>
-										<CustomInput
-											formControlProps={{
-												fullWidth: true,
-												className: classes.customFormControlClasses
-											}}
-											inputProps={{
-												startAdornment: (
-													<InputAdornment position="start" className={classes.inputAdornment}>
-														<Email className={classes.inputAdornmentIcon} />
-													</InputAdornment>
-												),
-												placeholder: 'Email...'
-											}}
-										/>
-									</form>
-								</GridItem>
-								<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
-									<form className={classes.form} style={{ marginTop: 48 }}>
-										<FormControl fullWidth className={classes.selectFormControlBis}>
-											<InputLabel htmlFor="simple-select" className={classes.selectLabelBis}>
-												Votre structure
-											</InputLabel>
-											<Select
-												MenuProps={{
-													className: classes.selectMenu
+											{errors.last_name && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.last_name}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre structure de travail"
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="structure"
+												value={this.state.structure}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<LocationCity />
+															</div>
+														</InputAdornment>
+													)
 												}}
-												classes={{
-													select: classes.select
+											/>
+											{errors.structure && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.structure}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre lieu de travail"
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="location"
+												value={this.state.location}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<i class="material-icons">location_on</i>
+															</div>
+														</InputAdornment>
+													)
 												}}
-												value={this.state.simpleSelect}
-												onChange={this.handleSimple}
-												inputProps={{
-													name: 'simpleSelect',
-													id: 'simple-select'
+											/>
+											{errors.location && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.location}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+									</GridItem>
+									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre poste"
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="fonction"
+												value={this.state.fonction}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<i class="material-icons">work</i>
+															</div>
+														</InputAdornment>
+													)
 												}}
-											>
-												<MenuItem
-													disabled
-													classes={{
-														root: classes.selectMenuItem
-													}}
-												>
-													Selectionner votre structure
-												</MenuItem>
-												<MenuItem
-													classes={{
-														root: classes.selectMenuItem,
-														selected: classes.selectMenuItemSelected
-													}}
-													value="2"
-												>
-													Paris
-												</MenuItem>
-												<MenuItem
-													classes={{
-														root: classes.selectMenuItem,
-														selected: classes.selectMenuItemSelected
-													}}
-													value="3"
-												>
-													Bucharest
-												</MenuItem>
-												<MenuItem
-													classes={{
-														root: classes.selectMenuItem,
-														selected: classes.selectMenuItemSelected
-													}}
-													value="4"
-												>
-													Rome
-												</MenuItem>
-											</Select>
-										</FormControl>
-
-										<CustomInput
-											formControlProps={{
-												fullWidth: true,
-												className: classes.customFormControlClasses
-											}}
-											inputProps={{
-												startAdornment: (
-													<InputAdornment position="start" className={classes.inputAdornment}>
-														<i class="material-icons">work</i>
-													</InputAdornment>
-												),
-												placeholder: 'Fonction...'
-											}}
-										/>
-										<span style={{ color: 'rgba(0, 0, 0, 0.26)' }}>
-											<b>En cliquant sur enregistrer, vous recevez un</b>
-											<br />
-											<a href="#pablo" style={{ color: '#cc4949' }}>
-												mot de passe provisoire
-											</a>{' '}
-											<b>à l'adresse inscrite ci-dessus.</b>
-										</span>
-
-										<div className={classes.textCenter} style={{ marginTop: 40 }}>
-											<Button round style={{ backgroundColor: '#337467' }}>
-												S'enregistrer
-											</Button>
-										</div>
-									</form>
-								</GridItem>
-							</GridContainer>
+											/>
+											{errors.fonction && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.fonction}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												style={{ width: 300 }}
+												placeholder="Votre adresse email"
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="email"
+												value={this.state.email}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<Mail />
+															</div>
+														</InputAdornment>
+													)
+												}}
+											/>
+											{errors.email && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.email}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												type="password"
+												style={{ width: 300 }}
+												placeholder="Votre mot de passe"
+												className={classes.margin}
+												id="mui-theme-provider-input"
+												name="password"
+												value={this.state.password}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<Icon className={classes.icon}>lock_outline</Icon>
+															</div>
+														</InputAdornment>
+													)
+												}}
+											/>
+											{errors.password && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.password}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+										<br /> <br />
+										<MuiThemeProvider theme={theme}>
+											<TextField
+												type="password"
+												style={{ width: 300 }}
+												placeholder="Confirmer votre mot de passe"
+												className={classes.margin}
+												name="password2"
+												value={this.state.password2}
+												onChange={this.onChange}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<Icon className={classes.icon}>lock_outline</Icon>
+															</div>
+														</InputAdornment>
+													)
+												}}
+											/>
+											{errors.password2 && (
+												<div className="invalid-feedback" style={{ color: 'red' }}>
+													{errors.password2}{' '}
+												</div>
+											)}
+										</MuiThemeProvider>
+									</GridItem>
+								</GridContainer>
+								<div className={classes.textCenter} style={{ marginTop: 40, justifyContent: 'center' }}>
+									<Button type="submit" round style={{ backgroundColor: '#337467' }}>
+										S'enregistrer
+									</Button>
+								</div>
+							</form>
 						</DialogContent>
 					</Card>
 				</Dialog>
+				<Snackbar
+					anchorOrigin={{
+						vertical: 'bottom',
+						horizontal: 'right'
+					}}
+					open={this.state.displaySnack}
+				>
+					<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
+				</Snackbar>
 			</div>
 		)
 	}
 }
 
-export default withStyles(javascriptStyles)(SignUp)
+SignUp.PropTypes = {
+	registerUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	errors: state.errors
+})
+export default compose(withStyles(javascriptStyles))(connect(mapStateToProps, { registerUser })(withRouter(SignUp)))

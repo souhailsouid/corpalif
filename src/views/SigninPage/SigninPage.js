@@ -7,19 +7,37 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import Icon from '@material-ui/core/Icon'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
+
 // @material-ui/icons
 import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
+import Face from '@material-ui/icons/Face'
+import Snackbar from '@material-ui/core/Snackbar'
 // core components
+
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
-import CustomInput from 'components/CustomInput/CustomInput.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-
+// Redux
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import classnames from 'classnames'
+import { loginUser } from '../../actions/authActions'
+import { compose } from 'redux'
+import { withRouter } from 'react-router-dom'
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#337467'
+		}
+	}
+})
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -28,8 +46,65 @@ class SeConnecter extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			loginModal: false
+			loginModal: false,
+			email: '',
+			password: '',
+			errors: {},
+			displaySnack: false,
+			snack: { variant: 'error', message: 'Connexion refusée !' }
 		}
+
+		this.onChange = this.onChange.bind(this)
+		this.onSubmit = this.onSubmit.bind(this)
+	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			const snack = {
+				variant: 'success',
+				message: 'Connecté avec succés!'
+			}
+			this.setState({ loginModal: false })
+
+			this.setState({ snack, displaySnack: true })
+			setTimeout(
+				function() {
+					this.setState({ displaySnack: false })
+				}.bind(this),
+				1500
+			)
+			// this.props.history.push('/')
+		}
+
+		if (nextProps.errors) {
+			const snackerror = {
+				variant: 'warning',
+				message: 'Connexion refusée!'
+			}
+			this.setState({
+				errors: nextProps.errors,
+				snackerror,
+				displaySnack: true,
+				loginModal: false
+			})
+			setTimeout(
+				function() {
+					this.setState({ displaySnack: false })
+				}.bind(this),
+				1500
+			)
+		}
+	}
+	onSubmit(e) {
+		e.preventDefault()
+		const userData = {
+			email: this.state.email,
+			password: this.state.password
+		}
+
+		this.props.loginUser(userData)
+	}
+	onChange(e) {
+		this.setState({ [e.target.name]: e.target.value })
 	}
 	handleClickOpen(modal) {
 		var x = []
@@ -41,7 +116,15 @@ class SeConnecter extends React.Component {
 		x[modal] = false
 		this.setState(x)
 	}
+	handleCloseAlert = (reason) => {
+		if (reason === 'clickaway') {
+			return
+		}
+
+		this.setState({ displaySnack: false })
+	}
 	render() {
+		const { errors } = this.state
 		const { classes } = this.props
 		return (
 			<div>
@@ -97,47 +180,81 @@ class SeConnecter extends React.Component {
 							</CardHeader>
 						</DialogTitle>
 						<DialogContent id="login-modal-slide-description" className={classes.modalBody}>
-							<form>
+							<form onSubmit={this.onSubmit}>
 								<CardBody className={classes.cardLoginBody} style={{ height: 150, marginTop: 30 }}>
-									<CustomInput
-										id="login-modal-email"
-										formControlProps={{
-											fullWidth: true
-										}}
-										inputProps={{
-											startAdornment: (
-												<InputAdornment position="start">
-													<Mail className={classes.icon} />
-												</InputAdornment>
-											),
-											placeholder: 'Email...'
-										}}
-									/>
-									<CustomInput
-										id="login-modal-pass"
-										formControlProps={{
-											fullWidth: true
-										}}
-										inputProps={{
-											startAdornment: (
-												<InputAdornment position="start">
-													<Icon className={classes.icon}>lock_outline</Icon>
-												</InputAdornment>
-											),
-											placeholder: 'Mot de passe...'
-										}}
-									/>
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											style={{ width: 250 }}
+											placeholder="Email..."
+											className={classes.margin}
+											id="mui-theme-provider-input"
+											name="email"
+											value={this.state.email}
+											onChange={this.onChange}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<Mail />
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										{errors.email && (
+											<div className="invalid-feedback" style={{ color: 'red' }}>
+												{errors.email}{' '}
+											</div>
+										)}
+									</MuiThemeProvider>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											type="password"
+											style={{ width: 250 }}
+											placeholder="Votre mot de passe ..."
+											classeName={classnames(classes.margin, {
+												error: errors.email
+											})}
+											className={classes.margin}
+											id="mui-theme-provider-input"
+											name="password"
+											value={this.state.password}
+											onChange={this.onChange}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<Face />
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										{errors.password && (
+											<div className="invalid-feedback" style={{ color: 'red' }}>
+												{errors.password}{' '}
+											</div>
+										)}
+									</MuiThemeProvider>
 								</CardBody>
+								<DialogActions
+									className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
+									style={{ paddingBottom: 30 }}
+								>
+									<Button
+										type="submit"
+										style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+										simple
+										size="lg"
+									>
+										<i class="material-icons">power_settings_new</i>
+									</Button>
+								</DialogActions>
 							</form>
 						</DialogContent>
-						<DialogActions
-							className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
-							style={{ paddingBottom: 30 }}
-						>
-							<Button style={{ backgroundColor: '#337467', height: 20, width: 10 }} simple size="lg">
-								<i class="material-icons">power_settings_new</i>
-							</Button>
-						</DialogActions>
 						<DialogActions className={`${classes.modalFooter} ${classes.justifyContentCenter}`}>
 							<p>Mot de passe oublié ?</p>
 						</DialogActions>
@@ -149,9 +266,33 @@ class SeConnecter extends React.Component {
 						</DialogActions>
 					</Card>
 				</Dialog>
+				<Snackbar
+					anchorOrigin={{
+						vertical: 'bottom',
+						horizontal: 'right'
+					}}
+					open={this.state.displaySnack}
+					autoHideDuration={3}
+				>
+					<MySnackbarContentWrapper
+						{...this.state.snack}
+						onClose={this.handleCloseAlert}
+						autoHideDuration={3}
+					/>
+				</Snackbar>
 			</div>
 		)
 	}
 }
 
-export default withStyles(javascriptStyles)(SeConnecter)
+SeConnecter.PropTypes = {
+	loginUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	errors: state.errors
+})
+export default compose(withStyles(javascriptStyles))(connect(mapStateToProps, { loginUser })(withRouter(SeConnecter)))
