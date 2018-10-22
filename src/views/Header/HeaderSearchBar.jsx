@@ -13,7 +13,6 @@ import GridItem from 'components/Grid/GridItem.jsx'
 // sections for this page
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import SearchBar from 'views/Header/Sections/SearchBar'
-
 // sections CSS
 import '../style.css'
 
@@ -22,8 +21,10 @@ class HeaderSearchBar extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 	}
+
 	render() {
 		const { classes } = this.props
+
 		return (
 			<div>
 				<div>

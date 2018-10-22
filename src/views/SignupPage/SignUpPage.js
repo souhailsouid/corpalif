@@ -57,7 +57,8 @@ class SignUp extends React.Component {
 			last_name: '',
 			location: '',
 			errors: {},
-			displaySnack: false
+			displaySnack: false,
+			snack: { variant: 'warning', message: '' }
 		}
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
@@ -69,25 +70,41 @@ class SignUp extends React.Component {
 
 		this.setState({ displaySnack: false })
 	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.errors) {
+	componentDidMount() {
+		if (this.props.auth.authenticated) {
 			const snack = {
-				variant: 'error',
-				message: 'Connexion refusée!'
+				variant: 'success',
+				message: 'Enregistrer avec succés!'
 			}
-			this.setState({
-				errors: nextProps.errors,
-				snack,
-				displaySnack: true
-			})
+
+			this.setState({ snack, displaySnack: true })
 			setTimeout(
 				function() {
 					this.setState({ displaySnack: false })
 				}.bind(this),
-				2500
+				1500
 			)
 		}
 	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.errors) {
+			const snack = {
+				variant: 'warning',
+				message: 'Oups!'
+			}
+			this.setState({
+				errors: nextProps.errors
+			})
+			this.setState({ snack, displaySnack: true })
+			setTimeout(
+				function() {
+					this.setState({ displaySnack: false })
+				}.bind(this),
+				1500
+			)
+		}
+	}
+
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })
 	}
@@ -105,19 +122,17 @@ class SignUp extends React.Component {
 		}
 		const snack = {
 			variant: 'success',
-			message: 'Enregistrement avec succés!'
+			message: 'Enregistrer avec succés!'
 		}
-
-		this.setState({ snack, displaySnack: true, signupModal: false })
+		this.setState({ snack, displaySnack: true })
 		setTimeout(
 			function() {
 				this.setState({ displaySnack: false })
 			}.bind(this),
-			3000
+			1500
 		)
-		// this.props.history.push('/')
 
-		this.props.registerUser(newUser, this.props.history)
+		this.props.registerUser(newUser)
 	}
 	handleSimple = (event) => {
 		this.setState({ [event.target.name]: event.target.value })
@@ -441,7 +456,7 @@ class SignUp extends React.Component {
 				</Dialog>
 				<Snackbar
 					anchorOrigin={{
-						vertical: 'bottom',
+						vertical: 'top',
 						horizontal: 'right'
 					}}
 					open={this.state.displaySnack}

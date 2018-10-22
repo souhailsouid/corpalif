@@ -48,6 +48,7 @@ class HeaderLinks extends React.Component {
 		e.preventDefault()
 		this.props.logoutUser()
 	}
+
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.auth.isAuthenticated) {
 			const snack = {
@@ -64,6 +65,7 @@ class HeaderLinks extends React.Component {
 				1500
 			)
 		}
+
 		if (!nextProps.auth.isAuthenticated) {
 			const snack = {
 				variant: 'warning',

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
-import { setCurrentUser } from './actions/authActions'
+import { setCurrentUser, logoutUser } from './actions/authActions'
 import 'assets/scss/material-kit-pro-react.css?v=1.2.0'
 import { createBrowserHistory } from 'history'
 import indexRoutes from 'routes/index.jsx'
@@ -18,6 +18,15 @@ if (localStorage.jwtToken) {
 	const decoded = jwt_decode(localStorage.jwtToken)
 	// Set user and isAuthenticated
 	store.dispatch(setCurrentUser(decoded))
+	// Check  for expired token
+	const currentTime = Date.now() / 1000
+	if (decoded.exp < currentTime) {
+		// Logout user
+		store.dispatch(logoutUser())
+		//  Clear current Profile
+		// Redirect to home
+		window.location.replace('/')
+	}
 }
 class App extends Component {
 	render() {

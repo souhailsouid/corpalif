@@ -9,16 +9,14 @@ import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
-import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 
 // @material-ui/icons
 import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 import Face from '@material-ui/icons/Face'
-import Snackbar from '@material-ui/core/Snackbar'
-// core components
 
+// core components
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -27,7 +25,6 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import classnames from 'classnames'
 import { loginUser } from '../../actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
@@ -49,9 +46,7 @@ class SeConnecter extends React.Component {
 			loginModal: false,
 			email: '',
 			password: '',
-			errors: {},
-			displaySnack: false,
-			snack: { variant: 'error', message: 'Connexion refusée !' }
+			errors: {}
 		}
 
 		this.onChange = this.onChange.bind(this)
@@ -59,40 +54,17 @@ class SeConnecter extends React.Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.auth.isAuthenticated) {
-			const snack = {
-				variant: 'success',
-				message: 'Connecté avec succés!'
-			}
-			this.setState({ loginModal: false })
-
-			this.setState({ snack, displaySnack: true })
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
-			// this.props.history.push('/')
+			this.props.history.push('/')
 		}
 
 		if (nextProps.errors) {
-			const snackerror = {
-				variant: 'warning',
-				message: 'Connexion refusée!'
-			}
 			this.setState({
-				errors: nextProps.errors,
-				snackerror,
-				displaySnack: true,
-				loginModal: false
+				errors: nextProps.errors
 			})
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
 		}
+	}
+	componentDidMount() {
+		if (this.props.auth.isAuthenticated) this.props.history.push('/')
 	}
 	onSubmit(e) {
 		e.preventDefault()
@@ -116,13 +88,7 @@ class SeConnecter extends React.Component {
 		x[modal] = false
 		this.setState(x)
 	}
-	handleCloseAlert = (reason) => {
-		if (reason === 'clickaway') {
-			return
-		}
 
-		this.setState({ displaySnack: false })
-	}
 	render() {
 		const { errors } = this.state
 		const { classes } = this.props
@@ -214,9 +180,6 @@ class SeConnecter extends React.Component {
 											type="password"
 											style={{ width: 250 }}
 											placeholder="Votre mot de passe ..."
-											classeName={classnames(classes.margin, {
-												error: errors.email
-											})}
 											className={classes.margin}
 											id="mui-theme-provider-input"
 											name="password"
@@ -266,20 +229,6 @@ class SeConnecter extends React.Component {
 						</DialogActions>
 					</Card>
 				</Dialog>
-				<Snackbar
-					anchorOrigin={{
-						vertical: 'bottom',
-						horizontal: 'right'
-					}}
-					open={this.state.displaySnack}
-					autoHideDuration={3}
-				>
-					<MySnackbarContentWrapper
-						{...this.state.snack}
-						onClose={this.handleCloseAlert}
-						autoHideDuration={3}
-					/>
-				</Snackbar>
 			</div>
 		)
 	}
