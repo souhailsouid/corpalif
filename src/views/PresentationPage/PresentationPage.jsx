@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 // sections for this page
 import SectionContacts from 'views/PresentationPage/Sections/SectionContacts.jsx'
-import SectionTeams from 'views/PresentationPage/Sections/SectionTeams.jsx'
+// import SectionTeams from 'views/PresentationPage/Sections/SectionTeams.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
@@ -30,7 +30,7 @@ class PresentationPage extends React.Component {
 					<SectionCarroussel />
 					<SectionMissions />
 					<SectionInfo />
-					<SectionTeams />
+
 					<SectionContacts />
 					<SectionFooter />
 				</div>

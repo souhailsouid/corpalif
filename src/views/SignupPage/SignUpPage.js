@@ -8,35 +8,32 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
-import TextField from '@material-ui/core/TextField'
+
 // @material-ui/icons
+// @material-ui/icons
+
+import Timeline from '@material-ui/icons/Timeline'
+import Code from '@material-ui/icons/Code'
+import Group from '@material-ui/icons/Group'
 import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Face from '@material-ui/icons/Face'
-import LocationCity from '@material-ui/icons/LocationCity'
+import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 // core components
+import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
-import Tooltip from '@material-ui/core/Tooltip'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import InfoArea from 'components/InfoArea/InfoArea.jsx'
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { registerUser } from '../../actions/authActions'
 import { withRouter } from 'react-router-dom'
-
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: '#337467'
-		}
-	}
-})
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -50,6 +47,7 @@ class SignUp extends React.Component {
 			simpleSelect: '',
 			name: '',
 			email: '',
+			company: '',
 			password: '',
 			password2: '',
 			structure: '',
@@ -63,45 +61,13 @@ class SignUp extends React.Component {
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
-	handleCloseAlert = (reason) => {
-		if (reason === 'clickaway') {
-			return
-		}
 
-		this.setState({ displaySnack: false })
-	}
-	componentDidMount() {
-		if (this.props.auth.authenticated) {
-			const snack = {
-				variant: 'success',
-				message: 'Enregistrer avec succés!'
-			}
-
-			this.setState({ snack, displaySnack: true })
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
-		}
-	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.errors) {
-			const snack = {
-				variant: 'warning',
-				message: 'Oups!'
-			}
 			this.setState({
+				displaySnack: false,
 				errors: nextProps.errors
 			})
-			this.setState({ snack, displaySnack: true })
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
 		}
 	}
 
@@ -118,12 +84,14 @@ class SignUp extends React.Component {
 			structure: this.state.structure,
 			fonction: this.state.fonction,
 			location: this.state.location,
-			last_name: this.state.last_name
+			last_name: this.state.last_name,
+			company: this.state.company
 		}
 		const snack = {
 			variant: 'success',
 			message: 'Enregistrer avec succés!'
 		}
+
 		this.setState({ snack, displaySnack: true })
 		setTimeout(
 			function() {
@@ -132,7 +100,7 @@ class SignUp extends React.Component {
 			1500
 		)
 
-		this.props.registerUser(newUser)
+		this.props.registerUser(newUser, this.props.history)
 	}
 	handleSimple = (event) => {
 		this.setState({ [event.target.name]: event.target.value })
@@ -157,90 +125,121 @@ class SignUp extends React.Component {
 		const { classes } = this.props
 		return (
 			<div>
-				<Button
-					round
-					onClick={() => this.handleClickOpen('signupModal')}
-					style={{
-						marginLeft: 20,
-						width: 120,
-						backgroundColor: '#fff',
-						color: '#000000',
-						paddingBottom: 0,
-						padding: 0,
-						margin: 0,
-						marginTop: 20,
-						height: 20
-					}}
-				>
-					<b>Devenir membre</b>
-				</Button>
-				<Dialog
-					classes={{
-						root: classes.modalRoot,
-						paper: classes.modal + ' ' + classes.modalSignup
-					}}
-					open={this.state.signupModal}
-					TransitionComponent={Transition}
-					keepMounted
-					onClose={() => this.handleClose('signupModal')}
-					aria-labelledby="signup-modal-slide-title"
-					aria-describedby="signup-modal-slide-description"
-				>
-					<Card plain className={classes.modalSignupCard}>
-						<DialogTitle id="signup-modal-slide-title" disableTypography className={classes.modalHeader}>
-							<Button
-								simple
-								className={classes.modalCloseButton}
-								key="close"
-								aria-label="Close"
-								onClick={() => this.handleClose('signupModal')}
+				<div>
+					<Button
+						round
+						onClick={() => this.handleClickOpen('signupModal')}
+						style={{
+							width: 120,
+							backgroundColor: '#fff',
+							color: '#000000',
+							paddingTop: 5,
+							marginTop: 10,
+							height: 20
+						}}
+					>
+						<Assignment /> Inscription
+					</Button>
+
+					<Dialog
+						classes={{
+							root: classes.modalRoot,
+							paper: classes.modal + ' ' + classes.modalSignup
+						}}
+						open={this.state.signupModal}
+						TransitionComponent={Transition}
+						keepMounted
+						onClose={() => this.handleClose('signupModal')}
+						aria-labelledby="signup-modal-slide-title"
+						aria-describedby="signup-modal-slide-description"
+					>
+						<Card plain className={classes.modalSignupCard}>
+							<DialogTitle
+								id="signup-modal-slide-title"
+								disableTypography
+								className={classes.modalHeader}
 							>
-								{' '}
-								<Close className={classes.modalClose} />
-							</Button>
-
-							<h5 className={`${classes.cardTitle} ${classes.modalTitle}`} style={{ marginLeft: 30 }}>
-								Devenir membre
-							</h5>
-							<div style={{ textAlign: 'center', marginTop: 20, marginBottom: 20 }}>
-								<Tooltip
-									id="tooltip-top"
-									title="Consulter notre page Linkedin !"
-									placement="top"
-									classes={{ tooltip: classes.tooltip }}
+								<Button
+									simple
+									className={classes.modalCloseButton}
+									key="close"
+									aria-label="Close"
+									onClick={() => this.handleClose('signupModal')}
 								>
-									<Button justIcon round color="linkedin">
-										<i className="fab fa-linkedin" />
-									</Button>
-								</Tooltip>
-								{` `}
-								<Tooltip
-									id="tooltip-right"
-									title="Consulter notre page Facebook !"
-									placement="right"
-									classes={{ tooltip: classes.tooltip }}
-								>
-									<Button justIcon round color="facebook">
-										<i className="fab fa-facebook-f" />
-									</Button>
-								</Tooltip>
-								{` `}
-							</div>
-						</DialogTitle>
+									{' '}
+									<Close className={classes.modalClose} />
+								</Button>
+								<div>
+									<h2
+										className={`${classes.cardTitle} ${classes.modalTitle}`}
+										style={{ justifyContent: 'center' }}
+									>
+										Inscription
+									</h2>
+									<h5
+										className={`${classes.cardTitle} ${classes.modalTitle}`}
+										style={{ justifyContent: 'center' }}
+									>
+										{' '}
+										Pour acceder à des informations plus détaillées ...
+									</h5>
+								</div>
+							</DialogTitle>
 
-						<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
-							<form noValidate onSubmit={this.onSubmit} className={classes.form} style={{ marginTop: 0 }}>
+							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
 								<GridContainer>
 									<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
-												placeholder="Votre nom ..."
+										<InfoArea
+											className={classes.infoArea}
+											title="Marketing"
+											description={
+												<p>
+													We've created the marketing campaign of the website. It was a very
+													interesting collaboration.
+												</p>
+											}
+											icon={Timeline}
+											iconColor="rose"
+										/>
+										<InfoArea
+											className={classes.infoArea}
+											title="Fully Coded in HTML5"
+											description={
+												<p>
+													We've developed the website with HTML5 and CSS3. The client has
+													access to the code using GitHub.
+												</p>
+											}
+											icon={Code}
+											iconColor="primary"
+										/>
+										<InfoArea
+											className={classes.infoArea}
+											title="Built Audience"
+											description={
+												<p>
+													There is also a Fully Customizable CMS Admin Dashboard for this
+													product.
+												</p>
+											}
+											icon={Group}
+											iconColor="info"
+										/>
+									</GridItem>
+									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+										<form
+											noValidate
+											onSubmit={this.onSubmit}
+											className={classes.form}
+											style={{ marginTop: 40 }}
+										>
+											<TextFieldGroup
+												placeholder="Nom ..."
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="name"
 												value={this.state.name}
 												onChange={this.onChange}
+												error={errors.registerName}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -252,22 +251,14 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.name && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.name}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
-												placeholder="Votre prénom ..."
+											<br /> <br />
+											<TextFieldGroup
+												placeholder="Prénom ..."
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="last_name"
 												value={this.state.last_name}
 												onChange={this.onChange}
+												error={errors.registerLast_name}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -279,22 +270,14 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.last_name && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.last_name}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
-												placeholder="Votre structure de travail"
+											<br /> <br />
+											{/* <TextFieldGroup
+												placeholder="Structure"
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="structure"
 												value={this.state.structure}
 												onChange={this.onChange}
+												error={errors.registerStructure}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -305,22 +288,32 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.structure && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.structure}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
-												placeholder="Votre lieu de travail"
+											<br /> <br />
+											<TextFieldGroup
+												placeholder="Etablissement"
+												name="company"
+												value={this.state.company}
+												onChange={this.onChange}
+												error={errors.registerCompany}
+												InputProps={{
+													startAdornment: (
+														<InputAdornment position="start">
+															<div>
+																<LocationCity />
+															</div>
+														</InputAdornment>
+													)
+												}}
+											/>
+											<br />
+											<br />
+											<TextFieldGroup
+												placeholder="Localisation"
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="location"
 												value={this.state.location}
 												onChange={this.onChange}
+												error={errors.registerLocation}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -331,76 +324,55 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.location && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.location}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-									</GridItem>
-									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
-												placeholder="Votre poste"
+										</GridItem>
+										<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+											<TextFieldGroup
+												placeholder="Fonction"
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="fonction"
 												value={this.state.fonction}
 												onChange={this.onChange}
+												error={errors.registerFonction}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
 															<div>
+																{' '}
 																<i class="material-icons">work</i>
 															</div>
 														</InputAdornment>
 													)
 												}}
 											/>
-											{errors.fonction && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.fonction}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
-												style={{ width: 300 }}
+											<br /> <br /> */}
+											<TextFieldGroup
+												type="email"
 												placeholder="Votre adresse email"
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="email"
 												value={this.state.email}
 												onChange={this.onChange}
+												error={errors.registerEmail}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
 															<div>
+																{' '}
 																<Mail />
 															</div>
 														</InputAdornment>
 													)
 												}}
 											/>
-											{errors.email && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.email}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
+											<br /> <br />
+											<TextFieldGroup
 												type="password"
-												style={{ width: 300 }}
-												placeholder="Votre mot de passe"
+												placeholder="Mot de passe"
 												className={classes.margin}
-												id="mui-theme-provider-input"
 												name="password"
 												value={this.state.password}
 												onChange={this.onChange}
+												error={errors.registerPassword}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -411,22 +383,15 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.password && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.password}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
-										<br /> <br />
-										<MuiThemeProvider theme={theme}>
-											<TextField
+											<br /> <br />
+											<TextFieldGroup
 												type="password"
-												style={{ width: 300 }}
-												placeholder="Confirmer votre mot de passe"
+												placeholder="Confirmer le mot de passe"
 												className={classes.margin}
 												name="password2"
 												value={this.state.password2}
 												onChange={this.onChange}
+												error={errors.registerPassword2}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">
@@ -437,26 +402,24 @@ class SignUp extends React.Component {
 													)
 												}}
 											/>
-											{errors.password2 && (
-												<div className="invalid-feedback" style={{ color: 'red' }}>
-													{errors.password2}{' '}
-												</div>
-											)}
-										</MuiThemeProvider>
+											<div
+												className={classes.textCenter}
+												style={{ marginTop: 40, justifyContent: 'center' }}
+											>
+												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
+													S'enregistrer
+												</Button>
+											</div>
+										</form>
 									</GridItem>
 								</GridContainer>
-								<div className={classes.textCenter} style={{ marginTop: 40, justifyContent: 'center' }}>
-									<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-										S'enregistrer
-									</Button>
-								</div>
-							</form>
-						</DialogContent>
-					</Card>
-				</Dialog>
+							</DialogContent>
+						</Card>
+					</Dialog>
+				</div>
 				<Snackbar
 					anchorOrigin={{
-						vertical: 'top',
+						vertical: 'bottom',
 						horizontal: 'right'
 					}}
 					open={this.state.displaySnack}
@@ -468,7 +431,7 @@ class SignUp extends React.Component {
 	}
 }
 
-SignUp.PropTypes = {
+SignUp.propTypes = {
 	registerUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired

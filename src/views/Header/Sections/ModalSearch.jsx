@@ -30,7 +30,7 @@ class ModalSearch extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			searchModal: false
+			searchModal: true
 		}
 	}
 	handleClickOpen(modal) {

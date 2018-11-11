@@ -7,16 +7,18 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
-
 // @material-ui/icons
+import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
-import Face from '@material-ui/icons/Face'
+import Icon from '@material-ui/core/Icon'
 
 // core components
+import TextFieldGroup from 'views/common/TextFieldGroup.js'
+import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
+import SignUp from 'views/SignupPage/SignUpPage.js'
+import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -28,13 +30,7 @@ import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: '#337467'
-		}
-	}
-})
+
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -46,26 +42,22 @@ class SeConnecter extends React.Component {
 			loginModal: false,
 			email: '',
 			password: '',
-			errors: {}
+			errors: {},
+			displaySnack: false,
+			snack: { variant: 'warning', message: '' }
 		}
 
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.isAuthenticated) {
-			this.props.history.push('/')
-		}
-
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors
 			})
 		}
 	}
-	componentDidMount() {
-		if (this.props.auth.isAuthenticated) this.props.history.push('/')
-	}
+
 	onSubmit(e) {
 		e.preventDefault()
 		const userData = {
@@ -94,147 +86,141 @@ class SeConnecter extends React.Component {
 		const { classes } = this.props
 		return (
 			<div>
-				<Button
-					round
-					onClick={() => this.handleClickOpen('loginModal')}
-					style={{
-						marginLeft: 20,
-						width: 120,
-						backgroundColor: '#337467',
-						padding: 0,
-						paddingBottom: 0,
-						margin: 0,
-						marginTop: 20
-					}}
-				>
-					<Assignment /> <b>Se connecter</b>
-				</Button>
-				<Dialog
-					classes={{
-						root: classes.modalRoot,
-						paper: classes.modal + ' ' + classes.modalLogin
-					}}
-					open={this.state.loginModal}
-					TransitionComponent={Transition}
-					keepMounted
-					onClose={() => this.handleClose('loginModal')}
-					aria-labelledby="login-modal-slide-title"
-					aria-describedby="login-modal-slide-description"
-				>
-					<Card plain className={classes.modalLoginCard}>
-						<DialogTitle id="login-modal-slide-title" disableTypography className={classes.modalHeader}>
-							<CardHeader
-								plain
-								style={{ backgroundColor: '#337467', height: 90 }}
-								className={`${classes.textCenter} ${classes.cardLoginHeader}`}
-							>
-								<h4 className={classes.cardTitle} style={{ color: '#eee' }}>
-									Connectez-vous
-								</h4>
-								<Button
-									simple
-									className={classes.modalCloseButton}
-									key="close"
-									aria-label="Close"
-									onClick={() => this.handleClose('loginModal')}
+				<div>
+					<Button
+						round
+						onClick={() => this.handleClickOpen('loginModal')}
+						style={{
+							marginLeft: 50,
+							width: 120,
+							backgroundColor: '#337467',
+							padding: 0,
+							paddingBottom: 0,
+							margin: 0,
+							marginTop: 20
+						}}
+					>
+						<Assignment /> <b>Se connecter</b>
+					</Button>
+					<Dialog
+						classes={{
+							root: classes.modalRoot,
+							paper: classes.modal + ' ' + classes.modalLogin
+						}}
+						open={this.state.loginModal}
+						TransitionComponent={Transition}
+						keepMounted
+						onClose={() => this.handleClose('loginModal')}
+						aria-labelledby="login-modal-slide-title"
+						aria-describedby="login-modal-slide-description"
+					>
+						<Card plain className={classes.modalLoginCard}>
+							<DialogTitle id="login-modal-slide-title" disableTypography className={classes.modalHeader}>
+								<CardHeader
+									plain
+									style={{ backgroundColor: '#337467', height: 90 }}
+									className={`${classes.textCenter} ${classes.cardLoginHeader}`}
 								>
-									{' '}
-									<Close className={classes.modalClose} />
-								</Button>
+									<h4 className={classes.cardTitle} style={{ color: '#eee' }}>
+										Connectez-vous
+									</h4>
+									<Button
+										simple
+										className={classes.modalCloseButton}
+										key="close"
+										aria-label="Close"
+										onClick={() => this.handleClose('loginModal')}
+									>
+										{' '}
+										<Close className={classes.modalClose} />
+									</Button>
 
-								<div className={classes.socialLine} />
-							</CardHeader>
-						</DialogTitle>
-						<DialogContent id="login-modal-slide-description" className={classes.modalBody}>
-							<form onSubmit={this.onSubmit}>
-								<CardBody className={classes.cardLoginBody} style={{ height: 150, marginTop: 30 }}>
-									<MuiThemeProvider theme={theme}>
-										<TextField
-											style={{ width: 250 }}
+									<div className={classes.socialLine} />
+								</CardHeader>
+							</DialogTitle>
+							<DialogContent id="login-modal-slide-description" className={classes.modalBody}>
+								<form onSubmit={this.onSubmit}>
+									<CardBody className={classes.cardLoginBody} style={{ height: 150, marginTop: 30 }}>
+										<TextFieldGroup
+											type="email"
 											placeholder="Email..."
 											className={classes.margin}
-											id="mui-theme-provider-input"
 											name="email"
 											value={this.state.email}
 											onChange={this.onChange}
+											error={errors.email}
 											InputProps={{
 												startAdornment: (
 													<InputAdornment position="start">
 														<div>
-															{' '}
 															<Mail />
 														</div>
 													</InputAdornment>
 												)
 											}}
 										/>
-										{errors.email && (
-											<div className="invalid-feedback" style={{ color: 'red' }}>
-												{errors.email}{' '}
-											</div>
-										)}
-									</MuiThemeProvider>
-									<br /> <br />
-									<MuiThemeProvider theme={theme}>
-										<TextField
+										<br /> <br />
+										<TextFieldGroup
 											type="password"
-											style={{ width: 250 }}
 											placeholder="Votre mot de passe ..."
 											className={classes.margin}
-											id="mui-theme-provider-input"
 											name="password"
 											value={this.state.password}
 											onChange={this.onChange}
+											error={errors.password}
 											InputProps={{
 												startAdornment: (
 													<InputAdornment position="start">
 														<div>
-															{' '}
-															<Face />
+															<Icon className={classes.icon}>lock_outline</Icon>
 														</div>
 													</InputAdornment>
 												)
 											}}
 										/>
-										{errors.password && (
-											<div className="invalid-feedback" style={{ color: 'red' }}>
-												{errors.password}{' '}
-											</div>
-										)}
-									</MuiThemeProvider>
-								</CardBody>
-								<DialogActions
-									className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
-									style={{ paddingBottom: 30 }}
-								>
-									<Button
-										type="submit"
-										style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
-										simple
-										size="lg"
+									</CardBody>
+									<DialogActions
+										className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
+										style={{ paddingBottom: 30 }}
 									>
-										<i class="material-icons">power_settings_new</i>
-									</Button>
-								</DialogActions>
-							</form>
-						</DialogContent>
-						<DialogActions className={`${classes.modalFooter} ${classes.justifyContentCenter}`}>
-							<p>Mot de passe oublié ?</p>
-						</DialogActions>
-						<DialogActions
-							className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
-							style={{ paddingBottom: 10 }}
-						>
-							<p>Devenir membre</p>
-						</DialogActions>
-					</Card>
-				</Dialog>
+										<Button
+											type="submit"
+											style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+											simple
+											size="lg"
+										>
+											<i class="material-icons">power_settings_new</i>
+										</Button>
+									</DialogActions>
+								</form>
+							</DialogContent>
+							<DialogActions className={`${classes.modalFooter} ${classes.justifyContentCenter}`}>
+								<ForgotPassword />
+							</DialogActions>
+							<DialogActions
+								className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
+								style={{ paddingBottom: 10 }}
+							>
+								<SignUp />
+							</DialogActions>
+						</Card>
+					</Dialog>
+					<Snackbar
+						anchorOrigin={{
+							vertical: 'bottom',
+							horizontal: 'right'
+						}}
+						open={this.state.displaySnack}
+					>
+						<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
+					</Snackbar>
+				</div>
 			</div>
 		)
 	}
 }
 
-SeConnecter.PropTypes = {
+SeConnecter.propTypes = {
 	loginUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired

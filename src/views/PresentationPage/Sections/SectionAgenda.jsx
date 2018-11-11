@@ -17,11 +17,10 @@ class SectionNotifications extends React.Component {
 						<div />
 						<div className={classes.title}>
 							<h3 style={{ color: '#cc4949' }}>
-								{' '}
 								<i class="material-icons" style={{ color: '#cc4949' }}>
 									date_range
 								</i>{' '}
-								EVÈNEMENTS
+								AGENDA
 							</h3>
 						</div>
 					</div>
@@ -50,18 +49,7 @@ class SectionNotifications extends React.Component {
 						close
 						color="green"
 					/>
-					<SnackbarContent
-						message={
-							<span>
-								<b>18 novembre 2018</b>
-								<br />
-								<b style={{ textAlign: 'left' }}>Assemblée au congrés nationale</b>
-								<br /> Maison medicale Corpalif <br />11 rue canard<br />78000 Paris
-							</span>
-						}
-						close
-						color="green"
-					/>
+
 					<Clearfix />
 				</div>
 			</GridContainer>

@@ -12,6 +12,7 @@ import Card from 'components/Card/Card.jsx'
 
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 import SectionAgenda from './SectionAgenda'
+import SectionOffres from './SectionOffres'
 import image1 from 'assets/img/bg.jpg'
 import image2 from 'assets/img/bg2.jpg'
 import image3 from 'assets/img/bg3.jpg'
@@ -35,7 +36,7 @@ class SectionCarousel extends React.Component {
 			<div className={classes.section} id="carousel">
 				<div className={classes.container}>
 					<GridContainer>
-						<GridItem xs={12} sm={10} md={8} className={classes.marginAuto} style={{ marginTop: 20 }}>
+						<GridItem xs={12} sm={10} md={8} className={classes.marginAuto} style={{ marginTop: 40 }}>
 							<h3 className={classes.title} style={{ paddingBottom: 10, color: '#cc4949' }}>
 								<i class="material-icons" style={{ color: '#cc4949' }}>
 									description
@@ -75,6 +76,7 @@ class SectionCarousel extends React.Component {
 						</GridItem>
 						<div style={{ margin: 'auto' }}>
 							<SectionAgenda />
+							<SectionOffres />
 						</div>
 					</GridContainer>
 				</div>

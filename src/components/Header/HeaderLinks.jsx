@@ -10,6 +10,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Icon from '@material-ui/core/Icon'
 import Snackbar from '@material-ui/core/Snackbar'
+
 // @material-ui/icons
 import CoordinationRegionale from 'components/Header/SectionHeader/CoordinationRegionale.jsx'
 import LesSoinsPalliatifs from 'components/Header/SectionHeader/LesSoinsPalliatifs.jsx'
@@ -21,6 +22,7 @@ import LocationOn from '@material-ui/icons/LocationOn'
 import Layers from '@material-ui/icons/Layers'
 import Work from '@material-ui/icons/Work'
 // core components
+
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import SignUp from 'views/SignupPage/SignUpPage'
 import SeConnecter from 'views/SigninPage/SigninPage'
@@ -29,9 +31,12 @@ import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 
 // Redux
+
 import { compose } from 'redux'
 import { connect } from 'react-redux'
+import { getCurrentProfile } from '../../actions/profileActions'
 import { logoutUser } from '../../actions/authActions'
+import { clearCurrentProfile } from '../../actions/profileActions'
 class HeaderLinks extends React.Component {
 	constructor(props) {
 		super(props)
@@ -46,41 +51,41 @@ class HeaderLinks extends React.Component {
 	}
 	onLogoutClick(e) {
 		e.preventDefault()
+		this.props.clearCurrentProfile()
 		this.props.logoutUser()
 	}
-
+	componentDidMount() {
+		this.props.getCurrentProfile()
+	}
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.isAuthenticated) {
-			const snack = {
-				variant: 'success',
-				message: 'Connecté avec succés!'
-			}
-			this.setState({ loginModal: false })
-
-			this.setState({ snack, displaySnack: true })
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
-		}
-
-		if (!nextProps.auth.isAuthenticated) {
-			const snack = {
-				variant: 'warning',
-				message: 'Deconnecté avec succés!'
-			}
-			this.setState({ loginModal: false })
-
-			this.setState({ snack, displaySnack: true })
-			setTimeout(
-				function() {
-					this.setState({ displaySnack: false })
-				}.bind(this),
-				1500
-			)
-		}
+		// if (nextProps.auth.isAuthenticated) {
+		// 	const snack = {
+		// 		variant: 'success',
+		// 		message: 'Connecté avec succés!'
+		// 	}
+		// 	this.setState({ snack, displaySnack: true })
+		// 	{
+		// 	}
+		// 	setTimeout(
+		// 		function() {
+		// 			this.setState({ displaySnack: false })
+		// 		}.bind(this),
+		// 		1500
+		// 	)
+		// }
+		// if (!nextProps.auth.isAuthenticated) {
+		// 	const snack = {
+		// 		variant: 'warning',
+		// 		message: 'Deconnecté avec succés!'
+		// 	}
+		// 	this.setState({ snack, displaySnack: true })
+		// 	setTimeout(
+		// 		function() {
+		// 			this.setState({ displaySnack: false })
+		// 		}.bind(this),
+		// 		1500
+		// 	)
+		// }
 	}
 
 	handleCloseAlert = (reason) => {
@@ -126,22 +131,74 @@ class HeaderLinks extends React.Component {
 			}
 			animateScroll()
 		}
-		var onClickSections = {}
 
 		const { classes, dropdownHoverColor } = this.props
-		const { isAuthenticated } = this.props.auth
+		const { isAuthenticated, user } = this.props.auth
+		let dashboardContent
+
+		if (user) {
+			// User is logged in but has no profile
+			dashboardContent = (
+				<div style={{ marginLeft: 12, marginTop: 10, display: 'flex', justifyContent: 'space-between' }}>
+					Bonjour
+					<b>
+						<p style={{ color: '#337467', marginLeft: 5 }}>
+							{''} {user.last_name}
+						</p>
+					</b>
+				</div>
+			)
+		}
+
 		const authLinks = (
-			<Button
-				round
-				onClick={this.onLogoutClick.bind(this)}
-				style={{
-					backgroundColor: '#337467',
-					marginLeft: '20px',
-					padding: '10px'
-				}}
-			>
-				Deconnexion
-			</Button>
+			<div>
+				<ListItem className={classes.listItem} style={{ display: 'flex' }}>
+					{dashboardContent}
+					<CustomDropdown
+						left
+						caret={false}
+						hoverColor="transparent"
+						buttonText={
+							<i class="material-icons" style={{ fontSize: '30px' }}>
+								account_circle
+							</i>
+						}
+						buttonProps={{
+							className: classes.navLink + ' ' + classes.imageDropdownButton,
+							color: 'transparent'
+						}}
+						dropdownList={[
+							<Link
+								to="/dashboard"
+								style={{
+									color: '#000000',
+									display: 'flex'
+								}}
+							>
+								<i class="material-icons" style={{ marginRight: 5 }}>
+									account_circle
+								</i>{' '}
+								Mon profile
+							</Link>,
+							// <Button onClick={this.onLogoutClick.bind(this)}> Deconnexion</Button>,
+
+							<Button
+								onClick={this.onLogoutClick.bind(this)}
+								style={{
+									padding: 10,
+									backgroundColor: '#cc4949'
+								}}
+							>
+								{' '}
+								<i class="material-icons" style={{ marginRight: 5 }}>
+									exit_to_app
+								</i>{' '}
+								Deconnexion
+							</Button>
+						]}
+					/>
+				</ListItem>
+			</div>
 		)
 
 		const guestLinks = (
@@ -158,7 +215,7 @@ class HeaderLinks extends React.Component {
 					<CustomDropdown
 						noLiPadding
 						navDropdown
-						hoverColor={dropdownHoverColor}
+						hoverColor="transparent"
 						buttonText="Veille médicale"
 						buttonProps={{
 							className: classes.navLink,
@@ -186,7 +243,7 @@ class HeaderLinks extends React.Component {
 					<CustomDropdown
 						noLiPadding
 						navDropdown
-						hoverColor={dropdownHoverColor}
+						hoverColor="transparent"
 						buttonText="Emploi - Formation"
 						buttonProps={{
 							className: classes.navLink,
@@ -234,12 +291,16 @@ HeaderLinks.defaultProps = {
 }
 
 HeaderLinks.propTypes = {
+	getCurrentProfile: PropTypes.func.isRequired,
 	dropdownHoverColor: PropTypes.oneOf([ 'dark', 'primary', 'info', 'success', 'warning', 'danger', 'rose' ]),
 	logoutUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
+	profile: state.profile,
 	auth: state.auth
 })
-export default compose(withStyles(headerLinksStyle))(connect(mapStateToProps, { logoutUser })(HeaderLinks))
+export default compose(withStyles(headerLinksStyle))(
+	connect(mapStateToProps, { logoutUser, clearCurrentProfile, getCurrentProfile })(HeaderLinks)
+)

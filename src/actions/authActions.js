@@ -1,26 +1,27 @@
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken'
 import jwt_decode from 'jwt-decode'
-import { GET_ERRORS, SET_CURRENT_USER } from './types'
+
+import { GET_ERRORS, SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING } from './types'
 
 // Register User
-export const registerUser = (userData) => (dispatch) => {
-	axios.post('/api/users/register', userData).then((res) => window.location.replace('/')).catch((err) =>
+export const registerUser = (newUser, history) => (dispatch) => {
+	axios.post('/api/users/register', newUser).then((res) => history.push('/')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
 		})
 	)
 }
-// Login - Get User Token
 
+// Login - Get User Token
 export const loginUser = (userData) => (dispatch) => {
 	axios
 		.post('/api/users/login', userData)
 		.then((res) => {
 			// Save to localStorage
 			const { token } = res.data
-			// Set token to localStorage
+			// Set token to ls
 			localStorage.setItem('jwtToken', token)
 			// Set token to Auth header
 			setAuthToken(token)
@@ -36,6 +37,7 @@ export const loginUser = (userData) => (dispatch) => {
 			})
 		)
 }
+
 // Set logged in user
 export const setCurrentUser = (decoded) => {
 	return {
@@ -52,4 +54,52 @@ export const logoutUser = () => (dispatch) => {
 	setAuthToken(false)
 	// Set current user to {} which will set isAuthenticated to false
 	dispatch(setCurrentUser({}))
+}
+// Get Profile
+export const getProfile = () => (dispatch) => {
+	dispatch(setProfileLoading())
+	axios
+		.get('/api/users/')
+		.then((res) =>
+			dispatch({
+				type: GET_PROFILE,
+				payload: res.data
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_PROFILE,
+				payload: {}
+			})
+		)
+}
+// Profile loading
+export const setProfileLoading = () => {
+	return {
+		type: PROFILE_LOADING
+	}
+}
+
+// Update Profile
+export const updateProfile = (userData, history) => (dispatch) => {
+	axios.post('/api/users/', userData).then((res) => history.push('/dashboard')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+// Forgot password
+export const forgotpassword = (userData) => (dispatch) => {
+	axios.post('/api/users/forgot_password', userData).then((res) => {}).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+
+// Receive Email Contact
+export const receivemail = (first_name, last_name, email, message) => (dispatch) => {
+	axios.post('/api/users/api/form', first_name, last_name, email, message).then((res) => {})
 }
