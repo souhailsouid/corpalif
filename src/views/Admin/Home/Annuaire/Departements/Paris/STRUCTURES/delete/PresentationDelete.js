@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import Modal from './delete'
-class Delete extends React.Component {
+class DeletePARISSTRUCTURES extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -69,8 +69,8 @@ class Delete extends React.Component {
 	}
 }
 
-Delete.propTypes = {
+DeletePARISSTRUCTURES.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(Delete))
+export default compose(withStyles(profilePageStyle))(withRouter(DeletePARISSTRUCTURES))

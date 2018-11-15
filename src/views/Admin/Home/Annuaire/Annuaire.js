@@ -154,7 +154,7 @@ class AnnuaireAdminHome extends React.Component {
 																	<CardBody background className={classes.cardBody}>
 																		<a href="#pablo">
 																			<h2 className={classes.cardTitleWhite}>
-																				HAD
+																				Equipes mobiles
 																			</h2>
 																		</a>
 																	</CardBody>
@@ -286,77 +286,206 @@ class AnnuaireAdminHome extends React.Component {
 									},
 									{
 										tabButton: 'Essonne',
-										tabIcon: People,
+										tabIcon: Camera,
 										tabContent: (
 											<div>
 												<GridContainer>
 													<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
 														<GridContainer className={classes.collections}>
 															<GridItem xs={12} sm={12} md={6}>
-																<Card
-																	background
-																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
-																	}}
-																>
-																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
+																<Link to="/admin/ESSONNE/usp">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage: 'url(' + paris + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
 																			<h2 className={classes.cardTitleWhite}>
-																				Coordination régionale
+																				USP
 																			</h2>
-																		</a>
-																	</CardBody>
-																</Card>
+																		</CardBody>
+																	</Card>
+																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={6}>
-																<Card
-																	background
-																	style={{
-																		backgroundImage: 'url(' + darrenColeshill + ')'
-																	}}
-																>
-																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
-																			<h2 className={classes.cardTitleWhite}>
-																				Les soins palliatifs
-																			</h2>
-																		</a>
-																	</CardBody>
-																</Card>
+																<Link to="/admin/ESSONNE/reseaux">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage:
+																				'url(' + clemOnojeghuo + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
+																			<a href="#pablo">
+																				<h2 className={classes.cardTitleWhite}>
+																					Réseaux de soins palliatifs
+																				</h2>
+																			</a>
+																		</CardBody>
+																	</Card>
+																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={6}>
-																<Card
-																	background
-																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
-																	}}
-																>
-																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
-																			<h2 className={classes.cardTitleWhite}>
-																				Veille médicale
-																			</h2>
-																		</a>
-																	</CardBody>
-																</Card>
+																<Link to="/admin/ESSONNE/had">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage:
+																				'url(' + clemOnojeghuo + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
+																			<a href="#pablo">
+																				<h2 className={classes.cardTitleWhite}>
+																					Equipes mobiles
+																				</h2>
+																			</a>
+																		</CardBody>
+																	</Card>
+																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={6}>
-																<Card
-																	background
-																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
-																	}}
-																>
-																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
-																			<h2 className={classes.cardTitleWhite}>
-																				Emploi-Formation
-																			</h2>
-																		</a>
-																	</CardBody>
-																</Card>
+																<Link to="/admin/ESSONNE/lits">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage:
+																				'url(' + clemOnojeghuo + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
+																			<a href="#pablo">
+																				<h2 className={classes.cardTitleWhite}>
+																					Lits identifiés
+																				</h2>
+																			</a>
+																		</CardBody>
+																	</Card>
+																</Link>
+															</GridItem>
+															<GridItem xs={12} sm={12} md={6}>
+																<Link to="/admin/ESSONNE/structures">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage:
+																				'url(' + clemOnojeghuo + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
+																			<a href="#pablo">
+																				<h3 className={classes.cardTitleWhite}>
+																					LES STRUCTURES <br />D'
+																					HOSPITALISATION <br />À DOMICILE
+																				</h3>
+																			</a>
+																		</CardBody>
+																	</Card>
+																</Link>
+															</GridItem>
+															<GridItem xs={12} sm={12} md={6}>
+																<Link to="/admin/ESSONNE/association">
+																	<Card
+																		background
+																		style={{
+																			backgroundImage:
+																				'url(' + clemOnojeghuo + ')'
+																		}}
+																	>
+																		<CardBody
+																			background
+																			className={classes.cardBody}
+																		>
+																			<a href="#pablo">
+																				<h2 className={classes.cardTitleWhite}>
+																					Association <br /> -<br /> Benevoles
+																				</h2>
+																			</a>
+																		</CardBody>
+																	</Card>
+																</Link>
 															</GridItem>
 														</GridContainer>
+													</GridItem>
+													<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+														<h4 className={classes.title}>Stats </h4>
+														<ul className={classes.listUnstyled}>
+															<li>
+																<b>60 structures</b>
+															</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	USP
+																</h7>
+															</li>
+															<li>6</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	Reseaux
+																</h7>
+															</li>
+															<li>6</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	Association-Benevoles
+																</h7>
+															</li>
+															<li>60</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	Lits identifiés
+																</h7>
+															</li>
+															<li>60</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	HAD
+																</h7>
+															</li>
+															<li>60</li>
+															<li>
+																<h7
+																	className={classes.title}
+																	style={{ color: 'rgb(51, 116, 103)' }}
+																>
+																	Equipes mobiles
+																</h7>
+															</li>
+															<li>60</li>
+														</ul>
+														<hr />
 													</GridItem>
 												</GridContainer>
 											</div>
@@ -368,24 +497,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/SEINETMARNE/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINEETMARNE/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINEETMARNE/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINEETMARNE/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINEETMARNE/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINEETMARNE/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -396,24 +677,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/hautdeseine/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/hautdeseine/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/hautdeseine/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/hautdeseine/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/hautdeseine/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/hautdeseine/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -424,24 +857,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/SEINESAINTDENIS/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINESAINTDENIS/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINESAINTDENIS/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINESAINTDENIS/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINESAINTDENIS/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/SEINESAINTDENIS/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -452,24 +1037,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/VALDEMARNE/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDEMARNE/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDEMARNE/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDEMARNE/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDEMARNE/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDEMARNE/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -480,24 +1217,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/VALDOISE/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDOISE/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDOISE/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDOISE/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDOISE/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/VALDOISE/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -508,24 +1397,176 @@ class AnnuaireAdminHome extends React.Component {
 										tabContent: (
 											<GridContainer>
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
-													<GridContainer justify="center">
+													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
-																}}
-															>
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>
-																			Formulaires
-																		</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/YVELINES/usp">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>USP</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/YVELINES/reseaux">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Réseaux de soins palliatifs
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/YVELINES/had">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Equipes mobiles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/YVELINES/lits">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Lits identifiés
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/YVELINES/structures">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h3 className={classes.cardTitleWhite}>
+																				LES STRUCTURES <br />D' HOSPITALISATION{' '}
+																				<br />À DOMICILE
+																			</h3>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/YVELINES/association">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Association <br /> -<br /> Benevoles
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
+												</GridItem>
+												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
+													<h4 className={classes.title}>Stats </h4>
+													<ul className={classes.listUnstyled}>
+														<li>
+															<b>60 structures</b>
+														</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																USP
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Reseaux
+															</h7>
+														</li>
+														<li>6</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Association-Benevoles
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Lits identifiés
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																HAD
+															</h7>
+														</li>
+														<li>60</li>
+														<li>
+															<h7
+																className={classes.title}
+																style={{ color: 'rgb(51, 116, 103)' }}
+															>
+																Equipes mobiles
+															</h7>
+														</li>
+														<li>60</li>
+													</ul>
+													<hr />
 												</GridItem>
 											</GridContainer>
 										)

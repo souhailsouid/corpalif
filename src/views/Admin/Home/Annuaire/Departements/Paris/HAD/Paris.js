@@ -76,7 +76,7 @@ class ParisHAD extends React.Component {
 									<div className={classes.name}>
 										<h3 className={classes.title} style={{ color: '#cc4949' }}>
 											{' '}
-											Les HAD à Paris{' '}
+											Les équipes mobiles à Paris{' '}
 										</h3>
 									</div>
 								</div>

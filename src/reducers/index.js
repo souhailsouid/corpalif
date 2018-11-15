@@ -4,7 +4,7 @@ import errorReducer from './errorReducer'
 import resetpasswordReducer from './resetpasswordReducer'
 import profileReducer from './profileReducer'
 import annuaireReducer from './annuaireReducer'
-
+import recommandationReducer from './recommandationReducer'
 export default combineReducers({
 	auth: authReducer,
 	errors: errorReducer,
@@ -15,5 +15,6 @@ export default combineReducers({
 	reseaux: annuaireReducer,
 	lit: annuaireReducer,
 	had: annuaireReducer,
-	soin: annuaireReducer
+	soin: annuaireReducer,
+	recommandation: recommandationReducer
 })
