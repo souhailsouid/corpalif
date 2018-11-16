@@ -31,7 +31,7 @@ export const getCurrentRecommandation_id = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteRecommandation_id = (id) => (dispatch) => {
+export const delete_recommandation = (id) => (dispatch) => {
 	axios
 		.delete(`/api/recommandation/${id}`)
 		.then((res) =>
@@ -49,7 +49,7 @@ export const deleteRecommandation_id = (id) => (dispatch) => {
 }
 // Add Comment
 export const updateRecommandation = (id, Data) => (dispatch) => {
-	axios.put(`/api/recommandation/${id}`, Data).then((res) => res.data).catch((err) =>
+	axios.patch(`/api/recommandation/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -57,34 +57,19 @@ export const updateRecommandation = (id, Data) => (dispatch) => {
 	)
 }
 
-// // Create Recommandation
-// export const post = (bodyFormData, Data) => (dispatch) => {
-// 	axios({
-// 		method: 'post',
-// 		url: 'http://localhost:5000/api/recommandation/',
-// 		data: bodyFormData,
-// 		Data,
-// 		config: { headers: { 'Content-Type': 'multipart/form-data' } }
-// 	})
-// 		.then(function(response) {
-// 			//handle success
-// 			console.log(response)
-// 		})
-// 		.catch(function(response) {
-// 			//handle error
-// 			console.log(response)
-// 		})
-// }
-export const post = (file, Data) => (dispatch) => {
+// Create structure
+export const post_Recommandation = (Data, history, file) => (dispatch) => {
 	const formData = new FormData()
-	formData.append('fileUpload', file)
-
-	axios
-		.post('http://localhost:5000/api/recommandation/', formData, Data)
-		.then((response) => {
-			response.data
+	formData.append('file', file)
+	const config = {
+		headers: {
+			'content-type': 'multipart/form-data'
+		}
+	}
+	axios.post('/api/recommandation/', Data, formData, config).then((res) => history.push('/admin')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: {}
 		})
-		.catch((error) => {
-			console.log('*****  ' + error)
-		})
+	)
 }

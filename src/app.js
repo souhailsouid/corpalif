@@ -394,6 +394,15 @@ import DeleteVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE
 import PresentationRecommandation from 'views/Menu/VeilleMedicale/Recommandations/Section/getData/recommandation&outils.jsx'
 // import GetRecommandation from 'views/Menu/VeilleMedicale/Recommandations/get'
 import Recommandation_id from 'views/Menu/VeilleMedicale/Recommandations/Section/get_id/get_id.js'
+//Admin
+// VEILLE MEDICALE
+// RECOMMANDATIONS & OUTILS
+import Recommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/getData/recommandation&outils.jsx'
+import DeleteOneRecommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/delete/PresentationDelete'
+import UpdateRecommandations from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/update/Header'
+import PostRecommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/post'
+import Upload from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/upload'
+import FileUpload from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/trial'
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -1506,15 +1515,46 @@ class App extends Component {
 									path="/admin/menu/veillemedicale/recommandation&outils/recommandation"
 									component={PresentationRecommandation}
 								/> */}
-								<PrivateRoute
+								<Route
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/"
+									path="/menu/veillemedicale/recommandation&outils/"
 									component={PresentationRecommandation}
 								/>
 								<PrivateRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
+								/>
+
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/"
+									component={Recommandation}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/delete/:id"
+									component={DeleteOneRecommandation}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/update/:id"
+									component={UpdateRecommandations}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/post"
+									component={PostRecommandation}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/upload"
+									component={Upload}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/recommandation&outils/trial"
+									component={FileUpload}
 								/>
 							</Switch>
 						</div>

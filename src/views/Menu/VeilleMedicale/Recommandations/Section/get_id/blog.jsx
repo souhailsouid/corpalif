@@ -8,7 +8,7 @@ import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import Info from 'components/Typography/Info.jsx'
 import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/blogsStyle.jsx'
-
+import Button from 'components/CustomButtons/Button.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -63,17 +63,30 @@ class SectionBlogs extends React.Component {
 										</GridItem>
 										<GridItem xs={12} sm={8} md={8}>
 											<Info>
-												<h6 className={classes.cardCategory}>{recommandation.theme}</h6>
+												<h6
+													className={classes.cardCategory}
+													style={{ color: 'rgb(16, 73, 73)' }}
+												>
+													{recommandation.theme}
+												</h6>
 											</Info>
 											<h3 className={classes.cardTitle}>{recommandation.title}</h3>
 											<p className={classes.description}>
 												{recommandation.message}
+												<br />
 												<a
 													href={`http://localhost:5000/api/recommandation/${recommandation.file}`}
 													target="_blank"
 													style={{ color: 'rgb(51, 116, 103)' }}
 												>
-													Download Pdf
+													<i class="material-icons">library_books</i>
+
+													<b> {recommandation.fileName} </b>
+
+													{/* <Button round style={{ backgroundColor: 'rgb(51, 116, 103)' }}>
+														{' '}
+														{recommandation.fileName}
+													</Button> */}
 												</a>
 											</p>
 											<p className={classes.author}>
