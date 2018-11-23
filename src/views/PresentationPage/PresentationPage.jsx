@@ -13,7 +13,8 @@ import SectionInfo from 'views/PresentationPage/Sections/SectionInfo.jsx'
 import SectionMissions from 'views/PresentationPage/Sections/SectionMissions'
 // sections CSS
 import '../style.css'
-import SectionCarroussel from './Sections/SectionCarroussel'
+import SectionCarroussel from 'views/PresentationPage/Sections/SectionCarroussel'
+import SectionAdherent from 'views/PresentationPage/Sections/SectionAdherent'
 
 class PresentationPage extends React.Component {
 	componentDidMount() {
@@ -29,6 +30,7 @@ class PresentationPage extends React.Component {
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<SectionCarroussel />
 					<SectionMissions />
+					<SectionAdherent />
 					<SectionInfo />
 
 					<SectionContacts />

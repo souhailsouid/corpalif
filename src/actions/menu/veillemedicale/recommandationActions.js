@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { GET_RECOMMANDATION, DELETE_RECOMMANDATION, GET_ERRORS } from 'actions/types'
 
-// Get current Recommandation
+// Get all  Recommandation
 export const getCurrentRecommandation = () => (dispatch) => {
 	axios.get('/api/recommandation/').then((res) =>
 		dispatch({
@@ -12,7 +12,7 @@ export const getCurrentRecommandation = () => (dispatch) => {
 	)
 }
 
-// Get all Recommandations
+// Get current Recommandations
 export const getCurrentRecommandation_id = (id) => (dispatch) => {
 	axios
 		.get(`/api/recommandation/${id}`)
@@ -57,19 +57,19 @@ export const updateRecommandation = (id, Data) => (dispatch) => {
 	)
 }
 
-// Create structure
-export const post_Recommandation = (Data, history, file) => (dispatch) => {
-	const formData = new FormData()
-	formData.append('file', file)
-	const config = {
-		headers: {
-			'content-type': 'multipart/form-data'
-		}
-	}
-	axios.post('/api/recommandation/', Data, formData, config).then((res) => history.push('/admin')).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: {}
-		})
-	)
-}
+// // Create structure
+// export const post_Recommandation = (Data, history, file) => (dispatch) => {
+// 	const formData = new FormData()
+// 	formData.append('file', file)
+// 	const config = {
+// 		headers: {
+// 			'content-type': 'multipart/form-data'
+// 		}
+// 	}
+// 	axios.post('/api/recommandation/', Data, formData, config).then((res) => history.push('/admin')).catch((err) =>
+// 		dispatch({
+// 			type: GET_ERRORS,
+// 			payload: {}
+// 		})
+// 	)
+// }

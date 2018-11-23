@@ -6,13 +6,7 @@ import Table from 'components/Table/Table.jsx'
 import style from 'assets/jss/material-kit-pro-react/views/componentsSections/contentAreas.jsx'
 
 import withStyles from '@material-ui/core/styles/withStyles'
-import InfoArea from 'components/InfoArea/InfoStructureArea.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
-import DeleteIcon from '@material-ui/icons/Delete'
-import Subject from '@material-ui/icons/Subject'
-import PinDrop from '@material-ui/icons/PinDrop'
-import Phone from '@material-ui/icons/Phone'
-import Email from '@material-ui/icons/Email'
+
 const Tables = ({ classes, association }) => (
 	<div>
 		<Table

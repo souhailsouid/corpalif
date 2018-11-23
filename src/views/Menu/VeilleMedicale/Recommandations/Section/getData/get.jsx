@@ -1,4 +1,5 @@
 import React from 'react'
+
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
@@ -13,7 +14,7 @@ import { withRouter } from 'react-router-dom'
 import { getCurrentRecommandation } from 'actions/menu/veillemedicale/recommandationActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import Recommandation from './Recommandation'
+import Recommandation from './recommandation'
 class SectionRecommandations extends React.Component {
 	componentDidMount() {
 		this.props.getCurrentRecommandation()

@@ -72,7 +72,10 @@ class Modal extends React.Component {
 						open={this.state.liveDemo}
 						TransitionComponent={Transition}
 						keepMounted
-						onClose={() => this.handleClose(window.location.replace('/admin/YVELINES/structures'))}
+						onClose={() =>
+							this.handleClose(
+								window.location.replace('/admin/menu/veillemedicale/recommandation&outils/')
+							)}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>

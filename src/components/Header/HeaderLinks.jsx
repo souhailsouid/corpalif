@@ -29,14 +29,15 @@ import SeConnecter from 'views/SigninPage/SigninPage'
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
-
+import FileUpload from './upload_file/getfile'
 // Redux
 
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { getCurrentProfile } from '../../actions/profileActions'
+import { getCurrentProfile, clearCurrentProfile } from '../../actions/profileActions'
+import { getCurrentfile } from 'actions/menu/formulaire/fileActions'
 import { logoutUser } from '../../actions/authActions'
-import { clearCurrentProfile } from '../../actions/profileActions'
+
 class HeaderLinks extends React.Component {
 	constructor(props) {
 		super(props)
@@ -56,6 +57,7 @@ class HeaderLinks extends React.Component {
 	}
 	componentDidMount() {
 		this.props.getCurrentProfile()
+		this.props.getCurrentfile()
 	}
 	componentWillReceiveProps(nextProps) {
 		// if (nextProps.auth.isAuthenticated) {
@@ -131,7 +133,8 @@ class HeaderLinks extends React.Component {
 			}
 			animateScroll()
 		}
-
+		const { file } = this.props.file
+		const File = file.map((file) => <FileUpload file={file} />)
 		const { classes, dropdownHoverColor } = this.props
 		const { isAuthenticated, user } = this.props.auth
 		let dashboardContent
@@ -223,16 +226,16 @@ class HeaderLinks extends React.Component {
 						}}
 						buttonIcon={Book}
 						dropdownList={[
-							<Link to="/about-us" className={classes.dropdownLink}>
+							<Link to="/menu/veillemedicale/recommandation&outils/" className={classes.dropdownLink}>
 								<AccountBalance className={classes.dropdownIcons} /> Recommandations et outils
 							</Link>,
-							<Link to="/blog-post" className={classes.dropdownLink}>
+							<Link to="/menu/veillemedicale/actualites/" className={classes.dropdownLink}>
 								<ArtTrack className={classes.dropdownIcons} /> Actualités nationales et régionales
 							</Link>,
-							<Link to="/blog-posts" className={classes.dropdownLink}>
+							<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
 								<ViewQuilt className={classes.dropdownIcons} /> Evènements
 							</Link>,
-							<Link to="/contact-us" className={classes.dropdownLink}>
+							<Link to="/menu/veillemedicale/nosrencontres" className={classes.dropdownLink}>
 								<LocationOn className={classes.dropdownIcons} /> Nos rencontres
 							</Link>
 						]}
@@ -261,15 +264,16 @@ class HeaderLinks extends React.Component {
 					/>
 				</ListItem>
 				<ListItem className={classes.listItem}>
-					<Button
-						href="https://www.creative-tim.com/product/material-kit-pro-react"
+					{File}
+					{/* <Button
+						href={`http://localhost:5000/api/${file.file}`}
 						style={{ backgroundColor: '#cc4949', padding: 12 }}
 						target="_blank"
 						className={classes.navButton}
 						round
 					>
 						<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire <br />d'admission
-					</Button>
+					</Button> */}
 				</ListItem>
 				{isAuthenticated ? authLinks : guestLinks}
 				<Snackbar
@@ -291,6 +295,7 @@ HeaderLinks.defaultProps = {
 }
 
 HeaderLinks.propTypes = {
+	getCurrentfile: PropTypes.func.isRequired,
 	getCurrentProfile: PropTypes.func.isRequired,
 	dropdownHoverColor: PropTypes.oneOf([ 'dark', 'primary', 'info', 'success', 'warning', 'danger', 'rose' ]),
 	logoutUser: PropTypes.func.isRequired,
@@ -299,8 +304,9 @@ HeaderLinks.propTypes = {
 
 const mapStateToProps = (state) => ({
 	profile: state.profile,
+	file: state.file,
 	auth: state.auth
 })
 export default compose(withStyles(headerLinksStyle))(
-	connect(mapStateToProps, { logoutUser, clearCurrentProfile, getCurrentProfile })(HeaderLinks)
+	connect(mapStateToProps, { logoutUser, clearCurrentProfile, getCurrentProfile, getCurrentfile })(HeaderLinks)
 )

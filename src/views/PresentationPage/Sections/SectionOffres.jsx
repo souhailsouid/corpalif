@@ -6,10 +6,22 @@ import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
+import Offre from './notification/offre'
+// Redux
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { getCurrentOffre } from 'actions/HomePage/notificationActions'
 class SectionsOffres extends React.Component {
+	componentDidMount() {
+		this.props.getCurrentOffre()
+	}
 	render() {
 		const { classes } = this.props
+		const { offre } = this.props.offre
 
+		const OffreElements = offre.map((offre) => <Offre offre={offre} />)
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
@@ -24,19 +36,7 @@ class SectionsOffres extends React.Component {
 							</h3>
 						</div>
 					</div>
-
-					<SnackbarContent
-						message={
-							<span>
-								<b>18 juin 2018</b>
-								<br />
-								<b style={{ textAlign: 'left' }}>Assemblée au congrés nationale</b> <br />
-								Maison medicale Corpalif <br />11 rue canard<br />78000 Paris
-							</span>
-						}
-						close
-						color="green"
-					/>
+					{OffreElements}
 
 					<Clearfix />
 				</div>
@@ -44,5 +44,16 @@ class SectionsOffres extends React.Component {
 		)
 	}
 }
+SectionsOffres.propTypes = {
+	getCurrentOffre: PropTypes.func.isRequired,
+	offre: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+}
 
-export default withStyles(notificationsStyles)(SectionsOffres)
+const mapStateToProps = (state) => ({
+	offre: state.offre
+})
+
+export default compose(withStyles(notificationsStyles))(
+	connect(mapStateToProps, { getCurrentOffre })(withRouter(SectionsOffres))
+)

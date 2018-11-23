@@ -7,13 +7,18 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import Snackbar from '@material-ui/core/Snackbar'
 // @material-ui/icons
+import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
+import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
+import Icon from '@material-ui/core/Icon'
+
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
+import SignUp from 'views/SignupPage/SignUpPage.js'
+import SeConnecter from 'views/SigninPage/SigninPage'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -25,6 +30,7 @@ import { connect } from 'react-redux'
 import { forgotpassword } from 'actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
+import { TextField } from '@material-ui/core'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -34,12 +40,14 @@ class ForgotPassword extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			signupModal: false,
+			loginModal: false,
 			email: '',
+
 			errors: {},
 			displaySnack: false,
 			snack: { variant: 'warning', message: '' }
 		}
+
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
@@ -59,24 +67,21 @@ class ForgotPassword extends React.Component {
 		}
 		const snack = {
 			variant: 'success',
-			message: 'Un email vous a été adressé!'
+			message: 'un email vous a été adressé.!'
 		}
-
 		this.setState({ snack, displaySnack: true })
+		{
+		}
 		setTimeout(
 			function() {
 				this.setState({ displaySnack: false })
 			}.bind(this),
-			10000
+			10500
 		)
 
 		this.props.forgotpassword(userData)
-		this.setState({
-			email: '',
-			errors: '',
-			signupModal: false
-		})
 	}
+
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })
 	}
@@ -100,119 +105,116 @@ class ForgotPassword extends React.Component {
 	}
 
 	render() {
-		const { errors } = this.state
+		const { errors, validations } = this.state
 		const { classes } = this.props
 		return (
 			<div>
 				<div>
-					<div>
-						<Button
-							round
-							onClick={() => this.handleClickOpen('signupModal')}
-							style={{
-								marginLeft: 20,
-								width: 120,
-								backgroundColor: '#fff',
-								color: '#000000',
-								paddingBottom: 0,
-								padding: 0,
-								margin: 0,
-								marginTop: 20,
-								height: 20
-							}}
-						>
-							<b>Mot de passe oublié ?</b>
-						</Button>
-						<Dialog
-							classes={{
-								root: classes.modalRoot,
-								paper: classes.modal + ' ' + classes.modalSignup
-							}}
-							open={this.state.signupModal}
-							TransitionComponent={Transition}
-							keepMounted
-							onClose={() => this.handleClose('signupModal')}
-							aria-labelledby="signup-modal-slide-title"
-							aria-describedby="signup-modal-slide-description"
-						>
-							<Card plain className={classes.modalLoginCard}>
-								<DialogTitle
-									id="login-modal-slide-title"
-									disableTypography
-									className={classes.modalHeader}
+					<Button
+						round
+						onClick={() => this.handleClickOpen('loginModal')}
+						style={{
+							marginLeft: 50,
+							width: 120,
+							backgroundColor: '#337467',
+							padding: 0,
+							paddingBottom: 0,
+							margin: 0,
+							marginTop: 20
+						}}
+					>
+						<Assignment /> <b>Mot de passe oublié ?</b>
+					</Button>
+					<Dialog
+						classes={{
+							root: classes.modalRoot,
+							paper: classes.modal + ' ' + classes.modalLogin
+						}}
+						open={this.state.loginModal}
+						TransitionComponent={Transition}
+						keepMounted
+						onClose={() => this.handleClose('loginModal')}
+						aria-labelledby="login-modal-slide-title"
+						aria-describedby="login-modal-slide-description"
+					>
+						<Card plain className={classes.modalLoginCard}>
+							<DialogTitle id="login-modal-slide-title" disableTypography className={classes.modalHeader}>
+								<CardHeader
+									plain
+									style={{ backgroundColor: '#337467', height: 90 }}
+									className={`${classes.textCenter} ${classes.cardLoginHeader}`}
 								>
-									<CardHeader
-										plain
-										style={{ backgroundColor: '#337467', height: 90 }}
-										className={`${classes.textCenter} ${classes.cardLoginHeader}`}
+									<h4 className={classes.cardTitle} style={{ color: '#eee' }}>
+										Mot de passe oublié ?
+									</h4>
+									<Button
+										simple
+										className={classes.modalCloseButton}
+										key="close"
+										aria-label="Close"
+										onClick={() => this.handleClose('loginModal')}
 									>
-										<h4 className={classes.cardTitle} style={{ color: '#eee' }}>
-											Mot de passe oublié ?
-										</h4>
-										<Button
-											simple
-											className={classes.modalCloseButton}
-											key="close"
-											aria-label="Close"
-											onClick={() => this.handleClose('signupModal')}
-										>
-											{' '}
-											<Close className={classes.modalClose} />
-										</Button>
+										{' '}
+										<Close className={classes.modalClose} />
+									</Button>
 
-										<div className={classes.socialLine} />
-									</CardHeader>
-								</DialogTitle>
-								<DialogContent id="login-modal-slide-description" className={classes.modalBody}>
-									<form onSubmit={this.onSubmit}>
-										<CardBody className={classes.cardLoginBody}>
-											<TextFieldGroup
-												type="email"
-												placeholder="Email..."
-												className={classes.margin}
-												name="email"
-												value={this.state.email}
-												onChange={this.onChange}
-												error={errors.email}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div>
-																<Mail />
-															</div>
-														</InputAdornment>
-													)
-												}}
-											/>
-										</CardBody>
-										<DialogActions
-											className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
-											style={{ paddingBottom: 30 }}
+									<div className={classes.socialLine} />
+								</CardHeader>
+							</DialogTitle>
+							<DialogContent id="login-modal-slide-description" className={classes.modalBody}>
+								<form onSubmit={this.onSubmit}>
+									<CardBody className={classes.cardLoginBody} style={{ height: 150, marginTop: 30 }}>
+										<TextFieldGroup
+											type="email"
+											fullWidth
+											required
+											placeholder="Email..."
+											className={classes.margin}
+											name="email"
+											value={this.state.email}
+											onChange={this.onChange}
+											error={errors.forgot_password}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															<Mail />
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										<br /> <br />
+									</CardBody>
+									<DialogActions
+										className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
+										style={{ paddingBottom: 30 }}
+									>
+										<Button
+											type="submit"
+											style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+											simple
+											size="lg"
 										>
-											<Button
-												type="submit"
-												style={{
-													backgroundColor: '#337467',
-													height: 20,
-													width: 10,
-													marginTop: 20
-												}}
-												simple
-												size="lg"
-											>
-												<i class="material-icons">power_settings_new</i>
-											</Button>
-										</DialogActions>
-									</form>
-								</DialogContent>
-							</Card>
-						</Dialog>
-					</div>
+											Envoyez!
+										</Button>
+									</DialogActions>
+								</form>
+							</DialogContent>
+							<DialogActions className={`${classes.modalFooter} ${classes.justifyContentCenter}`} />
+							<DialogActions
+								className={`${classes.modalFooter} ${classes.justifyContentCenter}`}
+								style={{ paddingBottom: 10 }}
+							>
+								<SignUp />
+							</DialogActions>
+						</Card>
+					</Dialog>
 				</div>
 				<Snackbar
 					anchorOrigin={{
 						vertical: 'bottom',
-						horizontal: 'right'
+						horizontal: 'left'
 					}}
 					open={this.state.displaySnack}
 				>

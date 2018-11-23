@@ -9,12 +9,7 @@ import PinDrop from '@material-ui/icons/PinDrop'
 import Phone from '@material-ui/icons/Phone'
 import Email from '@material-ui/icons/Email'
 import contactsStructureSection from 'assets/jss/material-kit-pro-react/views/sectionsSections/contactstructureStyle.jsx'
-// Redux
-import PropTypes from 'prop-types'
-import { withRouter, Link } from 'react-router-dom'
-import { getCurrentStructure } from 'actions/annuaireActions'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
+
 function SectionStructure({ association, ...props }) {
 	const { classes, ...rest } = props
 

@@ -16,11 +16,16 @@ import Annuaire from 'views/AnnuaireFrancilien/AnnuaireFrancilien.jsx'
 import PresentationStructures from 'views/StructuresPage/ListStructures.jsx'
 import PresentationBlog from 'views/VeilleMedicale/blog.jsx'
 
-import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
 import CreateProfile from 'views/create-profile/CreateProfile'
 import EditProfile from 'views/create-profile/UpdateProfile'
+
+// Reset Password
+
+import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
+import UpdatePassword from 'views/SigninPage/ForgotPage/UpdatePassword'
 // Annuaire
 import ProfilePage from 'views/Admin/ProfilePage.jsx'
+import VeillemedicalePage from 'views/Admin/Menu/VeilleMedicale/veilleMedicale.jsx'
 import ModalSearchParis from 'views/Header/Sections/Departement/Paris/paris'
 import ModalSearchYvelines from 'views/Header/Sections/Departement/Yvelines/yvelines'
 import ModalSearchSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/seinesaintdenis'
@@ -394,15 +399,67 @@ import DeleteVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE
 import PresentationRecommandation from 'views/Menu/VeilleMedicale/Recommandations/Section/getData/recommandation&outils.jsx'
 // import GetRecommandation from 'views/Menu/VeilleMedicale/Recommandations/get'
 import Recommandation_id from 'views/Menu/VeilleMedicale/Recommandations/Section/get_id/get_id.js'
+// EVENEMENTS
+
+import PresentationEvenement from 'views/Menu/VeilleMedicale/evenements/getData/evenements.jsx'
+
+// NOS RENCONTRES
+
+import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/rencontres.jsx'
+
+// ACTUALITES
+import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/actualites.jsx'
+
 //Admin
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
 import Recommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/getData/recommandation&outils.jsx'
 import DeleteOneRecommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/delete/PresentationDelete'
 import UpdateRecommandations from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/update/Header'
-import PostRecommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/post'
-import Upload from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/upload'
-import FileUpload from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/trial'
+import PostRecommandations from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/post/Header'
+
+// EVENEMENTS
+import Evenement from 'views/Admin/Menu/VeilleMedicale/evenement/getData/evenements.jsx'
+import DeleteOneEvenement from 'views/Admin/Menu/VeilleMedicale/evenement/delete/PresentationDelete'
+import UpdateEvenement from 'views/Admin/Menu/VeilleMedicale/evenement/update/Header'
+import PostEvenement from 'views/Admin/Menu/VeilleMedicale/evenement/post/Header'
+// RENCONTRES
+import Rencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/getData/rencontres.jsx'
+import DeleteOneRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/delete/PresentationDelete'
+import UpdateRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/update/Header'
+import PostRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/post/Header'
+// ACTUALITE
+import Actualite from 'views/Admin/Menu/VeilleMedicale/actualite/getData/actualites.jsx'
+import DeleteOneActualite from 'views/Admin/Menu/VeilleMedicale/actualite/delete/PresentationDelete'
+import UpdateActualite from 'views/Admin/Menu/VeilleMedicale/actualite/update/Header'
+import PostActualite from 'views/Admin/Menu/VeilleMedicale/actualite/post/Header'
+
+// HomePage
+// Caroussel1
+
+import HomePageAdminHome from 'views/Admin/Home/HomePage/HomePage'
+import UpdateCaroussel1 from 'views/Admin/Home/HomePage/Carousel/update/Header'
+import SectioncarousselsAdmin from 'views/Admin/Home/HomePage/Carousel/carousel'
+// Caroussel2  //ADHERENT
+
+import UpdateCaroussel2 from 'views/Admin/Home/HomePage/Adherent/update/Header'
+import SectioncadherentAdmin from 'views/Admin/Home/HomePage/Adherent/carousel'
+// formulaire d'admission
+
+import PresentationFile from 'views/Admin/Menu/formulaire/PresentationFile'
+import Updatefichier from 'views/Admin/Menu/formulaire/update/Header'
+
+// Agenda
+// Agenda 1
+
+import UpdateAgenda1 from 'views/Admin/Home/HomePage/notification/agenda1/update/Header'
+import SectionAgenda1Admin from 'views/Admin/Home/HomePage/notification/agenda1/agenda'
+// Agenda 2
+import UpdateAgenda2 from 'views/Admin/Home/HomePage/notification/agenda2/update/Header'
+import SectionAgenda2Admin from 'views/Admin/Home/HomePage/notification/agenda2/agenda'
+// Offre d'emploi
+import UpdateOffre from 'views/Admin/Home/HomePage/notification/offre/update/Header'
+import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offre'
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -436,6 +493,8 @@ class App extends Component {
 							<Route exact path="/blogs" component={PresentationBlog} />
 
 							<Route exact path="/forgotpassword" component={ForgotPassword} />
+							<Route exact path="/reset/:token" component={UpdatePassword} />
+
 							{/*  Annuaire */}
 							{/* paris */}
 							<Route exact path="/annuaire/paris" component={ModalSearchParis} />
@@ -610,6 +669,8 @@ class App extends Component {
 							{/* Admin */}
 							<Switch>
 								<PrivateRoute exact path="/admin" component={ProfilePage} />
+								<PrivateRoute exact path="/admin/menu/veillemedicale" component={VeillemedicalePage} />
+
 								<PrivateRoute exact path="/admin/annuaire" component={AnnuaireAdminHome} />
 							</Switch>
 							<Switch>
@@ -1510,22 +1571,44 @@ class App extends Component {
 							{/* Menu*/}
 							{/* Veille medicale */}
 							<Switch>
-								{/* <PrivateRoute
+								{/* <Route
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/recommandation"
 									component={PresentationRecommandation}
 								/> */}
+								{/* {Menu : Veille medical } */}
+								{/* {recommandation et outils } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/recommandation&outils/"
 									component={PresentationRecommandation}
 								/>
+								{/* {evenements } */}
+								<Route
+									exact
+									path="/menu/veillemedicale/evenements/"
+									component={PresentationEvenement}
+								/>
+								{/* {actualite } */}
+								<Route
+									exact
+									path="/menu/veillemedicale/actualites/"
+									component={PresentationActualite}
+								/>
+								{/* {rencontres } */}
+								<Route
+									exact
+									path="/menu/veillemedicale/nosrencontres/"
+									component={PresentationRencontre}
+								/>
+
 								<PrivateRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
 
+								{/* {admin } */}
 								<PrivateRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/"
@@ -1544,18 +1627,117 @@ class App extends Component {
 								<PrivateRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/post"
-									component={PostRecommandation}
+									component={PostRecommandations}
+								/>
+								{/* evenements */}
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/evenement/"
+									component={Evenement}
 								/>
 								<PrivateRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/upload"
-									component={Upload}
+									path="/admin/menu/veillemedicale/evenement/delete/:id"
+									component={DeleteOneEvenement}
 								/>
 								<PrivateRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/trial"
-									component={FileUpload}
+									path="/admin/menu/veillemedicale/evenement/update/:id"
+									component={UpdateEvenement}
 								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/evenement/post"
+									component={PostEvenement}
+								/>
+
+								{/* rencontre */}
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/rencontre/"
+									component={Rencontre}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/rencontre/delete/:id"
+									component={DeleteOneRencontre}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/rencontre/update/:id"
+									component={UpdateRencontre}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/rencontre/post"
+									component={PostRencontre}
+								/>
+								{/* actualite */}
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/actualite/"
+									component={Actualite}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/actualite/delete/:id"
+									component={DeleteOneActualite}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/actualite/update/:id"
+									component={UpdateActualite}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/veillemedicale/actualite/post"
+									component={PostActualite}
+								/>
+
+								{/* file */}
+
+								{/* HomePage */}
+								{/* Caroussel1	*/}
+								<PrivateRoute exact path="/admin/HomePage" component={HomePageAdminHome} />
+								<PrivateRoute exact path="/admin/carousel" component={SectioncarousselsAdmin} />
+
+								<PrivateRoute
+									exact
+									path="/admin/menu/caroussel/update/:id"
+									component={UpdateCaroussel1}
+								/>
+								{/* Caroussel2	*/}
+								<PrivateRoute exact path="/admin/adherent" component={SectioncadherentAdmin} />
+
+								<PrivateRoute
+									exact
+									path="/admin/menu/adherent/update/:id"
+									component={UpdateCaroussel2}
+								/>
+								{/* formulaire d'admission	*/}
+								<PrivateRoute exact path="/admin/formulaire" component={PresentationFile} />
+
+								<PrivateRoute
+									exact
+									path="/admin/menu/formulaire/update/:id"
+									component={Updatefichier}
+								/>
+								{/* Agenda	*/}
+								{/* Agenda1	*/}
+
+								<PrivateRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
+
+								<PrivateRoute exact path="/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
+								{/* Agenda2	*/}
+
+								<PrivateRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
+
+								<PrivateRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
+								{/* Offre d'emploi	*/}
+
+								<PrivateRoute exact path="/admin/offre" component={SectionOffreAdmin} />
+
+								<PrivateRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 							</Switch>
 						</div>
 					</div>

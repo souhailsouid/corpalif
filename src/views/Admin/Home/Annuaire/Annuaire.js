@@ -4,61 +4,42 @@ import React from 'react'
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Tooltip from '@material-ui/core/Tooltip'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
+
 // @material-ui/icons
 import Camera from '@material-ui/icons/Camera'
 import Palette from '@material-ui/icons/Palette'
-import People from '@material-ui/icons/People'
-import Add from '@material-ui/icons/Add'
-import Favorite from '@material-ui/icons/Favorite'
-// @material-ui/icons
-import Close from '@material-ui/icons/Close'
-import LocationCity from '@material-ui/icons/LocationCity'
-import Home from '@material-ui/icons/Home'
-import Share from '@material-ui/icons/Share'
-import Group from '@material-ui/icons/Group'
-import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle'
+
 // core components
 import SectionFooter from 'views/Footer/SectionFooter'
 import Header from 'components/Header/Header.jsx'
-import Footer from 'components/Footer/Footer.jsx'
+
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import NavPills from 'components/NavPills/NavPills.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
-import CardHeader from 'components/Card/CardHeader.jsx'
-import Badge from 'components/Badge/Badge.jsx'
-import Muted from 'components/Typography/Muted.jsx'
+
 import Parallax from 'components/Parallax/Parallax.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
+
 import paris from 'assets/img/paris.jpg'
 
-import oluEletu from 'assets/img/examples/olu-eletu.jpg'
 import clemOnojeghuo from 'assets/img/examples/clem-onojeghuo.jpg'
-
-import darrenColeshill from 'assets/img/examples/darren-coleshill.jpg'
 
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 // Redux
-import PropTypes from 'prop-types'
-import { withRouter, Link } from 'react-router-dom'
-// import { getCurrentStructure } from 'actions/annuaireActions'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
+
+import { Link } from 'react-router-dom'
+
 class AnnuaireAdminHome extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 	}
 	render() {
-		const { classes, ...rest } = this.props
-		const imageClasses = classNames(classes.imgRaised, classes.imgRoundedCircle, classes.imgFluid)
-		const navImageClasses = classNames(classes.imgRounded, classes.imgGallery)
+		const { classes } = this.props
+
 		return (
 			<div>
 				<Header

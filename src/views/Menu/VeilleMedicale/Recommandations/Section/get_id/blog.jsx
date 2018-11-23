@@ -41,21 +41,21 @@ class SectionBlogs extends React.Component {
 											<CardHeader image plain>
 												<a href="#pablito" onClick={(e) => e.preventDefault()}>
 													<img
-														src={`http://localhost:5000/api/recommandation/${recommandation.picture}`}
+														src={`http://localhost:5000/api/${recommandation.picture}`}
 														alt="..."
 													/>
 												</a>
 												<div
 													className={classes.coloredShadow}
 													style={{
-														backgroundImage: `url(${`http://localhost:5000/api/recommandation/${recommandation.picture}`})`,
+														backgroundImage: `url(${`http://localhost:5000/api/${recommandation.picture}`})`,
 														opacity: '1'
 													}}
 												/>
 												<div
 													className={classes.coloredShadow}
 													style={{
-														backgroundImage: `url(${`http://localhost:5000/api/recommandation/${recommandation.picture}`})`,
+														backgroundImage: `url(${`http://localhost:5000/api/${recommandation.picture}`})`,
 														opacity: '1'
 													}}
 												/>
@@ -75,18 +75,13 @@ class SectionBlogs extends React.Component {
 												{recommandation.message}
 												<br />
 												<a
-													href={`http://localhost:5000/api/recommandation/${recommandation.file}`}
+													href={`http://localhost:5000/api/${recommandation.file}`}
 													target="_blank"
 													style={{ color: 'rgb(51, 116, 103)' }}
 												>
 													<i class="material-icons">library_books</i>
 
 													<b> {recommandation.fileName} </b>
-
-													{/* <Button round style={{ backgroundColor: 'rgb(51, 116, 103)' }}>
-														{' '}
-														{recommandation.fileName}
-													</Button> */}
 												</a>
 											</p>
 											<p className={classes.author}>

@@ -26,7 +26,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentRecommandation_id, updateRecommandation } from 'actions/menu/veillemedicale/recommandationActions'
+import { getCurrentRecommandation_id } from 'actions/menu/veillemedicale/recommandationActions'
 const theme = createMuiTheme({
 	palette: {
 		primary: {
@@ -86,13 +86,20 @@ class Modal extends React.Component {
 			recommandation.title = !isEmpty(recommandation.title) ? recommandation.title : ''
 			recommandation.message = !isEmpty(recommandation.message) ? recommandation.message : ''
 			recommandation.fileName = !isEmpty(recommandation.fileName) ? recommandation.fileName : ''
-
+			recommandation.picture = !isEmpty(`http://localhost:5000/api/${recommandation.picture}`)
+				? `http://localhost:5000/api/${recommandation.picture}`
+				: null
+			recommandation.file = !isEmpty(`http://localhost:5000/api/${recommandation.file}`)
+				? `http://localhost:5000/api/${recommandation.file}`
+				: null
 			// Set component fields state
 			this.setState({
 				theme: recommandation.theme,
 				title: recommandation.title,
 				message: recommandation.message,
-				fileName: recommandation.fileName
+				fileName: recommandation.fileName,
+				picture: `http://localhost:5000/api/${recommandation.picture}`,
+				file: `http://localhost:5000/api/${recommandation.file}`
 			})
 		}
 	}
@@ -233,10 +240,18 @@ class Modal extends React.Component {
 															/>
 															<br /> <br />
 															<h4>Choisir une photo</h4>
-															<input type="file" onChange={this.onChangePicture} />
+															<input
+																type="file"
+																name="picture"
+																onChange={this.onChangePicture}
+															/>
 															<br /> <br />
 															<h4>Choisir un fichier</h4>
-															<input type="file" onChange={this.onChangeField} />
+															<input
+																type="file"
+																name="file"
+																onChange={this.onChangeField}
+															/>
 															<br /> <br />
 															<Grid
 																container
@@ -280,5 +295,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { getCurrentRecommandation_id, updateRecommandation })(withRouter(Modal))
+	connect(mapStateTopProps, { getCurrentRecommandation_id })(withRouter(Modal))
 )

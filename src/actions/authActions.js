@@ -2,7 +2,7 @@ import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken'
 import jwt_decode from 'jwt-decode'
 
-import { GET_ERRORS, SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING } from './types'
+import { GET_ERRORS, SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING, GET_RESET_PASSWORD } from './types'
 
 // Register User
 export const registerUser = (newUser, history) => (dispatch) => {
@@ -97,6 +97,31 @@ export const forgotpassword = (userData) => (dispatch) => {
 			payload: err.response.data
 		})
 	)
+}
+// Forgot password
+export const updatePassword = (token, userData) => (dispatch) => {
+	axios.post(`/api/users/reset/${token}`, userData).then((res) => {}).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+export const getUpdatePassword = (token) => (dispatch) => {
+	axios
+		.get(`/api/users/reset/${token}`)
+		.then((res) =>
+			dispatch({
+				type: GET_RESET_PASSWORD,
+				payload: res.data
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		)
 }
 
 // Receive Email Contact

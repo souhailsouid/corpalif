@@ -1,22 +1,25 @@
 import React from 'react'
 // react component for creating beautiful carousel
-import Carousel from 'react-slick'
+
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
 // @material-ui/icons
-import LocationOn from '@material-ui/icons/LocationOn'
+
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import Card from 'components/Card/Card.jsx'
 
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 import SectionAgenda from './SectionAgenda'
 import SectionOffres from './SectionOffres'
-import image1 from 'assets/img/bg.jpg'
-import image2 from 'assets/img/bg2.jpg'
-import image3 from 'assets/img/bg3.jpg'
 
+import Caroussel from './Caroussel'
+// Redux
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { getCurrentCaroussel } from 'actions/HomePage/carousselActions'
 const settings = {
 	dots: true,
 	infinite: true,
@@ -28,10 +31,27 @@ const settings = {
 class SectionCarousel extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {}
+		this.state = {
+			searchModal: true,
+			caroussel: null,
+			theme: '',
+			message: '',
+			picture: null,
+			file: null,
+			title: '',
+			fileName: ''
+		}
+	}
+
+	componentDidMount() {
+		this.props.getCurrentCaroussel()
 	}
 	render() {
+		const { caroussel } = this.props.caroussel
+
 		const { classes } = this.props
+
+		const DataElements = caroussel.map((caroussel) => <Caroussel caroussel={caroussel} />)
 		return (
 			<div className={classes.section} id="carousel">
 				<div className={classes.container}>
@@ -43,36 +63,7 @@ class SectionCarousel extends React.Component {
 								</i>{' '}
 								ACTUALITÉS
 							</h3>
-							<Card>
-								<Carousel {...settings}>
-									<div>
-										<img src={image1} alt="First slide" className="slick-image" />
-										<div className="slick-caption">
-											<h4>
-												<LocationOn className="slick-icons" />Yellowstone National Park, United
-												States
-											</h4>
-										</div>
-									</div>
-									<div>
-										<img src={image2} alt="Second slide" className="slick-image" />
-										<div className="slick-caption">
-											<h4>
-												<LocationOn className="slick-icons" />Somewhere Beyond, United States
-											</h4>
-										</div>
-									</div>
-									<div>
-										<img src={image3} alt="Third slide" className="slick-image" />
-										<div className="slick-caption">
-											<h4>
-												<LocationOn className="slick-icons" />Yellowstone National Park, United
-												States
-											</h4>
-										</div>
-									</div>
-								</Carousel>
-							</Card>
+							{DataElements}
 						</GridItem>
 						<div style={{ margin: 'auto' }}>
 							<SectionAgenda />
@@ -85,4 +76,16 @@ class SectionCarousel extends React.Component {
 	}
 }
 
-export default withStyles(carouselStyle)(SectionCarousel)
+SectionCarousel.propTypes = {
+	getCurrentCaroussel: PropTypes.func.isRequired,
+	caroussel: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+	caroussel: state.caroussel
+})
+
+export default compose(withStyles(carouselStyle))(
+	connect(mapStateToProps, { getCurrentCaroussel })(withRouter(SectionCarousel))
+)

@@ -6,10 +6,38 @@ import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
+import Agenda1 from './notification/agenda1'
+import Agenda2 from './notification/agenda2'
+// Redux
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { getCurrentAgenda1, getCurrentAgenda2 } from 'actions/HomePage/notificationActions'
 class SectionNotifications extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			date: '',
+			theme: '',
+			lieu: '',
+			rue: '',
+			city: ''
+		}
+	}
+
+	componentDidMount() {
+		this.props.getCurrentAgenda1()
+		this.props.getCurrentAgenda2()
+	}
 	render() {
+		const { agenda1 } = this.props.agenda1
+		const { agenda2 } = this.props.agenda2
+
 		const { classes } = this.props
 
+		const Agenda1Elements = agenda1.map((agenda1) => <Agenda1 agenda1={agenda1} />)
+		const Agenda2Elements = agenda2.map((agenda2) => <Agenda2 agenda2={agenda2} />)
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
@@ -24,31 +52,9 @@ class SectionNotifications extends React.Component {
 							</h3>
 						</div>
 					</div>
+					{Agenda1Elements}
 
-					<SnackbarContent
-						message={
-							<span>
-								<b>18 juin 2018</b>
-								<br />
-								<b style={{ textAlign: 'left' }}>Assemblée au congrés nationale</b> <br />
-								Maison medicale Corpalif <br />11 rue canard<br />78000 Paris
-							</span>
-						}
-						close
-						color="green"
-					/>
-					<SnackbarContent
-						message={
-							<span>
-								<b>18 mars 2018</b>
-								<br />
-								<b style={{ textAlign: 'left' }}>Assemblée au congrés nationale</b>
-								<br /> Maison medicale Corpalif <br />11 rue canard<br />78000 Paris
-							</span>
-						}
-						close
-						color="green"
-					/>
+					{Agenda2Elements}
 
 					<Clearfix />
 				</div>
@@ -57,4 +63,19 @@ class SectionNotifications extends React.Component {
 	}
 }
 
-export default withStyles(notificationsStyles)(SectionNotifications)
+SectionNotifications.propTypes = {
+	getCurrentAgenda1: PropTypes.func.isRequired,
+	getCurrentAgenda2: PropTypes.func.isRequired,
+	agenda1: PropTypes.object.isRequired,
+	agenda2: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+	agenda1: state.agenda1,
+	agenda2: state.agenda2
+})
+
+export default compose(withStyles(notificationsStyles))(
+	connect(mapStateToProps, { getCurrentAgenda1, getCurrentAgenda2 })(withRouter(SectionNotifications))
+)

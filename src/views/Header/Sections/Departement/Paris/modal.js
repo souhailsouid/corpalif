@@ -5,7 +5,6 @@ import Slide from '@material-ui/core/Slide'
 import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
-import Icon from '@material-ui/core/Icon'
 
 // @material-ui/icons
 import Close from '@material-ui/icons/Close'
@@ -15,7 +14,7 @@ import Share from '@material-ui/icons/Share'
 import Group from '@material-ui/icons/Group'
 import SupervisedUserCircle from '@material-ui/icons/SupervisedUserCircle'
 // core components
-import SearchBar from 'views/Header/Sections/SearchBar'
+
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'

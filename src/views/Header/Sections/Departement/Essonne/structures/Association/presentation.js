@@ -9,28 +9,23 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import Spinner from 'views/common/Spinner'
 import Tables from './table'
 import GridItem from 'components/Grid/GridItem.jsx'
-import ProfileActions from 'views/Dashboard/ProfileActions'
+
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 import InfoArea from 'components/InfoArea/InfoStructureArea.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
-import DeleteIcon from '@material-ui/icons/Delete'
-import Subject from '@material-ui/icons/Subject'
+
 import PinDrop from '@material-ui/icons/PinDrop'
 import Phone from '@material-ui/icons/Phone'
 import Email from '@material-ui/icons/Email'
-import Table from 'components/Table/Table.jsx'
-import SectionStructure from 'views/Header/Sections/Departement/Essonne/structures/Association/association'
-// Redux
-import PropTypes, { array } from 'prop-types'
-import { withRouter, Link } from 'react-router-dom'
-import { getCurrentStructure } from 'actions/annuaireActions'
 
+// Redux
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { getCurrentStructure } from 'actions/annuaireActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import essonne from '../../essonne'
-import annuaireReducer from '../../../../../../../reducers/annuaireReducer'
+
 class PresentationAssociationEssonne extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)

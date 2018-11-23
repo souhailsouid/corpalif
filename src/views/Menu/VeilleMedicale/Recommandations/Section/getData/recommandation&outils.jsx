@@ -9,7 +9,7 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
-import SectionRecommandations from 'views/Menu/VeilleMedicale/Recommandations/Section/getData/get.jsx'
+import SectionRecommandations from './get.jsx'
 // section CSS
 
 class PresentationRecommandation extends React.Component {

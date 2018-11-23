@@ -115,22 +115,26 @@ class ProfilePage extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Card
-																background
-																style={{
-																	backgroundImage: 'url(' + clemOnojeghuo + ')'
-																}}
-															>
-																<a href="#pablo" />
-																<CardBody background className={classes.cardBody}>
-																	<Badge color="info" className={classes.badge}>
-																		Page d'accueil
-																	</Badge>
-																	<a href="#pablo">
-																		<h2 className={classes.cardTitleWhite}>Home</h2>
-																	</a>
-																</CardBody>
-															</Card>
+															<Link to="/admin/HomePage">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + clemOnojeghuo + ')'
+																	}}
+																>
+																	<a href="#pablo" />
+																	<CardBody background className={classes.cardBody}>
+																		<Badge color="info" className={classes.badge}>
+																			Page d'accueil
+																		</Badge>
+																		<a href="#pablo">
+																			<h2 className={classes.cardTitleWhite}>
+																				Home
+																			</h2>
+																		</a>
+																	</CardBody>
+																</Card>
+															</Link>
 														</GridItem>
 													</GridContainer>
 												</GridItem>
@@ -198,7 +202,7 @@ class ProfilePage extends React.Component {
 																		backgroundImage: 'url(' + oluEletu + ')'
 																	}}
 																>
-																	<Link to="admin/menu/veillemedicale/recommandation&outils/">
+																	<Link to="admin/menu/veillemedicale/">
 																		<CardBody
 																			background
 																			className={classes.cardBody}
@@ -247,14 +251,13 @@ class ProfilePage extends React.Component {
 																	backgroundImage: 'url(' + oluEletu + ')'
 																}}
 															>
-																<a href="#pablo" />
-																<CardBody background className={classes.cardBody}>
-																	<a href="#pablo">
+																<Link to="/admin/formulaire">
+																	<CardBody background className={classes.cardBody}>
 																		<h2 className={classes.cardTitleWhite}>
 																			Formulaires
 																		</h2>
-																	</a>
-																</CardBody>
+																	</CardBody>
+																</Link>
 															</Card>
 														</GridItem>
 													</GridContainer>
