@@ -1,126 +1,166 @@
+/* eslint-disable */
 import React from 'react'
 // nodejs library that concatenates classes
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-// import Example from 'components/Header/sub'
-import GridContainer from 'components/Grid/GridContainer.jsx'
-// import SectionCards from 'views/PresentationPage/Sections/SectionCards.jsx'
-import Spinner from 'views/common/Spinner'
-import Tables from './table'
-import GridItem from 'components/Grid/GridItem.jsx'
 
-import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import HeaderSearchBar from 'views/Header/HeaderSearchBar'
+// core components
+import Tables from './data/tables'
+import TablesHead from './data/tablehead'
 import SectionFooter from 'views/Footer/SectionFooter'
-import InfoArea from 'components/InfoArea/InfoStructureArea.jsx'
-
-import PinDrop from '@material-ui/icons/PinDrop'
-import Phone from '@material-ui/icons/Phone'
-import Email from '@material-ui/icons/Email'
-
+import GridContainer from 'components/Grid/GridContainer.jsx'
+import GridItem from 'components/Grid/GridItem.jsx'
+import Clearfix from 'components/Clearfix/Clearfix.jsx'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
+import Grid from '@material-ui/core/Grid'
+import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentStructure } from 'actions/annuaireActions'
+import { getCurrentStructureAssos, deleteStructure_id } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
-class PresentationAssociationEssonne extends React.Component {
+class ESSONNEASSOS extends React.Component {
+	state = {
+		showingInfoWindow: false,
+		activeMarker: {},
+		selectedPlace: {}
+	}
+
+	onMarkerClick = (props, marker, e) =>
+		this.setState({
+			selectedPlace: props,
+			activeMarker: marker,
+			showingInfoWindow: true
+		})
+
+	onMapClicked = (props) => {
+		if (this.state.showingInfoWindow) {
+			this.setState({
+				showingInfoWindow: false,
+				activeMarker: null
+			})
+		}
+	}
+
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-		this.props.getCurrentStructure()
+
+		this.props.getCurrentStructureAssos()
 	}
+
 	render() {
-		const { association, loading, associations } = this.props.association
-		console.log(association)
 		const { classes } = this.props
-		let dashboardContent
-
-		if (association === null || loading) {
-			dashboardContent = <Spinner />
-		} else {
-			// Check if logged in user has profile data
-
-			if (Object.keys(association).length > 0) {
-				console.log(Object.keys(association[0]))
-				dashboardContent = (
-					<div>
-						{association.keys(1)}
-						<br />
-						name:
-						{/* {association[i].name} */}
-						<br />
-						{/* {association[i].adresse} */}
-						<h5>Vos informations</h5>
-					</div>
-				)
-
-				// {
-				// 	for (var i = 0; i < association.length; i++) {
-				// 		return [ association[1].name, association.adresse, association.phone, association.email ]
-				// 	}
-				// }
-			}
-		}
-		const recipeElements = association.map((association) => <Tables association={association} />)
-		const allAssociationNamesEssonne = association.map((association) => {
-			return <div>{association._id}</div>
-		})
-		console.log(allAssociationNamesEssonne)
+		const { association } = this.props.association
+		const DataElements = association.map((association) => <Tables association={association} />)
 
 		return (
 			<div>
 				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
-					<GridContainer justify="center">
-						{/* {dashboardContent} */}
-						{/* {allAssociationNamesEssonne} */}
-						{/* <Tables /> */}
-
-						<GridItem xs={12} sm={10} md={10}>
-							<h1>Les associations et benevole en Essonne </h1>
-							<div style={{ marginTop: 10, display: 'flex-end', justifyContent: 'space-evenly' }}>
-								<div style={{ display: 'flex', justifyContent: 'space-evenly' }} />
-								<GridContainer justify="center">
-									<GridItem xs={12} sm={10} md={12}>
-										<div style={{ display: 'flex' }}>
-											<InfoArea className={classes.infoArea} title="Name" icon={PinDrop} />,
-											<InfoArea className={classes.infoArea} title="Adresse" icon={PinDrop} />,
-											<InfoArea className={classes.infoArea} title="Téléphone" icon={Phone} />,
-											<InfoArea className={classes.infoArea} title="Email" icon={Email} />
-										</div>
+					<div className={classes.container}>
+						<GridContainer justify="center">
+							<GridItem xs={12} sm={12} md={6} style={{ marginTop: 100 }}>
+								<div className={classes.profile}>
+									<div className={classes.name}>
+										<h3 className={classes.title} style={{ color: '#cc4949' }}>
+											{' '}
+											Les Association et bénévoles en Essonne
+										</h3>
+									</div>
+								</div>
+							</GridItem>
+						</GridContainer>
+						<GridContainer>
+							<GridItem xs={12} sm={10} md={12}>
+								<GridContainer>
+									<br />
+									<GridItem xs={12} sm={10} md={12} style={{ dislay: 'flex' }}>
+										<TablesHead />
+										{DataElements}
 									</GridItem>
-								</GridContainer>
-								<GridItem xs={12} sm={10} md={12}>
-									{recipeElements}
-								</GridItem>
-							</div>
-						</GridItem>
 
-						{/* <SectionStructure /> */}
-					</GridContainer>
-					<SectionFooter />
+									<GridItem xs={11} sm={12} md={12}>
+										<Grid
+											xs={12}
+											sm={12}
+											md={12}
+											style={{
+												height: 600,
+
+												marginTop: 80,
+												marginBottom: 0,
+												paddingBottom: 0
+											}}
+										>
+											<Map
+												google={this.props.google}
+												initialCenter={{
+													lat: 48.8519,
+													lng: 2.291172
+												}}
+												onClick={this.onMapClicked}
+												zoom={14}
+												style={{ height: '60%' }}
+											>
+												<Marker
+													onClick={this.onMarkerClick}
+													position={{ lat: 48.8519, lng: 2.291172 }}
+													name={'Jeanne Garnier'}
+												/>
+
+												<Marker
+													title={'The marker`s title will appear as a tooltip.'}
+													onClick={this.onMarkerClick}
+													position={{ lat: 48.846737, lng: 2.289693 }}
+													name={'Current location'}
+												/>
+												<InfoWindow
+													marker={this.state.activeMarker}
+													visible={this.state.showingInfoWindow}
+												>
+													<div>
+														<h4 style={{ textAlign: 'center' }}>
+															{this.state.selectedPlace.name}
+														</h4>
+													</div>
+												</InfoWindow>
+											</Map>
+										</Grid>
+									</GridItem>
+
+									<div />
+								</GridContainer>
+							</GridItem>
+						</GridContainer>
+						<Clearfix />
+					</div>
 				</div>
-				<div />
+
+				<SectionFooter />
 			</div>
 		)
 	}
 }
 
-PresentationAssociationEssonne.propTypes = {
-	getCurrentStructure: PropTypes.func.isRequired,
+ESSONNEASSOS.propTypes = {
+	getCurrentStructureAssos: PropTypes.func.isRequired,
 	association: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	association: state.association,
-	associations: state.associations
+	association: state.association
 })
 
-export default compose(withStyles(presentationStyle))(
-	connect(mapStateToProps, { getCurrentStructure })(withRouter(PresentationAssociationEssonne))
-)
+export default compose(
+	GoogleApiWrapper({
+		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
+	}),
+	withStyles(profilePageStyle)
+)(connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(withRouter(ESSONNEASSOS)))

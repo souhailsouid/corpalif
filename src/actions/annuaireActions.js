@@ -244,9 +244,9 @@ export const postReseaux = (Data, history) => (dispatch) => {
 
 //Had
 // Get all structures
-export const getCurrentStructureHAD = () => (dispatch) => {
+export const getCurrentStructureTEAM = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/annuaire/paris/paris/HAD').then((res) =>
+	axios.get('/api/annuaire/paris/paris/team').then((res) =>
 		dispatch({
 			type: GET_STRUCTUREHAD,
 			payload: res.data
@@ -255,10 +255,10 @@ export const getCurrentStructureHAD = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idHAD = (id) => (dispatch) => {
+export const getCurrentStructure_idTEAM = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
-		.get(`/api/annuaire/paris/paris/HAD/${id}`)
+		.get(`/api/annuaire/paris/paris/team/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_STRUCTUREHAD,
@@ -274,9 +274,9 @@ export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idHAD = (id) => (dispatch) => {
+export const deleteStructure_idTEAM = (id) => (dispatch) => {
 	axios
-		.delete(`/api/annuaire/paris/paris/HAD/${id}`)
+		.delete(`/api/annuaire/paris/paris/team/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_STRUCTUREHAD,
@@ -291,8 +291,8 @@ export const deleteStructure_idHAD = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureHAD = (id, Data) => (dispatch) => {
-	axios.put(`/api/annuaire/paris/paris/HAD/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updateStructureTEAM = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/paris/paris/team/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -301,13 +301,16 @@ export const updateStructureHAD = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postHAD = (Data, history) => (dispatch) => {
-	axios.post('/api/annuaire/paris/paris/HAD', Data).then((res) => history.push('/admin/paris/HAD')).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: {}
-		})
-	)
+export const postTEAM = (Data, history) => (dispatch) => {
+	axios
+		.post('/api/annuaire/paris/paris/team', Data)
+		.then((res) => history.push('/admin/paris/equipesmobiles'))
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
 }
 //Lits
 // Get all structures
@@ -378,9 +381,9 @@ export const postLITS = (Data, history) => (dispatch) => {
 }
 //STRUCTURES
 // Get all structures
-export const getCurrentStructureSOINS = () => (dispatch) => {
+export const getCurrentStructureHAD = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/annuaire/paris/paris/structure').then((res) =>
+	axios.get('/api/annuaire/paris/paris/had').then((res) =>
 		dispatch({
 			type: GET_STRUCTURESOINS,
 			payload: res.data
@@ -389,10 +392,10 @@ export const getCurrentStructureSOINS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idSOINS = (id) => (dispatch) => {
+export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
-		.get(`/api/annuaire/paris/paris/structure/${id}`)
+		.get(`/api/annuaire/paris/paris/had/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_STRUCTURESOINS,
@@ -408,9 +411,9 @@ export const getCurrentStructure_idSOINS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idSOINS = (id) => (dispatch) => {
+export const deleteStructure_idHAD = (id) => (dispatch) => {
 	axios
-		.delete(`/api/annuaire/paris/paris/structure/${id}`)
+		.delete(`/api/annuaire/paris/paris/had/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_STRUCTURESOINS,
@@ -425,8 +428,8 @@ export const deleteStructure_idSOINS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureSOINS = (id, Data) => (dispatch) => {
-	axios.put(`/api/annuaire/paris/paris/structure/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updateStructureHAD = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/paris/paris/had/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -435,9 +438,9 @@ export const updateStructureSOINS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postSOINS = (Data, history) => (dispatch) => {
+export const postHAD = (Data, history) => (dispatch) => {
 	axios
-		.post('/api/annuaire/paris/paris/structure', Data)
+		.post('/api/annuaire/paris/paris/had', Data)
 		.then((res) => history.push('/admin/paris/structure'))
 		.catch((err) =>
 			dispatch({

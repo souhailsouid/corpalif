@@ -23,7 +23,7 @@ import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePag
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
-import { getCurrentStructureSOINS, deleteStructure_idSOINS } from 'actions/HAUTDESEINEActions'
+import { getCurrentStructureHAD, deleteStructure_idHAD } from 'actions/HAUTDESEINEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
@@ -32,7 +32,7 @@ class HAUTDESEINESTRUCTURES extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentStructureSOINS()
+		this.props.getCurrentStructureHAD()
 	}
 
 	render() {
@@ -112,10 +112,10 @@ class HAUTDESEINESTRUCTURES extends React.Component {
 }
 
 HAUTDESEINESTRUCTURES.propTypes = {
-	getCurrentStructureSOINS: PropTypes.func.isRequired,
+	getCurrentStructureHAD: PropTypes.func.isRequired,
 	soin: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idSOINS: PropTypes.func.isRequired
+	deleteStructure_idHAD: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -123,5 +123,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureSOINS, deleteStructure_idSOINS })(withRouter(HAUTDESEINESTRUCTURES))
+	connect(mapStateToProps, { getCurrentStructureHAD, deleteStructure_idHAD })(withRouter(HAUTDESEINESTRUCTURES))
 )

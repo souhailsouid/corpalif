@@ -5,7 +5,6 @@ import Slide from '@material-ui/core/Slide'
 import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
-
 // @material-ui/icons
 import Close from '@material-ui/icons/Close'
 import LocationCity from '@material-ui/icons/LocationCity'
@@ -20,7 +19,20 @@ import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import InfoArea from 'components/InfoArea/InfoArea.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import { Link } from 'react-router-dom'
+// Redux
+import PropTypes from 'prop-types'
+import { withRouter, Link } from 'react-router-dom'
+import {
+	getCurrentStructure,
+	getCurrentStructureLITS,
+	getCurrentStructureHAD,
+	getCurrentStructureAssos,
+	getCurrentStructureReseaux,
+	getCurrentStructureTEAM
+} from 'actions/YVELINESActions'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -31,6 +43,14 @@ class ModalSearchYvelines extends React.Component {
 		this.state = {
 			searchModal: true
 		}
+	}
+	componentDidMount() {
+		this.props.getCurrentStructure()
+		this.props.getCurrentStructureLITS()
+		this.props.getCurrentStructureHAD()
+		this.props.getCurrentStructureAssos()
+		this.props.getCurrentStructureReseaux()
+		this.props.getCurrentStructureTEAM()
 	}
 	handleClickOpen(modal) {
 		var x = []
@@ -43,6 +63,7 @@ class ModalSearchYvelines extends React.Component {
 		this.setState(x)
 	}
 	render() {
+		const { association, soin, reseaux, lit, usp, had } = this.props.association
 		const { classes, ...rest } = this.props
 		return (
 			<div>
@@ -86,7 +107,6 @@ class ModalSearchYvelines extends React.Component {
 													L' offre de soins en Yvelines
 												</h3>
 											</GridItem>
-
 											<div className={classes.container}>
 												<GridContainer className={classes.gridContainer}>
 													<GridItem xs={12} sm={4} className={classes.gridItem}>
@@ -98,7 +118,7 @@ class ModalSearchYvelines extends React.Component {
 																title={
 																	<div>
 																		<b>
-																			<h3>25 </h3>
+																			<h3>{Object.keys(usp).length} </h3>
 																		</b>Unités de soins palliatifs (USP)
 																	</div>
 																}
@@ -113,7 +133,8 @@ class ModalSearchYvelines extends React.Component {
 																icon={Share}
 																title={
 																	<div>
-																		<h3>23</h3> Réseaux de soins palliatifs
+																		<h3>{Object.keys(reseaux).length}</h3> Réseaux
+																		de soins palliatifs
 																	</div>
 																}
 															/>
@@ -127,8 +148,8 @@ class ModalSearchYvelines extends React.Component {
 																icon={Home}
 																title={
 																	<div>
-																		<h3>15</h3> Structures d'hospitalisation à
-																		domicile
+																		<h3>{Object.keys(soin).length}</h3> Structures
+																		d'hospitalisation à domicile
 																	</div>
 																}
 															/>
@@ -144,7 +165,8 @@ class ModalSearchYvelines extends React.Component {
 																icon={Home}
 																title={
 																	<div>
-																		<h3>15</h3> Lits identifiés
+																		<h3>{Object.keys(lit).length}</h3> Lits
+																		identifiés
 																	</div>
 																}
 															/>
@@ -158,8 +180,8 @@ class ModalSearchYvelines extends React.Component {
 																icon={Group}
 																title={
 																	<div>
-																		<h3>72</h3> Équipes mobiles de soins palliatifs
-																		(HAD)
+																		<h3>{Object.keys(had).length}</h3> Équipes
+																		mobiles de soins palliatifs (HAD)
 																	</div>
 																}
 															/>
@@ -173,8 +195,8 @@ class ModalSearchYvelines extends React.Component {
 																icon={SupervisedUserCircle}
 																title={
 																	<div>
-																		<h3>51</h3> Association de bénévoles
-																		d'accompagnement
+																		<h3>{Object.keys(association).length}</h3>
+																		Association de bénévoles d'accompagnement
 																	</div>
 																}
 															/>
@@ -194,4 +216,38 @@ class ModalSearchYvelines extends React.Component {
 	}
 }
 
-export default withStyles(javascriptStyles)(ModalSearchYvelines)
+ModalSearchYvelines.propTypes = {
+	getCurrentStructure: PropTypes.func.isRequired,
+	getCurrentStructureLITS: PropTypes.func.isRequired,
+	getCurrentStructureHAD: PropTypes.func.isRequired,
+	getCurrentStructureAssos: PropTypes.func.isRequired,
+	getCurrentStructureReseaux: PropTypes.func.isRequired,
+	getCurrentStructureTEAM: PropTypes.func.isRequired,
+	association: PropTypes.object.isRequired,
+	lit: PropTypes.object.isRequired,
+	soin: PropTypes.object.isRequired,
+	reseaux: PropTypes.object.isRequired,
+	team: PropTypes.object.isRequired,
+	usp: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+	association: state.association,
+	soin: state.soin,
+	team: state.team,
+	usp: state.usp,
+	reseaux: state.reseaux,
+	lit: state.lit
+})
+
+export default compose(withStyles(javascriptStyles))(
+	connect(mapStateToProps, {
+		getCurrentStructure,
+		getCurrentStructureLITS,
+		getCurrentStructureHAD,
+		getCurrentStructureAssos,
+		getCurrentStructureReseaux,
+		getCurrentStructureTEAM
+	})(withRouter(ModalSearchYvelines))
+)

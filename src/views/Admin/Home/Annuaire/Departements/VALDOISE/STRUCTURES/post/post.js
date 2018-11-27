@@ -20,7 +20,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postSOINS } from 'actions/HAUTDESEINEActions'
+import { postHAD } from 'actions/HAUTDESEINEActions'
 
 class PostVALDOISESTRUCTURES extends Component {
 	constructor(props) {
@@ -64,7 +64,7 @@ class PostVALDOISESTRUCTURES extends Component {
 			phone: this.state.phone
 		}
 
-		this.props.postSOINS(Data, this.props.history)
+		this.props.postHAD(Data, this.props.history)
 	}
 
 	onChange(e) {
@@ -189,5 +189,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postSOINS })(withRouter(PostVALDOISESTRUCTURES))
+	connect(mapStateTopProps, { postHAD })(withRouter(PostVALDOISESTRUCTURES))
 )

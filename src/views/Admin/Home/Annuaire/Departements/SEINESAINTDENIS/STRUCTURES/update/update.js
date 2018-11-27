@@ -25,7 +25,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { updateStructureSOINS, getCurrentStructure_idSOINS } from 'actions/SEINESAINTDENISActions'
+import { updateStructureHAD, getCurrentStructure_idHAD } from 'actions/SEINESAINTDENISActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -60,7 +60,7 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentStructure_idSOINS(this.props.match.params.id)
+		this.props.getCurrentStructure_idHAD(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -96,7 +96,7 @@ class Modal extends React.Component {
 			phone: this.state.phone
 		}
 
-		this.props.updateStructureSOINS(this.props.match.params.id, Data)
+		this.props.updateStructureHAD(this.props.match.params.id, Data)
 		window.location.replace('/admin/SEINESAINTDENIS/structures')
 	}
 
@@ -260,7 +260,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
 	soin: PropTypes.object.isRequired,
-	getCurrentStructure_idSOINS: PropTypes.func.isRequired,
+	getCurrentStructure_idHAD: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -271,5 +271,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { updateStructureSOINS, getCurrentStructure_idSOINS })(withRouter(Modal))
+	connect(mapStateTopProps, { updateStructureHAD, getCurrentStructure_idHAD })(withRouter(Modal))
 )

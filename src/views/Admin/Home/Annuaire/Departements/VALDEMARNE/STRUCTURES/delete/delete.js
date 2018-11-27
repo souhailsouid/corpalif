@@ -17,7 +17,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 
 // Redux
 import { withRouter } from 'react-router-dom'
-import { deleteStructure_idSOINS } from 'actions/VALDEMARNEActions'
+import { deleteStructure_idHAD } from 'actions/VALDEMARNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 function Transition(props) {
@@ -44,7 +44,7 @@ class Modal extends React.Component {
 	}
 
 	onDeleteClick() {
-		this.props.deleteStructure_idSOINS(this.props.match.params.id)
+		this.props.deleteStructure_idHAD(this.props.match.params.id)
 		window.location.replace('/admin/VALDEMARNE/structures')
 	}
 
@@ -116,7 +116,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
 	soin: PropTypes.object.isRequired,
-	deleteStructure_idSOINS: PropTypes.func.isRequired,
+	deleteStructure_idHAD: PropTypes.func.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
@@ -125,5 +125,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { deleteStructure_idSOINS })(withRouter(Modal))
+	connect(mapStateTopProps, { deleteStructure_idHAD })(withRouter(Modal))
 )

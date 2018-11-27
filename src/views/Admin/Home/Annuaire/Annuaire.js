@@ -125,7 +125,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/paris/had">
+															<Link to="/admin/paris/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -315,7 +315,7 @@ class AnnuaireAdminHome extends React.Component {
 																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={6}>
-																<Link to="/admin/ESSONNE/had">
+																<Link to="/admin/ESSONNE/equipesmobiles">
 																	<Card
 																		background
 																		style={{
@@ -512,7 +512,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/SEINEETMARNE/had">
+															<Link to="/admin/SEINEETMARNE/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -692,7 +692,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/hautdeseine/had">
+															<Link to="/admin/hautdeseine/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -872,7 +872,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/SEINESAINTDENIS/had">
+															<Link to="/admin/SEINESAINTDENIS/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -1052,7 +1052,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/VALDEMARNE/had">
+															<Link to="/admin/VALDEMARNE/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -1232,7 +1232,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/VALDOISE/had">
+															<Link to="/admin/VALDOISE/equipesmobiles">
 																<Card
 																	background
 																	style={{
@@ -1412,7 +1412,7 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/YVELINES/had">
+															<Link to="/admin/YVELINES/equipesmobiles">
 																<Card
 																	background
 																	style={{

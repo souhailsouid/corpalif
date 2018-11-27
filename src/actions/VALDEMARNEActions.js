@@ -245,11 +245,11 @@ export const postReseaux = (Data, history) => (dispatch) => {
 		)
 }
 
-//Had
+//TEAM
 // Get all structures
-export const getCurrentStructureHAD = () => (dispatch) => {
+export const getCurrentStructureTEAM = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/annuaire/valdemarne/valdemarne/HAD').then((res) =>
+	axios.get('/api/annuaire/valdemarne/valdemarne/TEAM').then((res) =>
 		dispatch({
 			type: GET_STRUCTUREHAD,
 			payload: res.data
@@ -258,10 +258,10 @@ export const getCurrentStructureHAD = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idHAD = (id) => (dispatch) => {
+export const getCurrentStructure_idTEAM = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
-		.get(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`)
+		.get(`/api/annuaire/valdemarne/valdemarne/TEAM/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_STRUCTUREHAD,
@@ -277,9 +277,9 @@ export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idHAD = (id) => (dispatch) => {
+export const deleteStructure_idTEAM = (id) => (dispatch) => {
 	axios
-		.delete(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`)
+		.delete(`/api/annuaire/valdemarne/valdemarne/TEAM/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_STRUCTUREHAD,
@@ -294,8 +294,8 @@ export const deleteStructure_idHAD = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureHAD = (id, Data) => (dispatch) => {
-	axios.put(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updateStructureTEAM = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/valdemarne/valdemarne/TEAM/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -304,10 +304,10 @@ export const updateStructureHAD = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postHAD = (Data, history) => (dispatch) => {
+export const postTEAM = (Data, history) => (dispatch) => {
 	axios
-		.post('/api/annuaire/valdemarne/valdemarne/HAD', Data)
-		.then((res) => history.push('/admin/valdemarne/HAD'))
+		.post('/api/annuaire/valdemarne/valdemarne/TEAM', Data)
+		.then((res) => history.push('/admin/valdemarne/equipesmobiles'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -387,9 +387,9 @@ export const postLITS = (Data, history) => (dispatch) => {
 }
 //STRUCTURES
 // Get all structures
-export const getCurrentStructureSOINS = () => (dispatch) => {
+export const getCurrentStructureHAD = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/annuaire/valdemarne/valdemarne/structure').then((res) =>
+	axios.get('/api/annuaire/valdemarne/valdemarne/HAD').then((res) =>
 		dispatch({
 			type: GET_STRUCTURESOINS,
 			payload: res.data
@@ -398,10 +398,10 @@ export const getCurrentStructureSOINS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idSOINS = (id) => (dispatch) => {
+export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
-		.get(`/api/annuaire/valdemarne/valdemarne/structure/${id}`)
+		.get(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_STRUCTURESOINS,
@@ -417,9 +417,9 @@ export const getCurrentStructure_idSOINS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idSOINS = (id) => (dispatch) => {
+export const deleteStructure_idHAD = (id) => (dispatch) => {
 	axios
-		.delete(`/api/annuaire/valdemarne/valdemarne/structure/${id}`)
+		.delete(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_STRUCTURESOINS,
@@ -434,8 +434,8 @@ export const deleteStructure_idSOINS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureSOINS = (id, Data) => (dispatch) => {
-	axios.put(`/api/annuaire/valdemarne/valdemarne/structure/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updateStructureHAD = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/valdemarne/valdemarne/HAD/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -444,9 +444,9 @@ export const updateStructureSOINS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postSOINS = (Data, history) => (dispatch) => {
+export const postHAD = (Data, history) => (dispatch) => {
 	axios
-		.post('/api/annuaire/valdemarne/valdemarne/structure', Data)
+		.post('/api/annuaire/valdemarne/valdemarne/HAD', Data)
 		.then((res) => history.push('/admin/valdemarne/structures'))
 		.catch((err) =>
 			dispatch({

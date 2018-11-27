@@ -14,15 +14,15 @@ import Grid from '@material-ui/core/Grid'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
-import { getCurrentStructure_idSOINS, deleteStructure_idSOINS } from 'actions/VALDEMARNEActions'
+import { getCurrentStructure_idHAD, deleteStructure_idHAD } from 'actions/VALDEMARNEActions'
 import { connect } from 'react-redux'
 
 class GetVALDEMARNESTRUCTURES extends Component {
 	componentDidMount() {
-		this.props.getCurrentStructure_idSOINS(this.props.match.params.id)
+		this.props.getCurrentStructure_idHAD(this.props.match.params.id)
 	}
 	onDeleteClick() {
-		this.props.deleteStructure_idSOINS(this.props.match.params.id)
+		this.props.deleteStructure_idHAD(this.props.match.params.id)
 	}
 
 	render() {
@@ -65,10 +65,10 @@ class GetVALDEMARNESTRUCTURES extends Component {
 	}
 }
 GetVALDEMARNESTRUCTURES.propTypes = {
-	getCurrentStructure_idSOINS: PropTypes.func.isRequired,
+	getCurrentStructure_idHAD: PropTypes.func.isRequired,
 	soin: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idSOINS: PropTypes.func.isRequired
+	deleteStructure_idHAD: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -76,6 +76,6 @@ const mapStateToProps = (state) => ({
 	soins: state.soins
 })
 
-export default connect(mapStateToProps, { getCurrentStructure_idSOINS, deleteStructure_idSOINS })(
+export default connect(mapStateToProps, { getCurrentStructure_idHAD, deleteStructure_idHAD })(
 	withRouter(GetVALDEMARNESTRUCTURES)
 )

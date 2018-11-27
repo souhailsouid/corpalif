@@ -20,6 +20,7 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
@@ -28,6 +29,28 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 class ESSONNEASSOS extends React.Component {
+	state = {
+		showingInfoWindow: false,
+		activeMarker: {},
+		selectedPlace: {}
+	}
+
+	onMarkerClick = (props, marker, e) =>
+		this.setState({
+			selectedPlace: props,
+			activeMarker: marker,
+			showingInfoWindow: true
+		})
+
+	onMapClicked = (props) => {
+		if (this.state.showingInfoWindow) {
+			this.setState({
+				showingInfoWindow: false,
+				activeMarker: null
+			})
+		}
+	}
+
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -68,6 +91,7 @@ class ESSONNEASSOS extends React.Component {
 						style={{ height: 400 }}
 					/>
 				</div>
+
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<div className={classes.container}>
 						<GridContainer justify="center">
@@ -82,13 +106,9 @@ class ESSONNEASSOS extends React.Component {
 								</div>
 							</GridItem>
 						</GridContainer>
+
 						<GridItem xs={12} sm={10} md={12}>
-							<Grid
-								xs={12}
-								sm={10}
-								md={12}
-								style={{ textAlign: 'right', justifyContent: 'right', marginBottom: 30 }}
-							>
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
 								<b>Ajouter une structure </b>
 								<Link to="/admin/post/ESSONNE/association">
 									<Button round variant="fab" color="green" aria-label="Add">
@@ -97,14 +117,70 @@ class ESSONNEASSOS extends React.Component {
 								</Link>
 							</Grid>
 
-							<TablesHead />
-							{DataElements}
+							<br />
+							<br />
+
+							<br />
+							<br />
+							<GridContainer>
+								<br />
+								<GridItem xs={12} sm={10} md={12}>
+									<TablesHead />
+									{DataElements}
+								</GridItem>
+							</GridContainer>
+							<GridContainer>
+								<Grid
+									xs={12}
+									sm={10}
+									md={12}
+									style={{
+										textAlign: 'right',
+										justifyContent: 'right',
+										height: 600,
+										marginTop: 40
+									}}
+								>
+									<Map
+										google={this.props.google}
+										initialCenter={{
+											lat: 48.8519,
+											lng: 2.291172
+										}}
+										onClick={this.onMapClicked}
+										zoom={14}
+										style={{ height: '60%' }}
+									>
+										<Marker
+											onClick={this.onMarkerClick}
+											position={{ lat: 48.8519, lng: 2.291172 }}
+											name={'Jeanne Garnier'}
+										/>
+
+										<Marker
+											title={'The marker`s title will appear as a tooltip.'}
+											onClick={this.onMarkerClick}
+											position={{ lat: 48.846737, lng: 2.289693 }}
+											name={'Current location'}
+										/>
+										<InfoWindow
+											marker={this.state.activeMarker}
+											visible={this.state.showingInfoWindow}
+										>
+											<div>
+												<h4 style={{ textAlign: 'center' }}>{this.state.selectedPlace.name}</h4>
+											</div>
+										</InfoWindow>
+									</Map>
+								</Grid>
+							</GridContainer>
 
 							<div />
 						</GridItem>
 						<Clearfix />
 					</div>
 				</div>
+
 				<SectionFooter />
 			</div>
 		)
@@ -122,6 +198,9 @@ const mapStateToProps = (state) => ({
 	association: state.association
 })
 
-export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(withRouter(ESSONNEASSOS))
-)
+export default compose(
+	GoogleApiWrapper({
+		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
+	}),
+	withStyles(profilePageStyle)
+)(connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(withRouter(ESSONNEASSOS)))

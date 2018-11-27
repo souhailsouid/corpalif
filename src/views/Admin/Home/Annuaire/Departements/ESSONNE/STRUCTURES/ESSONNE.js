@@ -23,7 +23,7 @@ import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePag
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
-import { getCurrentStructureSOINS, deleteStructure_idSOINS } from 'actions/ESSONNEActions'
+import { getCurrentStructureHAD, deleteStructure_idHAD } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
@@ -32,7 +32,7 @@ class ESSONNETRUCTURES extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentStructureSOINS()
+		this.props.getCurrentStructureHAD()
 	}
 
 	render() {
@@ -90,7 +90,7 @@ class ESSONNETRUCTURES extends React.Component {
 								style={{ textAlign: 'right', justifyContent: 'right', marginBottom: 30 }}
 							>
 								<b>Ajouter une structure </b>
-								<Link to="/admin/post/HAUTDESEINE/structures">
+								<Link to="/admin/post/ESSONNE/structures">
 									<Button round variant="fab" color="green" aria-label="Add">
 										<AddIcon />
 									</Button>
@@ -112,10 +112,10 @@ class ESSONNETRUCTURES extends React.Component {
 }
 
 ESSONNETRUCTURES.propTypes = {
-	getCurrentStructureSOINS: PropTypes.func.isRequired,
+	getCurrentStructureHAD: PropTypes.func.isRequired,
 	soin: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idSOINS: PropTypes.func.isRequired
+	deleteStructure_idHAD: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -123,5 +123,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureSOINS, deleteStructure_idSOINS })(withRouter(ESSONNETRUCTURES))
+	connect(mapStateToProps, { getCurrentStructureHAD, deleteStructure_idHAD })(withRouter(ESSONNETRUCTURES))
 )
