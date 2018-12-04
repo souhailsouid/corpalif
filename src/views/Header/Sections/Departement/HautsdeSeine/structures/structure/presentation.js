@@ -5,17 +5,16 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
+import Media from 'react-media'
 import Tables from './data/tables'
 import TablesHead from './data/tablehead'
 import SectionFooter from 'views/Footer/SectionFooter'
-import Header from 'components/Header/Header.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import HeaderLinks from 'components/Header/HeaderLinks.jsx'
-import Parallax from 'components/Parallax/Parallax.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 import Grid from '@material-ui/core/Grid'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 // Redux
 import PropTypes from 'prop-types'
@@ -60,32 +59,7 @@ class PresentationStructureHautsdeSeine extends React.Component {
 
 		return (
 			<div>
-				<Header
-					brand={
-						<img
-							src="http://image.noelshack.com/fichiers/2018/40/1/1538391836-corpalif-logo.png"
-							alt="logo"
-							style={{
-								width: 80,
-								maxWidth: '100%',
-								height: 'auto'
-							}}
-						/>
-					}
-					links={<HeaderLinks dropdownHoverColor="dark" />}
-					fixed
-					changeColorOnScroll={{
-						height: 400
-					}}
-				/>
-				<div>
-					<Parallax
-						image={require('assets/img/examples/city.jpg')}
-						className={classes.parallax}
-						small
-						style={{ height: 400 }}
-					/>
-				</div>
+				<HeaderSearchBar />
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<div className={classes.container}>
 						<GridContainer justify="center">
@@ -100,60 +74,118 @@ class PresentationStructureHautsdeSeine extends React.Component {
 								</div>
 							</GridItem>
 						</GridContainer>
-						<GridItem xs={12} sm={10} md={12}>
+						<GridItem xs={12} sm={12} md={12}>
 							<br />
 							<br />
 							<GridContainer>
 								<br />
-								<GridItem xs={12} sm={10} md={12}>
+								<GridItem xs={12} sm={12} md={12}>
 									<TablesHead />
 									{DataElements}
-								</GridItem>
-							</GridContainer>
-							<GridContainer>
-								<Grid
-									xs={12}
-									sm={10}
-									md={12}
-									style={{
-										textAlign: 'right',
-										justifyContent: 'right',
-										height: 600,
-										marginTop: 40
-									}}
-								>
-									<Map
-										google={this.props.google}
-										initialCenter={{
-											lat: 48.8519,
-											lng: 2.291172
-										}}
-										onClick={this.onMapClicked}
-										zoom={14}
-										style={{ height: '60%' }}
-									>
-										<Marker
-											onClick={this.onMarkerClick}
-											position={{ lat: 48.8519, lng: 2.291172 }}
-											name={'Jeanne Garnier'}
-										/>
+									<Media query="(max-width: 1000px)">
+										{(matches) =>
+											matches ? (
+												<GridContainer>
+													<Grid
+														xs={12}
+														sm={12}
+														md={12}
+														style={{
+															textAlign: 'right',
+															justifyContent: 'right',
+															height: '500px',
+															position: 'relative',
 
-										<Marker
-											title={'The marker`s title will appear as a tooltip.'}
-											onClick={this.onMarkerClick}
-											position={{ lat: 48.846737, lng: 2.289693 }}
-											name={'Current location'}
-										/>
-										<InfoWindow
-											marker={this.state.activeMarker}
-											visible={this.state.showingInfoWindow}
-										>
-											<div>
-												<h4 style={{ textAlign: 'center' }}>{this.state.selectedPlace.name}</h4>
-											</div>
-										</InfoWindow>
-									</Map>
-								</Grid>
+															marginTop: 40
+														}}
+													>
+														<Map
+															google={this.props.google}
+															initialCenter={{
+																lat: 48.8519,
+																lng: 2.291172
+															}}
+															onClick={this.onMapClicked}
+															zoom={14}
+															style={{ height: '70%' }}
+														>
+															<Marker
+																onClick={this.onMarkerClick}
+																position={{ lat: 48.8519, lng: 2.291172 }}
+																name={'Jeanne Garnier'}
+															/>
+
+															<Marker
+																title={'The marker`s title will appear as a tooltip.'}
+																onClick={this.onMarkerClick}
+																position={{ lat: 48.846737, lng: 2.289693 }}
+																name={'Current location'}
+															/>
+															<InfoWindow
+																marker={this.state.activeMarker}
+																visible={this.state.showingInfoWindow}
+															>
+																<div>
+																	<h4 style={{ textAlign: 'center' }}>
+																		{this.state.selectedPlace.name}
+																	</h4>
+																</div>
+															</InfoWindow>
+														</Map>
+													</Grid>
+												</GridContainer>
+											) : (
+												<GridContainer>
+													<Grid
+														xs={12}
+														sm={12}
+														md={12}
+														style={{
+															textAlign: 'right',
+															justifyContent: 'right',
+															height: '800px',
+															position: 'relative',
+															marginTop: 40
+														}}
+													>
+														<Map
+															google={this.props.google}
+															initialCenter={{
+																lat: 48.8519,
+																lng: 2.291172
+															}}
+															onClick={this.onMapClicked}
+															zoom={14}
+															style={{ height: '80%' }}
+														>
+															<Marker
+																onClick={this.onMarkerClick}
+																position={{ lat: 48.8519, lng: 2.291172 }}
+																name={'Jeanne Garnier'}
+															/>
+
+															<Marker
+																title={'The marker`s title will appear as a tooltip.'}
+																onClick={this.onMarkerClick}
+																position={{ lat: 48.846737, lng: 2.289693 }}
+																name={'Current location'}
+															/>
+															<InfoWindow
+																marker={this.state.activeMarker}
+																visible={this.state.showingInfoWindow}
+															>
+																<div>
+																	<h4 style={{ textAlign: 'center' }}>
+																		{this.state.selectedPlace.name}
+																	</h4>
+																</div>
+															</InfoWindow>
+														</Map>
+													</Grid>
+												</GridContainer>
+											)}
+									</Media>
+								</GridItem>
 							</GridContainer>
 
 							<div />

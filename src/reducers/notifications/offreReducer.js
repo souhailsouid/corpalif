@@ -1,15 +1,15 @@
-import { GET_OFFRE } from 'actions/types'
+import { GET_NOTIFICATIONOFFRE } from 'actions/types'
 
 const initialState = {
-	offre: []
+	notificationoffre: []
 }
 
 export default function(state = initialState, action) {
 	switch (action.type) {
-		case GET_OFFRE:
+		case GET_NOTIFICATIONOFFRE:
 			return {
 				...state,
-				offre: action.payload
+				notificationoffre: action.payload
 			}
 
 		default:

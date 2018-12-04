@@ -28,7 +28,7 @@ class HeaderComponent extends React.Component {
 								style={{
 									width: 80,
 
-									maxWidth: '100%',
+									maxWidth: 'auto',
 									height: 'auto'
 								}}
 							/>

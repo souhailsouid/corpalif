@@ -16,7 +16,7 @@ const FileUpload = ({ file, classes }) => (
 				className={classes.navButton}
 				round
 			>
-				<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire <br />d'admission
+				Formulaire <br />d'admission
 			</Button>
 		</ListItem>
 	</div>

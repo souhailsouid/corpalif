@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom'
 import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import Icon from '@material-ui/core/Icon'
+
 import Snackbar from '@material-ui/core/Snackbar'
 
 // @material-ui/icons
+import Icon from '@material-ui/core/Icon'
 import CoordinationRegionale from 'components/Header/SectionHeader/CoordinationRegionale.jsx'
 import LesSoinsPalliatifs from 'components/Header/SectionHeader/LesSoinsPalliatifs.jsx'
 import AccountBalance from '@material-ui/icons/AccountBalance'
@@ -19,8 +20,14 @@ import Book from '@material-ui/icons/Book'
 import ArtTrack from '@material-ui/icons/ArtTrack'
 import ViewQuilt from '@material-ui/icons/ViewQuilt'
 import LocationOn from '@material-ui/icons/LocationOn'
+import LocationCity from '@material-ui/icons/LocationCity'
 import Layers from '@material-ui/icons/Layers'
 import Work from '@material-ui/icons/Work'
+import Apps from '@material-ui/icons/Apps'
+import PersonAdd from '@material-ui/icons/PersonAdd'
+import Dns from '@material-ui/icons/Dns'
+import ListIcon from '@material-ui/icons/List'
+import People from '@material-ui/icons/People'
 // core components
 
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
@@ -30,6 +37,7 @@ import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import FileUpload from './upload_file/getfile'
+import ScrollableAnchor from 'react-scrollable-anchor'
 // Redux
 
 import { compose } from 'redux'
@@ -50,15 +58,35 @@ class HeaderLinks extends React.Component {
 			snack: { variant: 'error', message: 'Connexion refusée !' }
 		}
 	}
-	onLogoutClick(e) {
+	onLogoutClick = (e) => {
 		e.preventDefault()
 		this.props.clearCurrentProfile()
 		this.props.logoutUser()
 	}
-	componentDidMount() {
+	componentDidMount = () => {
 		this.props.getCurrentProfile()
 		this.props.getCurrentfile()
 	}
+	easeInOutQuad = (t, b, c, d) => {
+		t /= d / 2
+		if (t < 1) return c / 2 * t * t + b
+		t--
+		return -c / 2 * (t * (t - 2) - 1) + b
+	}
+
+	smoothScroll(e, target) {
+		if (window.location.pathname === '/') {
+			var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
+			if (isMobile) {
+				// if we are on mobile device the scroll into view will be managed by the browser
+			} else {
+				e.preventDefault()
+				var targetScroll = document.getElementById(target)
+				scrollGo(document.documentElement, targetScroll.offsetTop, 1250)
+			}
+		}
+	}
+
 	componentWillReceiveProps(nextProps) {
 		// if (nextProps.auth.isAuthenticated) {
 		// 	const snack = {
@@ -90,38 +118,19 @@ class HeaderLinks extends React.Component {
 		// }
 	}
 
-	handleCloseAlert = (reason) => {
-		if (reason === 'clickaway') {
-			return
-		}
+	// handleCloseAlert = (reason) => {
+	// 	if (reason === 'clickaway') {
+	// 		return
+	// 	}
 
-		this.setState({ displaySnack: false })
-	}
+	// 	this.setState({ displaySnack: false })
+	// }
 	render() {
-		const easeInOutQuad = (t, b, c, d) => {
-			t /= d / 2
-			if (t < 1) return c / 2 * t * t + b
-			t--
-			return -c / 2 * (t * (t - 2) - 1) + b
-		}
-
-		const smoothScroll = (e, target) => {
-			if (window.location.pathname === '/sections') {
-				var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
-				if (isMobile) {
-					// if we are on mobile device the scroll into view will be managed by the browser
-				} else {
-					e.preventDefault()
-					var targetScroll = document.getElementById(target)
-					scrollGo(document.documentElement, targetScroll.offsetTop, 1250)
-				}
-			}
-		}
 		const scrollGo = (element, to, duration) => {
 			var start = element.scrollTop,
-				change = to - start,
+				change = start - to,
 				currentTime = 0,
-				increment = 20
+				increment = 60
 
 			var animateScroll = function() {
 				currentTime += increment
@@ -211,82 +220,150 @@ class HeaderLinks extends React.Component {
 			</ListItem>
 		)
 		return (
-			<List className={classes.list + ' ' + classes.mlAuto}>
-				<CoordinationRegionale />
-				<LesSoinsPalliatifs />
-				<ListItem className={classes.listItem}>
-					<CustomDropdown
-						noLiPadding
-						navDropdown
-						hoverColor="transparent"
-						buttonText="Veille médicale"
-						buttonProps={{
-							className: classes.navLink,
-							color: 'transparent'
-						}}
-						buttonIcon={Book}
-						dropdownList={[
-							<Link to="/menu/veillemedicale/recommandation&outils/" className={classes.dropdownLink}>
-								<AccountBalance className={classes.dropdownIcons} /> Recommandations et outils
-							</Link>,
-							<Link to="/menu/veillemedicale/actualites/" className={classes.dropdownLink}>
-								<ArtTrack className={classes.dropdownIcons} /> Actualités nationales et régionales
-							</Link>,
-							<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
-								<ViewQuilt className={classes.dropdownIcons} /> Evènements
-							</Link>,
-							<Link to="/menu/veillemedicale/nosrencontres" className={classes.dropdownLink}>
-								<LocationOn className={classes.dropdownIcons} /> Nos rencontres
-							</Link>
-						]}
-					/>
-				</ListItem>
+			<div>
+				<List className={classes.list + ' ' + classes.mlAuto}>
+					{/* <CoordinationRegionale />
+					<LesSoinsPalliatifs /> */}
+					<ListItem className={classes.listItem}>
+						<CustomDropdown
+							noLiPadding
+							navDropdown
+							hoverColor="transparent"
+							buttonText="Coordination régionale"
+							buttonProps={{
+								className: classes.navLink,
+								color: 'transparent'
+							}}
+							buttonIcon={Apps}
+							dropdownList={[
+								<Link to="/menu/coordinationregionale/corpalif/" className={classes.dropdownLink}>
+									<div style={{ margin: 2 }}>
+										{<Apps className={classes.dropdownIcons} />}Notre association
+									</div>
+								</Link>,
+								<Link
+									to="/menu/coordinationregionale/orientationregionale/"
+									className={classes.dropdownLink}
+								>
+									<div style={{ margin: 2 }}>
+										{<ArtTrack className={classes.dropdownIcons} />}Orientations régionales
+									</div>
+								</Link>,
+								<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
+									<div style={{ margin: 2 }}>
+										{<PersonAdd className={classes.dropdownIcons} />}Adhérer
+									</div>
+								</Link>,
+								<Link to="/menu/Contact" className={classes.dropdownLink}>
+									<div style={{ display: 'flex', color: 'rgb(51, 51, 51' }}>
+										{<Icon className={classes.dropdownIcons}>content_paste</Icon>}
+										<div style={{ display: 'flex', marginLeft: 5 }}>Contact</div>
+									</div>
+								</Link>
+							]}
+						/>
+					</ListItem>
+					<ListItem className={classes.listItem}>
+						<CustomDropdown
+							noLiPadding
+							navDropdown
+							hoverColor="transparent"
+							buttonText="Les soins palliatifs"
+							buttonProps={{
+								className: classes.navLink,
+								color: 'transparent'
+							}}
+							buttonIcon={Book}
+							dropdownList={[
+								<Link to="/menu/soinspalliatifs/demarche-palliative/" className={classes.dropdownLink}>
+									<div style={{ margin: 2 }}>
+										{<Dns className={classes.dropdownIcons} />} La demarche palliative
+									</div>
+								</Link>,
+								<Link to="/annuaire-francilien" className={classes.dropdownLink}>
+									<div style={{ margin: 2 }}>
+										{<LocationCity className={classes.dropdownIcons} />}
+										Les structures de prise en charge
+									</div>
+								</Link>,
+								<Link to="/menu/soinspalliatifs/legislation" className={classes.dropdownLink}>
+									<div style={{ display: 'flex', color: '#333' }}>
+										{<ListIcon className={classes.dropdownIcons} />}
+										<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Legislation</div>
+									</div>
+								</Link>,
+								<Link to="/menu/soinspalliatifs/accompagnement/" className={classes.dropdownLink}>
+									<div style={{ margin: 2 }}>
+										{<People className={classes.dropdownIcons} />} Accompagner son proche
+									</div>
+								</Link>
+							]}
+						/>
+					</ListItem>
 
-				<ListItem className={classes.listItem}>
-					<CustomDropdown
-						noLiPadding
-						navDropdown
-						hoverColor="transparent"
-						buttonText="Emploi - Formation"
-						buttonProps={{
-							className: classes.navLink,
-							color: 'transparent'
+					<ListItem className={classes.listItem}>
+						<CustomDropdown
+							noLiPadding
+							navDropdown
+							hoverColor="transparent"
+							buttonText="Veille médicale"
+							buttonProps={{
+								className: classes.navLink,
+								color: 'transparent'
+							}}
+							buttonIcon={Book}
+							dropdownList={[
+								<Link to="/menu/veillemedicale/recommandation&outils/" className={classes.dropdownLink}>
+									<AccountBalance className={classes.dropdownIcons} /> Recommandations et outils
+								</Link>,
+								<Link to="/menu/veillemedicale/actualites/" className={classes.dropdownLink}>
+									<ArtTrack className={classes.dropdownIcons} /> Actualités nationales et régionales
+								</Link>,
+								<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
+									<ViewQuilt className={classes.dropdownIcons} /> Evènements
+								</Link>,
+								<Link to="/menu/veillemedicale/nosrencontres" className={classes.dropdownLink}>
+									<LocationOn className={classes.dropdownIcons} /> Nos rencontres
+								</Link>
+							]}
+						/>
+					</ListItem>
+
+					<ListItem className={classes.listItem}>
+						<CustomDropdown
+							noLiPadding
+							navDropdown
+							hoverColor="transparent"
+							buttonText="Emploi - Formation"
+							buttonProps={{
+								className: classes.navLink,
+								color: 'transparent'
+							}}
+							buttonIcon={Work}
+							dropdownList={[
+								<Link to="/offres-d'emplois" className={classes.dropdownLink}>
+									<Work className={classes.dropdownIcons} /> Offres d'emploi
+								</Link>,
+								<Link to="/formations" className={classes.dropdownLink}>
+									<Layers className={classes.dropdownIcons} /> Formations
+								</Link>
+							]}
+						/>
+					</ListItem>
+					<ListItem className={classes.listItem}>{File}</ListItem>
+					<ListItem className={classes.listItem}>{isAuthenticated ? authLinks : guestLinks}</ListItem>
+					{/* <Snackbar
+						anchorOrigin={{
+							vertical: 'bottom',
+							horizontal: 'right'
 						}}
-						buttonIcon={Work}
-						dropdownList={[
-							<Link to="/about-us" className={classes.dropdownLink}>
-								<Work className={classes.dropdownIcons} /> Offres d'emploi
-							</Link>,
-							<Link to="/blog-post" className={classes.dropdownLink}>
-								<Layers className={classes.dropdownIcons} /> Formations
-							</Link>
-						]}
-					/>
-				</ListItem>
-				<ListItem className={classes.listItem}>
-					{File}
-					{/* <Button
-						href={`http://localhost:5000/api/${file.file}`}
-						style={{ backgroundColor: '#cc4949', padding: 12 }}
-						target="_blank"
-						className={classes.navButton}
-						round
+						open={this.state.displaySnack}
+						autoHideDuration={1}
 					>
-						<Icon className={classes.dropdownIcons}>content_paste</Icon> Formulaire <br />d'admission
-					</Button> */}
-				</ListItem>
-				{isAuthenticated ? authLinks : guestLinks}
-				<Snackbar
-					anchorOrigin={{
-						vertical: 'bottom',
-						horizontal: 'right'
-					}}
-					open={this.state.displaySnack}
-					autoHideDuration={1}
-				>
-					<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
-				</Snackbar>
-			</List>
+						<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
+					</Snackbar> */}
+				</List>
+			</div>
 		)
 	}
 }

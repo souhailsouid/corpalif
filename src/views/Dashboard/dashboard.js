@@ -13,6 +13,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
+import CompleteProfile from 'views/create-profile/complete'
 // Redux
 import { withRouter, Link } from 'react-router-dom'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
@@ -85,11 +86,12 @@ class Dashboard extends Component {
 				// User is logged in but has no profile
 				dashboardContent = (
 					<div>
-						<p className="lead text-muted">Welcome {user.name}</p>
+						{/* <p className="lead text-muted">Welcome {user.name}</p>
 						<p>You have not yet setup a profile, please add some info</p>
 						<Link to="/complete-profile" className="btn btn-lg btn-info">
 							Create Profile
-						</Link>
+						</Link> */}
+						<CompleteProfile />
 					</div>
 				)
 			}

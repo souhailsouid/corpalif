@@ -1,10 +1,7 @@
 import React from 'react'
 // material-ui components
-import Grid from '@material-ui/core/Grid'
+
 import withStyles from '@material-ui/core/styles/withStyles'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 // core components
 import Button from 'components/CustomButtons/Button.jsx'
@@ -12,10 +9,8 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 // import IntegrationAutosuggest from './autosuggest'
 import styles from 'assets/jss/material-kit-pro-react/customSelectStyle.jsx'
-import ModalSearch from 'views/Header/Sections/ModalSearch'
 // import SelectListGroup from 'views/common/SelectListGroup'
 import './style.css'
-import { Redirect } from 'react-router'
 import Menu from '@material-ui/core/Menu'
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'

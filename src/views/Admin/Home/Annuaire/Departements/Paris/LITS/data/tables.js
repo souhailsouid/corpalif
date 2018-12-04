@@ -39,17 +39,25 @@ const Tables = ({ lit }) => (
 		<GridContainer>
 			<GridItem
 				xs={12}
-				sm={10}
+				sm={12}
 				md={12}
 				style={{ display: 'flex', justifyContent: 'space-between', marginTop: 30, flewWrap: 'wrap' }}
 			>
-				<Grid item xs={4}>
+				<Grid item xs={2} style={{ textAlign: 'center' }}>
 					{lit.name}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'left', justifyContent: 'space-between' }}>
-					{lit.adresse}
+				<Grid item xs={3} style={{ textAlign: 'left', marginLeft: 20 }}>
+					{lit.rue}
+					<br />
+					{lit.compl}
+					<br />
+					{lit.postcode}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'right' }}>
+
+				<Grid item xs={5} style={{ textAlign: 'center' }}>
+					<div> {lit.web}</div>
+				</Grid>
+				<Grid item xs={2} style={{ textAlign: 'right' }}>
 					{lit.phone}
 				</Grid>
 				<Grid item xs={4} style={{ textAlign: 'right' }}>

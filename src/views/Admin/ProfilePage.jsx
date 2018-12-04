@@ -28,7 +28,6 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 
 import paris from 'assets/img/paris.jpg'
 
-import oluEletu from 'assets/img/examples/olu-eletu.jpg'
 import clemOnojeghuo from 'assets/img/examples/clem-onojeghuo.jpg'
 
 import darrenColeshill from 'assets/img/examples/darren-coleshill.jpg'
@@ -165,7 +164,7 @@ class ProfilePage extends React.Component {
 																<Card
 																	background
 																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
+																		backgroundImage: 'url(' + paris + ')'
 																	}}
 																>
 																	<a href="#pablo" />
@@ -199,7 +198,7 @@ class ProfilePage extends React.Component {
 																<Card
 																	background
 																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
+																		backgroundImage: 'url(' + paris + ')'
 																	}}
 																>
 																	<Link to="admin/menu/veillemedicale/">
@@ -218,16 +217,31 @@ class ProfilePage extends React.Component {
 																<Card
 																	background
 																	style={{
-																		backgroundImage: 'url(' + oluEletu + ')'
+																		backgroundImage: 'url(' + paris + ')'
 																	}}
 																>
-																	<a href="#pablo" />
 																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
+																		<Link to="/admin/menu/offres-emplois">
 																			<h2 className={classes.cardTitleWhite}>
-																				Emploi-Formation
+																				Emploi
 																			</h2>
-																		</a>
+																		</Link>
+																	</CardBody>
+																</Card>
+															</GridItem>
+															<GridItem xs={12} sm={12} md={6}>
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<Link to="/admin/menu/formations">
+																			<h2 className={classes.cardTitleWhite}>
+																				Formations
+																			</h2>
+																		</Link>
 																	</CardBody>
 																</Card>
 															</GridItem>
@@ -248,7 +262,7 @@ class ProfilePage extends React.Component {
 															<Card
 																background
 																style={{
-																	backgroundImage: 'url(' + oluEletu + ')'
+																	backgroundImage: 'url(' + paris + ')'
 																}}
 															>
 																<Link to="/admin/formulaire">

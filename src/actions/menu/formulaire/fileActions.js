@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { GET_FILE, DELETE_FILE, GET_ERRORS } from 'actions/types'
+import { GET_FILE, GET_ERRORS } from 'actions/types'
 
 // Get current Caroussel
 export const getCurrentfile = () => (dispatch) => {

@@ -76,7 +76,7 @@ class HAUTDESEINEHAD extends React.Component {
 									<div className={classes.name}>
 										<h3 className={classes.title} style={{ color: '#cc4949' }}>
 											{' '}
-											Les équipes mobiles EN HAUTS DE SEIN{' '}
+											Les équipes mobiles EN HAUTS DE SEINE{' '}
 										</h3>
 									</div>
 								</div>

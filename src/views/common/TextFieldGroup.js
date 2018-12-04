@@ -9,12 +9,13 @@ const theme = createMuiTheme({
 		}
 	}
 })
-const TextFieldGroup = ({ name, placeholder, value, error, type, onChange, disabled, InputProps, info }) => {
+const TextFieldGroup = ({ label, name, placeholder, value, error, type, onChange, disabled, InputProps, info }) => {
 	return (
 		<div>
 			<MuiThemeProvider theme={theme}>
 				<TextField
 					fullWidth
+					label={label}
 					type={type}
 					placeholder={placeholder}
 					name={name}
@@ -34,6 +35,7 @@ const TextFieldGroup = ({ name, placeholder, value, error, type, onChange, disab
 	)
 }
 TextFieldGroup.propTypes = {
+	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,

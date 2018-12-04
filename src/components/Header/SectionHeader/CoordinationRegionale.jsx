@@ -47,12 +47,41 @@ class LesSoinsPalliatifs extends React.Component {
 	}
 	render() {
 		const { classes } = this.props
+		const easeInOutQuad = (t, b, c, d) => {
+			t /= d / 2
+			if (t < 1) return c / 2 * t * t + b
+			t--
+			return -c / 2 * (t * (t - 2) - 1) + b
+		}
+		const smoothScroll = (e, target) => {
+			if (window.location.pathname === '/homze') {
+				var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
+				if (isMobile) {
+					// if we are on mobile device the scroll into view will be managed by the browser
+				}
+			}
+		}
+		const scrollGo = (element, to, duration) => {
+			var start = element.scrollTop,
+				change = to - start,
+				currentTime = 0,
+				increment = 20
 
+			var animateScroll = function() {
+				currentTime += increment
+				var val = easeInOutQuad(currentTime, start, change, duration)
+				element.scrollTop = val
+				if (currentTime < duration) {
+					setTimeout(animateScroll, increment)
+				}
+			}
+			animateScroll()
+		}
 		return (
-			<div style={{ display: 'flex' }}>
+			<div style={{ display: 'flex', width: '60%' }}>
 				<div>
 					<CustomDropdown
-						buttonText="COORDINATION RÉGIONALE"
+						buttonText="Coordination régionale"
 						buttonProps={{
 							round: true,
 							block: true,
@@ -76,7 +105,6 @@ class LesSoinsPalliatifs extends React.Component {
 								}}
 								hoverColor="transparent"
 								dropPlacement="right-start"
-								dropdownList={[ 'Présentation asso', 'Objectifs et missions', 'Partenaires' ]}
 							/>,
 							<CustomDropdown
 								ref="multi"
@@ -92,7 +120,6 @@ class LesSoinsPalliatifs extends React.Component {
 								}}
 								hoverColor="transparent"
 								dropPlacement="left-start"
-								dropdownList={[ 'Le parcours patient' ]}
 							/>,
 
 							<CustomDropdown
@@ -109,12 +136,18 @@ class LesSoinsPalliatifs extends React.Component {
 								}}
 								hoverColor="transparent"
 								dropPlacement="left-start"
-								dropdownList={[ 'Pourquoi adhérer' ]}
 							/>,
-							<Link to="/about-us" style={{ backgroundColor: '#104949' }}>
-								<div style={{ display: 'flex', color: '#cc4949' }}>
+							<Link
+								to="/home_fr#Contact"
+								className={classes.dropdownLink}
+								onClick={(e) => smoothScroll(e, 'Contact')}
+								style={{ backgroundColor: '#104949' }}
+							>
+								<div style={{ display: 'flex', color: 'rgb(51, 51, 51' }}>
 									{<Icon className={classes.dropdownIcons}>content_paste</Icon>}
-									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Contact</div>
+									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }} id="Contact">
+										Contact
+									</div>
 								</div>
 							</Link>
 						]}

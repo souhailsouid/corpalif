@@ -32,6 +32,7 @@ const Adherent = ({ adherent, classes }) => (
 										width: '100%',
 										height: '500px'
 									}}
+									alt=""
 								/>
 								<div className="slick-caption" style={{ marginBottom: 50 }}>
 									<h2>{adherent.title}</h2>

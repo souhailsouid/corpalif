@@ -49,14 +49,22 @@ export const getProfileByHandle = (handle) => (dispatch) => {
 
 // Create Profile
 export const createProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => history.push('/dashboard')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => window.location.assign('/dashboard')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
 		})
 	)
 }
-
+// Complete Profile in order to Payment Process
+export const completeProfile = (profileData, history) => (dispatch) => {
+	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/step3')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
 // Add experience
 export const addExperience = (expData, history) => (dispatch) => {
 	axios.post('/api/profile/experience', expData).then((res) => history.push('/dashboard')).catch((err) =>

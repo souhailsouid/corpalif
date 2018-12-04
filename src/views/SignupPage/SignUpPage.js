@@ -87,18 +87,18 @@ class SignUp extends React.Component {
 			last_name: this.state.last_name,
 			company: this.state.company
 		}
-		const snack = {
-			variant: 'success',
-			message: 'Enregistrer avec succés!'
-		}
+		// const snack = {
+		// 	variant: 'success',
+		// 	message: 'Enregistrer avec succés!'
+		// }
 
-		this.setState({ snack, displaySnack: true })
-		setTimeout(
-			function() {
-				this.setState({ displaySnack: false })
-			}.bind(this),
-			1500
-		)
+		// this.setState({ snack, displaySnack: true })
+		// setTimeout(
+		// 	function() {
+		// 		this.setState({ displaySnack: false })
+		// 	}.bind(this),
+		// 	1500
+		// )
 
 		this.props.registerUser(newUser, this.props.history)
 	}
@@ -176,54 +176,56 @@ class SignUp extends React.Component {
 									>
 										Inscription
 									</h2>
-									<h5
+									{/* <h5
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
 										{' '}
 										Pour acceder à des informations plus détaillées ...
-									</h5>
+									</h5> */}
 								</div>
 							</DialogTitle>
 
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+									<GridItem
+										xs={12}
+										sm={5}
+										md={5}
+										className={classes.mlAuto}
+										style={{ paddingTop: 40 }}
+									>
 										<InfoArea
 											className={classes.infoArea}
-											title="Marketing"
+											title="Pourquoi s'inscrire ?"
 											description={
-												<p>
-													We've created the marketing campaign of the website. It was a very
-													interesting collaboration.
-												</p>
+												<div style={{ paddingTop: 20 }}>
+													<p>
+														<b>
+															Chaque semaine recevez par mail <br />
+															les nouveautés en ligne
+														</b>
+													</p>
+													<p>
+														<br />
+														<b>
+															{' '}
+															Retrouvez toutes les informations et <br />
+															supports de nos rencontres
+														</b>
+													</p>
+													<br />
+													<p>
+														<b>
+															{' '}
+															Vous êtes adhérents ?<br />
+															Accédez aux rapports d'activité
+														</b>
+													</p>
+												</div>
 											}
 											icon={Timeline}
 											iconColor="rose"
-										/>
-										<InfoArea
-											className={classes.infoArea}
-											title="Fully Coded in HTML5"
-											description={
-												<p>
-													We've developed the website with HTML5 and CSS3. The client has
-													access to the code using GitHub.
-												</p>
-											}
-											icon={Code}
-											iconColor="primary"
-										/>
-										<InfoArea
-											className={classes.infoArea}
-											title="Built Audience"
-											description={
-												<p>
-													There is also a Fully Customizable CMS Admin Dashboard for this
-													product.
-												</p>
-											}
-											icon={Group}
-											iconColor="info"
 										/>
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
@@ -352,7 +354,7 @@ class SignUp extends React.Component {
 												name="email"
 												value={this.state.email}
 												onChange={this.onChange}
-												error={errors.registerEmail}
+												error={errors.email}
 												InputProps={{
 													startAdornment: (
 														<InputAdornment position="start">

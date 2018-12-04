@@ -28,9 +28,12 @@ class PostSEINEETMARNEASSOS extends Component {
 		this.state = {
 			displaySocialInputs: false,
 			name: '',
-			adresse: '',
+			rue: '',
+			compl: '',
+			postcode: '',
 			phone: '',
 			email: '',
+			web: '',
 			errors: {}
 		}
 
@@ -47,9 +50,12 @@ class PostSEINEETMARNEASSOS extends Component {
 
 			this.setState({
 				name: association.name,
-				adresse: association.adresse,
+				rue: association.rue,
 				email: association.email,
-				phone: association.phone
+				phone: association.phone,
+				compl: association.compl,
+				postcode: association.postcode,
+				web: association.web
 			})
 		}
 	}
@@ -59,9 +65,12 @@ class PostSEINEETMARNEASSOS extends Component {
 
 		const Data = {
 			name: this.state.name,
-			adresse: this.state.adresse,
+			rue: this.state.rue,
 			email: this.state.email,
-			phone: this.state.phone
+			phone: this.state.phone,
+			compl: this.state.compl,
+			postcode: this.state.postcode,
+			web: this.state.web
 		}
 
 		this.props.postAssos(Data, this.props.history)
@@ -88,6 +97,7 @@ class PostSEINEETMARNEASSOS extends Component {
 									</div>
 									<form onSubmit={this.onSubmit}>
 										<TextFieldGroup
+											label="Nom de la structure"
 											placeholder="Nom de la structure"
 											name="name"
 											value={this.state.name}
@@ -106,10 +116,11 @@ class PostSEINEETMARNEASSOS extends Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											placeholder="adresse"
+											label="rue"
+											placeholder="rue"
 											className={classes.margin}
-											name="adresse"
-											value={this.state.adresse}
+											name="rue"
+											value={this.state.rue}
 											onChange={this.onChange}
 											error={errors.AnnuaireAdresse}
 											InputProps={{
@@ -124,7 +135,70 @@ class PostSEINEETMARNEASSOS extends Component {
 											}}
 										/>
 										<br /> <br />
+										<br /> <br />
 										<TextFieldGroup
+											label="complementaire"
+											placeholder="compl"
+											className={classes.margin}
+											name="compl"
+											value={this.state.compl}
+											onChange={this.onChange}
+											error={errors.AnnuaireAdresse}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<i class="material-icons">location_on</i>
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										<br /> <br />
+										<br /> <br />
+										<TextFieldGroup
+											label="code postal et ville"
+											placeholder="postcode "
+											className={classes.margin}
+											name="postcode"
+											value={this.state.postcode}
+											onChange={this.onChange}
+											error={errors.AnnuaireAdresse}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<i class="material-icons">location_on</i>
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										<br /> <br />
+										<br /> <br />
+										<TextFieldGroup
+											label="web"
+											placeholder="web"
+											className={classes.margin}
+											name="web"
+											value={this.state.web}
+											onChange={this.onChange}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<i class="material-icons">location_on</i>
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										<br /> <br />
+										<TextFieldGroup
+											label="email"
 											placeholder="email"
 											type="email"
 											className={classes.margin}
@@ -144,6 +218,7 @@ class PostSEINEETMARNEASSOS extends Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
+											label="Telephone de service"
 											placeholder="phone"
 											className={classes.margin}
 											name="phone"

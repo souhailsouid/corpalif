@@ -12,7 +12,7 @@ import SectionFooter from 'views/Footer/SectionFooter'
 import SectionfileAdmin from './file'
 // section CSS
 
-class Recommandation extends React.Component {
+class PresentationFile extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -36,4 +36,4 @@ class Recommandation extends React.Component {
 	}
 }
 
-export default withStyles(presentationStyle)(Recommandation)
+export default withStyles(presentationStyle)(PresentationFile)

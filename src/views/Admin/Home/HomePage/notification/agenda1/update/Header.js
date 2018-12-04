@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 
-class UpdateCaroussel1 extends React.Component {
+class UpdateAgenda1 extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -69,8 +69,8 @@ class UpdateCaroussel1 extends React.Component {
 	}
 }
 
-UpdateCaroussel1.propTypes = {
+UpdateAgenda1.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(UpdateCaroussel1))
+export default compose(withStyles(profilePageStyle))(withRouter(UpdateAgenda1))

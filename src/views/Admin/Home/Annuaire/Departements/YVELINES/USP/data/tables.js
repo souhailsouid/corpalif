@@ -38,17 +38,25 @@ const Tables = ({ usp }) => (
 		<GridContainer>
 			<GridItem
 				xs={12}
-				sm={10}
+				sm={12}
 				md={12}
 				style={{ display: 'flex', justifyContent: 'space-between', marginTop: 30, flewWrap: 'wrap' }}
 			>
-				<Grid item xs={4}>
+				<Grid item xs={2} style={{ textAlign: 'center' }}>
 					{usp.name}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'left', justifyContent: 'space-between' }}>
-					{usp.adresse}
+				<Grid item xs={3} style={{ textAlign: 'left', marginLeft: 20 }}>
+					{usp.rue}
+					<br />
+					{usp.compl}
+					<br />
+					{usp.postcode}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'right' }}>
+
+				<Grid item xs={5} style={{ textAlign: 'center' }}>
+					<div> {usp.web}</div>
+				</Grid>
+				<Grid item xs={2} style={{ textAlign: 'right' }}>
 					{usp.phone}
 				</Grid>
 				<Grid item xs={4} style={{ textAlign: 'right' }}>

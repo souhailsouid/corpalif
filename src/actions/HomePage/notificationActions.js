@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { GET_AGENDA, DELETE_AGENDA, GET_ERRORS, GET_AGENDA1, GET_AGENDA2, GET_OFFRE } from 'actions/types'
+import { GET_AGENDA, DELETE_AGENDA, GET_ERRORS, GET_AGENDA1, GET_AGENDA2, GET_NOTIFICATIONOFFRE } from 'actions/types'
 
 // Get current AGENDA
 export const getCurrentAgenda = () => (dispatch) => {
@@ -136,20 +136,20 @@ export const delete_Agenda = (id) => (dispatch) => {
 }
 // offre d'emploi
 
-export const getCurrentOffre = () => (dispatch) => {
-	axios.get('/api/offre').then((res) =>
+export const getCurrentnotificationOffre = () => (dispatch) => {
+	axios.get('/api/offre/notification').then((res) =>
 		dispatch({
-			type: GET_OFFRE,
+			type: GET_NOTIFICATIONOFFRE,
 			payload: res.data
 		})
 	)
 }
-export const getCurrentOffre_id = (id) => (dispatch) => {
+export const getCurrentnotificationOffre_id = (id) => (dispatch) => {
 	axios
-		.get(`/api/offre/${id}`)
+		.get(`/api/offre/notification/${id}`)
 		.then((res) =>
 			dispatch({
-				type: GET_OFFRE,
+				type: GET_NOTIFICATIONOFFRE,
 				payload: res.data
 			})
 		)
@@ -161,8 +161,8 @@ export const getCurrentOffre_id = (id) => (dispatch) => {
 		)
 }
 // Update post
-export const updateOffre = (id, Data) => (dispatch) => {
-	axios.patch(`/api/offre/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updatenotificationOffre = (id, Data) => (dispatch) => {
+	axios.patch(`/api/offre/notification/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}

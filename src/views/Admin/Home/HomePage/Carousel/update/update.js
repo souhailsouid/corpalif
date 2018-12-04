@@ -12,8 +12,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import Grid from '@material-ui/core/Grid'
 import Close from '@material-ui/icons/Close'
 // core components
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { TextField } from '@material-ui/core'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
@@ -27,13 +25,6 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getCurrentCaroussel_id } from 'actions/HomePage/carousselActions'
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: '#337467'
-		}
-	}
-})
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />

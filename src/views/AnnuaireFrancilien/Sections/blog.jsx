@@ -26,9 +26,13 @@ function SectionBlogs({ ...props }) {
 				<div className={classes.container}>
 					<GridContainer>
 						<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
-							<h2 className={classes.title} style={{ color: '#cc4949' }}>
-								L' offre de soins francilienne
-							</h2>
+							<h1 className={classes.title} style={{ color: '#cc4949', textAlign: 'center' }}>
+								Offre de soins palliatifs en Ile-de-France
+							</h1>
+							<h4 className={classes.description}>
+								Les structures de soins palliatifs sont régies par la circulaire DHOS du 25 mars 2008
+								relative à l'organisation des soins palliatifs.
+							</h4>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
 									<GridItem xs={12} sm={5} md={3}>
@@ -40,9 +44,9 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Unités de soins palliatifs (USP)
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}> Unités de soins palliatifs (USP)</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -50,21 +54,10 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											Les unités de soins palliatifs une activité spécifique en soins palliatifs
+											et des professionnels formés et spécialisés. Dotées d’une triple mission de
+											soins, de formation et de recherche, les USP accueillent les situations les
+											plus complexes.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -80,9 +73,9 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Reseaux de soins palliatifs
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}> Réseaux de soins palliatifs</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -90,21 +83,10 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											Les réseaux de soins palliatifs assurent la continuité des soins et la
+											coordination des acteurs qui interviennent au domicile. Ils visent au
+											développement et à la promotion de la démarche palliative en visant le
+											décloisonnement des structures et des acteurs.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -120,9 +102,9 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Structures d'hospitalisation à domicile
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}> Hospitalisation à domicile (HAD)</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -130,21 +112,9 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											L'HAD assure l'organisation des soins palliatifs au domicile et assure la
+											prise en charge des situations complexes. Ils assurent des soins médicaux
+											médicaux et paramédicaux continus.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -160,9 +130,12 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Lits identifiés soins palliatifs (USP)
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}>
+													{' '}
+													Lits identifiés soins palliatifs (LISP)
+												</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -170,21 +143,10 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											Les lits identifiés de soins palliatifs (LISP) assurent, au sein des
+											services de soins non dédiés spécifiquement, la mise en place d’une démarche
+											palliative. Ils contribuent, avec les équipes mobiles, au développement des
+											soins palliatifs dans les établissements de santé.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -200,9 +162,12 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Équipes mobiles de soins palliatifs (HAD)
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}>
+													{' '}
+													Équipes mobiles de soins palliatifs (EMSP)
+												</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -210,21 +175,9 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											Les équipes mobiles de soins palliatifs interviennent dans les services de
+											soins non dédiés spécifiquement, en apportant un appui aux professionnels
+											confrontés à des situations palliatives.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -240,9 +193,12 @@ function SectionBlogs({ ...props }) {
 									</GridItem>
 									<GridItem xs={12} sm={8} md={8}>
 										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Association de bénévoles d'accompagnement
-											</h6>
+											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
+												<b style={{ color: '#cc4949' }}>
+													{' '}
+													Association de bénévoles d'accompagnement
+												</b>
+											</h5>
 										</Info>
 										<h3 className={classes.cardTitle}>
 											<a href="#pablo" onClick={(e) => e.preventDefault()}>
@@ -250,70 +206,88 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
+											Les bénévoles d'accompagnement proposent aux patients et à leurs proches
+											écoute et présence. <br />Ils interviennent dans les structures de soins
+											ainsi qu'au domicile. Le bénévolat d'accompagnement s'effectue dans le cadre
+											d'une association.
 										</p>
 									</GridItem>
 								</GridContainer>
 							</Card>
-							<Card plain blog className={classes.card}>
-								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
-										<CardHeader image plain>
-											<a href="#pablito" onClick={(e) => e.preventDefault()}>
-												<Autres />
-											</a>
-										</CardHeader>
-									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
-										<Info>
-											<h6 className={classes.cardCategory} style={{ color: '#cc4949' }}>
-												Autres structures
-											</h6>
-										</Info>
-										<h3 className={classes.cardTitle}>
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												32
-											</a>
-										</h3>
-										<p className={classes.description}>
-											Like so many organizations these days, Autodesk is a company in transition.
-											It was until recently a traditional boxed software company selling licenses.
-											Today, it’s moving to a subscription model. Yet its own business model
-											disruption is only part of the story — and…
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												{' '}
-												Read More{' '}
-											</a>
-										</p>
-										<p className={classes.author}>
-											by{' '}
-											<a href="#pablo" onClick={(e) => e.preventDefault()}>
-												<b>Mike Butcher</b>
-											</a>{' '}
-											, 2 days ago
-										</p>
-									</GridItem>
-								</GridContainer>
-							</Card>
+							<GridContainer justify="center" style={{ marginTop: 40 }}>
+								<GridItem xs={12} sm={12} md={12}>
+									<h5
+										className={classes.description}
+										style={{ justifyContent: 'left', textAlign: 'left' }}
+										justify="left"
+									>
+										<b style={{ color: '#000000', textAlign: 'left', display: 'flex' }}>
+											<i class="material-icons">link</i>
+
+											<b style={{ marginLeft: 10 }}> Liens utiles</b>
+										</b>
+										<br />
+										<br />{' '}
+										<b style={{ color: '#337467' }}>
+											{' '}
+											Organisation des soins palliatifs - Société Française d'Accompagnement et de
+											soins Palliatifs
+										</b>
+										<br />
+										<a
+											href="http://www.sfap.org/rubrique/definition-et-organisation-des-soins-palliatifs-en-france 
+"
+											target="_blank"
+											style={{ color: '#999' }}
+										>
+											<h5 className="link">
+												<b>
+													{' '}
+													http://www.sfap.org/rubrique/definition-et-organisation-des-soins-palliatifs-en-france
+												</b>
+											</h5>
+										</a>
+										<b style={{ color: '#337467' }}>
+											La fin de vie en pratique - Structures et aides existantes - Centre national
+											de la fin de vie et soins palliatifs
+										</b>
+										<a
+											href="http://www.spfv.fr/actualites/lorganisation-soins-et-soins 
+"
+											target="_blank"
+											style={{ color: '#999' }}
+										>
+											<h5 className="link">
+												<b> http://www.spfv.fr/actualites/lorganisation-soins-et-soins </b>
+											</h5>
+										</a>
+									</h5>
+									<h5 className="link">
+										<b style={{ color: '#337467' }}>
+											Circulaire du 25 mars 2008 relative à l’organisation des soins palliatifs -
+											Ministère des Solidarités et de la Santé
+										</b>
+										<br />
+										<a
+											href="http://solidarites-sante.gouv.fr/fichiers/bo/2008/08-04/ste_20080004_0100_0113.pdf 
+"
+											target="_blank"
+											style={{ color: '#999' }}
+										>
+											<h5 className="link">
+												<b>
+													http://solidarites-sante.gouv.fr/fichiers/bo/2008/08-04/ste_20080004_0100_0113.pdf
+												</b>
+											</h5>
+										</a>
+									</h5>
+								</GridItem>
+							</GridContainer>
 						</GridItem>
 					</GridContainer>
 				</div>
 			</div>
-			{/* Blogs 3 END */}
+			{/* Annuaire francilien END */}
 		</div>
 	)
 }

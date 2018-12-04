@@ -12,13 +12,12 @@ import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
-import Icon from '@material-ui/core/Icon'
 
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import SignUp from 'views/SignupPage/SignUpPage.js'
-import SeConnecter from 'views/SigninPage/SigninPage'
+
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -30,7 +29,6 @@ import { connect } from 'react-redux'
 import { forgotpassword } from 'actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
-import { TextField } from '@material-ui/core'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -65,19 +63,6 @@ class ForgotPassword extends React.Component {
 		const userData = {
 			email: this.state.email
 		}
-		const snack = {
-			variant: 'success',
-			message: 'un email vous a été adressé.!'
-		}
-		this.setState({ snack, displaySnack: true })
-		{
-		}
-		setTimeout(
-			function() {
-				this.setState({ displaySnack: false })
-			}.bind(this),
-			10500
-		)
 
 		this.props.forgotpassword(userData)
 	}
@@ -105,7 +90,7 @@ class ForgotPassword extends React.Component {
 	}
 
 	render() {
-		const { errors, validations } = this.state
+		const { errors } = this.state
 		const { classes } = this.props
 		return (
 			<div>
@@ -115,7 +100,7 @@ class ForgotPassword extends React.Component {
 						onClick={() => this.handleClickOpen('loginModal')}
 						style={{
 							marginLeft: 50,
-							width: 120,
+							width: 160,
 							backgroundColor: '#337467',
 							padding: 0,
 							paddingBottom: 0,
@@ -211,15 +196,6 @@ class ForgotPassword extends React.Component {
 						</Card>
 					</Dialog>
 				</div>
-				<Snackbar
-					anchorOrigin={{
-						vertical: 'bottom',
-						horizontal: 'left'
-					}}
-					open={this.state.displaySnack}
-				>
-					<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
-				</Snackbar>
 			</div>
 		)
 	}

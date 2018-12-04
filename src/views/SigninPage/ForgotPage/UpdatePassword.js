@@ -58,14 +58,14 @@ class SeConnecter extends React.Component {
 		}
 	}
 
-	onSubmit(e) {
+	onSubmit(e, error) {
 		e.preventDefault()
 		const userData = {
 			password: this.state.password,
 			password2: this.state.password2
 		}
 
-		this.props.updatePassword(this.props.match.params.token, userData)
+		this.props.updatePassword(this.props.match.params.token, userData, this.props.history)
 	}
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })

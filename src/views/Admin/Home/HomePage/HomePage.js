@@ -7,24 +7,18 @@ import withStyles from '@material-ui/core/styles/withStyles'
 // @material-ui/icons
 import Camera from '@material-ui/icons/Camera'
 import Palette from '@material-ui/icons/Palette'
-
 // core components
 import SectionFooter from 'views/Footer/SectionFooter'
 import Header from 'components/Header/Header.jsx'
-
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import NavPills from 'components/NavPills/NavPills.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
-
 import Parallax from 'components/Parallax/Parallax.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import paris from 'assets/img/paris.jpg'
-
-import clemOnojeghuo from 'assets/img/examples/clem-onojeghuo.jpg'
-
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 // Redux
 

@@ -44,7 +44,7 @@ const Recommandation = ({ recommandation, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${recommandation.picture}`} />
+							<img src={`http://localhost:5000/api/${recommandation.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}

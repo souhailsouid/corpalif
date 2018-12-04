@@ -2,7 +2,6 @@ import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
-import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -12,16 +11,18 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentOffre } from 'actions/HomePage/notificationActions'
+import { getCurrentnotificationOffre } from 'actions/HomePage/notificationActions'
 class SectionsOffres extends React.Component {
 	componentDidMount() {
-		this.props.getCurrentOffre()
+		this.props.getCurrentnotificationOffre()
 	}
 	render() {
 		const { classes } = this.props
-		const { offre } = this.props.offre
+		const { notificationoffre } = this.props.notificationoffre
 
-		const OffreElements = offre.map((offre) => <Offre offre={offre} />)
+		const OffreElements = notificationoffre.map((notificationoffre) => (
+			<Offre notificationoffre={notificationoffre} />
+		))
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
@@ -45,15 +46,15 @@ class SectionsOffres extends React.Component {
 	}
 }
 SectionsOffres.propTypes = {
-	getCurrentOffre: PropTypes.func.isRequired,
-	offre: PropTypes.object.isRequired,
+	getCurrentnotificationOffre: PropTypes.func.isRequired,
+	notificationoffre: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	offre: state.offre
+	notificationoffre: state.notificationoffre
 })
 
 export default compose(withStyles(notificationsStyles))(
-	connect(mapStateToProps, { getCurrentOffre })(withRouter(SectionsOffres))
+	connect(mapStateToProps, { getCurrentnotificationOffre })(withRouter(SectionsOffres))
 )

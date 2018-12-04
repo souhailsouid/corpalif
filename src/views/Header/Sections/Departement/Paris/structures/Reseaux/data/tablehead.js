@@ -8,7 +8,7 @@ import style from 'assets/jss/material-kit-pro-react/views/componentsSections/co
 import GridItem from 'components/Grid/GridItem.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-const TablesHead = ({}) => (
+const TablesHead = () => (
 	<div>
 		<Media query="(max-width: 1000px)">
 			{(matches) =>
@@ -26,7 +26,7 @@ const TablesHead = ({}) => (
 						<GridItem
 							xs={6}
 							sm={6}
-							md={11}
+							md={12}
 							style={{
 								display: 'flex',
 
@@ -35,22 +35,26 @@ const TablesHead = ({}) => (
 								flewWrap: 'wrap'
 							}}
 						>
-							<Grid item md={3} style={{ textAlign: 'center' }} />
-							<Grid item md={3} style={{ textAlign: 'center', marginLeft: 50 }}>
+							<Grid item md={2} style={{ textAlign: 'center' }} />
+							<Grid item md={2} style={{ textAlign: 'center', marginLeft: 50, paddingRight: 100 }}>
 								<i class="material-icons" style={{ fontSize: 40 }}>
 									room
 								</i>
 							</Grid>
-
-							<Grid item md={3} style={{ textAlign: 'center', marginLeft: 20 }}>
+							<Grid item md={2} style={{ textAlign: 'center', paddingRight: 20 }}>
 								<i class="material-icons" style={{ fontSize: 40 }}>
-									email
+									language
 								</i>{' '}
 							</Grid>
 
-							<Grid item md={3} style={{ textAlign: 'center' }}>
+							<Grid item md={2} style={{ textAlign: 'center', paddingRight: 30 }}>
 								<i class="material-icons" style={{ fontSize: 40 }}>
 									call
+								</i>{' '}
+							</Grid>
+							<Grid item md={2} style={{ textAlign: 'center', marginLeft: 20, paddingRight: 100 }}>
+								<i class="material-icons" style={{ fontSize: 40 }}>
+									email
 								</i>{' '}
 							</Grid>
 						</GridItem>

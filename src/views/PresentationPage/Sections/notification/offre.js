@@ -8,17 +8,17 @@ import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
 
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 
-const Offre = ({ offre }) => (
+const Offre = ({ notificationoffre }) => (
 	<SnackbarContent
 		message={
 			<span>
-				<b>{offre.when}</b>
+				<b>{notificationoffre.when}</b>
 				<br />
-				<b style={{ textAlign: 'left' }}>{offre.titre}</b> <br />
-				{offre.lieu} <br />
-				{offre.company}
+				<b style={{ textAlign: 'left' }}>{notificationoffre.titre}</b> <br />
+				{notificationoffre.lieu} <br />
+				{notificationoffre.company}
 				<br />
-				{offre.poste}
+				{notificationoffre.poste}
 			</span>
 		}
 		close

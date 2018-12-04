@@ -6,14 +6,30 @@ import { GET_ERRORS, SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING, GET_RESET_P
 
 // Register User
 export const registerUser = (newUser, history) => (dispatch) => {
-	axios.post('/api/users/register', newUser).then((res) => history.push('/')).catch((err) =>
+	axios.post('/api/users/register', newUser).then((res) => history.push('/login')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
 		})
 	)
 }
-
+// Register User - -  redirect to complete profile  in Payment PROCESS
+export const registerPayment = (newUser, history) => (dispatch) => {
+	axios.post('/api/users/register', newUser).then((res) => history.push('/adherent/login')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+// export const subscriptionUser = (newUser, history) => (dispatch) => {
+// 	axios.post('/api/users/register', newUser).then((res) => history.push('/registerU')).catch((err) =>
+// 		dispatch({
+// 			type: GET_ERRORS,
+// 			payload: err.response.data
+// 		})
+// 	)
+// }
 // Login - Get User Token
 export const loginUser = (userData) => (dispatch) => {
 	axios
@@ -29,6 +45,55 @@ export const loginUser = (userData) => (dispatch) => {
 			const decoded = jwt_decode(token)
 			// Set current user
 			dispatch(setCurrentUser(decoded))
+		})
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		)
+}
+
+// Login - For Login Page redirection to /home
+export const loginPage = (userData, history) => (dispatch) => {
+	axios
+		.post('/api/users/login', userData)
+		.then((res) => {
+			// Save to localStorage
+			const { token } = res.data
+			// Set token to ls
+			localStorage.setItem('jwtToken', token)
+			// Set token to Auth header
+			setAuthToken(token)
+			// Decode token to get user data
+			const decoded = jwt_decode(token)
+			// Set current user
+			dispatch(setCurrentUser(decoded))
+			history.push('/dashboard')
+		})
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		)
+}
+// Login - Get User Token & redirect to complete profile if is not in Payment PROCESS
+export const processLogin = (userData, history) => (dispatch) => {
+	axios
+		.post('/api/users/login', userData)
+		.then((res) => {
+			// Save to localStorage
+			const { token } = res.data
+			// Set token to ls
+			localStorage.setItem('jwtToken', token)
+			// Set token to Auth header
+			setAuthToken(token)
+			// Decode token to get user data
+			const decoded = jwt_decode(token)
+			// Set current user
+			dispatch(setCurrentUser(decoded))
+			history.push('/dashboard')
 		})
 		.catch((err) =>
 			dispatch({
@@ -91,31 +156,37 @@ export const updateProfile = (userData, history) => (dispatch) => {
 }
 // Forgot password
 export const forgotpassword = (userData) => (dispatch) => {
-	axios.post('/api/users/forgot_password', userData).then((res) => {}).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: err.response.data
+	axios
+		.post('/api/users/forgot_password', userData)
+		.then((res) => {
+			window.location.reload('/')
 		})
-	)
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		)
 }
 // Forgot password
-export const updatePassword = (token, userData) => (dispatch) => {
-	axios.post(`/api/users/reset/${token}`, userData).then((res) => {}).catch((err) =>
+export const updatePassword = (token, userData, history) => (dispatch) => {
+	axios.post(`/api/users/reset/${token}`, userData).then((res) => this.context.history.push('/')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
 		})
 	)
 }
-export const getUpdatePassword = (token) => (dispatch) => {
+export const getUpdatePassword = (token, history) => (dispatch) => {
 	axios
 		.get(`/api/users/reset/${token}`)
-		.then((res) =>
+		.then((res) => {
+			history.push('/')
 			dispatch({
 				type: GET_RESET_PASSWORD,
 				payload: res.data
 			})
-		)
+		})
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -127,4 +198,32 @@ export const getUpdatePassword = (token) => (dispatch) => {
 // Receive Email Contact
 export const receivemail = (first_name, last_name, email, message) => (dispatch) => {
 	axios.post('/api/users/api/form', first_name, last_name, email, message).then((res) => {})
+}
+
+// Adherer button Paypal
+
+export const adherer = (userData, token, payment, i) => (dispatch) => {
+	axios
+		.post('/api/adherer', userData)
+		.then((res) => {
+			window.location.href(payment.links[i].href)
+			console.log(payment.links[i].rel)
+			// window.location.assign(
+			// 	`https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-${token}`
+			// )
+		})
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
+}
+export const get_Adherent = (userData, history) => (dispatch) => {
+	axios.gett('/api/success', userData).then((res) => {}).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: {}
+		})
+	)
 }

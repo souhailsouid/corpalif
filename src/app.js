@@ -12,12 +12,15 @@ import { clearCurrentProfile } from './actions/profileActions'
 import Dashboard from './views/Dashboard/dashboard'
 // Components
 import PresentationPage from 'views/PresentationPage/PresentationPage.jsx'
+import LoginPage from 'views/SigninPage/LoginPage.js'
+import RegisterPage from 'views/SignupPage/RegisterPresentation.js'
+import PaymentLoginPage from 'views/SigninPage/Payment/PaymentConnection.js'
 import Annuaire from 'views/AnnuaireFrancilien/AnnuaireFrancilien.jsx'
 import PresentationStructures from 'views/StructuresPage/ListStructures.jsx'
 import PresentationBlog from 'views/VeilleMedicale/blog.jsx'
 
 import CreateProfile from 'views/create-profile/CreateProfile'
-import EditProfile from 'views/create-profile/UpdateProfile'
+import EditProfile from 'views/create-profile/update'
 
 // Reset Password
 
@@ -394,6 +397,19 @@ import UpdateVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE
 import DeleteVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE/ASSOS/delete/PresentationDelete'
 
 // MENU
+// COORDINATION REGIONALE
+import CorpalifPage from 'views/Menu/coordinationregionale/corpalif/corpalif.js'
+import OrientationPage from 'views/Menu/coordinationregionale/orientation/orientation.js'
+
+// SOINS PALLIATIFS
+//DEMARCHE PALLIATIVE
+import DemarchePalliatifPage from 'views/Menu/soinspalliatifs/demarchepalliative/DemarchePalliatifPage.js'
+
+// LEGISLATION
+import LegislationPage from 'views/Menu/soinspalliatifs/legislation/LegislationPage.js'
+// ACCOMPAGNER SON PROCHE
+import AccompagnementRecommandation from 'views/Menu/soinspalliatifs/accompagnement/AccompagnementRecommandation.js'
+
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
 import PresentationRecommandation from 'views/Menu/VeilleMedicale/Recommandations/Section/getData/recommandation&outils.jsx'
@@ -403,6 +419,9 @@ import Recommandation_id from 'views/Menu/VeilleMedicale/Recommandations/Section
 
 import PresentationEvenement from 'views/Menu/VeilleMedicale/evenements/getData/evenements.jsx'
 
+// OFFRES D'EMPLOIS & FORMATIONS
+import PresentationEmploi from 'views/Menu/offresdemploi/offres/getData/offres.jsx'
+import PresentationFormation from 'views/Menu/formations/getData/formations.jsx'
 // NOS RENCONTRES
 
 import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/rencontres.jsx'
@@ -410,6 +429,9 @@ import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/
 // ACTUALITES
 import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/actualites.jsx'
 
+// Adherent
+import PresentationAdherent from 'views/Adherent/adherent'
+import PresentationGetAdherent from 'views/Adherent/get'
 //Admin
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
@@ -433,6 +455,17 @@ import Actualite from 'views/Admin/Menu/VeilleMedicale/actualite/getData/actuali
 import DeleteOneActualite from 'views/Admin/Menu/VeilleMedicale/actualite/delete/PresentationDelete'
 import UpdateActualite from 'views/Admin/Menu/VeilleMedicale/actualite/update/Header'
 import PostActualite from 'views/Admin/Menu/VeilleMedicale/actualite/post/Header'
+// EMPLOI - FORMATIONS
+// EMPLOI
+import OffreEmploi from 'views/Admin/Menu/offres&emplois/offres/getData/offres.jsx'
+import DeleteOneOffre from 'views/Admin/Menu/offres&emplois/offres/delete/PresentationDelete'
+import UpdateOffres from 'views/Admin/Menu/offres&emplois/offres/update/Header'
+import PostOffres from 'views/Admin/Menu/offres&emplois/offres/post/Header'
+//  FORMATIONS
+import Formation from 'views/Admin/Menu/offres&emplois/formations/getData/formations.jsx'
+import DeleteOneFormations from 'views/Admin/Menu/offres&emplois/formations/delete/PresentationDelete'
+import UpdateFormations from 'views/Admin/Menu/offres&emplois/formations/update/Header'
+import PostFormation from 'views/Admin/Menu/offres&emplois/formations/post/Header'
 
 // HomePage
 // Caroussel1
@@ -460,6 +493,12 @@ import SectionAgenda2Admin from 'views/Admin/Home/HomePage/notification/agenda2/
 // Offre d'emploi
 import UpdateOffre from 'views/Admin/Home/HomePage/notification/offre/update/Header'
 import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offre'
+
+import Maps from './map'
+import Step1 from 'views/Adherent/process/step1.js'
+import Step2 from 'views/Adherent/process/step2.js'
+import PresentationContact from 'views/Contact/PresentationContact.js'
+import OpenModalLogin from 'views/SigninPage/OpenLogin.js'
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -468,7 +507,7 @@ if (localStorage.jwtToken) {
 	const decoded = jwt_decode(localStorage.jwtToken)
 	// Set user and isAuthenticated
 	store.dispatch(setCurrentUser(decoded))
-
+	// history = createHistory(this.props)
 	// Check for expired token
 	const currentTime = Date.now() / 1000
 	if (decoded.exp < currentTime) {
@@ -477,25 +516,28 @@ if (localStorage.jwtToken) {
 		// Clear current Profile
 		store.dispatch(clearCurrentProfile())
 		// Redirect to login
-		window.location.href = '/'
+		window.location.href = '/Contact'
 	}
 }
 class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<Router>
+				<Router history={this.history}>
 					<div className="App">
 						<Route exact path="/" component={PresentationPage} />
+						<Route exact path="/login" component={LoginPage} />
+						<Route exact path="/register" component={RegisterPage} />
+						<Route exact path="/adherent/login" component={PaymentLoginPage} />
+
+						<Route exact path="/map" component={Maps} />
 						<div className="container">
 							<Route exact path="/annuaire-francilien" component={Annuaire} />
 							<Route exact path="/structure" component={PresentationStructures} />
 							<Route exact path="/blogs" component={PresentationBlog} />
-
 							<Route exact path="/forgotpassword" component={ForgotPassword} />
 							<Route exact path="/reset/:token" component={UpdatePassword} />
-
-							{/*  Annuaire */}
+							{/* Annuaire
 							{/* paris */}
 							<Route exact path="/annuaire/paris" component={ModalSearchParis} />
 							{/* Offres de soins */}
@@ -506,7 +548,6 @@ class App extends Component {
 							<Route exact path="/annuaire/Paris/usp" component={PresentationUspParis} />
 							<Route exact path="/annuaire/Paris/reseaux" component={PresentationReseauxParis} />
 							{/* Yvelines */}
-
 							<Route exact path="/annuaire/yvelines" component={ModalSearchYvelines} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/Yvelines/lits" component={PresentationLitsYvelines} />
@@ -524,7 +565,6 @@ class App extends Component {
 							<Route exact path="/annuaire/Yvelines/usp" component={PresentationUspYvelines} />
 							<Route exact path="/annuaire/Yvelines/reseaux" component={PresentationReseauxYvelines} />
 							{/* Seine Saint Denis */}
-
 							<Route exact path="/annuaire/seinesaintdenis" component={ModalSearchSeineSaintDenis} />
 							{/* Offres de soins */}
 							<Route
@@ -557,7 +597,6 @@ class App extends Component {
 								path="/annuaire/SeineSaintDenis/reseaux"
 								component={PresentationReseauxSeineSaintDenis}
 							/>
-
 							{/* Seine et Marne */}
 							<Route exact path="/annuaire/seineetmarne" component={ModalSearchSeineetMarne} />
 							{/* Offres de soins */}
@@ -583,7 +622,6 @@ class App extends Component {
 								path="/annuaire/SeineetMarne/reseaux"
 								component={PresentationReseauxSeineetMarne}
 							/>
-
 							{/* Val d'Oise */}
 							<Route exact path="/annuaire/valdoise" component={ModalSearchValdOise} />
 							{/* Offres de soins */}
@@ -614,9 +652,7 @@ class App extends Component {
 							<Route exact path="/annuaire/essonne/equipesmobiles" component={PresentationHadEssonne} />
 							<Route exact path="/annuaire/essonne/usp" component={PresentationUspEssonne} />
 							<Route exact path="/annuaire/essonne/reseaux" component={PresentationReseauxEssonne} />
-
 							{/* Val de Marne */}
-
 							<Route exact path="/annuaire/valdemarne" component={ModalSearchValdeMarne} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/ValdeMarne/lits" component={PresentationLitsValdeMarne} />
@@ -630,16 +666,18 @@ class App extends Component {
 								path="/annuaire/ValdeMarne/association"
 								component={PresentationAssociationValdeMarne}
 							/>
-							<Route exact path="/annuaire/ValdeMarne/equipesmobiles" component={PresentationHadValdeMarne} />
+							<Route
+								exact
+								path="/annuaire/ValdeMarne/equipesmobiles"
+								component={PresentationHadValdeMarne}
+							/>
 							<Route exact path="/annuaire/ValdeMarne/usp" component={PresentationUspValdeMarne} />
 							<Route
 								exact
 								path="/annuaire/ValdeMarne/reseaux"
 								component={PresentationReseauxValdeMarne}
 							/>
-
 							{/* Hauts de Seine */}
-
 							<Route exact path="/annuaire/hautsdeseine" component={ModalSearchHautsdeSeine} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/HautsdeSeine/lits" component={PresentationLitsHautsdeSeine} />
@@ -653,14 +691,18 @@ class App extends Component {
 								path="/annuaire/HautsdeSeine/association"
 								component={PresentationAssociationHautsdeSeine}
 							/>
-							<Route exact path="/annuaire/HautsdeSeine/equipesmobiles" component={PresentationHadHautsdeSeine} />
+							<Route
+								exact
+								path="/annuaire/HautsdeSeine/equipesmobiles"
+								component={PresentationHadHautsdeSeine}
+							/>
 							<Route exact path="/annuaire/HautsdeSeine/usp" component={PresentationUspHautsdeSeine} />
 							<Route
 								exact
 								path="/annuaire/HautsdeSeine/reseaux"
 								component={PresentationReseauxHautsdeSeine}
-							/>
-
+							/>{' '}
+							*/}
 							<Switch>
 								<PrivateRoute exact path="/dashboard" component={Dashboard} />
 							</Switch>
@@ -818,17 +860,29 @@ class App extends Component {
 									component={DeleteHAUTDESEINEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/HAUTDESEINE/had" component={HAUTDESEINEHAD} />
-								<PrivateRoute exact path="/admin/HAUTDESEINE/had/:id" component={GetHAUTDESEINEHAD} />
 								<PrivateRoute
 									exact
-									path="/admin/update/HAUTDESEINE/had/:id"
+									path="/admin/HAUTDESEINE/equipesmobiles"
+									component={HAUTDESEINEHAD}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/HAUTDESEINE/equipesmobiles/:id"
+									component={GetHAUTDESEINEHAD}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/update/HAUTDESEINE/equipesmobiles/:id"
 									component={UpdateHAUTDESEINEHAD}
 								/>
-								<PrivateRoute exact path="/admin/post/HAUTDESEINE/had" component={PostHAUTDESEINEHAD} />
 								<PrivateRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/had/:id"
+									path="/admin/post/HAUTDESEINE/equipesmobiles"
+									component={PostHAUTDESEINEHAD}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/delete/HAUTDESEINE/equipesmobiles/:id"
 									component={DeleteHAUTDESEINEHAD}
 								/>
 								{/* STRUCTURES */}
@@ -1633,45 +1687,78 @@ class App extends Component {
 								/>
 							</Switch>
 							{/* Menu*/}
-							{/* Veille medicale */}
 							<Switch>
-								{/* <Route
+								{/* soins palliatifs */}
+								{/* Coordination régionale */}
+								<Route exact path="/menu/coordinationregionale/corpalif/" component={CorpalifPage} />
+
+								<Route
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/recommandation"
-									component={PresentationRecommandation}
-								/> */}
-								{/* {Menu : Veille medical } */}
-								{/* {recommandation et outils } */}
+									path="/menu/coordinationregionale/orientationregionale/"
+									component={OrientationPage}
+								/>
+								<Route
+									exact
+									path="/menu/coordinationregionale/orientationsregionales/"
+									component={OrientationPage}
+								/>
+								{/* Veille medicale */}
 								<Route
 									exact
 									path="/menu/veillemedicale/recommandation&outils/"
 									component={PresentationRecommandation}
 								/>
+								{/* soins palliatifs */}
+
+								<Route
+									exact
+									path="/menu/soinspalliatifs/demarche-palliative"
+									component={DemarchePalliatifPage}
+								/>
+								<Route exact path="/menu/soinspalliatifs/legislation" component={LegislationPage} />
+								{/* Veille medicale */}
+								<Route
+									exact
+									path="/menu/soinspalliatifs/accompagnement"
+									component={AccompagnementRecommandation}
+								/>
+
 								{/* {evenements } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/evenements/"
 									component={PresentationEvenement}
 								/>
+								{/* {offres d'emplois et formations } */}
+								<Route exact path="/offres-d'emplois" component={PresentationEmploi} />
+								<Route exact path="/formations" component={PresentationFormation} />
 								{/* {actualite } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/actualites/"
 									component={PresentationActualite}
 								/>
+								{/* {Adherent}	 */}
+								<Route exact path="/adherents" component={PresentationAdherent} />
+								<Route exact path="/success" component={PresentationGetAdherent} />
+								<Route exact path="/adherents/step" component={Step1} />
+								<Route exact path="/adherents/step2" component={Step2} />
+								{/* {Contact page}	 */}
+								<Route exact path="/menu/contact" component={PresentationContact} />
+								{/* {Modal Open for Login}	 */}
+								<Route exact path="/login" component={OpenModalLogin} />
+
 								{/* {rencontres } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
-
 								<PrivateRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
-
 								{/* {admin } */}
 								<PrivateRoute
 									exact
@@ -1714,7 +1801,6 @@ class App extends Component {
 									path="/admin/menu/veillemedicale/evenement/post"
 									component={PostEvenement}
 								/>
-
 								{/* rencontre */}
 								<PrivateRoute
 									exact
@@ -1758,13 +1844,38 @@ class App extends Component {
 									component={PostActualite}
 								/>
 
-								{/* file */}
+								{/* offres d'emploi */}
+								<PrivateRoute exact path="/admin/menu/offres-emplois" component={OffreEmploi} />
+								<PrivateRoute
+									exact
+									path="/admin/menu/offres-emplois/delete/:id"
+									component={DeleteOneOffre}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/offres-emplois/update/:id"
+									component={UpdateOffres}
+								/>
+								<PrivateRoute exact path="/admin/menu/offres-emplois/post" component={PostOffres} />
+								{/* formation */}
+								<PrivateRoute exact path="/admin/menu/formations" component={Formation} />
+								<PrivateRoute
+									exact
+									path="/admin/menu/formations/delete/:id"
+									component={DeleteOneFormations}
+								/>
+								<PrivateRoute
+									exact
+									path="/admin/menu/formations/update/:id"
+									component={UpdateFormations}
+								/>
+								<PrivateRoute exact path="/admin/menu/formations/post" component={PostFormation} />
 
+								{/* file */}
 								{/* HomePage */}
 								{/* Caroussel1	*/}
 								<PrivateRoute exact path="/admin/HomePage" component={HomePageAdminHome} />
 								<PrivateRoute exact path="/admin/carousel" component={SectioncarousselsAdmin} />
-
 								<PrivateRoute
 									exact
 									path="/admin/menu/caroussel/update/:id"
@@ -1772,7 +1883,6 @@ class App extends Component {
 								/>
 								{/* Caroussel2	*/}
 								<PrivateRoute exact path="/admin/adherent" component={SectioncadherentAdmin} />
-
 								<PrivateRoute
 									exact
 									path="/admin/menu/adherent/update/:id"
@@ -1780,7 +1890,6 @@ class App extends Component {
 								/>
 								{/* formulaire d'admission	*/}
 								<PrivateRoute exact path="/admin/formulaire" component={PresentationFile} />
-
 								<PrivateRoute
 									exact
 									path="/admin/menu/formulaire/update/:id"
@@ -1788,19 +1897,13 @@ class App extends Component {
 								/>
 								{/* Agenda	*/}
 								{/* Agenda1	*/}
-
 								<PrivateRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
-
 								<PrivateRoute exact path="/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
 								{/* Agenda2	*/}
-
 								<PrivateRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
-
 								<PrivateRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
 								{/* Offre d'emploi	*/}
-
 								<PrivateRoute exact path="/admin/offre" component={SectionOffreAdmin} />
-
 								<PrivateRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 							</Switch>
 						</div>

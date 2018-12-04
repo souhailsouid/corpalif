@@ -13,9 +13,12 @@ import agendaReducer from './pagedaccueil/agendaReducer'
 import agenda1Reducer from './notifications/agenda1Reducer'
 import agenda2Reducer from './notifications/agenda2Reducer'
 import offreReducer from './notifications/offreReducer'
+import offresdemploisReducer from './menu/Offres&formations/offresdemploisReducer'
+import formationReducer from './menu/Offres&formations/formationReducer'
 import rencontreReducer from './menu/veillemedicale/rencontreReducer'
 import actualiteReducer from './menu/veillemedicale/actualiteReducer'
 import evenementReducer from './menu/veillemedicale/evenementReducer'
+import mapReducer from './mapReducer'
 export default combineReducers({
 	auth: authReducer,
 	errors: errorReducer,
@@ -35,8 +38,16 @@ export default combineReducers({
 	agenda: agendaReducer,
 	agenda1: agenda1Reducer,
 	agenda2: agenda2Reducer,
-	offre: offreReducer,
+	notificationoffre: offreReducer,
+	offreemploi: offresdemploisReducer,
+	formation: formationReducer,
 	rencontre: rencontreReducer,
 	actualite: actualiteReducer,
-	evenement: evenementReducer
+	evenement: evenementReducer,
+	mapteam: mapReducer,
+	mapusp: mapReducer,
+	mapassociation: mapReducer,
+	mapreseaux: mapReducer,
+	maplit: mapReducer,
+	mapsoin: mapReducer
 })

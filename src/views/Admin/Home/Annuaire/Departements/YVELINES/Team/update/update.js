@@ -36,9 +36,12 @@ class Modal extends React.Component {
 		this.state = {
 			searchModal: true,
 			name: '',
-			adresse: '',
+			rue: '',
+			compl: '',
+			postcode: '',
 			phone: '',
 			email: '',
+			web: '',
 			errors: {}
 		}
 		this.onChange = this.onChange.bind(this)
@@ -74,13 +77,18 @@ class Modal extends React.Component {
 			had.name = !isEmpty(had.name) ? had.name : ''
 			had.email = !isEmpty(had.email) ? had.email : ''
 			had.phone = !isEmpty(had.phone) ? had.phone : ''
-			had.adresse = !isEmpty(had.adresse) ? had.adresse : ''
-
+			had.rue = !isEmpty(had.rue) ? had.rue : ''
+			had.compl = !isEmpty(had.compl) ? had.compl : ''
+			had.postcode = !isEmpty(had.postcode) ? had.postcode : ''
+			had.web = !isEmpty(had.web) ? had.web : ''
 			// Set component fields state
 			this.setState({
 				name: had.name,
 				email: had.email,
-				adresse: had.adresse,
+				rue: had.rue,
+				compl: had.compl,
+				postcode: had.postcode,
+				web: had.web,
 				phone: had.phone
 			})
 		}
@@ -91,11 +99,13 @@ class Modal extends React.Component {
 
 		const Data = {
 			name: this.state.name,
-			adresse: this.state.adresse,
+			rue: this.state.rue,
 			email: this.state.email,
-			phone: this.state.phone
+			phone: this.state.phone,
+			compl: this.state.compl,
+			postcode: this.state.postcode,
+			web: this.state.web
 		}
-
 		this.props.updateStructureTEAM(this.props.match.params.id, Data)
 		window.location.replace('/admin/YVELINES/had')
 	}
@@ -169,22 +179,47 @@ class Modal extends React.Component {
 																	)
 																}}
 															/>
-															<br /> <br />
+															<br />
+															<br />
 															<TextFieldGroup
-																label="adresse"
+																label="rue"
 																className={classes.margin}
-																name="adresse"
+																name="rue"
 																multiline
 																row={3}
-																value={this.state.adresse}
+																value={this.state.rue}
 																onChange={this.onChange}
 																error={errors.AnnuaireAdresse}
 																InputProps={{
 																	startAdornment: (
 																		<InputAdornment position="start">
 																			<div>
-																				{' '}
-																				<Face />
+																				<i class="material-icons">
+																					location_on
+																				</i>
+																			</div>
+																		</InputAdornment>
+																	)
+																}}
+															/>
+															<br />
+															<br />
+															<TextFieldGroup
+																label="complement"
+																className={classes.margin}
+																name="compl"
+																multiline
+																row={3}
+																value={this.state.compl}
+																onChange={this.onChange}
+																error={errors.AnnuaireAdresse}
+																InputProps={{
+																	startAdornment: (
+																		<InputAdornment position="start">
+																			<div>
+																				<i class="material-icons">
+																					location_on
+																				</i>
 																			</div>
 																		</InputAdornment>
 																	)
@@ -192,6 +227,29 @@ class Modal extends React.Component {
 															/>
 															<br /> <br />
 															<TextFieldGroup
+																label="Code postal et ville"
+																className={classes.margin}
+																name="postcode"
+																multiline
+																row={3}
+																value={this.state.postcode}
+																onChange={this.onChange}
+																error={errors.AnnuaireAdresse}
+																InputProps={{
+																	startAdornment: (
+																		<InputAdornment position="start">
+																			<div>
+																				<i class="material-icons">
+																					location_on
+																				</i>
+																			</div>
+																		</InputAdornment>
+																	)
+																}}
+															/>
+															<br /> <br />
+															<TextFieldGroup
+																label="email"
 																type="email"
 																className={classes.margin}
 																name="email"
@@ -210,6 +268,19 @@ class Modal extends React.Component {
 															/>
 															<br /> <br />
 															<TextFieldGroup
+																label="website"
+																type="web"
+																className={classes.margin}
+																name="web"
+																value={this.state.web}
+																onChange={this.onChange}
+																InputProps={{
+																	startAdornment: <InputAdornment position="start" />
+																}}
+															/>
+															<br /> <br />
+															<TextFieldGroup
+																label="telephone"
 																placeholder="phone"
 																className={classes.margin}
 																name="phone"
@@ -218,11 +289,7 @@ class Modal extends React.Component {
 																InputProps={{
 																	startAdornment: (
 																		<InputAdornment position="start">
-																			<div>
-																				<i class="material-icons">
-																					location_on
-																				</i>
-																			</div>
+																			<div />
 																		</InputAdornment>
 																	)
 																}}
@@ -238,7 +305,7 @@ class Modal extends React.Component {
 																}}
 															>
 																<Button type="submit" value="Submit" color="green">
-																	Ajouter
+																	Modifier
 																</Button>
 															</Grid>
 														</form>

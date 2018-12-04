@@ -6,8 +6,8 @@ import style from 'assets/jss/material-kit-pro-react/views/componentsSections/co
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
-
 import Grid from '@material-ui/core/Grid'
+import 'views/Header/Sections/style.css'
 
 const Tables = ({ reseaux }) => (
 	<div>
@@ -19,14 +19,37 @@ const Tables = ({ reseaux }) => (
 							<Grid item md={3} style={{ textAlign: 'center' }}>
 								<div style={{ textAlign: 'center' }}>
 									<b>
-										<h3 style={{ color: '#337467' }}>{reseaux.name}</h3>
+										<h3 style={{ color: '#337467', marginLeft: 10 }}>{reseaux.name}</h3>
 									</b>
 								</div>
 							</Grid>
 							<Grid item md={'auto'} style={{ marginLeft: 20 }}>
-								<div style={{ display: 'flex' }}>
+								<div style={{ display: 'flex', spaceBetween: 'space-between' }}>
 									<i class="material-icons">room</i>{' '}
-									<h5 style={{ marginLeft: 10 }}>{reseaux.adresse}</h5>
+									<h5 style={{ marginLeft: 10 }}>
+										{reseaux.rue}
+										{reseaux.compl} {reseaux.postcode}
+									</h5>
+								</div>
+							</Grid>
+							<Grid item md={12} style={{ marginLeft: 20 }}>
+								<div style={{ display: 'flex' }}>
+									<i class="material-icons">language</i>
+									<a
+										href={`http://${reseaux.web}`}
+										target="_blank"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
+										<h5
+											className="link"
+											style={{
+												marginLeft: 10
+											}}
+										>
+											{' '}
+											{reseaux.web}
+										</h5>
+									</a>
 								</div>
 							</Grid>
 							<Grid item md={2} style={{ marginLeft: 20 }}>
@@ -51,29 +74,67 @@ const Tables = ({ reseaux }) => (
 							md={12}
 							style={{
 								display: 'flex',
-								justifyContent: 'space-between',
+								justifyContent: 'stretch',
 								minWidth: 'auto',
 								flewWrap: 'wrap'
 							}}
 						>
 							<Grid item md={3} style={{ textAlign: 'center' }}>
 								<b>
-									<h3 style={{ color: '#337467' }}>{reseaux.name}</h3>
+									<a href={`http://${reseaux.web}`} target="_blank">
+										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
+											{reseaux.name}
+										</h3>
+									</a>
 								</b>
 							</Grid>
-							<Grid item md={3} style={{ marginLeft: 20 }}>
-								<div style={{ display: 'flex' }}>
-									<h5 style={{ marginLeft: 10 }}>{reseaux.adresse}</h5>
+							<Grid item md={4} style={{ marginLeft: 20, textAlign: 'center' }}>
+								<div>
+									<h5>{reseaux.rue}</h5>
+
+									<h5>{reseaux.compl}</h5>
+									<h5>{reseaux.postcode}</h5>
 								</div>
 							</Grid>
-							<Grid item md={3} style={{ marginLeft: 20 }}>
-								<div style={{ display: 'flex' }}>
-									<h5 style={{ marginLeft: 10 }}> {reseaux.email} </h5>
+
+							<Grid
+								item
+								xs={5}
+								style={{
+									textAlign: 'center'
+								}}
+							>
+								<div>
+									{' '}
+									<a
+										href={`http://${reseaux.web}`}
+										target="_blank"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
+										<h5
+											className="link"
+											style={{
+												textAlign: 'center'
+											}}
+										>
+											{' '}
+											{reseaux.web}
+										</h5>
+									</a>
 								</div>
 							</Grid>
+
 							<Grid item md={3} style={{ marginLeft: 20 }}>
+								<div style={{ display: 'flex', flewWrap: 'wrap' }}>
+									<h5 style={{ marginLeft: 10, padding: 0, textAlign: 'center' }}>
+										{' '}
+										{reseaux.phone}{' '}
+									</h5>
+								</div>
+							</Grid>
+							<Grid item md={4} style={{ marginLeft: 0 }}>
 								<div style={{ display: 'flex' }}>
-									<h5 style={{ marginLeft: 10 }}> {reseaux.phone} </h5>
+									<h5 style={{ marginLeft: 0 }}> {reseaux.email} </h5>
 								</div>
 							</Grid>
 						</GridItem>

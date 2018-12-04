@@ -8,7 +8,6 @@ import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
 import Info from 'components/Typography/Info.jsx'
 import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/blogsStyle.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -76,7 +75,6 @@ class SectionBlogs extends React.Component {
 												<br />
 												<a
 													href={`http://localhost:5000/api/${recommandation.file}`}
-													target="_blank"
 													style={{ color: 'rgb(51, 116, 103)' }}
 												>
 													<i class="material-icons">library_books</i>

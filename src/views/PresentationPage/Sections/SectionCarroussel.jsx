@@ -20,14 +20,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getCurrentCaroussel } from 'actions/HomePage/carousselActions'
-const settings = {
-	dots: true,
-	infinite: true,
-	speed: 1000,
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	autoplay: true
-}
+
 class SectionCarousel extends React.Component {
 	constructor(props) {
 		super(props)

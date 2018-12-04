@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-import GridItem from 'components/Grid/GridItem.jsx'
-
 const ProfileActions = () => {
 	return (
 		<div className="btn-group mb-4" role="group">

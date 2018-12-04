@@ -39,17 +39,25 @@ const Tables = ({ soin }) => (
 		<GridContainer>
 			<GridItem
 				xs={12}
-				sm={10}
+				sm={12}
 				md={12}
 				style={{ display: 'flex', justifyContent: 'space-between', marginTop: 30, flewWrap: 'wrap' }}
 			>
-				<Grid item xs={4}>
+				<Grid item xs={2} style={{ textAlign: 'center' }}>
 					{soin.name}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'left', justifyContent: 'space-between' }}>
-					{soin.adresse}
+				<Grid item xs={3} style={{ textAlign: 'left', marginLeft: 20 }}>
+					{soin.rue}
+					<br />
+					{soin.compl}
+					<br />
+					{soin.postcode}
 				</Grid>
-				<Grid item xs={4} style={{ textAlign: 'right' }}>
+
+				<Grid item xs={5} style={{ textAlign: 'center' }}>
+					<div> {soin.web}</div>
+				</Grid>
+				<Grid item xs={2} style={{ textAlign: 'right' }}>
 					{soin.phone}
 				</Grid>
 				<Grid item xs={4} style={{ textAlign: 'right' }}>

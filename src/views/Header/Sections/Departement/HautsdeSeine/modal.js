@@ -63,7 +63,7 @@ class ModalSearchHautsdeSeine extends React.Component {
 		this.setState(x)
 	}
 	render() {
-		const { association, soin, reseaux, team, lit, usp, had } = this.props.association
+		const { association, soin, reseaux, lit, usp, had } = this.props.association
 		const { classes, ...rest } = this.props
 		return (
 			<div>

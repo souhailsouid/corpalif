@@ -4,6 +4,7 @@ import { SET_CURRENT_USER, GET_RESET_PASSWORD } from 'actions/types'
 
 const initialState = {
 	isAuthenticated: false,
+
 	user: {}
 }
 
@@ -13,6 +14,7 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				isAuthenticated: !isEmpty(action.payload),
+
 				user: action.payload
 			}
 		case GET_RESET_PASSWORD:

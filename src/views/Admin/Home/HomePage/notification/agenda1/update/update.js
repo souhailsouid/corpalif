@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'

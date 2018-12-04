@@ -77,14 +77,15 @@ class SectionContacts extends Component {
 
 		const snack = {
 			variant: 'success',
-			message: 'Your message has been sent ! I will contact you soon.'
+			message:
+				'Bonjour et merci pour votre message. Celui-ci sera pris en compte et une réponse vous sera apportée dans les meilleurs délais. A très bientôt.'
 		}
 		this.setState({ snack, displaySnack: true })
 		setTimeout(
 			function() {
 				this.setState({ displaySnack: false })
 			}.bind(this),
-			5000
+			10000
 		)
 		this.props.receivemail(send)
 		this.setState({

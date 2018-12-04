@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
+
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
@@ -25,7 +25,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentOffre_id, updateOffre } from 'actions/HomePage/notificationActions'
+import { getCurrentnotificationOffre_id, updatenotificationOffre } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -66,23 +66,23 @@ class Modal extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.offre.offre) {
-			const offre = nextProps.offre.offre
+		if (nextProps.notificationoffre.notificationoffre) {
+			const notificationoffre = nextProps.notificationoffre.notificationoffre
 
-			// If offre field doesnt exist, make empty string
-			offre.when = !isEmpty(offre.when) ? offre.when : ''
-			offre.titre = !isEmpty(offre.titre) ? offre.titre : ''
-			offre.lieu = !isEmpty(offre.lieu) ? offre.lieu : ''
-			offre.poste = !isEmpty(offre.poste) ? offre.poste : ''
-			offre.company = !isEmpty(offre.company) ? offre.company : ''
+			// If notificationoffre field doesnt exist, make empty string
+			notificationoffre.when = !isEmpty(notificationoffre.when) ? notificationoffre.when : ''
+			notificationoffre.titre = !isEmpty(notificationoffre.titre) ? notificationoffre.titre : ''
+			notificationoffre.lieu = !isEmpty(notificationoffre.lieu) ? notificationoffre.lieu : ''
+			notificationoffre.poste = !isEmpty(notificationoffre.poste) ? notificationoffre.poste : ''
+			notificationoffre.company = !isEmpty(notificationoffre.company) ? notificationoffre.company : ''
 
 			// Set component fields state
 			this.setState({
-				titre: offre.titre,
-				lieu: offre.lieu,
-				when: offre.when,
-				poste: offre.poste,
-				company: offre.company
+				titre: notificationoffre.titre,
+				lieu: notificationoffre.lieu,
+				when: notificationoffre.when,
+				poste: notificationoffre.poste,
+				company: notificationoffre.company
 			})
 		}
 	}
@@ -98,7 +98,7 @@ class Modal extends React.Component {
 			company: this.state.company
 		}
 
-		this.props.updateOffre(this.props.match.params.id, Data)
+		this.props.updatenotificationOffre(this.props.match.params.id, Data)
 	}
 
 	onChange(e) {
@@ -220,18 +220,18 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	offre: PropTypes.object.isRequired,
-	getCurrentOffre_id: PropTypes.func.isRequired,
-	updateOffre: PropTypes.func.isRequired,
+	notificationoffre: PropTypes.object.isRequired,
+	getCurrentnotificationOffre_id: PropTypes.func.isRequired,
+	updatenotificationOffre: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	offre: state.offre,
+	notificationoffre: state.notificationoffre,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { getCurrentOffre_id, updateOffre })(withRouter(Modal))
+	connect(mapStateTopProps, { getCurrentnotificationOffre_id, updatenotificationOffre })(withRouter(Modal))
 )

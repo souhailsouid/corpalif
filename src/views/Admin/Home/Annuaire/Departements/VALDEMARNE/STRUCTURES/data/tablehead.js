@@ -7,23 +7,27 @@ import style from 'assets/jss/material-kit-pro-react/views/componentsSections/co
 import GridItem from 'components/Grid/GridItem.jsx'
 import withStyles from '@material-ui/core/styles/withStyles'
 
-const TablesHead = ({}) => (
+const TablesHead = () => (
 	<div>
 		<GridContainer>
 			<GridItem xs={12} sm={10} md={12} style={{ display: 'flex', justifyContent: 'flex-end', flewWrap: 'wrap' }}>
-				<Grid item xs={3}>
+				<Grid item xs={2}>
 					<b>Name</b>
 				</Grid>
-				<Grid item xs={3} style={{ textAlign: 'center' }}>
+				<Grid item xs={2} style={{ textAlign: 'center' }}>
 					<b> Adresse</b>
 				</Grid>
 				<Grid item xs={3} style={{ textAlign: 'right' }}>
+					<b> Website</b>
+				</Grid>
+				<Grid item xs={4} style={{ textAlign: 'right' }}>
 					<b> Phone</b>
 				</Grid>
+
 				<Grid item xs={3} style={{ textAlign: 'right' }}>
 					<b> Email</b>
 				</Grid>
-				<Grid item xs={3} style={{ textAlign: 'right' }}>
+				<Grid item xs={4} style={{ textAlign: 'right' }}>
 					<b> Actions</b>
 				</Grid>
 			</GridItem>

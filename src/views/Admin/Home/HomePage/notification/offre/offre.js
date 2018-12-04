@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
@@ -11,7 +10,7 @@ import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentOffre } from 'actions/HomePage/notificationActions'
+import { getCurrentnotificationOffre } from 'actions/HomePage/notificationActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import Offre from './table'
@@ -22,8 +21,10 @@ class SectionOffreAdmin extends React.Component {
 
 	render() {
 		const { classes, ...rest } = this.props
-		const { offre } = this.props.offre
-		const DataElements = offre.map((offre) => <Offre offre={offre} />)
+		const { notificationoffre } = this.props.notificationoffre
+		const DataElements = notificationoffre.map((notificationoffre) => (
+			<Offre notificationoffre={notificationoffre} />
+		))
 
 		return (
 			<div className="cd-section" {...rest}>
@@ -48,15 +49,15 @@ class SectionOffreAdmin extends React.Component {
 }
 
 SectionOffreAdmin.propTypes = {
-	getCurrentOffre: PropTypes.func.isRequired,
-	offre: PropTypes.object.isRequired,
+	getCurrentnotificationOffre: PropTypes.func.isRequired,
+	notificationoffre: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	offre: state.offre
+	notificationoffre: state.notificationoffre
 })
 
 export default compose(withStyles(blogsStyle))(
-	connect(mapStateToProps, { getCurrentOffre })(withRouter(SectionOffreAdmin))
+	connect(mapStateToProps, { getCurrentnotificationOffre })(withRouter(SectionOffreAdmin))
 )
