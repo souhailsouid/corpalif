@@ -8,20 +8,24 @@ import PrivateRoute from 'routes/PrivateRoute.js'
 import 'assets/scss/material-kit-pro-react.css?v=1.2.0'
 import { Provider } from 'react-redux'
 import store from './store'
-import { clearCurrentProfile } from './actions/profileActions'
-import Dashboard from './views/Dashboard/dashboard'
+import { clearCurrentProfile } from 'actions/profileActions'
+import Dashboard from 'views/Dashboard/dashboard'
+import ProfilePagePresentation from 'views/Dashboard/ProfilePage'
 // Components
 import PresentationPage from 'views/PresentationPage/PresentationPage.jsx'
 import LoginPage from 'views/SigninPage/LoginPage.js'
 import RegisterPage from 'views/SignupPage/RegisterPresentation.js'
 import PaymentLoginPage from 'views/SigninPage/Payment/PaymentConnection.js'
+
 import Annuaire from 'views/AnnuaireFrancilien/AnnuaireFrancilien.jsx'
 import PresentationStructures from 'views/StructuresPage/ListStructures.jsx'
 import PresentationBlog from 'views/VeilleMedicale/blog.jsx'
 
 import CreateProfile from 'views/create-profile/CreateProfile'
-import EditProfile from 'views/create-profile/update'
-
+import UpdatePage from 'views/create-profile/UpdatePage'
+//Payment Process
+import CompleteprofilePage from 'views/create-profile/PaymentProcess/CompleteProfile/CompleteprofilePage.js'
+import UpdateProfilePage from 'views/create-profile/PaymentProcess/UpdateProfile/UpdatePage.js'
 // Reset Password
 
 import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
@@ -529,6 +533,9 @@ class App extends Component {
 						<Route exact path="/login" component={LoginPage} />
 						<Route exact path="/register" component={RegisterPage} />
 						<Route exact path="/adherent/login" component={PaymentLoginPage} />
+						{/* Adherents process Paymeny */}
+						<Route exact path="/adherent/completeprofile" component={CompleteprofilePage} />
+						<Route exact path="/adherent/check-profile" component={UpdateProfilePage} />
 
 						<Route exact path="/map" component={Maps} />
 						<div className="container">
@@ -705,12 +712,13 @@ class App extends Component {
 							*/}
 							<Switch>
 								<PrivateRoute exact path="/dashboard" component={Dashboard} />
+								<PrivateRoute exact path="/monprofile" component={ProfilePagePresentation} />
 							</Switch>
 							<Switch>
 								<PrivateRoute exact path="/complete-profile" component={CreateProfile} />
 							</Switch>
 							<Switch>
-								<PrivateRoute exact path="/edit-profile" component={EditProfile} />
+								<PrivateRoute exact path="/edit-profile" component={UpdatePage} />
 							</Switch>
 							{/* Admin */}
 							<Switch>

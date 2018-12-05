@@ -36,14 +36,7 @@ function SectionInfo({ ...props }) {
 								title="Une approche globale (douleurs,symptômes,confort...)"
 								description={
 									<span>
-										<p>
-											The moment you use Material Kit, you know you’ve never felt anything like
-											it. With a single use, this powerfull UI Kit lets you do more than ever
-											before.
-										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
+										<p>Prise en charge de la douleur et des symptômes liés à la maladie</p>
 									</span>
 								}
 								iconColor="info"
@@ -59,9 +52,6 @@ function SectionInfo({ ...props }) {
 											Divide details about your product or agency work into parts. Write a few
 											lines about each one. A paragraph describing a feature will be enough.
 										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
 									</span>
 								}
 								iconColor="danger"
@@ -77,9 +67,6 @@ function SectionInfo({ ...props }) {
 											Divide details about your product or agency work into parts. Write a few
 											lines about each one. A paragraph describing a feature will be enough.
 										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
 									</span>
 								}
 								iconColor="success"
@@ -98,9 +85,6 @@ function SectionInfo({ ...props }) {
 											it. With a single use, this powerfull UI Kit lets you do more than ever
 											before.
 										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
 									</span>
 								}
 								iconColor="info"
@@ -116,9 +100,6 @@ function SectionInfo({ ...props }) {
 											Divide details about your product or agency work into parts. Write a few
 											lines about each one. A paragraph describing a feature will be enough.
 										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
 									</span>
 								}
 								iconColor="danger"
@@ -134,9 +115,6 @@ function SectionInfo({ ...props }) {
 											Divide details about your product or agency work into parts. Write a few
 											lines about each one. A paragraph describing a feature will be enough.
 										</p>
-										<a href="#pablo" onClick={(e) => e.preventDefault()}>
-											En savoir plus...
-										</a>
 									</span>
 								}
 								iconColor="success"

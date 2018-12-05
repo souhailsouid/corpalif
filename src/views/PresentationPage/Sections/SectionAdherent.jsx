@@ -53,7 +53,7 @@ class SectionAdherent extends React.Component {
 								</i>{' '}
 								ACTUALITÉS
 							</h3> */}
-							{DataElements}
+							<a href="/adherents/">{DataElements}</a>
 						</GridItem>
 					</GridContainer>
 				</div>

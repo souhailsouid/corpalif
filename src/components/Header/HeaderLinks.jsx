@@ -8,13 +8,10 @@ import { Link } from 'react-router-dom'
 import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-
-import Snackbar from '@material-ui/core/Snackbar'
+import ViewDay from '@material-ui/icons/ViewDay'
 
 // @material-ui/icons
 import Icon from '@material-ui/core/Icon'
-import CoordinationRegionale from 'components/Header/SectionHeader/CoordinationRegionale.jsx'
-import LesSoinsPalliatifs from 'components/Header/SectionHeader/LesSoinsPalliatifs.jsx'
 import AccountBalance from '@material-ui/icons/AccountBalance'
 import Book from '@material-ui/icons/Book'
 import ArtTrack from '@material-ui/icons/ArtTrack'
@@ -30,21 +27,20 @@ import ListIcon from '@material-ui/icons/List'
 import People from '@material-ui/icons/People'
 // core components
 
-import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import SignUp from 'views/SignupPage/SignUpPage'
 import SeConnecter from 'views/SigninPage/SigninPage'
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import FileUpload from './upload_file/getfile'
-import ScrollableAnchor from 'react-scrollable-anchor'
+
 // Redux
 
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { getCurrentProfile, clearCurrentProfile } from '../../actions/profileActions'
+import { getCurrentProfile, clearCurrentProfile } from 'actions/profileActions'
 import { getCurrentfile } from 'actions/menu/formulaire/fileActions'
-import { logoutUser } from '../../actions/authActions'
+import { logoutUser } from 'actions/authActions'
 
 class HeaderLinks extends React.Component {
 	constructor(props) {
@@ -273,7 +269,7 @@ class HeaderLinks extends React.Component {
 								className: classes.navLink,
 								color: 'transparent'
 							}}
-							buttonIcon={Book}
+							buttonIcon={ViewDay}
 							dropdownList={[
 								<Link to="/menu/soinspalliatifs/demarche-palliative/" className={classes.dropdownLink}>
 									<div style={{ margin: 2 }}>

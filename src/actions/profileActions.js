@@ -58,7 +58,7 @@ export const createProfile = (profileData, history) => (dispatch) => {
 }
 // Complete Profile in order to Payment Process
 export const completeProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/step3')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/Payment/check')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data

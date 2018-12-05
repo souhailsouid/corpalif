@@ -59,8 +59,7 @@ function RegisterPage({ ...props }) {
 	}
 
 	const { classes } = props
-	// render() {
-	// 	const { classes } = this.props
+
 	return (
 		<div>
 			<HeaderSearchBarRegister />
@@ -70,10 +69,7 @@ function RegisterPage({ ...props }) {
 				<SectionMissions />
 				<SectionAdherent />
 				<SectionInfo />
-
-				<div className={classes.profile} id="contact">
-					<SectionContacts id="contact" />
-				</div>
+				<SectionContacts />
 				<SectionFooter />
 			</div>
 		</div>

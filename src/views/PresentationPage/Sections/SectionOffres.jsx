@@ -26,19 +26,19 @@ class SectionsOffres extends React.Component {
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
-					<div className={classes.container}>
-						<div />
-						<div className={classes.title}>
-							<h3 style={{ color: 'rgb(51, 116, 103)' }}>
-								<i class="material-icons" style={{ color: 'rgb(51, 116, 103)' }}>
-									work
-								</i>{' '}
-								OFFRES D'EMPLOIS
-							</h3>
+					<a href="/offres-d'emplois/">
+						<div className={classes.container}>
+							<div className={classes.title}>
+								<h3 style={{ color: 'rgb(51, 116, 103)' }}>
+									<i class="material-icons" style={{ color: 'rgb(51, 116, 103)' }}>
+										work
+									</i>{' '}
+									OFFRES D'EMPLOIS
+								</h3>
+							</div>
 						</div>
-					</div>
-					{OffreElements}
-
+						{OffreElements}
+					</a>
 					<Clearfix />
 				</div>
 			</GridContainer>

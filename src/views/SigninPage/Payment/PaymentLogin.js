@@ -26,7 +26,7 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { loginPage } from 'actions/authActions'
+import { processLogin } from 'actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
 
@@ -64,7 +64,7 @@ class PaymentLogin extends React.Component {
 			password: this.state.password
 		}
 
-		this.props.loginPage(userData, this.props.history)
+		this.props.processLogin(userData, this.props.history)
 	}
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })
@@ -204,7 +204,7 @@ class PaymentLogin extends React.Component {
 }
 
 PaymentLogin.propTypes = {
-	loginPage: PropTypes.func.isRequired,
+	processLogin: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 }
@@ -213,4 +213,6 @@ const mapStateToProps = (state) => ({
 	auth: state.auth,
 	errors: state.errors
 })
-export default compose(withStyles(javascriptStyles))(connect(mapStateToProps, { loginPage })(withRouter(PaymentLogin)))
+export default compose(withStyles(javascriptStyles))(
+	connect(mapStateToProps, { processLogin })(withRouter(PaymentLogin))
+)

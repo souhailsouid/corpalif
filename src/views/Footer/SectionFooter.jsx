@@ -58,22 +58,23 @@ const SectionFooter = (props) => {
 					<GridContainer>
 						<GridItem xs={12} sm={4} md={4}>
 							<h5>À propos</h5>
+							<p>La CORPALIF est une association de loi 1901.</p>
 							<p>
-								Corpalif is a startup that creates design tools that make the web development process
-								faster and easier.{' '}
-							</p>
-							<p>
-								We love the web and care deeply for how users interact with a digital product. We power
-								businesses and individuals to create better looking web projects around the world.{' '}
+								Elle a pour but de fédérer et représentater les acteurs de soins palliatifs franciliens.{' '}
 							</p>
 						</GridItem>
 						<GridItem xs={12} sm={4} md={4}>
 							<h5> Réseaux sociaux</h5>
 							<div className={classes.socialFeed}>
-								<div>
-									<i className="fab fa-linkedin" />
-									<p>The tangible benefits of designing at 1x pixel density.</p>
-								</div>
+								<a
+									href="https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167"
+									target="_blank"
+								>
+									<div>
+										<i className="fab fa-linkedin" />
+										<p>https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167</p>
+									</div>
+								</a>
 								<div>
 									<i className="fab fa-facebook-square" />
 									<p>A collection of 25 stunning sites that you can use for inspiration.</p>
@@ -83,30 +84,34 @@ const SectionFooter = (props) => {
 						<GridItem xs={12} sm={4} md={4}>
 							<h5>Nos partenaires</h5>
 							<div className={classes.galleryFeed}>
-								<img
-									src={ars}
-									className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
-									alt="..."
-								/>
-								<div className={classes.socialFeed}>
-									<div>
-										<p style={{ paddingTop: 20 }}>Agence Régionale de Soins Palliatifs.</p>
+								<a href="https://www.iledefrance.ars.sante.fr/" target="_blank">
+									<img
+										src={ars}
+										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
+										alt="..."
+									/>
+									<div className={classes.socialFeed}>
+										<div>
+											<p style={{ paddingTop: 20 }}>Agence Régionale de Soins Palliatifs.</p>
+										</div>
 									</div>
-								</div>
+								</a>
 								<br />
 								<br />
-								<img
-									src={sfap}
-									className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
-									alt="..."
-								/>
-								<div className={classes.socialFeed}>
-									<div>
-										<p style={{ paddingTop: 10 }}>
-											Société Française d'Accompagnement et de Soins Palliatifs.
-										</p>
+								<a href="http://www.sfap.org/" target="_blank">
+									<img
+										src={sfap}
+										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
+										alt="..."
+									/>
+									<div className={classes.socialFeed}>
+										<div>
+											<p style={{ paddingTop: 10 }}>
+												Société Française d'Accompagnement et de Soins Palliatifs.
+											</p>
+										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</GridItem>
 					</GridContainer>

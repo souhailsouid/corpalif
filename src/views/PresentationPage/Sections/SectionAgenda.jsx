@@ -40,21 +40,21 @@ class SectionNotifications extends React.Component {
 		return (
 			<GridContainer>
 				<div className={`${classes.section} cd-section`} id="notifications">
-					<div className={classes.container} style={{ paddingTop: 0 }}>
-						<div />
-						<div className={classes.title}>
-							<h3 style={{ color: '#cc4949' }}>
-								<i class="material-icons" style={{ color: '#cc4949' }}>
-									date_range
-								</i>{' '}
-								AGENDA
-							</h3>
+					<a href="/menu/veillemedicale/evenements/">
+						<div className={classes.container} style={{ paddingTop: 0 }}>
+							<div className={classes.title}>
+								<h3 style={{ color: '#cc4949' }}>
+									<i class="material-icons" style={{ color: '#cc4949' }}>
+										date_range
+									</i>{' '}
+									AGENDA
+								</h3>
+							</div>
 						</div>
-					</div>
-					{Agenda1Elements}
+						{Agenda1Elements}
 
-					{Agenda2Elements}
-
+						{Agenda2Elements}
+					</a>
 					<Clearfix />
 				</div>
 			</GridContainer>

@@ -14,6 +14,7 @@ import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
 // core components
+import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -25,16 +26,14 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { createProfile } from 'actions/profileActions'
 import { withRouter } from 'react-router-dom'
-import { createProfile, getCurrentProfile } from 'actions/profileActions'
-import isEmpty from 'validation/is-empty'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
 
-class EditProfile extends React.Component {
+class CompleteProcess extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -52,38 +51,18 @@ class EditProfile extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this)
 	}
 
-	componentDidMount() {
-		this.props.getCurrentProfile()
-	}
-
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.errors) {
 			this.setState({ errors: nextProps.errors })
 		}
-
-		if (nextProps.profile.profile) {
-			const profile = nextProps.profile.profile
-
-			// If profile field doesnt exist, make empty string
-			profile.company = !isEmpty(profile.company) ? profile.company : ''
-			profile.structure = !isEmpty(profile.structure) ? profile.structure : ''
-			profile.location = !isEmpty(profile.location) ? profile.location : ''
-			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
-
-			// Set component fields state
-			this.setState({
-				structure: profile.structure,
-				company: profile.company,
-				fonction: profile.fonction,
-				location: profile.location
-			})
-		}
 		if (nextProps.auth.user) {
 			const user = nextProps.auth.user
+
 			this.setState({
 				name: user.name,
 				last_name: user.last_name,
-				email: user.email
+				email: user.email,
+				password: user.password
 			})
 		}
 	}
@@ -92,11 +71,16 @@ class EditProfile extends React.Component {
 		e.preventDefault()
 
 		const profileData = {
+			name: this.state.name,
+			last_name: this.state.last_name,
+			email: this.state.email,
+			password: this.state.password,
+			structure: this.state.structure,
 			company: this.state.company,
-			location: this.state.location,
 			fonction: this.state.fonction,
-			structure: this.state.structure
+			location: this.state.location
 		}
+
 		this.props.createProfile(profileData, this.props.history)
 	}
 
@@ -144,9 +128,22 @@ class EditProfile extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
-										Vos informations
+										Completer votre Profile
 									</h2>
 								</div>
+								<GridItem
+									xs={12}
+									sm={7}
+									md={7}
+									className={classes.mlAuto}
+									style={{
+										marginRight: 'auto',
+										marginLeft: 'auto',
+										marginTop: 10
+									}}
+								>
+									<CustomLinearProgress variant="determinate" color="green" value={60} />
+								</GridItem>
 							</DialogTitle>
 
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
@@ -306,19 +303,20 @@ class EditProfile extends React.Component {
 	}
 }
 
-EditProfile.propTypes = {
-	createProfile: PropTypes.func.isRequired,
-	getCurrentProfile: PropTypes.func.isRequired,
+CompleteProcess.propTypes = {
 	profile: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
-const mapStateTopProps = (state) => ({
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+
 	profile: state.profile,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateTopProps, { createProfile, getCurrentProfile })(withRouter(EditProfile))
+	connect(mapStateToProps, { createProfile })(withRouter(CompleteProcess))
 )

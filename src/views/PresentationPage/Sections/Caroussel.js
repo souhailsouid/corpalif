@@ -28,48 +28,58 @@ const Recommandation = ({ caroussel, classes }) => (
 					<Card>
 						<Carousel {...settings}>
 							<div>
-								<div className={classes.coloredShadow} />
-								<img
-									src={`http://localhost:5000/api/${caroussel.picture}`}
-									alt="First slide"
-									className="slick-image"
-									style={{
-										width: '100%',
-										height: '400px'
-									}}
-								/>
-								<div className="slick-caption">
-									<h2>{caroussel.title}</h2>
-								</div>
-							</div>
-							<div>
-								<img
-									src={`http://localhost:5000/api/${caroussel.picture2}`}
-									alt="Second slide"
-									className="slick-image"
-									style={{
-										width: '100%',
-										height: '400px'
-									}}
-								/>
-								<div className="slick-caption">
-									<h2>{caroussel.title2}</h2>
-								</div>
-							</div>
-							<div>
-								<img
-									src={`http://localhost:5000/api/${caroussel.picture3}`}
-									alt="Third slide"
-									className="slick-image"
-									style={{
-										width: '100%',
-										height: '400px'
-									}}
-								/>
+								<a href="/menu/veillemedicale/actualites/">
+									<div className={classes.coloredShadow} />
 
-								<div className="slick-caption">
-									<h2>{caroussel.title3}</h2>
-								</div>
+									<img
+										src={`http://localhost:5000/api/${caroussel.picture}`}
+										alt="First slide"
+										className="slick-image"
+										style={{
+											width: '100%',
+											height: '400px'
+										}}
+									/>
+
+									<div className="slick-caption">
+										<h2>{caroussel.title}</h2>
+									</div>
+								</a>
+							</div>
+
+							<div>
+								<a href="/menu/veillemedicale/nosrencontres">
+									<img
+										src={`http://localhost:5000/api/${caroussel.picture2}`}
+										alt="Second slide"
+										className="slick-image"
+										style={{
+											width: '100%',
+											height: '400px'
+										}}
+									/>
+
+									<div className="slick-caption">
+										<h2>{caroussel.title2}</h2>
+									</div>
+								</a>
+							</div>
+							<div>
+								<a href="/offres-d'emplois/">
+									<img
+										src={`http://localhost:5000/api/${caroussel.picture3}`}
+										alt="Third slide"
+										className="slick-image"
+										style={{
+											width: '100%',
+											height: '400px'
+										}}
+									/>
+
+									<div className="slick-caption">
+										<h2>{caroussel.title3}</h2>
+									</div>
+								</a>
 							</div>
 						</Carousel>
 					</Card>

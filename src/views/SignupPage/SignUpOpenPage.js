@@ -17,6 +17,7 @@ import Face from '@material-ui/icons/Face'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 // core components
+import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -28,7 +29,7 @@ import InfoArea from 'components/InfoArea/InfoArea.jsx'
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { registerPayment } from '../../actions/authActions'
+import { registerPayment } from 'actions/authActions'
 import { withRouter } from 'react-router-dom'
 
 function Transition(props) {
@@ -142,8 +143,21 @@ class SignUpOpen extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
-										Inscription - Etapes 1/3
+										Inscription
 									</h2>
+									<GridItem
+										xs={12}
+										sm={7}
+										md={7}
+										className={classes.mlAuto}
+										style={{
+											marginRight: 'auto',
+											marginLeft: 'auto',
+											marginTop: 10
+										}}
+									>
+										<CustomLinearProgress variant="determinate" color="green" value={35} />
+									</GridItem>
 									{/* <h5
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}

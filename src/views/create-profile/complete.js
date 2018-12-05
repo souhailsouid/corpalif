@@ -127,7 +127,7 @@ class CompleteProfile extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
-										Completer votre Profile - Etape 2/3
+										Completer votre Profile
 									</h2>
 								</div>
 							</DialogTitle>

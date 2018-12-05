@@ -27,7 +27,7 @@ class Section extends React.Component {
 				</GridContainer>
 				<div>
 					<GridContainer justify="center">
-						<GridItem xs={12} sm={8} md={8}>
+						<GridItem xs={12} sm={12} md={12}>
 							<a
 								href="https://www.legifrance.gouv.fr/affichTexte.do;jsessionid=1F1A7B2EB26F0499A5343D98A7777B3D.tplgfr24s_3?cidTexte=JORFTEXT000031970253&categorieLien=id 
 "
@@ -56,7 +56,7 @@ class Section extends React.Component {
 						</GridItem>
 					</GridContainer>
 					<GridContainer justify="center">
-						<GridItem xs={12} sm={8} md={8}>
+						<GridItem xs={12} sm={12} md={12}>
 							<a
 								href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000446240&categorieLien=id 
 "
@@ -80,7 +80,7 @@ class Section extends React.Component {
 						</GridItem>
 					</GridContainer>
 					<GridContainer justify="center">
-						<GridItem xs={12} sm={8} md={8}>
+						<GridItem xs={12} sm={12} md={12}>
 							<a
 								href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000446240&categorieLien=id 
 "
@@ -105,7 +105,7 @@ class Section extends React.Component {
 					</GridContainer>
 
 					<GridContainer justify="center" style={{ marginTop: 40 }}>
-						<GridItem xs={12} sm={12} md={8}>
+						<GridItem xs={12} sm={12} md={12}>
 							<h5
 								className={classes.description}
 								style={{ justifyContent: 'left', textAlign: 'left' }}

@@ -147,7 +147,7 @@ class SectionContacts extends Component {
 											<span>
 												<b>
 													Sarah LACROIX
-													<br /> +40 762 321 762
+													<br /> 06 74 23 10 64
 												</b>
 											</span>
 										}

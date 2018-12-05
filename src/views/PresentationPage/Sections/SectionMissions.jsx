@@ -31,7 +31,7 @@ function SectionMissions({ ...props }) {
 								RASSEMBLER ET REPRESENTER{' '}
 							</h2>
 							<h2 className={classes.title} style={{ color: '#337467' }}>
-								Notre mission
+								Nos missions
 							</h2>
 						</GridItem>
 					</GridContainer>
