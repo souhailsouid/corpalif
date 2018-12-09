@@ -6,7 +6,7 @@ import Slide from '@material-ui/core/Slide'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
+import Spinner from 'views/common/Spinner'
 // @material-ui/icons
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Face from '@material-ui/icons/Face'
@@ -18,7 +18,7 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-
+import SectionAdherent from './blockAdherent'
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -39,6 +39,9 @@ class ProfileData extends React.Component {
 			displaySocialInputs: false,
 			structure: '',
 			company: '',
+			newsletter: '',
+			adherent: '',
+			member: '',
 			location: '',
 			fonction: '',
 			errors: {}
@@ -65,13 +68,15 @@ class ProfileData extends React.Component {
 			profile.structure = !isEmpty(profile.structure) ? profile.structure : ''
 			profile.location = !isEmpty(profile.location) ? profile.location : ''
 			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
-
+			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
+			profile.adherent.member = !isEmpty(profile.adherent.member) ? profile.adherent.member : ''
 			// Set component fields state
 			this.setState({
 				structure: profile.structure,
 				company: profile.company,
 				fonction: profile.fonction,
-				location: profile.location
+				location: profile.location,
+				newsletter: profile.newsletter
 			})
 		}
 		if (nextProps.auth.user) {
@@ -79,7 +84,8 @@ class ProfileData extends React.Component {
 			this.setState({
 				name: user.name,
 				last_name: user.last_name,
-				email: user.email
+				email: user.email,
+				status: user.status
 			})
 		}
 	}
@@ -91,7 +97,8 @@ class ProfileData extends React.Component {
 			company: this.state.company,
 			location: this.state.location,
 			fonction: this.state.fonction,
-			structure: this.state.structure
+			structure: this.state.structure,
+			newsletter: this.state.newsletter
 		}
 		this.props.createProfile(profileData, this.props.history)
 	}
@@ -115,6 +122,82 @@ class ProfileData extends React.Component {
 		const { errors } = this.state
 
 		const { classes } = this.props
+		const { user } = this.props.auth
+		const { profile, loading } = this.props.profile
+
+		let dashboardContent
+
+		// if (profile === null || loading) {
+		// 	dashboardContent = <Spinner />
+		// } else {
+		// 	// Check if logged in user has profile data
+		// 	if (Object.keys(profile) > 0) {
+		// 		dashboardContent = (
+		// 			<div>
+		// 				<p>{user.status}</p>
+		// 				<p> {user.isAdmin}</p>
+		// 				{/* {Object.values(profile.adherent[0].member)}
+		// 				<br />
+		// 				{Object.values(profile.adherent[0].date)} */}
+		// 			</div>
+		// 		)
+
+		// 		// <div style={{ marginBottom: '60px' }} />
+		// 		// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
+		// 		// 	Delete My Account
+		// 		// </button>
+
+		// 		// </div>
+		// 	} else {
+		// 		// User is logged in but has no profile
+		// 		dashboardContent = (
+		// 			<div>
+		// 				{/* <SectionAdherent /> */}
+		// 				Adherent depuis le : {Object.values(profile.adherent[0].date)}
+		// 				<br />
+		// 				{/* {Object.values(profile.adherent[0].date)} */}
+		// 				{/* {Object.keys(profile.adherent).length} */}
+		// 			</div>
+		// 		)
+		// 	}
+		// }
+
+		if (profile === null || loading) {
+			dashboardContent = <Spinner />
+		} else {
+			// Check if logged in user has profile data
+			if (Object.keys(profile.adherent).length > 0) {
+				dashboardContent = (
+					// {Object.keys(profile).length - 3}
+					<div>
+						{user.name}
+						{Object.values(profile.adherent[0].date)}
+						{Object.values(profile.adherent[0].member)}
+						{Object.keys(profile.adherent).length}
+					</div>
+				)
+				{
+					/* {Object.values(profile.adherent[0].member)}
+						<br />
+						{Object.values(profile.adherent[0].date)} */
+				}
+				// <div style={{ marginBottom: '60px' }} />
+				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
+				// 	Delete My Account
+				// </button>
+
+				// </div>
+			} else {
+				// User is logged in but has no profile
+				dashboardContent = (
+					<div>
+						<SectionAdherent />
+					</div>
+				)
+			}
+		}
+
+		// const valueMember = <div>{Object.values(profile.adherent[0].member)}</div>
 		return (
 			<div>
 				<div>
@@ -126,6 +209,13 @@ class ProfileData extends React.Component {
 								className={classes.modalHeader}
 							>
 								<div>
+									<GridItem xs={12} sm={10} md={10} className={classes.mlAuto}>
+										<Link to="/">
+											<i style={{ fontSize: 50, color: '#000000' }} class="material-icons">
+												keyboard_return
+											</i>
+										</Link>
+									</GridItem>
 									<h2
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ textAlign: 'center', color: '#cc4949' }}
@@ -134,24 +224,16 @@ class ProfileData extends React.Component {
 									</h2>
 								</div>
 							</DialogTitle>
+
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
-								<GridContainer>
+								<GridContainer justify="center">
 									<GridItem
 										xs={12}
 										sm={5}
-										md={5}
+										md={3}
 										className={classes.mlAuto}
 										style={{ paddingTop: 40 }}
 									>
-										{/* <DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
-								<GridContainer>
-									<GridItem
-										xs={12}
-										sm={4}
-										md={4}
-										className={classes.mlAuto}
-										style={{ paddingTop: 40, marginLeft: '50px' }}
-									> */}
 										<div>
 											<h3
 												className={`${classes.cardTitle} ${classes.modalTitle}`}
@@ -160,6 +242,21 @@ class ProfileData extends React.Component {
 												Vos informations
 											</h3>
 										</div>
+										<br />
+										<TextFieldGroup
+											label="Status"
+											name="status"
+											value={this.state.status}
+											onChange={this.onChange}
+											disabled
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div> </div>
+													</InputAdornment>
+												)
+											}}
+										/>
 										<TextFieldGroup
 											label="Nom"
 											name="name"
@@ -200,7 +297,7 @@ class ProfileData extends React.Component {
 										/>
 										<br />
 										<TextFieldGroup
-											label="Adresse emai"
+											label="Adresse email"
 											type="email"
 											disabled
 											className={classes.margin}
@@ -275,6 +372,22 @@ class ProfileData extends React.Component {
 											onChange={this.onChange}
 											disabled
 										/>
+										<br />
+										<TextFieldGroup
+											label="Adherent"
+											name="member"
+											value="non"
+											onChange={this.onChange}
+											disabled
+										/>
+										<br />
+										<TextFieldGroup
+											label="Newsletter"
+											name="newsletter"
+											value={this.state.newsletter}
+											onChange={this.onChange}
+											disabled
+										/>
 										<div
 											className={classes.textCenter}
 											style={{ marginTop: 40, justifyContent: 'center' }}
@@ -292,118 +405,21 @@ class ProfileData extends React.Component {
 										</div>
 									</GridItem>
 									<GridItem
+										xs={1}
+										sm={1}
+										md={1}
+										className={classes.mlAuto}
+										style={{ paddingTop: 40 }}
+									/>
+									<GridItem
 										xs={12}
-										sm={5}
+										sm={4}
 										md={5}
 										className={classes.mrAuto}
 										style={{ paddingTop: 40 }}
 									>
-										<form
-											noValidate
-											onSubmit={this.onSubmit}
-											className={classes.form}
-											style={{ marginTop: 40 }}
-										>
-											<TextFieldGroup
-												placeholder="Nom ..."
-												className={classes.margin}
-												name="name"
-												value={this.state.name}
-												onChange={this.onChange}
-												error={errors.registerName}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div>
-																{' '}
-																<Face />
-															</div>
-														</InputAdornment>
-													)
-												}}
-											/>
-											<br /> <br />
-											<TextFieldGroup
-												placeholder="Prénom ..."
-												className={classes.margin}
-												name="last_name"
-												value={this.state.last_name}
-												onChange={this.onChange}
-												error={errors.registerLast_name}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div>
-																{' '}
-																<Face />
-															</div>
-														</InputAdornment>
-													)
-												}}
-											/>
-											<br /> <br />
-											<TextFieldGroup
-												type="email"
-												placeholder="Votre adresse email"
-												className={classes.margin}
-												name="email"
-												value={this.state.email}
-												onChange={this.onChange}
-												error={errors.email}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div>
-																{' '}
-																<Mail />
-															</div>
-														</InputAdornment>
-													)
-												}}
-											/>
-											<br /> <br />
-											<TextFieldGroup
-												type="password"
-												placeholder="Mot de passe"
-												className={classes.margin}
-												name="password"
-												value={this.state.password}
-												onChange={this.onChange}
-												error={errors.registerPassword}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div />
-														</InputAdornment>
-													)
-												}}
-											/>
-											<br /> <br />
-											<TextFieldGroup
-												type="password"
-												placeholder="Confirmer le mot de passe"
-												className={classes.margin}
-												name="password2"
-												value={this.state.password2}
-												onChange={this.onChange}
-												error={errors.registerPassword2}
-												InputProps={{
-													startAdornment: (
-														<InputAdornment position="start">
-															<div />
-														</InputAdornment>
-													)
-												}}
-											/>
-											<div
-												className={classes.textCenter}
-												style={{ marginTop: 40, justifyContent: 'center' }}
-											>
-												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-													S'enregistrer
-												</Button>
-											</div>
-										</form>
+										{dashboardContent}
+										{/* {valueMember} */}
 									</GridItem>
 								</GridContainer>
 							</DialogContent>

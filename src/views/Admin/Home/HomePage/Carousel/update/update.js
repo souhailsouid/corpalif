@@ -181,7 +181,7 @@ class Modal extends React.Component {
 											<GridItem
 												xs={12}
 												sm={12}
-												md={12}
+												md={6}
 												className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 											>
 												<h1 style={{ textAlign: 'center' }}>Editer </h1>
@@ -226,13 +226,15 @@ class Modal extends React.Component {
 																onChange={this.onChangePicture}
 															/>
 															<br /> <br />
-															<h4>Choisir un fichier</h4>
+															<h4>Choisir une photo 2</h4>
 															<input
 																type="file"
 																name="picture2"
 																onChange={this.onChangePicture2}
 															/>
 															<br /> <br />
+															<br /> <br />
+															<h4>Choisir une photo 3</h4>
 															<input
 																type="file"
 																name="picture3"

@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 // core components
 import Spinner from 'views/common/Spinner'
 import CompleteProcess from 'views/create-profile/PaymentProcess/CompleteProfile/CompleteProcess'
-import HeaderComponent from 'views/Header/AppBar.jsx'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 // Redux
 import { withRouter } from 'react-router-dom'
@@ -41,7 +41,7 @@ class CompleteprofilePage extends Component {
 		}
 		return (
 			<div>
-				<HeaderComponent />
+				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)} style={{ height: 'auto' }}>
 					<div> {dashboardContent}</div>

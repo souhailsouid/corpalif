@@ -18,7 +18,9 @@ import formationReducer from './menu/Offres&formations/formationReducer'
 import rencontreReducer from './menu/veillemedicale/rencontreReducer'
 import actualiteReducer from './menu/veillemedicale/actualiteReducer'
 import evenementReducer from './menu/veillemedicale/evenementReducer'
+import statusReducer from './statusReducer'
 import mapReducer from './mapReducer'
+import profile_adherentReducer from './profile_adherentReducer'
 export default combineReducers({
 	auth: authReducer,
 	errors: errorReducer,
@@ -49,5 +51,7 @@ export default combineReducers({
 	mapassociation: mapReducer,
 	mapreseaux: mapReducer,
 	maplit: mapReducer,
-	mapsoin: mapReducer
+	mapsoin: mapReducer,
+	status: statusReducer,
+	profile_adherent: profile_adherentReducer
 })

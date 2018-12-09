@@ -60,7 +60,7 @@ class HeaderSearchBar extends React.Component {
 							>
 								<div className={classes.brand}>
 									<h1 style={{ marginTop: 100 }}>Annuaire régional</h1>
-									<h5>Recherchez une structure de soins spalliatifs </h5>
+									<h5>Recherchez une structure de prise en charge ou une association </h5>
 									<div>
 										<SearchBar />
 									</div>

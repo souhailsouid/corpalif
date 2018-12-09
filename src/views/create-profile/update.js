@@ -7,8 +7,10 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 // @material-ui/icons
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
@@ -25,8 +27,7 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from 'actions/profileActions'
 import isEmpty from 'validation/is-empty'
 
@@ -43,8 +44,11 @@ class EditProfile extends React.Component {
 			displaySocialInputs: false,
 			structure: '',
 			company: '',
+			status: '',
 			location: '',
+			newsletter: '',
 			fonction: '',
+			member: '',
 			errors: {}
 		}
 
@@ -69,13 +73,16 @@ class EditProfile extends React.Component {
 			profile.structure = !isEmpty(profile.structure) ? profile.structure : ''
 			profile.location = !isEmpty(profile.location) ? profile.location : ''
 			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
-
+			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
+			profile.member = !isEmpty(profile.member) ? profile.member : ''
 			// Set component fields state
 			this.setState({
 				structure: profile.structure,
 				company: profile.company,
 				fonction: profile.fonction,
-				location: profile.location
+				location: profile.location,
+				newsletter: profile.newsletter,
+				member: profile.member
 			})
 		}
 		if (nextProps.auth.user) {
@@ -83,7 +90,8 @@ class EditProfile extends React.Component {
 			this.setState({
 				name: user.name,
 				last_name: user.last_name,
-				email: user.email
+				email: user.email,
+				status: user.status
 			})
 		}
 	}
@@ -95,7 +103,9 @@ class EditProfile extends React.Component {
 			company: this.state.company,
 			location: this.state.location,
 			fonction: this.state.fonction,
-			structure: this.state.structure
+			structure: this.state.structure,
+			newsletter: this.state.newsletter,
+			member: this.state.member
 		}
 		this.props.createProfile(profileData, this.props.history)
 	}
@@ -215,6 +225,23 @@ class EditProfile extends React.Component {
 												)
 											}}
 										/>
+										<br /> <br />
+										<TextFieldGroup
+											label="status"
+											type="status"
+											disabled
+											className={classes.margin}
+											name="status"
+											value={this.state.status}
+											onChange={this.onChange}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div> </div>
+													</InputAdornment>
+												)
+											}}
+										/>
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 										<form
@@ -274,13 +301,114 @@ class EditProfile extends React.Component {
 												name="company"
 												value={this.state.company}
 												onChange={this.onChange}
-												info="A unique handle for your profile URL. Your full name, company name, nickname"
+												info=" Your full name, company name, nickname"
 											/>
-											<br /> <br />
+											<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+												<div
+													className={
+														classes.checkboxAndRadio +
+														' ' +
+														classes.checkboxAndRadioHorizontal
+													}
+												>
+													<FormControlLabel
+														control={
+															<Radio
+																checked={this.state.newsletter === 'oui'}
+																onChange={this.onChange}
+																value="oui"
+																name="newsletter"
+																aria-label="A"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="oui"
+													/>
+
+													<FormControlLabel
+														control={
+															<Radio
+																checked={this.state.newsletter === 'non'}
+																onChange={this.onChange}
+																value="non"
+																name="newsletter"
+																aria-label="B"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="non"
+													/>
+												</div>
+											</div>
+										</form>
+									</GridItem>
+								</GridContainer>
+								<br /> <br />
+								<GridContainer
+									justify="center"
+									style={{
+										justifyContent: 'space-evenly',
+										justifyContent: 'center'
+									}}
+								>
+									<GridItem xs={12} sm={12} md={12} className={classes.mlAuto}>
+										<form
+											noValidate
+											onSubmit={this.onSubmit}
+											className={classes.form}
+											style={{ marginTop: 40 }}
+										>
 											<div
-												className={classes.textCenter}
-												style={{ marginTop: 40, justifyContent: 'center' }}
+												style={{
+													display: 'flex',
+													justifyContent: 'center',
+													justifyContent: 'space-evenly'
+												}}
 											>
+												<div
+													className={classes.textCenter}
+													style={{ justifyContent: 'center' }}
+												>
+													<Link to="/monprofile">
+														<Button round style={{ backgroundColor: '#337467' }}>
+															Revenir
+														</Button>
+													</Link>
+												</div>
+												<br />
 												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
 													S'enregistrer
 												</Button>

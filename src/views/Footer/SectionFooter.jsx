@@ -56,7 +56,7 @@ const SectionFooter = (props) => {
 					}
 				>
 					<GridContainer>
-						<GridItem xs={12} sm={4} md={4}>
+						<GridItem xs={12} sm={12} md={4}>
 							<h5>À propos</h5>
 							<p>La CORPALIF est une association de loi 1901.</p>
 							<p>
@@ -81,7 +81,7 @@ const SectionFooter = (props) => {
 								</div>
 							</div>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
+						<GridItem xs={12} sm={12} md={4}>
 							<h5>Nos partenaires</h5>
 							<div className={classes.galleryFeed}>
 								<a href="https://www.iledefrance.ars.sante.fr/" target="_blank">
@@ -96,6 +96,7 @@ const SectionFooter = (props) => {
 										</div>
 									</div>
 								</a>
+								<br />
 								<br />
 								<br />
 								<a href="http://www.sfap.org/" target="_blank">

@@ -10,6 +10,7 @@ import {
 	infoColor,
 	successColor,
 	greenColor,
+	redColor,
 	warningColor,
 	dangerColor
 } from 'assets/jss/material-kit-pro-react.jsx'
@@ -129,6 +130,16 @@ const buttonStyle = {
 			'0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12)',
 		'&:hover,&:focus': {
 			backgroundColor: greenColor,
+			boxShadow:
+				'0 14px 26px -12px rgba(76, 175, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2)'
+		}
+	},
+	red: {
+		backgroundColor: redColor,
+		boxShadow:
+			'0 2px 2px 0 rgba(204, 73, 73, 1), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12)',
+		'&:hover,&:focus': {
+			backgroundColor: redColor,
 			boxShadow:
 				'0 14px 26px -12px rgba(76, 175, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2)'
 		}

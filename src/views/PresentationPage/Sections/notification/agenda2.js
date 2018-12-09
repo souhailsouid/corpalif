@@ -21,7 +21,6 @@ const Agenda2 = ({ agenda2 }) => (
 				{agenda2.city}
 			</span>
 		}
-		close
 		color="green"
 	/>
 )

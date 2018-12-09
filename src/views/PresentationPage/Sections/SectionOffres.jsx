@@ -6,6 +6,7 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import Offre from './notification/offre'
+import GridItem from 'components/Grid/GridItem.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { compose } from 'redux'

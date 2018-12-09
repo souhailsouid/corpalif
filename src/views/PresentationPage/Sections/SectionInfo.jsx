@@ -26,17 +26,17 @@ function SectionInfo({ ...props }) {
 							md={8}
 							className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 						>
-							<h2 className={classes.title}>Les soins palliatifs en 6 points</h2>
+							<h2 className={classes.title}>Les soins palliatifs </h2>
 						</GridItem>
 					</GridContainer>
 					<GridContainer>
 						<GridItem xs={12} sm={4} md={4}>
 							<InfoArea
 								icon={GroupWork}
-								title="Une approche globale (douleurs,symptômes,confort...)"
+								title="Des soins actifs et continus"
 								description={
 									<span>
-										<p>Prise en charge de la douleur et des symptômes liés à la maladie</p>
+										<p>Pour prise en charge la souffrance et les symptômes liés à la maladie</p>
 									</span>
 								}
 								iconColor="info"
@@ -45,13 +45,10 @@ function SectionInfo({ ...props }) {
 						<GridItem xs={12} sm={4} md={4}>
 							<InfoArea
 								icon={Airplay}
-								title="Une prise en charge pour les maladies incurables"
+								title="Objectif de la qualité de vie"
 								description={
 									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
+										<p>Répondre aux besoins et attentes des patients et de leurs proches</p>
 									</span>
 								}
 								iconColor="danger"
@@ -60,61 +57,10 @@ function SectionInfo({ ...props }) {
 						<GridItem xs={12} sm={4} md={4}>
 							<InfoArea
 								icon={LocationOn}
-								title="Un accompagnement pour le patient et ses proches"
+								title="Un droit d'accès pour tous"
 								description={
 									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-									</span>
-								}
-								iconColor="success"
-							/>
-						</GridItem>
-					</GridContainer>
-					<GridContainer>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={GroupWork}
-								title="Des prestations à l'hopital ou à domicile"
-								description={
-									<span>
-										<p>
-											The moment you use Material Kit, you know you’ve never felt anything like
-											it. With a single use, this powerfull UI Kit lets you do more than ever
-											before.
-										</p>
-									</span>
-								}
-								iconColor="info"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={Airplay}
-								title="Des décisions à prendre"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
-									</span>
-								}
-								iconColor="danger"
-							/>
-						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
-							<InfoArea
-								icon={LocationOn}
-								title="Des interlocuteurs pluridisciplinaires"
-								description={
-									<span>
-										<p>
-											Divide details about your product or agency work into parts. Write a few
-											lines about each one. A paragraph describing a feature will be enough.
-										</p>
+										<p>Quel que soit le lieu de prise en charge, en établissement ou à domicile</p>
 									</span>
 								}
 								iconColor="success"

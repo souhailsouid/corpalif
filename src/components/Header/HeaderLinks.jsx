@@ -143,7 +143,7 @@ class HeaderLinks extends React.Component {
 		const { classes, dropdownHoverColor } = this.props
 		const { isAuthenticated, user } = this.props.auth
 		let dashboardContent
-
+		let adminContent
 		if (user) {
 			// User is logged in but has no profile
 			dashboardContent = (
@@ -157,11 +157,25 @@ class HeaderLinks extends React.Component {
 				</div>
 			)
 		}
-
+		if (user.isAdmin === 'true') {
+			// User is logged in but has no profile
+			adminContent = (
+				<div style={{ marginLeft: 12 }}>
+					<Link to="/admin" style={{ color: '#cc4949' }}>
+						{' '}
+						<b>Admin</b>
+					</Link>
+				</div>
+			)
+		}
 		const authLinks = (
 			<div>
 				<ListItem className={classes.listItem} style={{ display: 'flex' }}>
-					{dashboardContent}
+					<div style={{ marginTop: 0 }}>
+						{dashboardContent}
+
+						{adminContent}
+					</div>
 					<CustomDropdown
 						left
 						caret={false}
@@ -245,7 +259,7 @@ class HeaderLinks extends React.Component {
 										{<ArtTrack className={classes.dropdownIcons} />}Orientations régionales
 									</div>
 								</Link>,
-								<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
+								<Link to="/menu/coordinationregionale/adherer/" className={classes.dropdownLink}>
 									<div style={{ margin: 2 }}>
 										{<PersonAdd className={classes.dropdownIcons} />}Adhérer
 									</div>

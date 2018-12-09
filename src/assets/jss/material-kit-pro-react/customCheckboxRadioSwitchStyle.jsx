@@ -6,7 +6,8 @@ import {
   primaryColor,
   dangerColor,
   roseColor,
-  grayColor
+  grayColor,
+  greenColor
 } from "assets/jss/material-kit-pro-react.jsx";
 
 const customCheckboxRadioSwitch = {
@@ -35,7 +36,7 @@ const customCheckboxRadioSwitch = {
     marginBottom: "0"
   },
   checked: {
-    color: primaryColor + "!important"
+    color: greenColor + "!important"
   },
   checkedIcon: {
     width: "20px",
@@ -97,12 +98,12 @@ const customCheckboxRadioSwitch = {
     color: dangerColor
   },
   radio: {
-    color: primaryColor + "!important"
+    color: greenColor + "!important"
   },
   radioChecked: {
     width: "16px",
     height: "16px",
-    border: "1px solid " + primaryColor,
+    border: "1px solid " + greenColor,
     borderRadius: "50%"
   },
   radioUnchecked: {
@@ -148,7 +149,7 @@ const customCheckboxRadioSwitch = {
     lineHeight: "111px"
   },
   switchBase: {
-    color: primaryColor + "!important"
+    color: greenColor + "!important"
   },
   switchIcon: {
     boxShadow: "0 1px 3px 1px rgba(0, 0, 0, 0.4)",

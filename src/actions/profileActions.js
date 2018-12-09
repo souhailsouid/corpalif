@@ -56,9 +56,13 @@ export const createProfile = (profileData, history) => (dispatch) => {
 		})
 	)
 }
+export const createAdherent = (profileData, history, id) => (dispatch) => {
+	axios.post('/api/profile/adherent	', profileData).then((res) => window.location.assign('/dashboard'))
+}
+
 // Complete Profile in order to Payment Process
 export const completeProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/Payment/check')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/adherer/final')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data

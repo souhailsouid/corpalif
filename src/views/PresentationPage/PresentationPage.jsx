@@ -12,6 +12,7 @@ import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
 import SectionInfo from 'views/PresentationPage/Sections/SectionInfo.jsx'
 import SectionMissions from 'views/PresentationPage/Sections/SectionMissions'
+import SectionAgenda from './Sections/SectionAgenda'
 // sections CSS
 import '../style.css'
 import SectionCarroussel from 'views/PresentationPage/Sections/SectionCarroussel'
@@ -65,14 +66,14 @@ function PresentationPage({ ...props }) {
 	return (
 		<div>
 			<HeaderSearchBar />
-
 			<div className={classNames(classes.main, classes.mainRaised)}>
 				<SectionCarroussel />
+
 				<SectionMissions />
 				<SectionAdherent />
-				<SectionInfo />
+				{/* <SectionInfo /> */}
 
-				<div className={classes.profile} id="contact">
+				<div className={classes.profile} style={{ marginTop: 140 }}>
 					<SectionContacts id="contact" />
 				</div>
 				<SectionFooter />

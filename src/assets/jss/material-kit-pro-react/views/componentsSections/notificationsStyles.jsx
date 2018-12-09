@@ -4,7 +4,7 @@ const notificationsStyles = {
 	section: {
 		backgroundColor: '#FFFFFF',
 		display: 'block',
-		width: '100%',
+		width: '80%',
 		position: 'relative',
 		padding: '0px 0',
 		...section

@@ -78,7 +78,7 @@ export const loginPage = (userData, history) => (dispatch) => {
 			})
 		)
 }
-// Login - Get User Token & redirect to complete profile if is not in Payment PROCESS
+// Login - Get User Token & redirect to complete profile  in Payment PROCESS
 export const processLogin = (userData, history) => (dispatch) => {
 	axios
 		.post('/api/users/login', userData)
@@ -170,7 +170,7 @@ export const forgotpassword = (userData) => (dispatch) => {
 }
 // Forgot password
 export const updatePassword = (token, userData, history) => (dispatch) => {
-	axios.post(`/api/users/reset/${token}`, userData).then((res) => this.context.history.push('/')).catch((err) =>
+	axios.post(`/api/users/reset/${token}`, userData).then((res) => history.push('/')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data

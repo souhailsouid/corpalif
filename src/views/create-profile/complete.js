@@ -13,6 +13,7 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
+import Check from '@material-ui/icons/Check'
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
@@ -21,6 +22,8 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 // Redux
 import { connect } from 'react-redux'
@@ -43,11 +46,33 @@ class CompleteProfile extends React.Component {
 			company: '',
 			location: '',
 			fonction: '',
-			errors: {}
+			member: 'non',
+			errors: {},
+			newsletter: '',
+			checked: [ 24, 3 ],
+			selectedEnabled: ''
 		}
-
+		this.handleChangeEnabled = this.handleChangeEnabled.bind(this)
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
+	}
+	handleChangeEnabled(event) {
+		this.setState({ [event.target.selectedEnabled]: event.target.value })
+	}
+	handleToggle(value) {
+		const { checked } = this.state
+		const currentIndex = checked.indexOf(value)
+		const newChecked = [ ...checked ]
+
+		if (currentIndex === -1) {
+			newChecked.push(value)
+		} else {
+			newChecked.splice(currentIndex, 1)
+		}
+
+		this.setState({
+			checked: newChecked
+		})
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -77,7 +102,9 @@ class CompleteProfile extends React.Component {
 			structure: this.state.structure,
 			company: this.state.company,
 			fonction: this.state.fonction,
-			location: this.state.location
+			location: this.state.location,
+			member: this.state.member,
+			newsletter: this.state.newsletter
 		}
 
 		this.props.createProfile(profileData, this.props.history)
@@ -259,7 +286,53 @@ class CompleteProfile extends React.Component {
 												onChange={this.onChange}
 												info="A unique handle for your profile URL. Your full name, company name, nickname"
 											/>
+											<br />
+											<TextFieldGroup
+												placeholder="Company"
+												name="company"
+												value={this.state.company}
+												onChange={this.onChange}
+												info="A unique handle for your profile URL. Your full name, company name, nickname"
+											/>
 											<br /> <br />
+											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+												<div
+													className={
+														classes.checkboxAndRadio +
+														' ' +
+														classes.checkboxAndRadioHorizontal
+													}
+												>
+													<FormControlLabel
+														control={
+															<Checkbox
+																tabIndex={-1}
+																onClick={() => this.handleToggle(22)}
+																onChange={this.onChange}
+																value={
+																	this.state.checked.indexOf(22) !== -1 ? (
+																		'non'
+																	) : (
+																		'oui'
+																	)
+																}
+																name="newsletter"
+																checked={
+																	this.state.checked.indexOf(22) !== -1 ? true : false
+																}
+																checkedIcon={<Check className={classes.checkedIcon} />}
+																icon={<Check className={classes.uncheckedIcon} />}
+																classes={{
+																	checked: classes.checked,
+																	root: classes.checkRoot
+																}}
+															/>
+														}
+														classes={{ label: classes.label }}
+														label="Cochez la case si vous voulez vous abonner à la newsletter"
+													/>
+												</div>
+											</div>
 											<div
 												className={classes.textCenter}
 												style={{ marginTop: 40, justifyContent: 'center' }}

@@ -8,7 +8,12 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
+import RadioExample from './selectStatus'
+// @material-ui/icons
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // @material-ui/icons
 
 import Timeline from '@material-ui/icons/Timeline'
@@ -27,6 +32,7 @@ import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 import InfoArea from 'components/InfoArea/InfoArea.jsx'
 // Redux
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { registerPayment } from 'actions/authActions'
@@ -51,10 +57,16 @@ class SignUpOpen extends React.Component {
 			fonction: '',
 			last_name: '',
 			location: '',
+			status1: '',
+			status: '',
 			errors: {},
 			displaySnack: false,
-			snack: { variant: 'warning', message: '' }
+			snack: { variant: 'warning', message: '' },
+			selectedEnabled: '',
+			member: 'no',
+			isAdmin: 'no'
 		}
+		this.handleChangeEnabled = this.handleChangeEnabled.bind(this)
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
@@ -82,7 +94,12 @@ class SignUpOpen extends React.Component {
 			fonction: this.state.fonction,
 			location: this.state.location,
 			last_name: this.state.last_name,
-			company: this.state.company
+			company: this.state.company,
+			status: this.state.status,
+			status2: this.state.status2,
+			member: this.state.member,
+			isAdmin: this.state.isAdmin,
+			selectedEnabled: this.state.selectedEnabled
 		}
 
 		this.props.registerPayment(newUser, this.props.history)
@@ -98,6 +115,9 @@ class SignUpOpen extends React.Component {
 
 	handleChange = (event) => {
 		this.setState({ value: event.target.value })
+	}
+	handleChangeEnabled(event) {
+		this.setState({ [event.target.selectedEnabled]: event.target.value })
 	}
 	render() {
 		const { errors } = this.state
@@ -209,6 +229,7 @@ class SignUpOpen extends React.Component {
 											icon={Timeline}
 											iconColor="rose"
 										/>
+										<br />
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 										<form
@@ -217,6 +238,77 @@ class SignUpOpen extends React.Component {
 											className={classes.form}
 											style={{ marginTop: 40 }}
 										>
+											{/* <RadioExample/> */}
+											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+												<div
+													className={
+														classes.checkboxAndRadio +
+														' ' +
+														classes.checkboxAndRadioHorizontal
+													}
+												>
+													<FormControlLabel
+														control={
+															<Radio
+																checked={this.state.status === 'individuel'}
+																onChange={this.onChange}
+																value="individuel"
+																name="status"
+																aria-label="A"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="Individuel"
+													/>
+
+													<FormControlLabel
+														control={
+															<Radio
+																checked={this.state.status === 'collectif'}
+																onChange={this.onChange}
+																value="collectif"
+																name="status"
+																aria-label="B"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="collectif"
+													/>
+												</div>
+											</div>
+											<br />
 											<TextFieldGroup
 												placeholder="Nom ..."
 												className={classes.margin}
@@ -312,13 +404,49 @@ class SignUpOpen extends React.Component {
 													)
 												}}
 											/>
+										</form>
+									</GridItem>
+								</GridContainer>
+								<GridContainer
+									justify="center"
+									style={{
+										justifyContent: 'space-evenly',
+										justifyContent: 'center'
+									}}
+								>
+									<GridItem xs={12} sm={12} md={12} className={classes.mlAuto}>
+										<form
+											noValidate
+											onSubmit={this.onSubmit}
+											className={classes.form}
+											style={{ marginTop: 40 }}
+										>
 											<div
-												className={classes.textCenter}
-												style={{ marginTop: 40, justifyContent: 'center' }}
+												style={{
+													display: 'flex',
+													justifyContent: 'center',
+													justifyContent: 'space-evenly'
+												}}
 											>
-												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-													S'enregistrer
-												</Button>
+												<div
+													className={classes.textCenter}
+													style={{ justifyContent: 'center' }}
+												>
+													<Link to="/menu/coordinationregionale/adherer">
+														<Button round style={{ backgroundColor: '#337467' }}>
+															Revenir
+														</Button>
+													</Link>
+												</div>
+												<br />
+												<div
+													className={classes.textCenter}
+													style={{ justifyContent: 'center' }}
+												>
+													<Button type="submit" round style={{ backgroundColor: '#337467' }}>
+														S'enregistrer
+													</Button>
+												</div>
 											</div>
 										</form>
 									</GridItem>

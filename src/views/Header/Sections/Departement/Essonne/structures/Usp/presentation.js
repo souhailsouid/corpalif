@@ -25,34 +25,35 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 class PresentationUspEssonne extends React.Component {
-	state = {
-		showingInfoWindow: false,
-		activeMarker: {},
-		selectedPlace: {}
-	}
+	state = {}
 
-	onMarkerClick = (props, marker, e) =>
-		this.setState({
-			selectedPlace: props,
-			activeMarker: marker,
-			showingInfoWindow: true
-		})
-
-	onMapClicked = (props) => {
-		if (this.state.showingInfoWindow) {
-			this.setState({
-				showingInfoWindow: false,
-				activeMarker: null
-			})
-		}
-	}
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
 		this.props.getCurrentStructure()
-	}
 
+		var mymap = L.map('mapid').setView([ 48.676046, 2.412892 ], 10)
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			attribution:
+				'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: 'mapbox.streets',
+			accessToken: 'pk.eyJ1Ijoic291aGFpbHMiLCJhIjoiY2pwNW53NWt1MTIxdzNrcGhyN2g3aDZlYSJ9.RhGI7ibxm_dMpFycmibT0g'
+		}).addTo(mymap)
+
+		var marker = L.marker([ 48.622517, 2.148687 ]).addTo(mymap)
+		var marker2 = L.marker([ 48.521486, 2.431695 ]).addTo(mymap)
+		var marker3 = L.marker([ 48.584102, 2.242065 ]).addTo(mymap)
+		var marker4 = L.marker([ 48.676046, 2.412892 ]).addTo(mymap)
+		var marker5 = L.marker([ 48.693836, 2.376868 ]).addTo(mymap)
+
+		marker.bindPopup('CENTRE MÉDICAL BLIGNY - USP').openPopup()
+		marker2.bindPopup('AP-HP GEORGES CLÉMENCEAU - USP').openPopup()
+		marker3.bindPopup("CH D'ARPAJON - USP").openPopup()
+		marker4.bindPopup('HÔPITAL JOFFRE-DUPUYTREN - USP').openPopup()
+		marker5.bindPopup('CH DES DEUX VALLÉES, SITE DE JUVISY SUR ORGE - USP').openPopup()
+	}
 	render() {
 		const { classes } = this.props
 		const { usp } = this.props.usp
@@ -81,7 +82,8 @@ class PresentationUspEssonne extends React.Component {
 							<br />
 							<GridContainer>
 								<br />
-								<GridItem xs={12} sm={12} md={12}>
+
+								<GridItem xs={12} sm={12} md={12} justify="center">
 									<TablesHead />
 									{DataElements}
 									<Media query="(max-width: 1000px)">
@@ -95,94 +97,51 @@ class PresentationUspEssonne extends React.Component {
 														style={{
 															textAlign: 'right',
 															justifyContent: 'right',
-															height: '500px',
+															height: '800px',
+															width: '700px',
 															position: 'relative',
-
 															marginTop: 40
 														}}
 													>
-														<Map
-															google={this.props.google}
-															initialCenter={{
-																lat: 48.8519,
-																lng: 2.291172
-															}}
-															onClick={this.onMapClicked}
-															zoom={14}
-															style={{ height: '70%' }}
-														>
-															<Marker
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.8519, lng: 2.291172 }}
-																name={'Jeanne Garnier'}
-															/>
+														<div
+															id="mapid"
+															style={{
+																textAlign: 'right',
+																justifyContent: 'right',
+																height: '80%',
 
-															<Marker
-																title={'The marker`s title will appear as a tooltip.'}
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.846737, lng: 2.289693 }}
-																name={'Current location'}
-															/>
-															<InfoWindow
-																marker={this.state.activeMarker}
-																visible={this.state.showingInfoWindow}
-															>
-																<div>
-																	<h4 style={{ textAlign: 'center' }}>
-																		{this.state.selectedPlace.name}
-																	</h4>
-																</div>
-															</InfoWindow>
-														</Map>
+																position: 'relative',
+																marginTop: 40
+															}}
+														/>
 													</Grid>
 												</GridContainer>
 											) : (
-												<GridContainer>
+												<GridContainer justify="center">
 													<Grid
 														xs={12}
 														sm={12}
-														md={12}
+														md={10}
 														style={{
-															textAlign: 'right',
-															justifyContent: 'right',
+															textAlign: 'center',
+															justifyContent: 'center',
 															height: '800px',
+															// width: '700px',
 															position: 'relative',
 															marginTop: 40
 														}}
 													>
-														<Map
-															google={this.props.google}
-															initialCenter={{
-																lat: 48.8519,
-																lng: 2.291172
-															}}
-															onClick={this.onMapClicked}
-															zoom={14}
-															style={{ height: '80%' }}
-														>
-															<Marker
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.8519, lng: 2.291172 }}
-																name={'Jeanne Garnier'}
-															/>
+														<div
+															id="mapid"
+															style={{
+																textAlign: 'right',
+																justifyContent: 'right',
+																height: '70%',
 
-															<Marker
-																title={'The marker`s title will appear as a tooltip.'}
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.846737, lng: 2.289693 }}
-																name={'Current location'}
-															/>
-															<InfoWindow
-																marker={this.state.activeMarker}
-																visible={this.state.showingInfoWindow}
-															>
-																<div>
-																	<h4 style={{ textAlign: 'center' }}>
-																		{this.state.selectedPlace.name}
-																	</h4>
-																</div>
-															</InfoWindow>
-														</Map>
+																position: 'relative',
+																marginTop: 40
+															}}
+														/>
 													</Grid>
 												</GridContainer>
 											)}
@@ -211,9 +170,6 @@ const mapStateToProps = (state) => ({
 	usp: state.usp
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(connect(mapStateToProps, { getCurrentStructure })(withRouter(PresentationUspEssonne)))
+export default compose(withStyles(profilePageStyle))(
+	connect(mapStateToProps, { getCurrentStructure })(withRouter(PresentationUspEssonne))
+)

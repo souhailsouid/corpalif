@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
 import { setCurrentUser, logoutUser } from './actions/authActions'
 import PrivateRoute from 'routes/PrivateRoute.js'
+import AdminRoute from 'routes/AdminRoute.js'
 import 'assets/scss/material-kit-pro-react.css?v=1.2.0'
 import { Provider } from 'react-redux'
 import store from './store'
@@ -29,7 +30,7 @@ import UpdateProfilePage from 'views/create-profile/PaymentProcess/UpdateProfile
 // Reset Password
 
 import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
-import UpdatePassword from 'views/SigninPage/ForgotPage/UpdatePassword'
+import UpdatePasswordPage from 'views/SigninPage/ForgotPage/UpdatePasswordPage'
 // Annuaire
 import ProfilePage from 'views/Admin/ProfilePage.jsx'
 import VeillemedicalePage from 'views/Admin/Menu/VeilleMedicale/veilleMedicale.jsx'
@@ -404,7 +405,7 @@ import DeleteVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE
 // COORDINATION REGIONALE
 import CorpalifPage from 'views/Menu/coordinationregionale/corpalif/corpalif.js'
 import OrientationPage from 'views/Menu/coordinationregionale/orientation/orientation.js'
-
+import AdhererPage from 'views/Menu/coordinationregionale/adherer/adherer.js'
 // SOINS PALLIATIFS
 //DEMARCHE PALLIATIVE
 import DemarchePalliatifPage from 'views/Menu/soinspalliatifs/demarchepalliative/DemarchePalliatifPage.js'
@@ -436,6 +437,7 @@ import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/
 // Adherent
 import PresentationAdherent from 'views/Adherent/adherent'
 import PresentationGetAdherent from 'views/Adherent/get'
+import PaymentPage from 'views/Adherent/PaymentPage'
 //Admin
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
@@ -536,6 +538,7 @@ class App extends Component {
 						{/* Adherents process Paymeny */}
 						<Route exact path="/adherent/completeprofile" component={CompleteprofilePage} />
 						<Route exact path="/adherent/check-profile" component={UpdateProfilePage} />
+						<Route exact path="/adherents/adherer/final" component={PaymentPage} />
 
 						<Route exact path="/map" component={Maps} />
 						<div className="container">
@@ -543,7 +546,7 @@ class App extends Component {
 							<Route exact path="/structure" component={PresentationStructures} />
 							<Route exact path="/blogs" component={PresentationBlog} />
 							<Route exact path="/forgotpassword" component={ForgotPassword} />
-							<Route exact path="/reset/:token" component={UpdatePassword} />
+							<Route exact path="/reset/:token" component={UpdatePasswordPage} />
 							{/* Annuaire
 							{/* paris */}
 							<Route exact path="/annuaire/paris" component={ModalSearchParis} />
@@ -722,217 +725,201 @@ class App extends Component {
 							</Switch>
 							{/* Admin */}
 							<Switch>
-								<PrivateRoute exact path="/admin" component={ProfilePage} />
-								<PrivateRoute exact path="/admin/menu/veillemedicale" component={VeillemedicalePage} />
+								<AdminRoute exact path="/admin" component={ProfilePage} />
+								<AdminRoute exact path="/admin/menu/veillemedicale" component={VeillemedicalePage} />
 
-								<PrivateRoute exact path="/admin/annuaire" component={AnnuaireAdminHome} />
+								<AdminRoute exact path="/admin/annuaire" component={AnnuaireAdminHome} />
 							</Switch>
 							<Switch>
 								{/* Paris */}
 								{/* USP */}
-								<PrivateRoute exact path="/admin/paris/usp" component={Paris} />
-								<PrivateRoute exact path="/admin/paris/usp/:id" component={Get} />
-								<PrivateRoute exact path="/admin/update/paris/usp/:id" component={Update} />
-								<PrivateRoute exact path="/admin/post/paris/usp" component={Post} />
-								<PrivateRoute exact path="/admin/delete/paris/usp/:id" component={Delete} />
+								<AdminRoute exact path="/admin/paris/usp" component={Paris} />
+								<AdminRoute exact path="/admin/paris/usp/:id" component={Get} />
+								<AdminRoute exact path="/admin/update/paris/usp/:id" component={Update} />
+								<AdminRoute exact path="/admin/post/paris/usp" component={Post} />
+								<AdminRoute exact path="/admin/delete/paris/usp/:id" component={Delete} />
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/paris/reseaux" component={ParisRESEAUX} />
-								<PrivateRoute exact path="/admin/paris/reseaux/:id" component={GetPARISRESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/paris/reseaux" component={ParisRESEAUX} />
+								<AdminRoute exact path="/admin/paris/reseaux/:id" component={GetPARISRESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/update/paris/reseaux/:id"
 									component={UpdatePARISRESEAUX}
 								/>
-								<PrivateRoute exact path="/admin/post/paris/reseaux" component={PostPARISRESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/paris/reseaux" component={PostPARISRESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/delete/paris/reseaux/:id"
 									component={DeletePARISRESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute exact path="/admin/paris/association" component={ParisASSOS} />
-								<PrivateRoute exact path="/admin/paris/association/:id" component={GetPARISASSOS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/paris/association" component={ParisASSOS} />
+								<AdminRoute exact path="/admin/paris/association/:id" component={GetPARISASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/update/paris/association/:id"
 									component={UpdatePARISASSOS}
 								/>
-								<PrivateRoute exact path="/admin/post/paris/association" component={PostPARISASSOS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/paris/association" component={PostPARISASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/paris/association/:id"
 									component={DeletePARISASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/paris/equipesmobiles" component={ParisHAD} />
-								<PrivateRoute exact path="/admin/paris/equipesmobiles/:id" component={GetPARISHAD} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/paris/equipesmobiles" component={ParisHAD} />
+								<AdminRoute exact path="/admin/paris/equipesmobiles/:id" component={GetPARISHAD} />
+								<AdminRoute
 									exact
 									path="/admin/update/paris/equipesmobiles/:id"
 									component={UpdatePARISHAD}
 								/>
-								<PrivateRoute exact path="/admin/post/paris/equipesmobiles" component={PostPARISHAD} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/paris/equipesmobiles" component={PostPARISHAD} />
+								<AdminRoute
 									exact
 									path="/admin/delete/paris/equipesmobiles/:id"
 									component={DeletePARISHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute exact path="/admin/paris/structures" component={ParisSTRUCTURES} />
-								<PrivateRoute exact path="/admin/paris/structures/:id" component={GetPARISSTRUCTURES} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/paris/structures" component={ParisSTRUCTURES} />
+								<AdminRoute exact path="/admin/paris/structures/:id" component={GetPARISSTRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/update/paris/structures/:id"
 									component={UpdatePARISSTRUCTURES}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/paris/structures"
-									component={PostPARISSTRUCTURES}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/paris/structures" component={PostPARISSTRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/delete/paris/structures/:id"
 									component={DeletePARISSTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/paris/lits" component={ParisLITS} />
-								<PrivateRoute exact path="/admin/paris/lits/:id" component={GetPARISLITS} />
-								<PrivateRoute exact path="/admin/update/paris/lits/:id" component={UpdatePARISLITS} />
-								<PrivateRoute exact path="/admin/post/paris/lits" component={PostPARISLITS} />
-								<PrivateRoute exact path="/admin/delete/paris/lits/:id" component={DeletePARISLITS} />
+								<AdminRoute exact path="/admin/paris/lits" component={ParisLITS} />
+								<AdminRoute exact path="/admin/paris/lits/:id" component={GetPARISLITS} />
+								<AdminRoute exact path="/admin/update/paris/lits/:id" component={UpdatePARISLITS} />
+								<AdminRoute exact path="/admin/post/paris/lits" component={PostPARISLITS} />
+								<AdminRoute exact path="/admin/delete/paris/lits/:id" component={DeletePARISLITS} />
 							</Switch>
 							<Switch>
 								{/* Hauts de Seine */}
 
 								{/* USP */}
-								<PrivateRoute exact path="/admin/hautdeseine/usp" component={HautsdeSeine} />
-								<PrivateRoute exact path="/admin/HAUTDESEINE/usp/:id" component={GetUSPHAUTDESEINE} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/hautdeseine/usp" component={HautsdeSeine} />
+								<AdminRoute exact path="/admin/HAUTDESEINE/usp/:id" component={GetUSPHAUTDESEINE} />
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/usp/:id"
 									component={UpdateUSPHAUTDESEINE}
 								/>
-								<PrivateRoute exact path="/admin/post/HAUTDESEINE/usp" component={PostUSPHAUTDESEINE} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/HAUTDESEINE/usp" component={PostUSPHAUTDESEINE} />
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/usp/:id"
 									component={DeleteUSPHAUTDESEINE}
 								/>
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/HAUTDESEINE/reseaux" component={HAUTDESEINERESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/HAUTDESEINE/reseaux" component={HAUTDESEINERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/HAUTDESEINE/reseaux/:id"
 									component={GetHAUTDESEINERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/reseaux/:id"
 									component={UpdateHAUTDESEINERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/HAUTDESEINE/reseaux"
 									component={PostHAUTDESEINERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/reseaux/:id"
 									component={DeleteHAUTDESEINERESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute
-									exact
-									path="/admin/HAUTDESEINE/association"
-									component={HAUTDESEINEASSOS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/HAUTDESEINE/association" component={HAUTDESEINEASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/HAUTDESEINE/association/:id"
 									component={GetHAUTDESEINEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/association/:id"
 									component={UpdateHAUTDESEINEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/HAUTDESEINE/association"
 									component={PostHAUTDESEINEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/association/:id"
 									component={DeleteHAUTDESEINEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute
-									exact
-									path="/admin/HAUTDESEINE/equipesmobiles"
-									component={HAUTDESEINEHAD}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/HAUTDESEINE/equipesmobiles" component={HAUTDESEINEHAD} />
+								<AdminRoute
 									exact
 									path="/admin/HAUTDESEINE/equipesmobiles/:id"
 									component={GetHAUTDESEINEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/equipesmobiles/:id"
 									component={UpdateHAUTDESEINEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/HAUTDESEINE/equipesmobiles"
 									component={PostHAUTDESEINEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/equipesmobiles/:id"
 									component={DeleteHAUTDESEINEHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/HAUTDESEINE/structures"
 									component={HAUTDESEINESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/HAUTDESEINE/structures/:id"
 									component={GetHAUTDESEINESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/structures/:id"
 									component={UpdateHAUTDESEINESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/HAUTDESEINE/structures"
 									component={PostHAUTDESEINESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/structures/:id"
 									component={DeleteHAUTDESEINESTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/HAUTDESEINE/lits" component={HAUTDESEINELITS} />
-								<PrivateRoute exact path="/admin/HAUTDESEINE/lits/:id" component={GetHAUTDESEINELITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/HAUTDESEINE/lits" component={HAUTDESEINELITS} />
+								<AdminRoute exact path="/admin/HAUTDESEINE/lits/:id" component={GetHAUTDESEINELITS} />
+								<AdminRoute
 									exact
 									path="/admin/update/HAUTDESEINE/lits/:id"
 									component={UpdateHAUTDESEINELITS}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/HAUTDESEINE/lits"
-									component={PostHAUTDESEINELITS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/HAUTDESEINE/lits" component={PostHAUTDESEINELITS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/HAUTDESEINE/lits/:id"
 									component={DeleteHAUTDESEINELITS}
@@ -942,121 +929,117 @@ class App extends Component {
 								{/* Val de Marne */}
 
 								{/* USP */}
-								<PrivateRoute exact path="/admin/VALDEMARNE/usp" component={VALDEMARNE} />
-								<PrivateRoute exact path="/admin/VALDEMARNE/usp/:id" component={GetUSPVALDEMARNE} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/usp" component={VALDEMARNE} />
+								<AdminRoute exact path="/admin/VALDEMARNE/usp/:id" component={GetUSPVALDEMARNE} />
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/usp/:id"
 									component={UpdateUSPVALDEMARNE}
 								/>
-								<PrivateRoute exact path="/admin/post/VALDEMARNE/usp" component={PostUSPVALDEMARNE} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/VALDEMARNE/usp" component={PostUSPVALDEMARNE} />
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/usp/:id"
 									component={DeleteUSPVALDEMARNE}
 								/>
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/VALDEMARNE/reseaux" component={VALDEMARNERESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/reseaux" component={VALDEMARNERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/VALDEMARNE/reseaux/:id"
 									component={GetVALDEMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/reseaux/:id"
 									component={UpdateVALDEMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDEMARNE/reseaux"
 									component={PostVALDEMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/reseaux/:id"
 									component={DeleteVALDEMARNERESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute exact path="/admin/VALDEMARNE/association" component={VALDEMARNEASSOS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/association" component={VALDEMARNEASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/VALDEMARNE/association/:id"
 									component={GetVALDEMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/association/:id"
 									component={UpdateVALDEMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDEMARNE/association"
 									component={PostVALDEMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/association/:id"
 									component={DeleteVALDEMARNEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/VALDEMARNE/equipesmobiles" component={VALDEMARNEHAD} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/equipesmobiles" component={VALDEMARNEHAD} />
+								<AdminRoute
 									exact
 									path="/admin/VALDEMARNE/equipesmobiles/:id"
 									component={GetVALDEMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/equipesmobiles/:id"
 									component={UpdateVALDEMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDEMARNE/equipesmobiles"
 									component={PostVALDEMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/equipesmobiles/:id"
 									component={DeleteVALDEMARNEHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute
-									exact
-									path="/admin/VALDEMARNE/structures"
-									component={VALDEMARNETRUCTURES}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/structures" component={VALDEMARNETRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/VALDEMARNE/structures/:id"
 									component={GetVALDEMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/structures/:id"
 									component={UpdateVALDEMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDEMARNE/structures"
 									component={PostVALDEMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/structures/:id"
 									component={DeleteVALDEMARNESTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/VALDEMARNE/lits" component={VALDEMARNELITS} />
-								<PrivateRoute exact path="/admin/VALDEMARNE/lits/:id" component={GetVALDEMARNELITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDEMARNE/lits" component={VALDEMARNELITS} />
+								<AdminRoute exact path="/admin/VALDEMARNE/lits/:id" component={GetVALDEMARNELITS} />
+								<AdminRoute
 									exact
 									path="/admin/update/VALDEMARNE/lits/:id"
 									component={UpdateVALDEMARNELITS}
 								/>
-								<PrivateRoute exact path="/admin/post/VALDEMARNE/lits" component={PostVALDEMARNELITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/VALDEMARNE/lits" component={PostVALDEMARNELITS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDEMARNE/lits/:id"
 									component={DeleteVALDEMARNELITS}
@@ -1066,153 +1049,149 @@ class App extends Component {
 								{/* Seine Saint Denis */}
 
 								{/* USP */}
-								<PrivateRoute exact path="/admin/SEINESAINTDENIS/usp" component={SEINESAINTDENIS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/SEINESAINTDENIS/usp" component={SEINESAINTDENIS} />
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/usp/:id"
 									component={GetUSPSEINESAINTDENIS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/usp/:id"
 									component={UpdateUSPSEINESAINTDENIS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/usp"
 									component={PostUSPSEINESAINTDENIS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/usp/:id"
 									component={DeleteUSPSEINESAINTDENIS}
 								/>
 								{/* RESEAUX */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/reseaux"
 									component={SEINESAINTDENISRESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/reseaux/:id"
 									component={GetSEINESAINTDENISRESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/reseaux/:id"
 									component={UpdateSEINESAINTDENISRESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/reseaux"
 									component={PostSEINESAINTDENISRESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/reseaux/:id"
 									component={DeleteSEINESAINTDENISRESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/association"
 									component={SEINESAINTDENISASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/association/:id"
 									component={GetSEINESAINTDENISASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/association/:id"
 									component={UpdateSEINESAINTDENISASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/association"
 									component={PostSEINESAINTDENISASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/association/:id"
 									component={DeleteSEINESAINTDENISASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/equipesmobiles"
 									component={SEINESAINTDENISHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/equipesmobiles/:id"
 									component={GetSEINESAINTDENISHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/equipesmobiles/:id"
 									component={UpdateSEINESAINTDENISHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/equipesmobiles"
 									component={PostSEINESAINTDENISHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/equipesmobiles/:id"
 									component={DeleteSEINESAINTDENISHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/structures"
 									component={SEINESAINTDENISTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/structures/:id"
 									component={GetSEINESAINTDENISSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/structures/:id"
 									component={UpdateSEINESAINTDENISSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/structures"
 									component={PostSEINESAINTDENISSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/structures/:id"
 									component={DeleteSEINESAINTDENISSTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute
-									exact
-									path="/admin/SEINESAINTDENIS/lits"
-									component={SEINESAINTDENISLITS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/SEINESAINTDENIS/lits" component={SEINESAINTDENISLITS} />
+								<AdminRoute
 									exact
 									path="/admin/SEINESAINTDENIS/lits/:id"
 									component={GetSEINESAINTDENISLITS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINESAINTDENIS/lits/:id"
 									component={UpdateSEINESAINTDENISLITS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINESAINTDENIS/lits"
 									component={PostSEINESAINTDENISLITS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINESAINTDENIS/lits/:id"
 									component={DeleteSEINESAINTDENISLITS}
@@ -1221,113 +1200,97 @@ class App extends Component {
 							<Switch>
 								{/* Val d'Oise */}
 								{/* USP */}
-								<PrivateRoute exact path="/admin/VALDOISE/usp" component={VALDOISE} />
-								<PrivateRoute exact path="/admin/VALDOISE/usp/:id" component={GetUSPVALDOISE} />
-								<PrivateRoute
-									exact
-									path="/admin/update/VALDOISE/usp/:id"
-									component={UpdateUSPVALDOISE}
-								/>
-								<PrivateRoute exact path="/admin/post/VALDOISE/usp" component={PostUSPVALDOISE} />
-								<PrivateRoute
-									exact
-									path="/admin/delete/VALDOISE/usp/:id"
-									component={DeleteUSPVALDOISE}
-								/>
+								<AdminRoute exact path="/admin/VALDOISE/usp" component={VALDOISE} />
+								<AdminRoute exact path="/admin/VALDOISE/usp/:id" component={GetUSPVALDOISE} />
+								<AdminRoute exact path="/admin/update/VALDOISE/usp/:id" component={UpdateUSPVALDOISE} />
+								<AdminRoute exact path="/admin/post/VALDOISE/usp" component={PostUSPVALDOISE} />
+								<AdminRoute exact path="/admin/delete/VALDOISE/usp/:id" component={DeleteUSPVALDOISE} />
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/VALDOISE/reseaux" component={VALDOISERESEAUX} />
-								<PrivateRoute exact path="/admin/VALDOISE/reseaux/:id" component={GetVALDOISERESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDOISE/reseaux" component={VALDOISERESEAUX} />
+								<AdminRoute exact path="/admin/VALDOISE/reseaux/:id" component={GetVALDOISERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/update/VALDOISE/reseaux/:id"
 									component={UpdateVALDOISERESEAUX}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/VALDOISE/reseaux"
-									component={PostVALDOISERESEAUX}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/VALDOISE/reseaux" component={PostVALDOISERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDOISE/reseaux/:id"
 									component={DeleteVALDOISERESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute exact path="/admin/VALDOISE/association" component={VALDOISEASSOS} />
-								<PrivateRoute
-									exact
-									path="/admin/VALDOISE/association/:id"
-									component={GetVALDOISEASSOS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDOISE/association" component={VALDOISEASSOS} />
+								<AdminRoute exact path="/admin/VALDOISE/association/:id" component={GetVALDOISEASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/update/VALDOISE/association/:id"
 									component={UpdateVALDOISEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDOISE/association"
 									component={PostVALDOISEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDOISE/association/:id"
 									component={DeleteVALDOISEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/VALDOISE/equipesmobiles" component={VALDOISEHAD} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDOISE/equipesmobiles" component={VALDOISEHAD} />
+								<AdminRoute
 									exact
 									path="/admin/VALDOISE/equipesmobiles/:id"
 									component={GetVALDOISEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDOISE/equipesmobiles/:id"
 									component={UpdateVALDOISEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDOISE/equipesmobiles"
 									component={PostVALDOISEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDOISE/equipesmobiles/:id"
 									component={DeleteVALDOISEHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute exact path="/admin/VALDOISE/structures" component={VALDOISETRUCTURES} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDOISE/structures" component={VALDOISETRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/VALDOISE/structures/:id"
 									component={GetVALDOISESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/VALDOISE/structures/:id"
 									component={UpdateVALDOISESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/VALDOISE/structures"
 									component={PostVALDOISESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDOISE/structures/:id"
 									component={DeleteVALDOISESTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/VALDOISE/lits" component={VALDOISELITS} />
-								<PrivateRoute exact path="/admin/VALDOISE/lits/:id" component={GetVALDOISELITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/VALDOISE/lits" component={VALDOISELITS} />
+								<AdminRoute exact path="/admin/VALDOISE/lits/:id" component={GetVALDOISELITS} />
+								<AdminRoute
 									exact
 									path="/admin/update/VALDOISE/lits/:id"
 									component={UpdateVALDOISELITS}
 								/>
-								<PrivateRoute exact path="/admin/post/VALDOISE/lits" component={PostVALDOISELITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/VALDOISE/lits" component={PostVALDOISELITS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/VALDOISE/lits/:id"
 									component={DeleteVALDOISELITS}
@@ -1336,244 +1299,216 @@ class App extends Component {
 							<Switch>
 								{/* Essonne */}
 								{/* USP */}
-								<PrivateRoute exact path="/admin/ESSONNE/usp" component={ESSONNE} />
-								<PrivateRoute exact path="/admin/ESSONNE/usp/:id" component={GetUSPESSONNE} />
-								<PrivateRoute exact path="/admin/update/ESSONNE/usp/:id" component={UpdateUSPESSONNE} />
-								<PrivateRoute exact path="/admin/post/ESSONNE/usp" component={PostUSPESSONNE} />
-								<PrivateRoute exact path="/admin/delete/ESSONNE/usp/:id" component={DeleteUSPESSONNE} />
+								<AdminRoute exact path="/admin/ESSONNE/usp" component={ESSONNE} />
+								<AdminRoute exact path="/admin/ESSONNE/usp/:id" component={GetUSPESSONNE} />
+								<AdminRoute exact path="/admin/update/ESSONNE/usp/:id" component={UpdateUSPESSONNE} />
+								<AdminRoute exact path="/admin/post/ESSONNE/usp" component={PostUSPESSONNE} />
+								<AdminRoute exact path="/admin/delete/ESSONNE/usp/:id" component={DeleteUSPESSONNE} />
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/ESSONNE/reseaux" component={ESSONNERESEAUX} />
-								<PrivateRoute exact path="/admin/ESSONNE/reseaux/:id" component={GetESSONNERESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/ESSONNE/reseaux" component={ESSONNERESEAUX} />
+								<AdminRoute exact path="/admin/ESSONNE/reseaux/:id" component={GetESSONNERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/update/ESSONNE/reseaux/:id"
 									component={UpdateESSONNERESEAUX}
 								/>
-								<PrivateRoute exact path="/admin/post/ESSONNE/reseaux" component={PostESSONNERESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/ESSONNE/reseaux" component={PostESSONNERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/delete/ESSONNE/reseaux/:id"
 									component={DeleteESSONNERESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute exact path="/admin/ESSONNE/association" component={ESSONNEASSOS} />
-								<PrivateRoute exact path="/admin/ESSONNE/association/:id" component={GetESSONNEASSOS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/ESSONNE/association" component={ESSONNEASSOS} />
+								<AdminRoute exact path="/admin/ESSONNE/association/:id" component={GetESSONNEASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/update/ESSONNE/association/:id"
 									component={UpdateESSONNEASSOS}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/ESSONNE/association"
-									component={PostESSONNEASSOS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/ESSONNE/association" component={PostESSONNEASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/ESSONNE/association/:id"
 									component={DeleteESSONNEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/ESSONNE/equipesmobiles" component={ESSONNEHAD} />
-								<PrivateRoute
-									exact
-									path="/admin/ESSONNE/equipesmobiles/:id"
-									component={GetESSONNEHAD}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/ESSONNE/equipesmobiles" component={ESSONNEHAD} />
+								<AdminRoute exact path="/admin/ESSONNE/equipesmobiles/:id" component={GetESSONNEHAD} />
+								<AdminRoute
 									exact
 									path="/admin/update/ESSONNE/equipesmobiles/:id"
 									component={UpdateESSONNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/ESSONNE/equipesmobiles"
 									component={PostESSONNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/ESSONNE/equipesmobiles/:id"
 									component={DeleteESSONNEHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute exact path="/admin/ESSONNE/structures" component={ESSONNETRUCTURES} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/ESSONNE/structures" component={ESSONNETRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/ESSONNE/structures/:id"
 									component={GetESSONNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/ESSONNE/structures/:id"
 									component={UpdateESSONNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/ESSONNE/structures"
 									component={PostESSONNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/ESSONNE/structures/:id"
 									component={DeleteESSONNESTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/ESSONNE/lits" component={ESSONNELITS} />
-								<PrivateRoute exact path="/admin/ESSONNE/lits/:id" component={GetESSONNELITS} />
-								<PrivateRoute
-									exact
-									path="/admin/update/ESSONNE/lits/:id"
-									component={UpdateESSONNELITS}
-								/>
-								<PrivateRoute exact path="/admin/post/ESSONNE/lits" component={PostESSONNELITS} />
-								<PrivateRoute
-									exact
-									path="/admin/delete/ESSONNE/lits/:id"
-									component={DeleteESSONNELITS}
-								/>
+								<AdminRoute exact path="/admin/ESSONNE/lits" component={ESSONNELITS} />
+								<AdminRoute exact path="/admin/ESSONNE/lits/:id" component={GetESSONNELITS} />
+								<AdminRoute exact path="/admin/update/ESSONNE/lits/:id" component={UpdateESSONNELITS} />
+								<AdminRoute exact path="/admin/post/ESSONNE/lits" component={PostESSONNELITS} />
+								<AdminRoute exact path="/admin/delete/ESSONNE/lits/:id" component={DeleteESSONNELITS} />
 							</Switch>
 							<Switch>
 								{/* Seine et Marne */}
 								{/* USP */}
-								<PrivateRoute exact path="/admin/SEINEETMARNE/usp" component={SEINEETMARNE} />
-								<PrivateRoute exact path="/admin/SEINEETMARNE/usp/:id" component={GetUSPSEINEETMARNE} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/SEINEETMARNE/usp" component={SEINEETMARNE} />
+								<AdminRoute exact path="/admin/SEINEETMARNE/usp/:id" component={GetUSPSEINEETMARNE} />
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/usp/:id"
 									component={UpdateUSPSEINEETMARNE}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/SEINEETMARNE/usp"
-									component={PostUSPSEINEETMARNE}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/SEINEETMARNE/usp" component={PostUSPSEINEETMARNE} />
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/usp/:id"
 									component={DeleteUSPSEINEETMARNE}
 								/>
 								{/* RESEAUX */}
-								<PrivateRoute
-									exact
-									path="/admin/SEINEETMARNE/reseaux"
-									component={SEINEETMARNERESEAUX}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/SEINEETMARNE/reseaux" component={SEINEETMARNERESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/reseaux/:id"
 									component={GetSEINEETMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/reseaux/:id"
 									component={UpdateSEINEETMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINEETMARNE/reseaux"
 									component={PostSEINEETMARNERESEAUX}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/reseaux/:id"
 									component={DeleteSEINEETMARNERESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/association"
 									component={SEINEETMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/association/:id"
 									component={GetSEINEETMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/association/:id"
 									component={UpdateSEINEETMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINEETMARNE/association"
 									component={PostSEINEETMARNEASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/association/:id"
 									component={DeleteSEINEETMARNEASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/equipesmobiles"
 									component={SEINEETMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/equipesmobiles/:id"
 									component={GetSEINEETMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/equipesmobiles/:id"
 									component={UpdateSEINEETMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINEETMARNE/equipesmobiles"
 									component={PostSEINEETMARNEHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/equipesmobiles/:id"
 									component={DeleteSEINEETMARNEHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/structures"
 									component={SEINEETMARNETRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/SEINEETMARNE/structures/:id"
 									component={GetSEINEETMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/structures/:id"
 									component={UpdateSEINEETMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINEETMARNE/structures"
 									component={PostSEINEETMARNESTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/structures/:id"
 									component={DeleteSEINEETMARNESTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/SEINEETMARNE/lits" component={SEINEETMARNELITS} />
-								<PrivateRoute
-									exact
-									path="/admin/SEINEETMARNE/lits/:id"
-									component={GetSEINEETMARNELITS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/SEINEETMARNE/lits" component={SEINEETMARNELITS} />
+								<AdminRoute exact path="/admin/SEINEETMARNE/lits/:id" component={GetSEINEETMARNELITS} />
+								<AdminRoute
 									exact
 									path="/admin/update/SEINEETMARNE/lits/:id"
 									component={UpdateSEINEETMARNELITS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/SEINEETMARNE/lits"
 									component={PostSEINEETMARNELITS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/SEINEETMARNE/lits/:id"
 									component={DeleteSEINEETMARNELITS}
@@ -1582,113 +1517,97 @@ class App extends Component {
 							<Switch>
 								{/* Yvelines */}
 								{/* USP */}
-								<PrivateRoute exact path="/admin/YVELINES/usp" component={YVELINES} />
-								<PrivateRoute exact path="/admin/YVELINES/usp/:id" component={GetUSPYVELINES} />
-								<PrivateRoute
-									exact
-									path="/admin/update/YVELINES/usp/:id"
-									component={UpdateUSPYVELINES}
-								/>
-								<PrivateRoute exact path="/admin/post/YVELINES/usp" component={PostUSPYVELINES} />
-								<PrivateRoute
-									exact
-									path="/admin/delete/YVELINES/usp/:id"
-									component={DeleteUSPYVELINES}
-								/>
+								<AdminRoute exact path="/admin/YVELINES/usp" component={YVELINES} />
+								<AdminRoute exact path="/admin/YVELINES/usp/:id" component={GetUSPYVELINES} />
+								<AdminRoute exact path="/admin/update/YVELINES/usp/:id" component={UpdateUSPYVELINES} />
+								<AdminRoute exact path="/admin/post/YVELINES/usp" component={PostUSPYVELINES} />
+								<AdminRoute exact path="/admin/delete/YVELINES/usp/:id" component={DeleteUSPYVELINES} />
 								{/* RESEAUX */}
-								<PrivateRoute exact path="/admin/YVELINES/reseaux" component={YVELINESRESEAUX} />
-								<PrivateRoute exact path="/admin/YVELINES/reseaux/:id" component={GetYVELINESRESEAUX} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/YVELINES/reseaux" component={YVELINESRESEAUX} />
+								<AdminRoute exact path="/admin/YVELINES/reseaux/:id" component={GetYVELINESRESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/update/YVELINES/reseaux/:id"
 									component={UpdateYVELINESRESEAUX}
 								/>
-								<PrivateRoute
-									exact
-									path="/admin/post/YVELINES/reseaux"
-									component={PostYVELINESRESEAUX}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/YVELINES/reseaux" component={PostYVELINESRESEAUX} />
+								<AdminRoute
 									exact
 									path="/admin/delete/YVELINES/reseaux/:id"
 									component={DeleteYVELINESRESEAUX}
 								/>
 								{/* ASSOS */}
-								<PrivateRoute exact path="/admin/YVELINES/association" component={YVELINESASSOS} />
-								<PrivateRoute
-									exact
-									path="/admin/YVELINES/association/:id"
-									component={GetYVELINESASSOS}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/YVELINES/association" component={YVELINESASSOS} />
+								<AdminRoute exact path="/admin/YVELINES/association/:id" component={GetYVELINESASSOS} />
+								<AdminRoute
 									exact
 									path="/admin/update/YVELINES/association/:id"
 									component={UpdateYVELINESASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/YVELINES/association"
 									component={PostYVELINESASSOS}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/YVELINES/association/:id"
 									component={DeleteYVELINESASSOS}
 								/>
 								{/* HAD */}
-								<PrivateRoute exact path="/admin/YVELINES/equipesmobiles" component={YVELINESHAD} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/YVELINES/equipesmobiles" component={YVELINESHAD} />
+								<AdminRoute
 									exact
 									path="/admin/YVELINES/equipesmobiles/:id"
 									component={GetYVELINESHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/YVELINES/equipesmobiles/:id"
 									component={UpdateYVELINESHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/YVELINES/equipesmobiles"
 									component={PostYVELINESHAD}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/YVELINES/equipesmobiles/:id"
 									component={DeleteYVELINESHAD}
 								/>
 								{/* STRUCTURES */}
-								<PrivateRoute exact path="/admin/YVELINES/structures" component={YVELINESTRUCTURES} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/YVELINES/structures" component={YVELINESTRUCTURES} />
+								<AdminRoute
 									exact
 									path="/admin/YVELINES/structures/:id"
 									component={GetYVELINESSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/update/YVELINES/structures/:id"
 									component={UpdateYVELINESSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/post/YVELINES/structures"
 									component={PostYVELINESSTRUCTURES}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/delete/YVELINES/structures/:id"
 									component={DeleteYVELINESSTRUCTURES}
 								/>
 								{/* LITS */}
-								<PrivateRoute exact path="/admin/YVELINES/lits" component={YVELINESLITS} />
-								<PrivateRoute exact path="/admin/YVELINES/lits/:id" component={GetYVELINESLITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/YVELINES/lits" component={YVELINESLITS} />
+								<AdminRoute exact path="/admin/YVELINES/lits/:id" component={GetYVELINESLITS} />
+								<AdminRoute
 									exact
 									path="/admin/update/YVELINES/lits/:id"
 									component={UpdateYVELINESLITS}
 								/>
-								<PrivateRoute exact path="/admin/post/YVELINES/lits" component={PostYVELINESLITS} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/post/YVELINES/lits" component={PostYVELINESLITS} />
+								<AdminRoute
 									exact
 									path="/admin/delete/YVELINES/lits/:id"
 									component={DeleteYVELINESLITS}
@@ -1705,11 +1624,8 @@ class App extends Component {
 									path="/menu/coordinationregionale/orientationregionale/"
 									component={OrientationPage}
 								/>
-								<Route
-									exact
-									path="/menu/coordinationregionale/orientationsregionales/"
-									component={OrientationPage}
-								/>
+								<Route exact path="/menu/coordinationregionale/adherer/" component={AdhererPage} />
+
 								{/* Veille medicale */}
 								<Route
 									exact
@@ -1749,8 +1665,8 @@ class App extends Component {
 								{/* {Adherent}	 */}
 								<Route exact path="/adherents" component={PresentationAdherent} />
 								<Route exact path="/success" component={PresentationGetAdherent} />
-								<Route exact path="/adherents/step" component={Step1} />
-								<Route exact path="/adherents/step2" component={Step2} />
+								{/* <Route exact path="/adherents/step" component={Step1} /> */}
+								{/* <Route exact path="/adherents/step2" component={Step2} /> */}
 								{/* {Contact page}	 */}
 								<Route exact path="/menu/contact" component={PresentationContact} />
 								{/* {Modal Open for Login}	 */}
@@ -1762,157 +1678,137 @@ class App extends Component {
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
 								{/* {admin } */}
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/"
 									component={Recommandation}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/delete/:id"
 									component={DeleteOneRecommandation}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/update/:id"
 									component={UpdateRecommandations}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/post"
 									component={PostRecommandations}
 								/>
 								{/* evenements */}
-								<PrivateRoute
-									exact
-									path="/admin/menu/veillemedicale/evenement/"
-									component={Evenement}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/menu/veillemedicale/evenement/" component={Evenement} />
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/evenement/delete/:id"
 									component={DeleteOneEvenement}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/evenement/update/:id"
 									component={UpdateEvenement}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/evenement/post"
 									component={PostEvenement}
 								/>
 								{/* rencontre */}
-								<PrivateRoute
-									exact
-									path="/admin/menu/veillemedicale/rencontre/"
-									component={Rencontre}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/menu/veillemedicale/rencontre/" component={Rencontre} />
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/rencontre/delete/:id"
 									component={DeleteOneRencontre}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/rencontre/update/:id"
 									component={UpdateRencontre}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/rencontre/post"
 									component={PostRencontre}
 								/>
 								{/* actualite */}
-								<PrivateRoute
-									exact
-									path="/admin/menu/veillemedicale/actualite/"
-									component={Actualite}
-								/>
-								<PrivateRoute
+								<AdminRoute exact path="/admin/menu/veillemedicale/actualite/" component={Actualite} />
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/actualite/delete/:id"
 									component={DeleteOneActualite}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/actualite/update/:id"
 									component={UpdateActualite}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/actualite/post"
 									component={PostActualite}
 								/>
 
 								{/* offres d'emploi */}
-								<PrivateRoute exact path="/admin/menu/offres-emplois" component={OffreEmploi} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/menu/offres-emplois" component={OffreEmploi} />
+								<AdminRoute
 									exact
 									path="/admin/menu/offres-emplois/delete/:id"
 									component={DeleteOneOffre}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/offres-emplois/update/:id"
 									component={UpdateOffres}
 								/>
-								<PrivateRoute exact path="/admin/menu/offres-emplois/post" component={PostOffres} />
+								<AdminRoute exact path="/admin/menu/offres-emplois/post" component={PostOffres} />
 								{/* formation */}
-								<PrivateRoute exact path="/admin/menu/formations" component={Formation} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/menu/formations" component={Formation} />
+								<AdminRoute
 									exact
 									path="/admin/menu/formations/delete/:id"
 									component={DeleteOneFormations}
 								/>
-								<PrivateRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/formations/update/:id"
 									component={UpdateFormations}
 								/>
-								<PrivateRoute exact path="/admin/menu/formations/post" component={PostFormation} />
+								<AdminRoute exact path="/admin/menu/formations/post" component={PostFormation} />
 
 								{/* file */}
 								{/* HomePage */}
 								{/* Caroussel1	*/}
-								<PrivateRoute exact path="/admin/HomePage" component={HomePageAdminHome} />
-								<PrivateRoute exact path="/admin/carousel" component={SectioncarousselsAdmin} />
-								<PrivateRoute
+								<AdminRoute exact path="/admin/HomePage" component={HomePageAdminHome} />
+								<AdminRoute exact path="/admin/carousel" component={SectioncarousselsAdmin} />
+								<AdminRoute
 									exact
 									path="/admin/menu/caroussel/update/:id"
 									component={UpdateCaroussel1}
 								/>
 								{/* Caroussel2	*/}
-								<PrivateRoute exact path="/admin/adherent" component={SectioncadherentAdmin} />
-								<PrivateRoute
-									exact
-									path="/admin/menu/adherent/update/:id"
-									component={UpdateCaroussel2}
-								/>
+								<AdminRoute exact path="/admin/adherent" component={SectioncadherentAdmin} />
+								<AdminRoute exact path="/admin/menu/adherent/update/:id" component={UpdateCaroussel2} />
 								{/* formulaire d'admission	*/}
-								<PrivateRoute exact path="/admin/formulaire" component={PresentationFile} />
-								<PrivateRoute
-									exact
-									path="/admin/menu/formulaire/update/:id"
-									component={Updatefichier}
-								/>
+								<AdminRoute exact path="/admin/formulaire" component={PresentationFile} />
+								<AdminRoute exact path="/admin/menu/formulaire/update/:id" component={Updatefichier} />
 								{/* Agenda	*/}
 								{/* Agenda1	*/}
-								<PrivateRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
-								<PrivateRoute exact path="/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
+								<AdminRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
+								<AdminRoute exact path="/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
 								{/* Agenda2	*/}
-								<PrivateRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
-								<PrivateRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
+								<AdminRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
+								<AdminRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
 								{/* Offre d'emploi	*/}
-								<PrivateRoute exact path="/admin/offre" component={SectionOffreAdmin} />
-								<PrivateRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="/admin/offre" component={SectionOffreAdmin} />
+								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 							</Switch>
 						</div>
 					</div>

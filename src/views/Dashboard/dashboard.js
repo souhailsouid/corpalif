@@ -15,8 +15,9 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
 import CompleteProfile from 'views/create-profile/complete'
+import Button from 'components/CustomButtons/Button.jsx'
 // Redux
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -47,12 +48,12 @@ class Dashboard extends Component {
 
 					window.location.assign('/monprofile')
 
-					// <div style={{ marginBottom: '60px' }} />
-					// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-					// 	Delete My Account
-					// </button>
+				// <div style={{ marginBottom: '60px' }} />
+				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
+				// 	Delete My Account
+				// </button>
 
-					// </div>
+				// </div>
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = (

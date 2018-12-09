@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
 import EditProfile from './update'
-import HeaderComponent from 'views/Header/AppBar.jsx'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 
 class UpdateProfilePage extends Component {
@@ -15,7 +15,7 @@ class UpdateProfilePage extends Component {
 
 		return (
 			<div>
-				<HeaderComponent />
+				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)} style={{ height: 'auto' }}>
 					<EditProfile />

@@ -21,7 +21,6 @@ const Offre = ({ notificationoffre }) => (
 				{notificationoffre.poste}
 			</span>
 		}
-		close
 		color="green"
 	/>
 )

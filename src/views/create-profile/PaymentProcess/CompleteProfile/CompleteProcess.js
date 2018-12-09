@@ -7,13 +7,16 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 // @material-ui/icons
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // core components
+
 import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
@@ -26,7 +29,7 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { createProfile } from 'actions/profileActions'
+import { completeProfile } from 'actions/profileActions'
 import { withRouter } from 'react-router-dom'
 
 function Transition(props) {
@@ -43,7 +46,9 @@ class CompleteProcess extends React.Component {
 			structure: '',
 			company: '',
 			location: '',
+			newsletter: '',
 			fonction: '',
+			member: '',
 			errors: {}
 		}
 
@@ -78,10 +83,12 @@ class CompleteProcess extends React.Component {
 			structure: this.state.structure,
 			company: this.state.company,
 			fonction: this.state.fonction,
-			location: this.state.location
+			location: this.state.location,
+			newsletter: this.state.newsletter,
+			member: this.state.member
 		}
 
-		this.props.createProfile(profileData, this.props.history)
+		this.props.completeProfile(profileData, this.props.history)
 	}
 
 	onChange(e) {
@@ -212,6 +219,67 @@ class CompleteProcess extends React.Component {
 												)
 											}}
 										/>
+										<br />
+										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+											<div
+												className={
+													classes.checkboxAndRadio + ' ' + classes.checkboxAndRadioHorizontal
+												}
+											>
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'oui'}
+															onChange={this.onChange}
+															value="oui"
+															name="newsletter"
+															aria-label="A"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="oui"
+												/>
+
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'non'}
+															onChange={this.onChange}
+															value="non"
+															name="newsletter"
+															aria-label="B"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="non"
+												/>
+											</div>
+										</div>
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 										<form
@@ -318,5 +386,5 @@ const mapStateToProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateToProps, { createProfile })(withRouter(CompleteProcess))
+	connect(mapStateToProps, { completeProfile })(withRouter(CompleteProcess))
 )

@@ -9,9 +9,9 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Card from 'components/Card/Card.jsx'
-
-import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
-
+import projectsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/projectsStyle.jsx'
+// import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
+import Button from 'components/CustomButtons/Button.jsx'
 const settings = {
 	dots: true,
 	infinite: true,
@@ -24,7 +24,7 @@ const Recommandation = ({ caroussel, classes }) => (
 	<div className={classes.section} id="carousel">
 		<div className={classes.container}>
 			<GridContainer>
-				<GridItem xs={12} sm={12} md={12} className={classes.marginAuto}>
+				<GridItem xs={12} sm={12} md={12} className={classes.marginAuto} style={{ marginLeft: 30 }}>
 					<Card>
 						<Carousel {...settings}>
 							<div>
@@ -42,7 +42,19 @@ const Recommandation = ({ caroussel, classes }) => (
 									/>
 
 									<div className="slick-caption">
-										<h2>{caroussel.title}</h2>
+										<Button
+											round
+											color="red"
+											style={{
+												paddingLeft: '12px',
+												paddingRight: '12px',
+												paddingTop: '0px',
+												paddingBottom: '0px'
+											}}
+										>
+											<h4 className={classes.cardTitleWhite}> {caroussel.title} </h4>
+										</Button>
+										{/* <h2>{caroussel.title}</h2> */}
 									</div>
 								</a>
 							</div>
@@ -60,7 +72,20 @@ const Recommandation = ({ caroussel, classes }) => (
 									/>
 
 									<div className="slick-caption">
-										<h2>{caroussel.title2}</h2>
+										<Button
+											round
+											color="red"
+											style={{
+												paddingLeft: '12px',
+												paddingRight: '12px',
+												paddingTop: '0px',
+												paddingBottom: '0px'
+											}}
+										>
+											<h4 className={classes.cardTitleWhite}> {caroussel.title2} </h4>
+										</Button>
+
+										{/* <h2>{caroussel.title2}</h2> */}
 									</div>
 								</a>
 							</div>
@@ -77,7 +102,18 @@ const Recommandation = ({ caroussel, classes }) => (
 									/>
 
 									<div className="slick-caption">
-										<h2>{caroussel.title3}</h2>
+										<Button
+											round
+											color="red"
+											style={{
+												paddingLeft: '12px',
+												paddingRight: '12px',
+												paddingTop: '0px',
+												paddingBottom: '0px'
+											}}
+										>
+											<h4 className={classes.cardTitleWhite}> {caroussel.title3} </h4>
+										</Button>
 									</div>
 								</a>
 							</div>
@@ -89,4 +125,4 @@ const Recommandation = ({ caroussel, classes }) => (
 	</div>
 )
 
-export default withStyles(carouselStyle)(Recommandation)
+export default withStyles(projectsStyle)(Recommandation)

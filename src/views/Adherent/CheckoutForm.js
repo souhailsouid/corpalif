@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { injectStripe } from 'react-stripe-elements'
 import StripeCheckout from 'react-stripe-checkout'
 import Button from 'components/CustomButtons/Button.jsx'
+import ConfirmationPaiement from './confirmationPayment'
 class CheckoutForm extends Component {
 	constructor(props) {
 		super(props)
@@ -15,17 +16,12 @@ class CheckoutForm extends Component {
 			body: token.id
 		})
 		if (response.ok) this.setState({ complete: true })
-
-		alert('Un email vous a été adressé confirmant votre adhésion')
 	}
 
 	render() {
-		if (this.state.complete) return <h1> Merci pour votre adhésion annuelle à la corpalif </h1>
-
+		if (this.state.complete) return <ConfirmationPaiement />
 		return (
 			<div className="checkout" style={{ textAlign: 'center' }}>
-				<h5>Adhérer pour 15 euros seulement</h5>
-
 				<StripeCheckout
 					style={{ textAlign: 'center' }}
 					stripeKey="pk_test_eD4nXDlwmoAtBnXfYBo1taDi"
@@ -36,7 +32,6 @@ class CheckoutForm extends Component {
 					panelLabel="Adherer" // prepended to the amount in the bottom pay button
 					amount={1500} // cents
 					currency="EUR"
-					structure
 					locale="fr"
 					// email="info@vidhub.co"
 					// Note: Enabling either address option will give the user the ability to
@@ -56,8 +51,8 @@ class CheckoutForm extends Component {
 					// Note: you can change the event to `onTouchTap`, `onClick`, `onTouchStart`
 					// useful if you're using React-Tap-Event-Plugin
 				>
-					<Button round style={{ backgroundColor: '#0070ba' }}>
-						<b> Adherer</b>
+					<Button round style={{ backgroundColor: '#337467' }}>
+						<b> Paiement</b>
 					</Button>
 				</StripeCheckout>
 			</div>

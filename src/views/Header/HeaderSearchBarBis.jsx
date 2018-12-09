@@ -6,7 +6,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 // core components
 import Header from 'components/Header/Header.jsx'
 // import Example from 'components/Header/sub'
-
 import Parallax from 'components/Parallax/Parallax.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'

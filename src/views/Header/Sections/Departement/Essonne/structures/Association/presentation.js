@@ -17,6 +17,7 @@ import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+import L from 'leaflet'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -52,6 +53,19 @@ class ESSONNEASSOS extends React.Component {
 		document.body.scrollTop = 0
 
 		this.props.getCurrentStructureAssos()
+
+		var mymap = L.map('mapid').setView([ 48.702442, 2.130318 ], 10)
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			attribution:
+				'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: 'mapbox.streets',
+			accessToken: 'pk.eyJ1Ijoic291aGFpbHMiLCJhIjoiY2pwNW53NWt1MTIxdzNrcGhyN2g3aDZlYSJ9.RhGI7ibxm_dMpFycmibT0g'
+		}).addTo(mymap)
+
+		var marker = L.marker([ 48.702442, 2.130318 ]).addTo(mymap)
+
+		marker.bindPopup('ASP 91').openPopup()
 	}
 
 	render() {
@@ -96,94 +110,51 @@ class ESSONNEASSOS extends React.Component {
 														style={{
 															textAlign: 'right',
 															justifyContent: 'right',
-															height: '500px',
+															height: '800px',
+															width: '700px',
 															position: 'relative',
-
 															marginTop: 40
 														}}
 													>
-														<Map
-															google={this.props.google}
-															initialCenter={{
-																lat: 48.8519,
-																lng: 2.291172
-															}}
-															onClick={this.onMapClicked}
-															zoom={14}
-															style={{ height: '70%' }}
-														>
-															<Marker
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.8519, lng: 2.291172 }}
-																name={'Jeanne Garnier'}
-															/>
+														<div
+															id="mapid"
+															style={{
+																textAlign: 'right',
+																justifyContent: 'right',
+																height: '80%',
 
-															<Marker
-																title={'The marker`s title will appear as a tooltip.'}
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.846737, lng: 2.289693 }}
-																name={'Current location'}
-															/>
-															<InfoWindow
-																marker={this.state.activeMarker}
-																visible={this.state.showingInfoWindow}
-															>
-																<div>
-																	<h4 style={{ textAlign: 'center' }}>
-																		{this.state.selectedPlace.name}
-																	</h4>
-																</div>
-															</InfoWindow>
-														</Map>
+																position: 'relative',
+																marginTop: 40
+															}}
+														/>
 													</Grid>
 												</GridContainer>
 											) : (
-												<GridContainer>
+												<GridContainer justify="center">
 													<Grid
 														xs={12}
 														sm={12}
-														md={12}
+														md={10}
 														style={{
 															textAlign: 'right',
 															justifyContent: 'right',
 															height: '800px',
+
 															position: 'relative',
 															marginTop: 40
 														}}
 													>
-														<Map
-															google={this.props.google}
-															initialCenter={{
-																lat: 48.8519,
-																lng: 2.291172
-															}}
-															onClick={this.onMapClicked}
-															zoom={14}
-															style={{ height: '80%' }}
-														>
-															<Marker
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.8519, lng: 2.291172 }}
-																name={'Jeanne Garnier'}
-															/>
+														<div
+															id="mapid"
+															style={{
+																textAlign: 'right',
+																justifyContent: 'right',
+																height: '70%',
 
-															<Marker
-																title={'The marker`s title will appear as a tooltip.'}
-																onClick={this.onMarkerClick}
-																position={{ lat: 48.846737, lng: 2.289693 }}
-																name={'Current location'}
-															/>
-															<InfoWindow
-																marker={this.state.activeMarker}
-																visible={this.state.showingInfoWindow}
-															>
-																<div>
-																	<h4 style={{ textAlign: 'center' }}>
-																		{this.state.selectedPlace.name}
-																	</h4>
-																</div>
-															</InfoWindow>
-														</Map>
+																position: 'relative',
+																marginTop: 40
+															}}
+														/>
 													</Grid>
 												</GridContainer>
 											)}

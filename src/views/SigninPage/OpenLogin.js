@@ -205,7 +205,7 @@ class OpenModalLogin extends React.Component {
 }
 
 OpenModalLogin.propTypes = {
-	loginPage: PropTypes.func.isRequired,
+	registerPayment: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 }

@@ -6,7 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/blogsStyle.jsx'
-
+import HeaderComponent from 'views/Header/AppBar'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -28,8 +28,9 @@ class SectioncarousselsAdmin extends React.Component {
 			<div className="cd-section" {...rest}>
 				<div className={classes.blog}>
 					<div className={classes.container}>
+						<HeaderComponent />
 						<GridContainer>
-							<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
+							<GridItem xs={12} sm={10} md={8} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
 									caroussels

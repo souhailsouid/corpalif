@@ -7,9 +7,11 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
-// @material-ui/icons
 import FormHelperText from '@material-ui/core/FormHelperText'
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+// @material-ui/icons
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
@@ -25,7 +27,7 @@ import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearPr
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { completeProfile, getCurrentProfile } from 'actions/profileActions'
 import isEmpty from 'validation/is-empty'
 
@@ -44,6 +46,7 @@ class EditProfile extends React.Component {
 			company: '',
 			location: '',
 			fonction: '',
+			newsletter: '',
 			errors: {}
 		}
 
@@ -68,13 +71,14 @@ class EditProfile extends React.Component {
 			profile.structure = !isEmpty(profile.structure) ? profile.structure : ''
 			profile.location = !isEmpty(profile.location) ? profile.location : ''
 			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
-
+			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
 			// Set component fields state
 			this.setState({
 				structure: profile.structure,
 				company: profile.company,
 				fonction: profile.fonction,
-				location: profile.location
+				location: profile.location,
+				newsletter: profile.newsletter
 			})
 		}
 		if (nextProps.auth.user) {
@@ -94,7 +98,8 @@ class EditProfile extends React.Component {
 			company: this.state.company,
 			location: this.state.location,
 			fonction: this.state.fonction,
-			structure: this.state.structure
+			structure: this.state.structure,
+			newsletter: this.state.newsletter
 		}
 		this.props.completeProfile(profileData, this.props.history)
 	}
@@ -227,6 +232,67 @@ class EditProfile extends React.Component {
 												)
 											}}
 										/>
+										<br />
+										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+											<div
+												className={
+													classes.checkboxAndRadio + ' ' + classes.checkboxAndRadioHorizontal
+												}
+											>
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'oui'}
+															onChange={this.onChange}
+															value="oui"
+															name="newsletter"
+															aria-label="A"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="oui"
+												/>
+
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'non'}
+															onChange={this.onChange}
+															value="non"
+															name="newsletter"
+															aria-label="B"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="non"
+												/>
+											</div>
+										</div>
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 										<form
@@ -307,9 +373,11 @@ class EditProfile extends React.Component {
 											}}
 										>
 											<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
-												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-													Revenir
-												</Button>
+												<Link to="/menu/coordinationregionale/adherer/">
+													<Button type="submit" round style={{ backgroundColor: '#337467' }}>
+														Revenir
+													</Button>
+												</Link>
 											</div>
 											<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
 												<Button type="submit" round style={{ backgroundColor: '#337467' }}>

@@ -10,7 +10,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 
-import Adherent from './adherent'
+import Adherent from 'views/PresentationPage/Sections/adherent'
 // Redux
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
@@ -53,7 +53,7 @@ class SectionAdherent extends React.Component {
 								</i>{' '}
 								ACTUALITÉS
 							</h3> */}
-							<a href="/adherents/">{DataElements}</a>
+							<a href="/menu/coordinationregionale/adherer">{DataElements}</a>
 						</GridItem>
 					</GridContainer>
 				</div>
