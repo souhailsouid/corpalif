@@ -24,7 +24,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { getCurrentnotificationOffre_id, updatenotificationOffre } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
@@ -62,7 +62,7 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentOffre_id(this.props.match.params.id)
+		this.props.getCurrentnotificationOffre_id(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -199,9 +199,11 @@ class Modal extends React.Component {
 																	justifyContent: 'space-around'
 																}}
 															>
-																<Button type="submit" value="Submit" color="green">
-																	Modifier
-																</Button>
+																<Link to="/admin/offre">
+																	<Button type="submit" value="Submit" color="green">
+																		Modifier
+																	</Button>
+																</Link>
 															</Grid>
 														</form>
 													</GridItem>

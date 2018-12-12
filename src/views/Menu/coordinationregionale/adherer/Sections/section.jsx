@@ -27,46 +27,59 @@ class Section extends React.Component {
 							Toute structure, association et professionnel de santé investi dans la prise en charge et
 							l’accompagnement en soins palliatifs peut adhérer à l’association et participer aux
 							réflexions et groupes de travail.
-							<br />
-							<br />
-							L’adhésion est ouverte aux personnes physiques pour un montant annuel de 15 euros et aux
-							personnes morales pour un montant annuel de 50 euros.
 						</h4>
 					</GridItem>
 				</GridContainer>
-				<GridContainer justify="center">
+				{/* <GridContainer justify="center">
 					<GridItem xs={12} sm={4} md={4}>
 						<InfoArea title="" description="" icon={Build} iconColor="green" vertical />
 					</GridItem>
-				</GridContainer>
+				</GridContainer> */}
 				<div>
 					<h2 className={classes.title} style={{ textAlign: 'center' }}>
-						POURQUOI ADHERER
+						ADHESION
 					</h2>
-					<GridContainer>
-						<GridItem xs={12} sm={4} md={4}>
+					<GridContainer justify="center" justifyContent="stretch">
+						<GridItem xs={12} sm={4} md={6}>
 							<InfoArea
-								title="Conseil d'administration"
-								description="Composé de 31 membres représentants les structures et les départements"
+								title="A titre individuel"
+								description="Pour les professionnels et bénévoles  pour un montant de 15 euros"
 								icon={AccountBalance}
 								iconColor="green"
 								vertical
 							/>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
+						<GridItem xs={12} sm={4} md={6}>
 							<InfoArea
-								title="Bureau"
-								description="Composé de 5 membres et assurant la direction de l'association"
+								title="A titre collectif"
+								description="Pour les structures et les associations pour un montant de 50 euros"
 								icon={CardTravel}
 								iconColor="green"
 								vertical
 							/>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={4}>
+					</GridContainer>
+				</div>
+
+				<div>
+					<h2 className={classes.title} style={{ textAlign: 'center' }}>
+						POURQUOI ADHERER
+					</h2>
+					<GridContainer>
+						<GridItem xs={12} sm={4} md={6}>
 							<InfoArea
-								title="Chargée de mission"
-								description="Assure le fonctionnement de l'association et pilote les projets "
-								icon={SettingsInputComponent}
+								title="Développement des soins palliatifs"
+								description="Pour contribuer à une réflexion concertée sur les pratiques et les dispositifs "
+								icon={AccountBalance}
+								iconColor="green"
+								vertical
+							/>
+						</GridItem>
+						<GridItem xs={12} sm={4} md={6}>
+							<InfoArea
+								title="Favoriser les rencontres"
+								description="Pour continuer à susciter les rencontres entre les acteurs franciliens"
+								icon={CardTravel}
 								iconColor="green"
 								vertical
 							/>

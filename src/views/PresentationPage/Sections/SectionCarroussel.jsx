@@ -58,7 +58,7 @@ class SectionCarousel extends React.Component {
 							</h3>
 							{DataElements}
 						</GridItem>
-						<div style={{ margin: 'auto' }}>
+						<div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
 							<SectionAgenda />
 							<SectionOffres />
 						</div>

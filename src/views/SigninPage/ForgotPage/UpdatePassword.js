@@ -23,10 +23,10 @@ import javascriptStyles from 'assets/jss/material-kit-pro-react/views/components
 // Redux
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { updatePassword, getUpdatePassword } from 'actions/authActions'
+import { updatePassword } from 'actions/authActions'
 import { compose } from 'redux'
-import { withRouter } from 'react-router-dom'
-
+import { withRouter, Link } from 'react-router-dom'
+import ConfirmationSendPassword from './modalSendPassword'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -39,6 +39,8 @@ class SeConnecter extends React.Component {
 			password: '',
 			password2: '',
 			errors: {},
+			helperText: {},
+			complete: false,
 			displaySnack: false,
 			snack: { variant: 'warning', message: '' }
 		}
@@ -47,18 +49,25 @@ class SeConnecter extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this)
 	}
 	componentDidMount() {
-		this.props.getUpdatePassword(this.props.match.params.token)
+		this.props.updatePassword(this.props.match.params.token, this.props.history)
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.errors) {
 			this.setState({
-				errors: nextProps.errors
+				errors: nextProps.errors,
+				displaySnack: false
+			})
+		}
+		if (nextProps.helperText) {
+			this.setState({
+				helperText: nextProps.helperText,
+				displaySnack: false
 			})
 		}
 	}
 
-	onSubmit(e, error) {
+	onSubmit(e, reset) {
 		e.preventDefault()
 		const userData = {
 			password: this.state.password,
@@ -67,8 +76,14 @@ class SeConnecter extends React.Component {
 
 		this.props.updatePassword(this.props.match.params.token, userData, this.props.history)
 	}
+
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })
+	}
+	onClick(modal) {
+		var x = []
+		x[modal] = true
+		this.setState(x)
 	}
 	handleClickOpen(modal) {
 		var x = []
@@ -82,8 +97,10 @@ class SeConnecter extends React.Component {
 	}
 
 	render() {
-		const { errors } = this.state
+		const { errors, Validator, data, helperText } = this.state
+		const { user } = this.props.auth
 		const { classes } = this.props
+
 		return (
 			<div>
 				<div>
@@ -121,6 +138,7 @@ class SeConnecter extends React.Component {
 											className={classes.margin}
 											name="password"
 											value={this.state.password}
+											helperText={helperText.passwordReset}
 											onChange={this.onChange}
 											error={errors.password}
 											InputProps={{
@@ -158,8 +176,14 @@ class SeConnecter extends React.Component {
 										style={{ paddingBottom: 30 }}
 									>
 										<Button
+											id="button"
 											type="submit"
-											style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+											style={{
+												backgroundColor: '#337467',
+												height: 20,
+												width: 10,
+												marginTop: 20
+											}}
 											simple
 											size="lg"
 										>
@@ -192,7 +216,7 @@ class SeConnecter extends React.Component {
 
 SeConnecter.propTypes = {
 	updatePassword: PropTypes.func.isRequired,
-	getUpdatePassword: PropTypes.func.isRequired,
+	// getUpdatePassword: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 }
@@ -202,5 +226,5 @@ const mapStateToProps = (state) => ({
 	errors: state.errors
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateToProps, { updatePassword, getUpdatePassword })(withRouter(SeConnecter))
+	withRouter(connect(mapStateToProps, { updatePassword })(SeConnecter))
 )

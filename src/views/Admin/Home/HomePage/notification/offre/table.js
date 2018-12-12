@@ -25,7 +25,7 @@ const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
 	)
 })
 
-const Offre = ({ offre, classes }) => (
+const Offre = ({ notificationoffre, classes }) => (
 	<div className={classes.section} id="carousel">
 		<div className={classes.container}>
 			<GridContainer>
@@ -33,20 +33,20 @@ const Offre = ({ offre, classes }) => (
 					<SnackbarContent
 						message={
 							<span>
-								<b>{offre.when}</b>
+								<b>{notificationoffre.when}</b>
 								<br />
-								<b style={{ textAlign: 'left' }}>{offre.titre}</b> <br />
-								{offre.lieu} <br />
-								{offre.company}
+								<b style={{ textAlign: 'left' }}>{notificationoffre.titre}</b> <br />
+								{notificationoffre.lieu} <br />
+								{notificationoffre.company}
 								<br />
-								{offre.poste}
+								{notificationoffre.poste}
 							</span>
 						}
 						close
 						color="green"
 					/>
 					<Grid item xs={4} style={{ textAlign: 'right' }}>
-						<Link to={`/admin/menu/offre/update/${offre._id}`}>{update}</Link>
+						<Link to={`/admin/menu/offre/update/${notificationoffre._id}`}>{update}</Link>
 					</Grid>
 				</GridItem>
 			</GridContainer>

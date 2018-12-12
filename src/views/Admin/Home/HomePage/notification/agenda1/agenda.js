@@ -6,7 +6,7 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 
 import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/blogsStyle.jsx'
-
+import HeaderComponent from 'views/Header/AppBar.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -26,6 +26,7 @@ class SectionAgenda1Admin extends React.Component {
 
 		return (
 			<div className="cd-section" {...rest}>
+				<HeaderComponent />
 				<div className={classes.blog}>
 					<div className={classes.container}>
 						<GridContainer>

@@ -9,12 +9,13 @@ import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
 
-// @material-ui/icons
-// @material-ui/icons
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormHelperText from '@material-ui/core/FormHelperText'
 
+// @material-ui/icons
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 import Timeline from '@material-ui/icons/Timeline'
-import Code from '@material-ui/icons/Code'
-import Group from '@material-ui/icons/Group'
 import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Face from '@material-ui/icons/Face'
@@ -52,6 +53,7 @@ class SignUp extends React.Component {
 			password2: '',
 			structure: '',
 			fonction: '',
+			status: '',
 			last_name: '',
 			location: '',
 			errors: {},
@@ -81,11 +83,8 @@ class SignUp extends React.Component {
 			email: this.state.email,
 			password: this.state.password,
 			password2: this.state.password2,
-			structure: this.state.structure,
-			fonction: this.state.fonction,
-			location: this.state.location,
 			last_name: this.state.last_name,
-			company: this.state.company
+			status: this.state.status
 		}
 		// const snack = {
 		// 	variant: 'success',
@@ -235,6 +234,85 @@ class SignUp extends React.Component {
 											className={classes.form}
 											style={{ marginTop: 40 }}
 										>
+											{/* <RadioExample/> */}
+											<div style={{ textAlign: 'center' }}>
+												{' '}
+												<FormHelperText>Chosir votre status</FormHelperText>
+											</div>
+											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+												<div
+													className={
+														classes.checkboxAndRadio +
+														' ' +
+														classes.checkboxAndRadioHorizontal
+													}
+												>
+													<FormControlLabel
+														control={
+															<Radio
+																isRequired
+																error={errors.registerStatus}
+																checked={this.state.status === 'individuel'}
+																onChange={this.onChange}
+																value="individuel"
+																name="status"
+																aria-label="A"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="Individuel"
+													/>
+
+													<FormControlLabel
+														control={
+															<Radio
+																isRequired
+																error={errors.registerStatus}
+																checked={this.state.status === 'collectif'}
+																onChange={this.onChange}
+																value="collectif"
+																name="status"
+																aria-label="B"
+																icon={
+																	<FiberManualRecord
+																		className={classes.radioUnchecked}
+																	/>
+																}
+																checkedIcon={
+																	<FiberManualRecord
+																		className={classes.radioChecked}
+																	/>
+																}
+																classes={{
+																	checked: classes.radio,
+																	root: classes.radioRoot
+																}}
+															/>
+														}
+														classes={{
+															label: classes.label
+														}}
+														label="collectif"
+													/>
+												</div>
+											</div>
+											<br />
 											<TextFieldGroup
 												placeholder="Nom ..."
 												className={classes.margin}

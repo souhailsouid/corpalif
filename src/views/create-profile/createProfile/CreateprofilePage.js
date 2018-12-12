@@ -4,38 +4,24 @@ import classNames from 'classnames'
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-
 // core components
-import ProfileActions from './ProfileActions'
 import Spinner from 'views/common/Spinner'
-import ProfileData from 'views/Dashboard/profileData'
-import HeaderComponent from 'views/Header/AppBar.jsx'
-import GridItem from 'components/Grid/GridItem.jsx'
-import GridContainer from 'components/Grid/GridContainer.jsx'
+import CompleteProcess from './CompleteProcess'
+import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import SectionFooter from 'views/Footer/SectionFooter.jsx'
-import CompleteProfile from 'views/create-profile/complete'
-import Button from 'components/CustomButtons/Button.jsx'
 // Redux
-import { withRouter, Link } from 'react-router-dom'
-import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
+import { withRouter } from 'react-router-dom'
+import { getCurrentProfile, deleteAccount } from 'actions/profileActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
-class Dashboard extends Component {
+class CreateprofilePage extends Component {
 	componentDidMount() {
 		this.props.getCurrentProfile()
 	}
-
-	onDeleteClick(e) {
-		this.props.deleteAccount()
-	}
-
 	render() {
+		const { classes } = this.props
 		const { user } = this.props.auth
 		const { profile, loading } = this.props.profile
-		const { classes } = this.props
-
 		let dashboardContent
 
 		if (profile === null || loading) {
@@ -48,37 +34,23 @@ class Dashboard extends Component {
 				// User is logged in but has no profile
 				dashboardContent = (
 					<div>
-						<CompleteProfile />
+						<CompleteProcess />
 					</div>
 				)
 			}
 		}
-
 		return (
-			<div className="dashboard">
-				<HeaderComponent />
+			<div>
+				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)} style={{ height: 'auto' }}>
-					<GridContainer style={{ justifyContent: 'center' }}>
-						<GridItem xs={12} sm={12} md={8}>
-							<div style={{ textAlign: 'center', marginTop: 200, marginBottom: 50 }}>
-								<h2>Mon profile</h2>
-							</div>
-							<div className="container">
-								<div className="row">
-									<div className="col-md-12">{dashboardContent}</div>
-								</div>
-							</div>
-						</GridItem>
-					</GridContainer>
+					<div> {dashboardContent}</div>
 				</div>
-				<SectionFooter />
 			</div>
 		)
 	}
 }
-
-Dashboard.propTypes = {
+CreateprofilePage.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	deleteAccount: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
@@ -92,5 +64,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateToProps, { getCurrentProfile, deleteAccount })(withRouter(Dashboard))
+	connect(mapStateToProps, { getCurrentProfile, deleteAccount })(withRouter(CreateprofilePage))
 )

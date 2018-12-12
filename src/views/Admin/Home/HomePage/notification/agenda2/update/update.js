@@ -24,7 +24,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { getCurrentAgenda2_id, updateAgenda2 } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
@@ -40,7 +40,8 @@ class Modal extends React.Component {
 			lieu: '',
 			rue: '',
 			city: '',
-			when: ''
+			when: '',
+			line: ''
 		}
 
 		this.onChange = this.onChange.bind(this)
@@ -75,11 +76,13 @@ class Modal extends React.Component {
 			agenda2.lieu = !isEmpty(agenda2.lieu) ? agenda2.lieu : ''
 			agenda2.rue = !isEmpty(agenda2.rue) ? agenda2.rue : ''
 			agenda2.city = !isEmpty(agenda2.city) ? agenda2.city : ''
+			agenda2.line = !isEmpty(agenda2.line) ? agenda2.line : ''
 
 			// Set component fields state
 			this.setState({
 				theme: agenda2.theme,
 				lieu: agenda2.lieu,
+				line: agenda2.line,
 				when: agenda2.when,
 				rue: agenda2.rue,
 				city: agenda2.city
@@ -94,6 +97,7 @@ class Modal extends React.Component {
 			theme: this.state.theme,
 			when: this.state.when,
 			rue: this.state.rue,
+			line: this.state.line,
 			lieu: this.state.lieu,
 			city: this.state.city
 		}
@@ -153,14 +157,12 @@ class Modal extends React.Component {
 													<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
 														<form onSubmit={this.onSubmit}>
 															<TextFieldGroup
-																label="date"
 																className={classes.margin}
 																name="when"
 																value={this.state.when}
 																onChange={this.onChange}
 															/>
 															<TextFieldGroup
-																label="theme"
 																className={classes.margin}
 																name="theme"
 																value={this.state.theme}
@@ -168,7 +170,13 @@ class Modal extends React.Component {
 															/>
 															<br /> <br />
 															<TextFieldGroup
-																label="Nom du lieu"
+																className={classes.margin}
+																name="line"
+																value={this.state.line}
+																onChange={this.onChange}
+															/>
+															<br /> <br />
+															<TextFieldGroup
 																className={classes.margin}
 																name="lieu"
 																value={this.state.lieu}
@@ -176,14 +184,12 @@ class Modal extends React.Component {
 															/>
 															<br /> <br />
 															<TextFieldGroup
-																label="Nom de la rue"
 																className={classes.margin}
 																name="rue"
 																value={this.state.rue}
 																onChange={this.onChange}
 															/>
 															<TextFieldGroup
-																label="Code postal et Ville"
 																className={classes.margin}
 																name="city"
 																value={this.state.city}
@@ -199,9 +205,11 @@ class Modal extends React.Component {
 																	justifyContent: 'space-around'
 																}}
 															>
-																<Button type="submit" value="Submit" color="green">
-																	Modifier
-																</Button>
+																<Link to="/admin/agenda2">
+																	<Button type="submit" value="Submit" color="green">
+																		Modifier
+																	</Button>
+																</Link>
 															</Grid>
 														</form>
 													</GridItem>

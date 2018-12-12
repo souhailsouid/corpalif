@@ -10,8 +10,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
 import Radio from '@material-ui/core/Radio'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-
-import RadioExample from './selectStatus'
+import FormHelperText from '@material-ui/core/FormHelperText'
 // @material-ui/icons
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // @material-ui/icons
@@ -239,6 +238,10 @@ class SignUpOpen extends React.Component {
 											style={{ marginTop: 40 }}
 										>
 											{/* <RadioExample/> */}
+											<div style={{ textAlign: 'center' }}>
+												{' '}
+												<FormHelperText>Chosir votre status</FormHelperText>
+											</div>
 											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
 												<div
 													className={
@@ -250,6 +253,8 @@ class SignUpOpen extends React.Component {
 													<FormControlLabel
 														control={
 															<Radio
+																isRequired
+																error={errors.registerStatus}
 																checked={this.state.status === 'individuel'}
 																onChange={this.onChange}
 																value="individuel"
@@ -280,6 +285,8 @@ class SignUpOpen extends React.Component {
 													<FormControlLabel
 														control={
 															<Radio
+																isRequired
+																error={errors.registerStatus}
 																checked={this.state.status === 'collectif'}
 																onChange={this.onChange}
 																value="collectif"

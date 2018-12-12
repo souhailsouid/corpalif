@@ -12,6 +12,7 @@ import store from './store'
 import { clearCurrentProfile } from 'actions/profileActions'
 import Dashboard from 'views/Dashboard/dashboard'
 import ProfilePagePresentation from 'views/Dashboard/ProfilePage'
+import PasswordChanged from 'views/SigninPage/ForgotPage/ModalSendConfirmation'
 // Components
 import PresentationPage from 'views/PresentationPage/PresentationPage.jsx'
 import LoginPage from 'views/SigninPage/LoginPage.js'
@@ -24,7 +25,11 @@ import PresentationBlog from 'views/VeilleMedicale/blog.jsx'
 
 import CreateProfile from 'views/create-profile/CreateProfile'
 import UpdatePage from 'views/create-profile/UpdatePage'
+//Login
+
+import CreateprofilePage from 'views/create-profile/createProfile/CreateprofilePage.js'
 //Payment Process
+import DetectStatus from 'views/Menu/coordinationregionale/adherer/Sections/Components/routeTransversale'
 import CompleteprofilePage from 'views/create-profile/PaymentProcess/CompleteProfile/CompleteprofilePage.js'
 import UpdateProfilePage from 'views/create-profile/PaymentProcess/UpdateProfile/UpdatePage.js'
 // Reset Password
@@ -435,9 +440,9 @@ import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/
 import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/actualites.jsx'
 
 // Adherent
-import PresentationAdherent from 'views/Adherent/adherent'
-import PresentationGetAdherent from 'views/Adherent/get'
-import PaymentPage from 'views/Adherent/PaymentPage'
+
+import PaymentPage from 'views/Adherent/individuel/PaymentPage'
+import PaymentPage50euros from 'views/Adherent/collectif/PaymentPage50euros'
 //Admin
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
@@ -472,6 +477,8 @@ import Formation from 'views/Admin/Menu/offres&emplois/formations/getData/format
 import DeleteOneFormations from 'views/Admin/Menu/offres&emplois/formations/delete/PresentationDelete'
 import UpdateFormations from 'views/Admin/Menu/offres&emplois/formations/update/Header'
 import PostFormation from 'views/Admin/Menu/offres&emplois/formations/post/Header'
+// USERS // ALL PROFILES // NEWSLETTER // ALL ADHERENTS // STATUS
+import SectionProfilesAll from 'views/Admin/users/all/allprofiles'
 
 // HomePage
 // Caroussel1
@@ -501,8 +508,6 @@ import UpdateOffre from 'views/Admin/Home/HomePage/notification/offre/update/Hea
 import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offre'
 
 import Maps from './map'
-import Step1 from 'views/Adherent/process/step1.js'
-import Step2 from 'views/Adherent/process/step2.js'
 import PresentationContact from 'views/Contact/PresentationContact.js'
 import OpenModalLogin from 'views/SigninPage/OpenLogin.js'
 // Check for token
@@ -535,10 +540,15 @@ class App extends Component {
 						<Route exact path="/login" component={LoginPage} />
 						<Route exact path="/register" component={RegisterPage} />
 						<Route exact path="/adherent/login" component={PaymentLoginPage} />
-						{/* Adherents process Paymeny */}
-						<Route exact path="/adherent/completeprofile" component={CompleteprofilePage} />
+						<Route exact path="/passwordchanged" component={PasswordChanged} />
+						{/* Adherents process Payment */}
+						<Route exact path="/completeprofile" component={CompleteprofilePage} />
+						<Route exact path="/adherent/?" component={DetectStatus} />
+
+						<Route exact path="/createprofile" component={CreateprofilePage} />
 						<Route exact path="/adherent/check-profile" component={UpdateProfilePage} />
-						<Route exact path="/adherents/adherer/final" component={PaymentPage} />
+						<Route exact path="/adherents/adherer/individuel" component={PaymentPage} />
+						<Route exact path="/adherents/adherer/collectif" component={PaymentPage50euros} />
 
 						<Route exact path="/map" component={Maps} />
 						<div className="container">
@@ -1662,11 +1672,7 @@ class App extends Component {
 									path="/menu/veillemedicale/actualites/"
 									component={PresentationActualite}
 								/>
-								{/* {Adherent}	 */}
-								<Route exact path="/adherents" component={PresentationAdherent} />
-								<Route exact path="/success" component={PresentationGetAdherent} />
-								{/* <Route exact path="/adherents/step" component={Step1} /> */}
-								{/* <Route exact path="/adherents/step2" component={Step2} /> */}
+
 								{/* {Contact page}	 */}
 								<Route exact path="/menu/contact" component={PresentationContact} />
 								{/* {Modal Open for Login}	 */}
@@ -1809,6 +1815,13 @@ class App extends Component {
 								{/* Offre d'emploi	*/}
 								<AdminRoute exact path="/admin/offre" component={SectionOffreAdmin} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								{/* {USERS} // ALL PROFILES // NEWSLETTERS // ALL ADHRENTS ... */}
+
+								<AdminRoute exact path="/admin/users/all" component={SectionProfilesAll} />
+								{/* <AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} /> */}
 							</Switch>
 						</div>
 					</div>

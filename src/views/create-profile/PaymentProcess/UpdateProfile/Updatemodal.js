@@ -240,6 +240,10 @@ class UpdateProfilePage extends React.Component {
 										/>
 										<br />
 										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+										<div style={{ textAlign: 'center' }}>
+											{' '}
+											<FormHelperText>S'abonner à la Newsletter</FormHelperText>
+										</div>
 										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
 											<div
 												className={

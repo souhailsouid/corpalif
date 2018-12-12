@@ -32,7 +32,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { registerUser } from 'actions/authActions'
 import { withRouter } from 'react-router-dom'
-import { completeProfile, getCurrentProfile } from 'actions/profileActions'
+import { completeProfileCollectif, getCurrentProfile } from 'actions/profileActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -100,7 +100,7 @@ class AdhererParticulier extends React.Component {
 			fonction: this.state.fonction,
 			structure: this.state.structure
 		}
-		this.props.completeProfile(profileData, this.props.history)
+		this.props.completeProfileCollectif(profileData, this.props.history)
 	}
 
 	onChange(e) {
@@ -483,7 +483,7 @@ class AdhererParticulier extends React.Component {
 }
 
 AdhererParticulier.propTypes = {
-	completeProfile: PropTypes.func.isRequired,
+	completeProfileCollectif: PropTypes.func.isRequired,
 	getCurrentProfile: PropTypes.func.isRequired,
 	registerUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
@@ -497,5 +497,7 @@ const mapStateToProps = (state) => ({
 	profile: state.profile
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateToProps, { registerUser, completeProfile, getCurrentProfile })(withRouter(AdhererParticulier))
+	connect(mapStateToProps, { registerUser, completeProfileCollectif, getCurrentProfile })(
+		withRouter(AdhererParticulier)
+	)
 )

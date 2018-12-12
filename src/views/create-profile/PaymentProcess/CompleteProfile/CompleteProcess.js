@@ -48,7 +48,6 @@ class CompleteProcess extends React.Component {
 			location: '',
 			newsletter: '',
 			fonction: '',
-			member: '',
 			errors: {}
 		}
 
@@ -84,8 +83,8 @@ class CompleteProcess extends React.Component {
 			company: this.state.company,
 			fonction: this.state.fonction,
 			location: this.state.location,
-			newsletter: this.state.newsletter,
-			member: this.state.member
+			newsletter: this.state.newsletter
+			// member: this.state.member
 		}
 
 		this.props.completeProfile(profileData, this.props.history)
@@ -220,7 +219,11 @@ class CompleteProcess extends React.Component {
 											}}
 										/>
 										<br />
-										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+										{/* <h5 style={{ textAlign: 'left' }}>Newsletter</h5> */}
+										<div style={{ textAlign: 'center' }}>
+											{' '}
+											<FormHelperText>S'abonner à la newsletter</FormHelperText>
+										</div>
 										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
 											<div
 												className={

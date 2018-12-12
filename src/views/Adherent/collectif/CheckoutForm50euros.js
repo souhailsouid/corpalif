@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { injectStripe } from 'react-stripe-elements'
 import StripeCheckout from 'react-stripe-checkout'
 import Button from 'components/CustomButtons/Button.jsx'
-import ConfirmationPaiement from './confirmationPayment'
+import ConfirmationPaiement from 'views/Adherent/confirmationPayment'
 class CheckoutForm extends Component {
 	constructor(props) {
 		super(props)
@@ -11,7 +11,7 @@ class CheckoutForm extends Component {
 	}
 
 	async onToken(token) {
-		let response = await fetch('/api/charge', {
+		let response = await fetch('/api/charge50', {
 			method: 'POST',
 			body: token.id
 		})
@@ -30,7 +30,7 @@ class CheckoutForm extends Component {
 					description="Frais annuel d'adhésion" // the pop-in header subtitle
 					ComponentClass="div"
 					panelLabel="Adherer" // prepended to the amount in the bottom pay button
-					amount={1500} // cents
+					amount={5000} // cents
 					currency="EUR"
 					locale="fr"
 					// email="info@vidhub.co"

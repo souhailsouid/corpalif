@@ -14,6 +14,7 @@ import { getCurrentAgenda2 } from 'actions/HomePage/notificationActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import Agenda from './table'
+import HeaderComponent from 'views/Header/AppBar.jsx'
 class SectionAgenda2Admin extends React.Component {
 	componentDidMount() {
 		this.props.getCurrentAgenda2()
@@ -26,6 +27,7 @@ class SectionAgenda2Admin extends React.Component {
 
 		return (
 			<div className="cd-section" {...rest}>
+				<HeaderComponent />
 				<div className={classes.blog}>
 					<div className={classes.container}>
 						<GridContainer>

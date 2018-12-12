@@ -49,7 +49,16 @@ export const getProfileByHandle = (handle) => (dispatch) => {
 
 // Create Profile
 export const createProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => window.location.assign('/dashboard')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => window.location.assign('/monprofile')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+// Update Profile.member to 'yes'
+export const updateProfileMember = (profileData, history) => (dispatch) => {
+	axios.post('/api/profile/updatemember', profileData).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
@@ -57,12 +66,30 @@ export const createProfile = (profileData, history) => (dispatch) => {
 	)
 }
 export const createAdherent = (profileData, history, id) => (dispatch) => {
-	axios.post('/api/profile/adherent	', profileData).then((res) => window.location.assign('/dashboard'))
+	axios.post('/api/profile/adherent	', profileData).then((res) => window.location.assign('/createprofile'))
 }
 
 // Complete Profile in order to Payment Process
 export const completeProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/adherer/final')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/adherer/individuel')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+// Complete Profile in order to Payment Process
+export const registerProfile = (profileData, history) => (dispatch) => {
+	axios.post('/api/profile', profileData).then((res) => history.push('/monprofile')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
+		})
+	)
+}
+// Complete Profile in order to Payment Process
+export const completeProfileCollectif = (profileData, history) => (dispatch) => {
+	axios.post('/api/profile', profileData).then((res) => history.push('/adherents/adherer/collectif')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
@@ -71,7 +98,7 @@ export const completeProfile = (profileData, history) => (dispatch) => {
 }
 // Add experience
 export const addExperience = (expData, history) => (dispatch) => {
-	axios.post('/api/profile/experience', expData).then((res) => history.push('/dashboard')).catch((err) =>
+	axios.post('/api/profile/experience', expData).then((res) => history.push('/createprofile')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
@@ -81,7 +108,7 @@ export const addExperience = (expData, history) => (dispatch) => {
 
 // Add education
 export const addEducation = (eduData, history) => (dispatch) => {
-	axios.post('/api/profile/education', eduData).then((res) => history.push('/dashboard')).catch((err) =>
+	axios.post('/api/profile/education', eduData).then((res) => history.push('/createprofile')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data

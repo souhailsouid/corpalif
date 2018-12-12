@@ -557,7 +557,7 @@ class AdhererParticulier extends React.Component {
 										style={{ marginTop: 40, justifyContent: 'center' }}
 									>
 										<Link to="/register">
-											<Button type="submit" disabled round style={{ backgroundColor: '#cc4949' }}>
+											<Button type="submit" round style={{ backgroundColor: '#cc4949' }}>
 												Poursuivre <i class="material-icons">exit_to_app</i>
 											</Button>
 										</Link>

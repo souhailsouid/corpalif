@@ -28,19 +28,19 @@ import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 // Stripe
 import { Elements, StripeProvider } from 'react-stripe-elements'
-import CheckoutForm from './CheckoutForm'
+import CheckoutForm50euros from './CheckoutForm50euros'
 // Redux
 import isEmpty from 'validation/is-empty'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { registerUser } from 'actions/authActions'
 import { withRouter } from 'react-router-dom'
-import { completeProfile, getCurrentProfile } from 'actions/profileActions'
+import { completeProfileCollectif, getCurrentProfile } from 'actions/profileActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
 
-class PaymentParticulier extends React.Component {
+class PaymentCollectif extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -105,7 +105,7 @@ class PaymentParticulier extends React.Component {
 			fonction: this.state.fonction,
 			structure: this.state.structure
 		}
-		this.props.completeProfile(profileData, this.props.history)
+		this.props.completeProfileCollectif(profileData, this.props.history)
 	}
 
 	onChange(e) {
@@ -346,7 +346,7 @@ class PaymentParticulier extends React.Component {
 														className={`${classes.cardTitle} ${classes.modalTitle}`}
 														style={{ color: '#cc4949', textAlign: 'center' }}
 													>
-														Adhérer pour 15 euros seulement
+														Adhérer pour 50 euros
 													</h5>
 												</b>
 											</form>
@@ -394,7 +394,7 @@ class PaymentParticulier extends React.Component {
 															</Button>
 														</Link> */}
 														<Elements>
-															<CheckoutForm />
+															<CheckoutForm50euros />
 														</Elements>
 													</div>
 												</div>
@@ -525,8 +525,8 @@ class PaymentParticulier extends React.Component {
 	}
 }
 
-PaymentParticulier.propTypes = {
-	completeProfile: PropTypes.func.isRequired,
+PaymentCollectif.propTypes = {
+	completeProfileCollectif: PropTypes.func.isRequired,
 	getCurrentProfile: PropTypes.func.isRequired,
 	registerUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
@@ -540,5 +540,7 @@ const mapStateToProps = (state) => ({
 	profile: state.profile
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateToProps, { registerUser, completeProfile, getCurrentProfile })(withRouter(PaymentParticulier))
+	connect(mapStateToProps, { registerUser, completeProfileCollectif, getCurrentProfile })(
+		withRouter(PaymentCollectif)
+	)
 )

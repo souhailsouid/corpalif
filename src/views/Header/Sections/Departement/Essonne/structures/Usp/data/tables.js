@@ -16,24 +16,23 @@ const Tables = ({ usp }) => (
 				matches ? (
 					<GridContainer>
 						<GridItem xs={12} sm={12} md={12}>
-							<Grid item md={4} style={{ textAlign: 'center', marginBottom: 30 }}>
+							<Grid item md={3} style={{ textAlign: 'center' }}>
 								<div style={{ textAlign: 'center' }}>
 									<b>
 										<h3 style={{ color: '#337467', marginLeft: 10 }}>{usp.name}</h3>
 									</b>
 								</div>
 							</Grid>
-							<Grid item md={4} style={{ marginLeft: 20, marginBottom: 30 }}>
+							<Grid item md={'auto'} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex', spaceBetween: 'space-between' }}>
 									<i class="material-icons">room</i>{' '}
 									<h5 style={{ marginLeft: 10 }}>
 										{usp.rue}
-										<br />
 										{usp.compl} {usp.postcode}
 									</h5>
 								</div>
 							</Grid>
-							{/* <Grid item md={12} style={{ marginLeft: 20 }}>
+							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
 									<a href={`http://${usp.web}`} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
@@ -48,14 +47,14 @@ const Tables = ({ usp }) => (
 										</h5>
 									</a>
 								</div>
-							</Grid> */}
-							{/* <Grid item md={2} style={{ marginLeft: 20 }}>
+							</Grid>
+							<Grid item md={2} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">email</i>{' '}
 									<h5 style={{ marginLeft: 10 }}> {usp.email} </h5>
 								</div>
-							</Grid> */}
-							<Grid item md={4} style={{ marginLeft: 20, marginBottom: 30 }}>
+							</Grid>
+							<Grid item md={2} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">call</i> <h5 style={{ marginLeft: 10 }}> {usp.phone} </h5>
 								</div>
@@ -72,10 +71,11 @@ const Tables = ({ usp }) => (
 								display: 'flex',
 								justifyContent: 'stretch',
 								minWidth: 'auto',
-								flewWrap: 'wrap'
+								flewWrap: 'wrap',
+								borderBottom: '2px solid #D3D3D3'
 							}}
 						>
-							<Grid item md={5} style={{ textAlign: 'center', marginBottom: 30 }}>
+							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
 									<a href={`http://${usp.web}`} target="_blank">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
@@ -84,7 +84,7 @@ const Tables = ({ usp }) => (
 									</a>
 								</b>
 							</Grid>
-							<Grid item md={4} style={{ marginLeft: 20, textAlign: 'center', marginBottom: 30 }}>
+							<Grid item md={4} style={{ marginLeft: 20, textAlign: 'center' }}>
 								<div>
 									<h5>{usp.rue}</h5>
 
@@ -93,7 +93,7 @@ const Tables = ({ usp }) => (
 								</div>
 							</Grid>
 
-							{/* <Grid
+							<Grid
 								item
 								xs={5}
 								style={{
@@ -114,19 +114,21 @@ const Tables = ({ usp }) => (
 										</h5>
 									</a>
 								</div>
-							</Grid> */}
+							</Grid>
 
-							<Grid item md={3} style={{ marginLeft: 20, marginBottom: 30 }}>
+							<Grid item md={3} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex', flewWrap: 'wrap' }}>
 									<h5 style={{ marginLeft: 10, padding: 0, textAlign: 'center' }}> {usp.phone} </h5>
 								</div>
 							</Grid>
-							{/* <Grid item md={4} style={{ marginLeft: 0 }}>
+							<Grid item md={4} style={{ marginLeft: 0 }}>
 								<div style={{ display: 'flex' }}>
 									<h5 style={{ marginLeft: 0 }}> {usp.email} </h5>
 								</div>
-							</Grid> */}
+							</Grid>
 						</GridItem>
+						<br />
+						<br />
 					</GridContainer>
 				)}
 		</Media>

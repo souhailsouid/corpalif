@@ -25,6 +25,7 @@ import { compose } from 'redux'
 import { withRouter, Link } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from 'actions/profileActions'
 import isEmpty from 'validation/is-empty'
+import { is } from 'immutable'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -40,7 +41,7 @@ class ProfileData extends React.Component {
 			structure: '',
 			company: '',
 			newsletter: '',
-			adherent: '',
+
 			member: '',
 			location: '',
 			fonction: '',
@@ -69,7 +70,7 @@ class ProfileData extends React.Component {
 			profile.location = !isEmpty(profile.location) ? profile.location : ''
 			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
 			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
-			profile.adherent.member = !isEmpty(profile.adherent.member) ? profile.adherent.member : ''
+			// profile.adherent.member = !isEmpty(profile.adherent.member) ? profile.adherent.member : ''
 			// Set component fields state
 			this.setState({
 				structure: profile.structure,
@@ -127,77 +128,36 @@ class ProfileData extends React.Component {
 
 		let dashboardContent
 
-		// if (profile === null || loading) {
-		// 	dashboardContent = <Spinner />
-		// } else {
-		// 	// Check if logged in user has profile data
-		// 	if (Object.keys(profile) > 0) {
-		// 		dashboardContent = (
-		// 			<div>
-		// 				<p>{user.status}</p>
-		// 				<p> {user.isAdmin}</p>
-		// 				{/* {Object.values(profile.adherent[0].member)}
-		// 				<br />
-		// 				{Object.values(profile.adherent[0].date)} */}
-		// 			</div>
-		// 		)
-
-		// 		// <div style={{ marginBottom: '60px' }} />
-		// 		// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-		// 		// 	Delete My Account
-		// 		// </button>
-
-		// 		// </div>
-		// 	} else {
-		// 		// User is logged in but has no profile
-		// 		dashboardContent = (
-		// 			<div>
-		// 				{/* <SectionAdherent /> */}
-		// 				Adherent depuis le : {Object.values(profile.adherent[0].date)}
-		// 				<br />
-		// 				{/* {Object.values(profile.adherent[0].date)} */}
-		// 				{/* {Object.keys(profile.adherent).length} */}
-		// 			</div>
-		// 		)
-		// 	}
-		// }
-
 		if (profile === null || loading) {
 			dashboardContent = <Spinner />
 		} else {
-			// Check if logged in user has profile data
-			if (Object.keys(profile.adherent).length > 0) {
-				dashboardContent = (
-					// {Object.keys(profile).length - 3}
-					<div>
-						{user.name}
-						{Object.values(profile.adherent[0].date)}
-						{Object.values(profile.adherent[0].member)}
-						{Object.keys(profile.adherent).length}
-					</div>
-				)
-				{
-					/* {Object.values(profile.adherent[0].member)}
-						<br />
-						{Object.values(profile.adherent[0].date)} */
-				}
-				// <div style={{ marginBottom: '60px' }} />
-				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-				// 	Delete My Account
-				// </button>
-
-				// </div>
-			} else {
-				// User is logged in but has no profile
+			if (profile.member === undefined) {
 				dashboardContent = (
 					<div>
 						<SectionAdherent />
 					</div>
 				)
+			} else {
+				// User is logged in but has no contract
+				dashboardContent = (
+					<div>
+						<h2 style={{ textAlign: 'center' }}>
+							Adhérent pour l'année <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b> depuis
+							le: <br />
+							<h3 style={{ textAlign: 'center' }}>
+								{' '}
+								<b>
+									{Object.values(profile.adherent[0].date).slice(8, 10)}-{Object.values(profile.adherent[0].date).slice(5, 7)}-{Object.values(profile.adherent[0].date).slice(0, 4)}
+								</b>{' '}
+								et jusqu'au 31 décembre <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>
+							</h3>
+							{profile.location}
+						</h2>
+					</div>
+				)
 			}
 		}
 
-		// const valueMember = <div>{Object.values(profile.adherent[0].member)}</div>
 		return (
 			<div>
 				<div>
@@ -213,7 +173,7 @@ class ProfileData extends React.Component {
 										<Link to="/">
 											<i style={{ fontSize: 50, color: '#000000' }} class="material-icons">
 												keyboard_return
-											</i>
+											</i>{' '}
 										</Link>
 									</GridItem>
 									<h2
@@ -373,14 +333,7 @@ class ProfileData extends React.Component {
 											disabled
 										/>
 										<br />
-										<TextFieldGroup
-											label="Adherent"
-											name="member"
-											value="non"
-											onChange={this.onChange}
-											disabled
-										/>
-										<br />
+
 										<TextFieldGroup
 											label="Newsletter"
 											name="newsletter"

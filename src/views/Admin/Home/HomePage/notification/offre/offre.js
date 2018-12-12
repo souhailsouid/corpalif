@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-
+import HeaderComponent from 'views/Header/AppBar.jsx'
 import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/blogsStyle.jsx'
 
 // Redux
@@ -16,7 +16,7 @@ import { compose } from 'redux'
 import Offre from './table'
 class SectionOffreAdmin extends React.Component {
 	componentDidMount() {
-		this.props.getCurrentOffre()
+		this.props.getCurrentnotificationOffre()
 	}
 
 	render() {
@@ -28,6 +28,7 @@ class SectionOffreAdmin extends React.Component {
 
 		return (
 			<div className="cd-section" {...rest}>
+				<HeaderComponent />
 				<div className={classes.blog}>
 					<div className={classes.container}>
 						<GridContainer>

@@ -7,14 +7,17 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 // @material-ui/icons
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
-import Check from '@material-ui/icons/Check'
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // core components
+
+import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -22,8 +25,6 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 // Redux
 import { connect } from 'react-redux'
@@ -45,34 +46,13 @@ class CompleteProfile extends React.Component {
 			structure: '',
 			company: '',
 			location: '',
-			fonction: '',
-			member: 'non',
-			errors: {},
 			newsletter: '',
-			checked: [ 24, 3 ],
-			selectedEnabled: ''
+			fonction: '',
+			errors: {}
 		}
-		this.handleChangeEnabled = this.handleChangeEnabled.bind(this)
+
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
-	}
-	handleChangeEnabled(event) {
-		this.setState({ [event.target.selectedEnabled]: event.target.value })
-	}
-	handleToggle(value) {
-		const { checked } = this.state
-		const currentIndex = checked.indexOf(value)
-		const newChecked = [ ...checked ]
-
-		if (currentIndex === -1) {
-			newChecked.push(value)
-		} else {
-			newChecked.splice(currentIndex, 1)
-		}
-
-		this.setState({
-			checked: newChecked
-		})
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -103,8 +83,8 @@ class CompleteProfile extends React.Component {
 			company: this.state.company,
 			fonction: this.state.fonction,
 			location: this.state.location,
-			member: this.state.member,
 			newsletter: this.state.newsletter
+			// member: this.state.member
 		}
 
 		this.props.createProfile(profileData, this.props.history)
@@ -157,6 +137,19 @@ class CompleteProfile extends React.Component {
 										Completer votre Profile
 									</h2>
 								</div>
+								<GridItem
+									xs={12}
+									sm={7}
+									md={7}
+									className={classes.mlAuto}
+									style={{
+										marginRight: 'auto',
+										marginLeft: 'auto',
+										marginTop: 10
+									}}
+								>
+									<CustomLinearProgress variant="determinate" color="green" value={60} />
+								</GridItem>
 							</DialogTitle>
 
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
@@ -225,6 +218,67 @@ class CompleteProfile extends React.Component {
 												)
 											}}
 										/>
+										<br />
+										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
+										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+											<div
+												className={
+													classes.checkboxAndRadio + ' ' + classes.checkboxAndRadioHorizontal
+												}
+											>
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'oui'}
+															onChange={this.onChange}
+															value="oui"
+															name="newsletter"
+															aria-label="A"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="oui"
+												/>
+
+												<FormControlLabel
+													control={
+														<Radio
+															checked={this.state.newsletter === 'non'}
+															onChange={this.onChange}
+															value="non"
+															name="newsletter"
+															aria-label="B"
+															icon={
+																<FiberManualRecord className={classes.radioUnchecked} />
+															}
+															checkedIcon={
+																<FiberManualRecord className={classes.radioChecked} />
+															}
+															classes={{
+																checked: classes.radio,
+																root: classes.radioRoot
+															}}
+														/>
+													}
+													classes={{
+														label: classes.label
+													}}
+													label="non"
+												/>
+											</div>
+										</div>
 									</GridItem>
 									<GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
 										<form
@@ -286,53 +340,7 @@ class CompleteProfile extends React.Component {
 												onChange={this.onChange}
 												info="A unique handle for your profile URL. Your full name, company name, nickname"
 											/>
-											<br />
-											<TextFieldGroup
-												placeholder="Company"
-												name="company"
-												value={this.state.company}
-												onChange={this.onChange}
-												info="A unique handle for your profile URL. Your full name, company name, nickname"
-											/>
 											<br /> <br />
-											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-												<div
-													className={
-														classes.checkboxAndRadio +
-														' ' +
-														classes.checkboxAndRadioHorizontal
-													}
-												>
-													<FormControlLabel
-														control={
-															<Checkbox
-																tabIndex={-1}
-																onClick={() => this.handleToggle(22)}
-																onChange={this.onChange}
-																value={
-																	this.state.checked.indexOf(22) !== -1 ? (
-																		'non'
-																	) : (
-																		'oui'
-																	)
-																}
-																name="newsletter"
-																checked={
-																	this.state.checked.indexOf(22) !== -1 ? true : false
-																}
-																checkedIcon={<Check className={classes.checkedIcon} />}
-																icon={<Check className={classes.uncheckedIcon} />}
-																classes={{
-																	checked: classes.checked,
-																	root: classes.checkRoot
-																}}
-															/>
-														}
-														classes={{ label: classes.label }}
-														label="Cochez la case si vous voulez vous abonner à la newsletter"
-													/>
-												</div>
-											</div>
 											<div
 												className={classes.textCenter}
 												style={{ marginTop: 40, justifyContent: 'center' }}

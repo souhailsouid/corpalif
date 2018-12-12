@@ -40,9 +40,10 @@ class SectionAdherer extends React.Component {
 									<h3 className={classes.cardTitleWhite}>Collectif</h3>
 								</a>
 								<p className={classes.cardDescription}>
-									Don't be scared of the truth because we need to restart the human foundation in
-									truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the
-									back is...
+									Unités de soins palliatifs, réseaux de soins palliatifs, association de bénévoles
+									d'accompagnement, établissements de santé, équipes mobiles ...
+									<br />
+									<br />
 								</p>
 								<AdhererPro />
 							</CardBody>
@@ -56,9 +57,9 @@ class SectionAdherer extends React.Component {
 									<h3 className={classes.cardTitleWhite}>Individuel</h3>
 								</a>
 								<p className={classes.cardDescription}>
-									Don't be scared of the truth because we need to restart the human foundation in
-									truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the
-									back is...
+									Professionnels de santé (médecins, infirmiers, kinésithérapeutes, art-thérapeute,
+									psychologues,etc) et toute personne intervenant dans la prise en charge (bénévole,
+									assistant social, etc)
 								</p>
 								<AdhererParticulier />
 							</CardBody>

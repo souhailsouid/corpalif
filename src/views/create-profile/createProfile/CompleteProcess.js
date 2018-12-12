@@ -7,15 +7,17 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import FormHelperText from '@material-ui/core/FormHelperText'
 import Radio from '@material-ui/core/Radio'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 // @material-ui/icons
-import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import Snackbar from '@material-ui/core/Snackbar'
 import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
+import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // core components
+
+import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -23,19 +25,18 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
+
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { withRouter, Link } from 'react-router-dom'
-import { completeProfile, getCurrentProfile } from 'actions/profileActions'
-import isEmpty from 'validation/is-empty'
+import { createProfile } from 'actions/profileActions'
+import { withRouter } from 'react-router-dom'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
 
-class EditProfile extends React.Component {
+class CompleteProcess extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -45,8 +46,8 @@ class EditProfile extends React.Component {
 			structure: '',
 			company: '',
 			location: '',
-			fonction: '',
 			newsletter: '',
+			fonction: '',
 			errors: {}
 		}
 
@@ -54,39 +55,18 @@ class EditProfile extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this)
 	}
 
-	componentDidMount() {
-		this.props.getCurrentProfile()
-	}
-
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.errors) {
 			this.setState({ errors: nextProps.errors })
 		}
-
-		if (nextProps.profile.profile) {
-			const profile = nextProps.profile.profile
-
-			// If profile field doesnt exist, make empty string
-			profile.company = !isEmpty(profile.company) ? profile.company : ''
-			profile.structure = !isEmpty(profile.structure) ? profile.structure : ''
-			profile.location = !isEmpty(profile.location) ? profile.location : ''
-			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
-			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
-			// Set component fields state
-			this.setState({
-				structure: profile.structure,
-				company: profile.company,
-				fonction: profile.fonction,
-				location: profile.location,
-				newsletter: profile.newsletter
-			})
-		}
 		if (nextProps.auth.user) {
 			const user = nextProps.auth.user
+
 			this.setState({
 				name: user.name,
 				last_name: user.last_name,
-				email: user.email
+				email: user.email,
+				password: user.password
 			})
 		}
 	}
@@ -95,13 +75,19 @@ class EditProfile extends React.Component {
 		e.preventDefault()
 
 		const profileData = {
-			company: this.state.company,
-			location: this.state.location,
-			fonction: this.state.fonction,
+			name: this.state.name,
+			last_name: this.state.last_name,
+			email: this.state.email,
+			password: this.state.password,
 			structure: this.state.structure,
+			company: this.state.company,
+			fonction: this.state.fonction,
+			location: this.state.location,
 			newsletter: this.state.newsletter
+			// member: this.state.member
 		}
-		this.props.completeProfile(profileData, this.props.history)
+
+		this.props.createProfile(profileData, this.props.history)
 	}
 
 	onChange(e) {
@@ -148,7 +134,7 @@ class EditProfile extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
-										Vos informations
+										Completer votre Profile
 									</h2>
 								</div>
 								<GridItem
@@ -162,7 +148,7 @@ class EditProfile extends React.Component {
 										marginTop: 10
 									}}
 								>
-									<CustomLinearProgress variant="determinate" color="green" value={70} />
+									<CustomLinearProgress variant="determinate" color="green" value={60} />
 								</GridItem>
 							</DialogTitle>
 
@@ -233,11 +219,7 @@ class EditProfile extends React.Component {
 											}}
 										/>
 										<br />
-										<div style={{ textAlign: 'center' }}>
-											{' '}
-											<FormHelperText>S'abonner à la newsletter</FormHelperText>
-										</div>
-										{/* <h5 style={{ textAlign: 'left' }}>Newsletter</h5> */}
+										<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
 										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
 											<div
 												className={
@@ -356,41 +338,20 @@ class EditProfile extends React.Component {
 												name="company"
 												value={this.state.company}
 												onChange={this.onChange}
-												info="company"
+												info="A unique handle for your profile URL. Your full name, company name, nickname"
 											/>
+											<br /> <br />
+											<div
+												className={classes.textCenter}
+												style={{ marginTop: 40, justifyContent: 'center' }}
+											>
+												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
+													S'enregistrer
+												</Button>
+											</div>
 										</form>
 									</GridItem>
 								</GridContainer>
-								<br /> <br />
-								<GridItem xs={12} sm={12} md={12} className={classes.mrAuto}>
-									<form
-										noValidate
-										onSubmit={this.onSubmit}
-										className={classes.form}
-										style={{ marginTop: 40 }}
-									>
-										<div
-											style={{
-												display: 'flex',
-												justifyContent: 'center',
-												justifyContent: 'space-evenly'
-											}}
-										>
-											<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
-												<Link to="/menu/coordinationregionale/adherer/">
-													<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-														Revenir
-													</Button>
-												</Link>
-											</div>
-											<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
-												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
-													Suivant
-												</Button>
-											</div>
-										</div>
-									</form>
-								</GridItem>
 							</DialogContent>
 						</Card>
 					</Dialog>
@@ -409,19 +370,20 @@ class EditProfile extends React.Component {
 	}
 }
 
-EditProfile.propTypes = {
-	completeProfile: PropTypes.func.isRequired,
-	getCurrentProfile: PropTypes.func.isRequired,
+CompleteProcess.propTypes = {
 	profile: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
-const mapStateTopProps = (state) => ({
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+
 	profile: state.profile,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateTopProps, { completeProfile, getCurrentProfile })(withRouter(EditProfile))
+	connect(mapStateToProps, { createProfile })(withRouter(CompleteProcess))
 )

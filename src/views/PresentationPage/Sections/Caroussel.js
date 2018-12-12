@@ -24,7 +24,7 @@ const Recommandation = ({ caroussel, classes }) => (
 	<div className={classes.section} id="carousel">
 		<div className={classes.container}>
 			<GridContainer>
-				<GridItem xs={12} sm={12} md={12} className={classes.marginAuto} style={{ marginLeft: 30 }}>
+				<GridItem xs={12} sm={12} md={12} className={classes.marginAuto}>
 					<Card>
 						<Carousel {...settings}>
 							<div>
@@ -42,19 +42,27 @@ const Recommandation = ({ caroussel, classes }) => (
 									/>
 
 									<div className="slick-caption">
-										<Button
-											round
-											color="red"
-											style={{
-												paddingLeft: '12px',
-												paddingRight: '12px',
-												paddingTop: '0px',
-												paddingBottom: '0px'
-											}}
+										<GridItem
+											xs={12}
+											sm={12}
+											md={12}
+											className={classes.marginAuto}
+											style={{ marginLeft: 'auto', marginRight: 'auto' }}
 										>
-											<h4 className={classes.cardTitleWhite}> {caroussel.title} </h4>
-										</Button>
-										{/* <h2>{caroussel.title}</h2> */}
+											<Button
+												round
+												color="red"
+												style={{
+													paddingLeft: '12px',
+													paddingRight: '12px',
+													paddingTop: '0px',
+													paddingBottom: '0px'
+												}}
+											>
+												<h4 className={classes.cardTitleWhite}> {caroussel.title} </h4>
+											</Button>
+											{/* <h2>{caroussel.title}</h2> */}
+										</GridItem>
 									</div>
 								</a>
 							</div>

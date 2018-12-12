@@ -15,6 +15,7 @@ const Agenda2 = ({ agenda2 }) => (
 				<b>{agenda2.when}</b>
 				<br />
 				<b style={{ textAlign: 'left' }}>{agenda2.theme}</b> <br />
+				{/* <b>{agenda2.line}</b>  */}
 				{agenda2.lieu} <br />
 				{agenda2.rue}
 				<br />

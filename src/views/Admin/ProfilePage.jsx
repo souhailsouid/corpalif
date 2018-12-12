@@ -278,6 +278,98 @@ class ProfilePage extends React.Component {
 												</GridItem>
 											</GridContainer>
 										)
+									},
+									{
+										tabButton: 'Users',
+										tabIcon: Camera,
+										tabContent: (
+											<GridContainer>
+												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
+													<GridContainer justify="center">
+														<GridItem xs={12} sm={12} md={6}>
+															<Card
+																background
+																style={{
+																	backgroundImage: 'url(' + paris + ')'
+																}}
+															>
+																<Link to="/admin/users/all">
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			All profiles
+																		</h2>
+																	</CardBody>
+																</Link>
+															</Card>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Card
+																background
+																style={{
+																	backgroundImage: 'url(' + paris + ')'
+																}}
+															>
+																<Link to="/admin/users/individuel">
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			Individuel
+																		</h2>
+																	</CardBody>
+																</Link>
+															</Card>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Card
+																background
+																style={{
+																	backgroundImage: 'url(' + paris + ')'
+																}}
+															>
+																<Link to="/admin/users/collectif">
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			Collectif
+																		</h2>
+																	</CardBody>
+																</Link>
+															</Card>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Card
+																background
+																style={{
+																	backgroundImage: 'url(' + paris + ')'
+																}}
+															>
+																<Link to="/admin/users/adherents">
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			Adherents
+																		</h2>
+																	</CardBody>
+																</Link>
+															</Card>
+														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Card
+																background
+																style={{
+																	backgroundImage: 'url(' + paris + ')'
+																}}
+															>
+																<Link to="/admin/users/newsletters">
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			Newsletters
+																		</h2>
+																	</CardBody>
+																</Link>
+															</Card>
+														</GridItem>
+													</GridContainer>
+												</GridItem>
+											</GridContainer>
+										)
 									}
 								]}
 							/>

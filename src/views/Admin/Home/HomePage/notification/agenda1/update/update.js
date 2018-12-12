@@ -23,7 +23,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { getCurrentAgenda1_id, updateAgenda1 } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
@@ -198,9 +198,11 @@ class Modal extends React.Component {
 																	justifyContent: 'space-around'
 																}}
 															>
-																<Button type="submit" value="Submit" color="green">
-																	Modifier
-																</Button>
+																<Link to="/admin/agenda1">
+																	<Button type="submit" value="Submit" color="green">
+																		Modifier
+																	</Button>
+																</Link>
 															</Grid>
 														</form>
 													</GridItem>

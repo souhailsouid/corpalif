@@ -12,6 +12,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import Button from 'components/CustomButtons/Button.jsx'
+import Close from '@material-ui/icons/Close'
 import { Link } from 'react-router-dom'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 
@@ -25,7 +26,7 @@ function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
 
-class ConfirmationPaiement extends React.Component {
+class ConfirmationResetPassword extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -81,7 +82,6 @@ class ConfirmationPaiement extends React.Component {
 						root: classes.modalRoot,
 						paper: classes.modal + ' ' + classes.modalLarge
 					}}
-					type="submit"
 					open={this.state.largeModal}
 					TransitionComponent={Transition}
 					keepMounted
@@ -90,46 +90,29 @@ class ConfirmationPaiement extends React.Component {
 				>
 					<DialogTitle id="large-modal-slide-title" disableTypography className={classes.modalHeader}>
 						<h3 className={classes.modalTitle} style={{ textAlign: 'center' }}>
-							Confirmation de Paiement
+							Votre mot de passe a été modifié avec succés
 						</h3>
 						<br />
-						<h4 className={classes.modalTitle} style={{ textAlign: 'center' }}>
-							Merci pour votre adhésion annuelle à la corpalif pour l'année <b>2018 </b>
-						</h4>
-						<h5 className={classes.modalTitle} style={{ textAlign: 'center' }}>
-							<b>Un email vous sera adressé ! </b>
-						</h5>
-						<br />
-					</DialogTitle>
-					<DialogContent id="large-modal-slide-description" className={classes.modalBody}>
 						<GridContainer justify="center">
 							<GridItem xs={12} sm={12} md={4}>
-								<form
-									noValidate
-									onSubmit={this.onSubmit}
-									className={classes.form}
-									style={{ marginTop: 40 }}
-								>
-									<Button
-										type="submit"
-										round
-										color="red"
-										onClick={() => this.handleClose('largeModal')}
-									>
-										Finaliser votre adhésion
+								<Link to="/">
+									<Button type="submit" round color="green">
+										Revenir à la page d'accueil
 									</Button>
-								</form>
+								</Link>
 								{/* </Link> */}
 							</GridItem>
 						</GridContainer>
-					</DialogContent>
+
+						<br />
+					</DialogTitle>
 				</Dialog>
 			</div>
 		)
 	}
 }
 
-ConfirmationPaiement.propTypes = {
+ConfirmationResetPassword.propTypes = {
 	createAdherent: PropTypes.func.isRequired,
 	// updateProfileMember: PropTypes.func.isRequired,
 	profile: PropTypes.object.isRequired,
@@ -146,5 +129,5 @@ const mapStateToProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(javascriptStyles))(
-	connect(mapStateToProps, { createAdherent, updateProfileMember })(withRouter(ConfirmationPaiement))
+	connect(mapStateToProps, { createAdherent, updateProfileMember })(withRouter(ConfirmationResetPassword))
 )

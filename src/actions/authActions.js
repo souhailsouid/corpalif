@@ -22,6 +22,7 @@ export const registerPayment = (newUser, history) => (dispatch) => {
 		})
 	)
 }
+
 // export const subscriptionUser = (newUser, history) => (dispatch) => {
 // 	axios.post('/api/users/register', newUser).then((res) => history.push('/registerU')).catch((err) =>
 // 		dispatch({
@@ -69,7 +70,7 @@ export const loginPage = (userData, history) => (dispatch) => {
 			const decoded = jwt_decode(token)
 			// Set current user
 			dispatch(setCurrentUser(decoded))
-			history.push('/dashboard')
+			history.push('/createprofile')
 		})
 		.catch((err) =>
 			dispatch({
@@ -93,7 +94,7 @@ export const processLogin = (userData, history) => (dispatch) => {
 			const decoded = jwt_decode(token)
 			// Set current user
 			dispatch(setCurrentUser(decoded))
-			history.push('/adherent/completeprofile')
+			history.push('/completeprofile')
 		})
 		.catch((err) =>
 			dispatch({
@@ -147,7 +148,7 @@ export const setProfileLoading = () => {
 
 // Update Profile
 export const updateProfile = (userData, history) => (dispatch) => {
-	axios.post('/api/users/', userData).then((res) => history.push('/dashboard')).catch((err) =>
+	axios.post('/api/users/', userData).then((res) => history.push('/createprofile')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data
@@ -155,11 +156,11 @@ export const updateProfile = (userData, history) => (dispatch) => {
 	)
 }
 // Forgot password
-export const forgotpassword = (userData) => (dispatch) => {
+export const forgotpassword = (userData, history) => (dispatch) => {
 	axios
 		.post('/api/users/forgot_password', userData)
 		.then((res) => {
-			window.location.reload('/')
+			history.push('/')
 		})
 		.catch((err) =>
 			dispatch({
@@ -170,18 +171,23 @@ export const forgotpassword = (userData) => (dispatch) => {
 }
 // Forgot password
 export const updatePassword = (token, userData, history) => (dispatch) => {
-	axios.post(`/api/users/reset/${token}`, userData).then((res) => history.push('/')).catch((err) =>
-		dispatch({
-			type: GET_ERRORS,
-			payload: err.response.data
+	axios
+		.post(`/api/users/reset/${token}`, userData)
+		.then((res) => {
+			history.push('/passwordchanged')
 		})
-	)
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		)
 }
 export const getUpdatePassword = (token, history) => (dispatch) => {
 	axios
 		.get(`/api/users/reset/${token}`)
 		.then((res) => {
-			history.push('/')
+			alert('dfiodcicdkdl')
 			dispatch({
 				type: GET_RESET_PASSWORD,
 				payload: res.data

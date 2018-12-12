@@ -177,7 +177,7 @@ class HomePageAdminHome extends React.Component {
 																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={8}>
-																<Link to="/admin/offredemploi">
+																<Link to="/admin/offre">
 																	<Card
 																		background
 																		style={{

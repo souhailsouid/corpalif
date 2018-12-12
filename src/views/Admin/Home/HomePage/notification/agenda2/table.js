@@ -36,6 +36,7 @@ const Agenda = ({ agenda2, classes }) => (
 								<b>{agenda2.when}</b>
 								<br />
 								<b style={{ textAlign: 'left' }}>{agenda2.theme}</b> <br />
+								<b>{agenda2.line}</b> <br />
 								{agenda2.lieu} <br />
 								{agenda2.rue}
 								<br />

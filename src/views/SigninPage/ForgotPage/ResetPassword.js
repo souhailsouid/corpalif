@@ -14,6 +14,7 @@ import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 
 // core components
+import ConfirmationSendPassword from './modalSendPassword'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import SignUp from 'views/SignupPage/SignUpPage.js'
@@ -40,7 +41,7 @@ class ForgotPassword extends React.Component {
 		this.state = {
 			loginModal: false,
 			email: '',
-
+			complete: false,
 			errors: {},
 			displaySnack: false,
 			snack: { variant: 'warning', message: '' }
@@ -56,15 +57,28 @@ class ForgotPassword extends React.Component {
 				displaySnack: false
 			})
 		}
+
+		if (!nextProps.errors) {
+			this.setState({
+				complete: true
+			})
+		}
 	}
 
-	onSubmit(e) {
+	// async onSubmit(e) {
+	// 	let response = await fetch('/api/users/forgot_password', {
+	// 		method: 'POST'
+	// 	})
+	// 	if (response.ok) this.setState({ email: this.state.email })
+	// }
+	onSubmit(e, isEmpty) {
 		e.preventDefault()
+
 		const userData = {
 			email: this.state.email
 		}
 
-		this.props.forgotpassword(userData)
+		this.props.forgotpassword(userData, this.props.history)
 	}
 
 	onChange(e) {
@@ -92,6 +106,7 @@ class ForgotPassword extends React.Component {
 	render() {
 		const { errors } = this.state
 		const { classes } = this.props
+		if (errors.message === 'done') return <ConfirmationSendPassword />
 		return (
 			<div>
 				<div>
