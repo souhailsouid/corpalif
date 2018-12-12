@@ -64,8 +64,8 @@ class SectionProfilesAll extends React.Component {
 			dashboardProfiles = <Spinner />
 		} else {
 			if (profiles.length > 0) {
-				dashboardProfiles = <h1>{profile.user.name}</h1>
-				// dashboardProfiles = profiles.map((profile) => <ProfilesItem key={profile._id} profile={profile} />)
+				// dashboardProfiles = <h1>{profile.user.name}</h1>
+				dashboardProfiles = profiles.map((profile) => <ProfilesItem key={profile._id} profile={profile} />)
 			} else {
 				dashboardProfiles = <div> No profiles found ...</div>
 			}
