@@ -8,6 +8,7 @@ const profile = require('./routes/api/profile')
 const Profile_adherent = require('./routes/api/adherents')
 const posts = require('./routes/api/posts')
 const app = express()
+const path = require('path')
 var cors = require('cors')
 var flash = require('express-flash')
 var stripe = require('stripe')('sk_test_yShrXQPIikLVP1AMM3BBl8sH')
@@ -387,8 +388,13 @@ app.post('/api/charge50', async (req, res) => {
 		res.status(500).end()
 	}
 })
-app.listen(80, function() {
-	console.log('CORS-enabled web server listening on port 80')
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+	//Set static folder
+}
+app.use(express.static('client/build'))
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 })
 const port = process.env.PORT || 5000
 
