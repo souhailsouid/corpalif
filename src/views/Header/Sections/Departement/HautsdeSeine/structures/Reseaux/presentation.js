@@ -211,12 +211,7 @@ const mapStateToProps = (state) => ({
 	reseaux: state.reseaux
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(
+export default compose(withStyles(profilePageStyle))(
 	connect(mapStateToProps, { getCurrentStructureReseaux, deleteStructure_idReseaux })(
 		withRouter(PresentationReseauxHautsdeSeine)
 	)

@@ -211,12 +211,7 @@ const mapStateToProps = (state) => ({
 	association: state.association
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(
+export default compose(withStyles(profilePageStyle))(
 	connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(
 		withRouter(PresentationAssociationSeineSaintDenis)
 	)

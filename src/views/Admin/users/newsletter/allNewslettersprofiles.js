@@ -17,15 +17,15 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import ProfilesItem from './profilesItem'
 
-class SectionProfilesAll extends React.Component {
+class SectionProfilesNewsletter extends React.Component {
 	componentDidMount() {
 		this.props.getProfiles()
 	}
 
 	render() {
 		const { classes } = this.props
-
-		const { profiles, loading } = this.props.profile
+		const { user } = this.props.auth
+		const { profiles, loading, profile } = this.props.profile
 
 		let dashboardProfiles
 		if (profiles === null || loading) {
@@ -34,7 +34,7 @@ class SectionProfilesAll extends React.Component {
 			if (profiles.length > 0) {
 				dashboardProfiles = profiles.map((profile) => <ProfilesItem key={profile._id} profile={profile} />)
 			} else {
-				dashboardProfiles = <div> No profiles found ...</div>
+				dashboardProfiles = <div>sdodok</div>
 			}
 		}
 
@@ -49,19 +49,14 @@ class SectionProfilesAll extends React.Component {
 									<div className={classes.name}>
 										<h2 className={classes.title} style={{ textAlign: 'center' }}>
 											{' '}
-											Utilisateurs : ALL
+											Utilisateurs : Newsletter
 										</h2>
 									</div>
 								</div>
 							</GridItem>
 						</GridContainer>
-						<GridContainer style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-							<GridItem
-								xs={12}
-								sm={12}
-								md={12}
-								style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}
-							>
+						<GridContainer>
+							<GridItem xs={12} sm={12} md={12}>
 								<br />
 
 								{dashboardProfiles}
@@ -74,7 +69,7 @@ class SectionProfilesAll extends React.Component {
 	}
 }
 
-SectionProfilesAll.propTypes = {
+SectionProfilesNewsletter.propTypes = {
 	getProfiles: PropTypes.func.isRequired,
 
 	profile: PropTypes.object.isRequired,
@@ -89,5 +84,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getProfiles })(withRouter(SectionProfilesAll))
+	connect(mapStateToProps, { getProfiles })(withRouter(SectionProfilesNewsletter))
 )

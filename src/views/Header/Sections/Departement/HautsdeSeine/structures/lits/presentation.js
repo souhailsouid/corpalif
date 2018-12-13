@@ -211,12 +211,7 @@ const mapStateToProps = (state) => ({
 	lit: state.lit
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(
+export default compose(withStyles(profilePageStyle))(
 	connect(mapStateToProps, { getCurrentStructureLITS, deleteStructure_idLITS })(
 		withRouter(PresentationLitsHautsdeSeine)
 	)

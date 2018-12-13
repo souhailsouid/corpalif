@@ -17,24 +17,25 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import ProfilesItem from './profilesItem'
 
-class SectionProfilesAll extends React.Component {
+class SectionProfilesAdherent extends React.Component {
 	componentDidMount() {
 		this.props.getProfiles()
 	}
 
 	render() {
 		const { classes } = this.props
-
-		const { profiles, loading } = this.props.profile
+		const { user } = this.props.auth
+		const { profiles, loading, profile } = this.props.profile
 
 		let dashboardProfiles
 		if (profiles === null || loading) {
 			dashboardProfiles = <Spinner />
 		} else {
 			if (profiles.length > 0) {
+				// dashboardProfiles = <h1>{profile.user.name}</h1>
 				dashboardProfiles = profiles.map((profile) => <ProfilesItem key={profile._id} profile={profile} />)
 			} else {
-				dashboardProfiles = <div> No profiles found ...</div>
+				dashboardProfiles = <div>sdodok</div>
 			}
 		}
 
@@ -49,7 +50,7 @@ class SectionProfilesAll extends React.Component {
 									<div className={classes.name}>
 										<h2 className={classes.title} style={{ textAlign: 'center' }}>
 											{' '}
-											Utilisateurs : ALL
+											Utilisateurs : Adherents
 										</h2>
 									</div>
 								</div>
@@ -74,7 +75,7 @@ class SectionProfilesAll extends React.Component {
 	}
 }
 
-SectionProfilesAll.propTypes = {
+SectionProfilesAdherent.propTypes = {
 	getProfiles: PropTypes.func.isRequired,
 
 	profile: PropTypes.object.isRequired,
@@ -89,5 +90,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getProfiles })(withRouter(SectionProfilesAll))
+	connect(mapStateToProps, { getProfiles })(withRouter(SectionProfilesAdherent))
 )

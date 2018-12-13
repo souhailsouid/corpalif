@@ -212,9 +212,6 @@ const mapStateToProps = (state) => ({
 	had: state.had
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(connect(mapStateToProps, { getCurrentStructureTEAM })(withRouter(PresentationHadSeineSaintDenis)))
+export default compose(withStyles(profilePageStyle))(
+	connect(mapStateToProps, { getCurrentStructureTEAM })(withRouter(PresentationHadSeineSaintDenis))
+)

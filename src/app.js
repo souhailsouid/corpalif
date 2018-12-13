@@ -479,6 +479,10 @@ import UpdateFormations from 'views/Admin/Menu/offres&emplois/formations/update/
 import PostFormation from 'views/Admin/Menu/offres&emplois/formations/post/Header'
 // USERS // ALL PROFILES // NEWSLETTER // ALL ADHERENTS // STATUS
 import SectionProfilesAll from 'views/Admin/users/all/allprofiles'
+import SectionProfilesAdherent from 'views/Admin/users/adherents/allAdherentsprofiles'
+import SectionProfilesNewsletter from 'views/Admin/users/newsletter/allNewslettersprofiles'
+import SectionProfilesCollectif from 'views/Admin/users/collectifs/allAdherentsprofiles'
+import SectionProfilesIndividuel from 'views/Admin/users/individuels/allAdherentsprofiles'
 
 // HomePage
 // Caroussel1
@@ -1818,6 +1822,19 @@ class App extends Component {
 								{/* {USERS} // ALL PROFILES // NEWSLETTERS // ALL ADHRENTS ... */}
 
 								<AdminRoute exact path="/admin/users/all" component={SectionProfilesAll} />
+								<AdminRoute exact path="/admin/users/adherents" component={SectionProfilesAdherent} />
+								<AdminRoute
+									exact
+									path="/admin/users/individuel"
+									component={SectionProfilesIndividuel}
+								/>
+								<AdminRoute exact path="/admin/users/collectif" component={SectionProfilesCollectif} />
+								<AdminRoute
+									exact
+									path="/admin/users/newsletters"
+									component={SectionProfilesNewsletter}
+								/>
+
 								{/* <AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
