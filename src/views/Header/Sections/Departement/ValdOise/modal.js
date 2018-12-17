@@ -28,7 +28,9 @@ import {
 	getCurrentStructureHAD,
 	getCurrentStructureAssos,
 	getCurrentStructureReseaux,
-	getCurrentStructureTEAM
+	getCurrentStructureTEAM,
+	getCurrentStructure_autres,
+	getCurrentStructure_autres_structures
 } from 'actions/VALDOISEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -51,6 +53,8 @@ class ModalSearchValdOise extends React.Component {
 		this.props.getCurrentStructureAssos()
 		this.props.getCurrentStructureReseaux()
 		this.props.getCurrentStructureTEAM()
+		this.props.getCurrentStructure_autres()
+		this.props.getCurrentStructure_autres_structures()
 	}
 	handleClickOpen(modal) {
 		var x = []
@@ -63,7 +67,7 @@ class ModalSearchValdOise extends React.Component {
 		this.setState(x)
 	}
 	render() {
-		const { association, soin, reseaux, lit, usp, had } = this.props.association
+		const { association, soin, reseaux, lit, usp, had, autres, autres_structures } = this.props.association
 		const { classes, ...rest } = this.props
 		return (
 			<div>
@@ -203,6 +207,54 @@ class ModalSearchValdOise extends React.Component {
 														</Link>
 													</GridItem>
 												</GridContainer>
+												<GridContainer className={classes.gridContainer} justify="center">
+													<GridItem
+														xs={12}
+														sm={4}
+														className={classes.gridItem}
+														style={{
+															borderLeft: '1px solid #D3D3D3',
+															borderBottom: '1px solid #D3D3D3'
+														}}
+													>
+														<Link to="/annuaire/valdoise/autres_structures">
+															<InfoArea
+																vertical
+																className={classes.infoArea5}
+																icon={SupervisedUserCircle}
+																title={
+																	<div>
+																		<h3>{Object.keys(autres_structures).length}</h3>
+																		Autres structures
+																	</div>
+																}
+															/>
+														</Link>
+													</GridItem>
+													<GridItem
+														xs={12}
+														sm={4}
+														className={classes.gridItem}
+														style={{
+															borderRight: '1px solid #D3D3D3',
+															borderBottom: '1px solid #D3D3D3'
+														}}
+													>
+														<Link to="/annuaire/valdoise/autres">
+															<InfoArea
+																vertical
+																className={classes.infoArea5}
+																icon={SupervisedUserCircle}
+																title={
+																	<div>
+																		<h3>{Object.keys(autres).length}</h3>
+																		Autres ...
+																	</div>
+																}
+															/>
+														</Link>
+													</GridItem>
+												</GridContainer>
 											</div>
 										</GridContainer>
 									</GridContainer>
@@ -223,16 +275,22 @@ ModalSearchValdOise.propTypes = {
 	getCurrentStructureAssos: PropTypes.func.isRequired,
 	getCurrentStructureReseaux: PropTypes.func.isRequired,
 	getCurrentStructureTEAM: PropTypes.func.isRequired,
+	getCurrentStructure_autres: PropTypes.func.isRequired,
+	getCurrentStructure_autres_structures: PropTypes.func.isRequired,
 	association: PropTypes.object.isRequired,
 	lit: PropTypes.object.isRequired,
 	soin: PropTypes.object.isRequired,
 	reseaux: PropTypes.object.isRequired,
 	team: PropTypes.object.isRequired,
 	usp: PropTypes.object.isRequired,
-	classes: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired,
+	autres: PropTypes.object.isRequired,
+	autres_structures: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
+	autres: state.autres,
+	autres_structures: state.autres_structures,
 	association: state.association,
 	soin: state.soin,
 	team: state.team,
@@ -248,6 +306,8 @@ export default compose(withStyles(javascriptStyles))(
 		getCurrentStructureHAD,
 		getCurrentStructureAssos,
 		getCurrentStructureReseaux,
-		getCurrentStructureTEAM
+		getCurrentStructureTEAM,
+		getCurrentStructure_autres,
+		getCurrentStructure_autres_structures
 	})(withRouter(ModalSearchValdOise))
 )

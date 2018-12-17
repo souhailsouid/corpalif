@@ -14,7 +14,7 @@ const ParisMapsTeamSchema = new Schema({
 		type: String
 	},
 
-	loc: { type: String, coordinates: [ Number ] },
+	long: { type: String, coordinates: [ Number ] },
 	lat: { type: String, coordinates: [ Number ] },
 	date: {
 		type: Date,

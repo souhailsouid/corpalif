@@ -159,6 +159,22 @@ class VeillemedicalePage extends React.Component {
 																</Card>
 															</Link>
 														</GridItem>
+														<GridItem xs={12} sm={12} md={6}>
+															<Link to="/admin/menu/veillemedicale/privateinfo/">
+																<Card
+																	background
+																	style={{
+																		backgroundImage: 'url(' + paris + ')'
+																	}}
+																>
+																	<CardBody background className={classes.cardBody}>
+																		<h2 className={classes.cardTitleWhite}>
+																			Contenus privés
+																		</h2>
+																	</CardBody>
+																</Card>
+															</Link>
+														</GridItem>
 													</GridContainer>
 												</GridItem>
 											</GridContainer>

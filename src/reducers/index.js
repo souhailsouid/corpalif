@@ -16,6 +16,7 @@ import offreReducer from './notifications/offreReducer'
 import offresdemploisReducer from './menu/Offres&formations/offresdemploisReducer'
 import formationReducer from './menu/Offres&formations/formationReducer'
 import rencontreReducer from './menu/veillemedicale/rencontreReducer'
+import privateInfoReducer from './menu/veillemedicale/privateInfoReducer'
 import actualiteReducer from './menu/veillemedicale/actualiteReducer'
 import evenementReducer from './menu/veillemedicale/evenementReducer'
 import statusReducer from './statusReducer'
@@ -34,6 +35,8 @@ export default combineReducers({
 	had: annuaireReducer,
 	soin: annuaireReducer,
 	recommandation: recommandationReducer,
+	autres: annuaireReducer,
+	autres_structures: annuaireReducer,
 	caroussel: carousselReducer,
 	file: fileReducer,
 	adherent: adherentReducer,
@@ -44,6 +47,7 @@ export default combineReducers({
 	offreemploi: offresdemploisReducer,
 	formation: formationReducer,
 	rencontre: rencontreReducer,
+	privateInfo: privateInfoReducer,
 	actualite: actualiteReducer,
 	evenement: evenementReducer,
 	mapteam: mapReducer,

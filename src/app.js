@@ -57,13 +57,18 @@ import PresentationAssociationParis from 'views/Header/Sections/Departement/Pari
 import PresentationStructureParis from 'views/Header/Sections/Departement/Paris/structures/structure/presentation'
 import PresentationUspParis from 'views/Header/Sections/Departement/Paris/structures/Usp/presentation'
 import PresentationHadParis from 'views/Header/Sections/Departement/Paris/structures/Team/presentation'
+import Presentation_PARIS_autres_structures from 'views/Header/Sections/Departement/Paris/structures/autres_structures/presentation'
+import Presentation_PARIS_Autres from 'views/Header/Sections/Departement/Paris/structures/autres/presentation'
 // Essonne
+import PresentationMapEssonne from 'views/Header/Sections/Departement/Essonne/structures/Usp/leaflet'
 import PresentationLitsEssonne from 'views/Header/Sections/Departement/Essonne/structures/lits/presentation'
 import PresentationReseauxEssonne from 'views/Header/Sections/Departement/Essonne/structures/Reseaux/presentation'
 import PresentationAssociationEssonne from 'views/Header/Sections/Departement/Essonne/structures/Association/presentation'
 import PresentationStructureEssonne from 'views/Header/Sections/Departement/Essonne/structures/structure/presentation'
 import PresentationUspEssonne from 'views/Header/Sections/Departement/Essonne/structures/Usp/presentation'
 import PresentationHadEssonne from 'views/Header/Sections/Departement/Essonne/structures/Team/presentation'
+import Presentation_ESSONNE_autres_structures from 'views/Header/Sections/Departement/Essonne/structures/autres_structures/presentation'
+import Presentation_ESSONNE_Autres from 'views/Header/Sections/Departement/Essonne/structures/autres/presentation'
 // Val de Marne
 import PresentationLitsValdeMarne from 'views/Header/Sections/Departement/ValdeMarne/structures/lits/presentation'
 import PresentationReseauxValdeMarne from 'views/Header/Sections/Departement/ValdeMarne/structures/Reseaux/presentation'
@@ -71,6 +76,8 @@ import PresentationAssociationValdeMarne from 'views/Header/Sections/Departement
 import PresentationStructureValdeMarne from 'views/Header/Sections/Departement/ValdeMarne/structures/structure/presentation'
 import PresentationUspValdeMarne from 'views/Header/Sections/Departement/ValdeMarne/structures/Usp/presentation'
 import PresentationHadValdeMarne from 'views/Header/Sections/Departement/ValdeMarne/structures/Team/presentation'
+import Presentation_VALDEMARNE_autres_structures from 'views/Header/Sections/Departement/ValdeMarne/structures/autres_structures/presentation'
+import Presentation_VALDEMARNE_Autres from 'views/Header/Sections/Departement/ValdeMarne/structures/autres/presentation'
 // Seine Saint Denis
 import PresentationLitsSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/structures/lits/presentation'
 import PresentationReseauxSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/structures/Reseaux/presentation'
@@ -78,6 +85,8 @@ import PresentationAssociationSeineSaintDenis from 'views/Header/Sections/Depart
 import PresentationStructureSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/structures/structure/presentation'
 import PresentationUspSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/structures/Usp/presentation'
 import PresentationHadSeineSaintDenis from 'views/Header/Sections/Departement/SeineSaintDenis/structures/Team/presentation'
+import Presentation_SEINESAINTDENIS_autres_structures from 'views/Header/Sections/Departement/SeineSaintDenis/structures/autres_structures/presentation'
+import Presentation_SEINESAINTDENIS_Autres from 'views/Header/Sections/Departement/SeineSaintDenis/structures/autres/presentation'
 // Hauts de Seine
 import PresentationLitsHautsdeSeine from 'views/Header/Sections/Departement/HautsdeSeine/structures/lits/presentation'
 import PresentationReseauxHautsdeSeine from 'views/Header/Sections/Departement/HautsdeSeine/structures/Reseaux/presentation'
@@ -85,6 +94,8 @@ import PresentationAssociationHautsdeSeine from 'views/Header/Sections/Departeme
 import PresentationStructureHautsdeSeine from 'views/Header/Sections/Departement/HautsdeSeine/structures/structure/presentation'
 import PresentationUspHautsdeSeine from 'views/Header/Sections/Departement/HautsdeSeine/structures/Usp/presentation'
 import PresentationHadHautsdeSeine from 'views/Header/Sections/Departement/HautsdeSeine/structures/Team/presentation'
+import Presentation_HAUTSDESEINE_autres_structures from 'views/Header/Sections/Departement/HautsdeSeine/structures/autres_structures/presentation'
+import Presentation_HAUTSDESEINE_Autres from 'views/Header/Sections/Departement/HautsdeSeine/structures/autres/presentation'
 // Val d'Oise
 import PresentationLitsValdOise from 'views/Header/Sections/Departement/ValdOise/structures/lits/presentation'
 import PresentationReseauxValdOise from 'views/Header/Sections/Departement/ValdOise/structures/Reseaux/presentation'
@@ -92,6 +103,8 @@ import PresentationAssociationValdOise from 'views/Header/Sections/Departement/V
 import PresentationStructureValdOise from 'views/Header/Sections/Departement/ValdOise/structures/structure/presentation'
 import PresentationUspValdOise from 'views/Header/Sections/Departement/ValdOise/structures/Usp/presentation'
 import PresentationHadValdOise from 'views/Header/Sections/Departement/ValdOise/structures/Team/presentation'
+import Presentation_VALDOISE_autres_structures from 'views/Header/Sections/Departement/ValdOise/structures/autres_structures/presentation'
+import Presentation_VALDOISE_Autres from 'views/Header/Sections/Departement/ValdOise/structures/autres/presentation'
 // Seine et Marne
 import PresentationLitsSeineetMarne from 'views/Header/Sections/Departement/SeineetMarne/structures/lits/presentation'
 import PresentationReseauxSeineetMarne from 'views/Header/Sections/Departement/SeineetMarne/structures/Reseaux/presentation'
@@ -99,6 +112,8 @@ import PresentationAssociationSeineetMarne from 'views/Header/Sections/Departeme
 import PresentationStructureSeineetMarne from 'views/Header/Sections/Departement/SeineetMarne/structures/structure/presentation'
 import PresentationUspSeineetMarne from 'views/Header/Sections/Departement/SeineetMarne/structures/Usp/presentation'
 import PresentationHadSeineetMarne from 'views/Header/Sections/Departement/SeineetMarne/structures/Team/presentation'
+import Presentation_SEINEETMARNE_autres_structures from 'views/Header/Sections/Departement/SeineetMarne/structures/autres_structures/presentation'
+import Presentation_SEINEETMARNE_Autres from 'views/Header/Sections/Departement/SeineetMarne/structures/autres/presentation'
 // Yvelines
 import PresentationLitsYvelines from 'views/Header/Sections/Departement/Yvelines/structures/lits/presentation'
 import PresentationReseauxYvelines from 'views/Header/Sections/Departement/Yvelines/structures/Reseaux/presentation'
@@ -106,6 +121,8 @@ import PresentationAssociationYvelines from 'views/Header/Sections/Departement/Y
 import PresentationStructureYvelines from 'views/Header/Sections/Departement/Yvelines/structures/structure/presentation'
 import PresentationUspYvelines from 'views/Header/Sections/Departement/Yvelines/structures/Usp/presentation'
 import PresentationHadYvelines from 'views/Header/Sections/Departement/Yvelines/structures/Team/presentation'
+import Presentation_YVELINES_autres_structures from 'views/Header/Sections/Departement/Yvelines$$$$$$$$$$$$$$$/structures/autres_structures/presentation'
+import Presentation_YVELINES_Autres from 'views/Header/Sections/Departement/Yvelines$$$$$$$$$$$$$$$/structures/autres/presentation'
 // ADMIN
 import AnnuaireAdminHome from 'views/Admin/Home/Annuaire/Annuaire'
 // PARIS ADMIN
@@ -145,6 +162,19 @@ import GetPARISASSOS from 'views/Admin/Home/Annuaire/Departements/Paris/ASSOS/ge
 import PostPARISASSOS from 'views/Admin/Home/Annuaire/Departements/Paris/ASSOS/post/post'
 import UpdatePARISASSOS from 'views/Admin/Home/Annuaire/Departements/Paris/ASSOS/update/Header'
 import DeletePARISASSOS from 'views/Admin/Home/Annuaire/Departements/Paris/ASSOS/delete/PresentationDelete'
+// AUTRES
+import Parisautres from 'views/Admin/Home/Annuaire/Departements/Paris/autres/Paris'
+import GetParisautres from 'views/Admin/Home/Annuaire/Departements/Paris/autres/get/get'
+import PostParisautres from 'views/Admin/Home/Annuaire/Departements/Paris/autres/post/post'
+import UpdateParisautres from 'views/Admin/Home/Annuaire/Departements/Paris/autres/update/Header'
+import DeleteParisautres from 'views/Admin/Home/Annuaire/Departements/Paris/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import Parisautres_structures from 'views/Admin/Home/Annuaire/Departements/Paris/autres_structures/Paris'
+import GetParisautres_structures from 'views/Admin/Home/Annuaire/Departements/Paris/autres_structures/get/get'
+import PostParisautres_structures from 'views/Admin/Home/Annuaire/Departements/Paris/autres_structures/post/post'
+import UpdateParisautres_structures from 'views/Admin/Home/Annuaire/Departements/Paris/autres_structures/update/Header'
+import DeleteParisautres_structures from 'views/Admin/Home/Annuaire/Departements/Paris/autres_structures/delete/PresentationDelete'
+
 // HAUTS DE SEINE  ADMIN
 // USP
 import HautsdeSeine from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/USP/HAUTDESEINE'
@@ -182,7 +212,18 @@ import GetHAUTDESEINEASSOS from 'views/Admin/Home/Annuaire/Departements/HAUTDESE
 import PostHAUTDESEINEASSOS from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/ASSOS/post/post'
 import UpdateHAUTDESEINEASSOS from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/ASSOS/update/Header'
 import DeleteHAUTDESEINEASSOS from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/ASSOS/delete/PresentationDelete'
-
+// AUTRES
+import HAUTDESEINEautres from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres/HAUTDESEINE'
+import GetHAUTDESEINEautres from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres/get/get'
+import PostHAUTDESEINEautres from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres/post/post'
+import UpdateHAUTDESEINEautres from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres/update/Header'
+import DeleteHAUTDESEINEautres from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import HAUTDESEINEautres_structures from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres_structures/HAUTDESEINE'
+import GetHAUTDESEINEautres_structures from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres_structures/get/get'
+import PostHAUTDESEINEautres_structures from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres_structures/post/post'
+import UpdateHAUTDESEINEautres_structures from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres_structures/update/Header'
+import DeleteHAUTDESEINEautres_structures from 'views/Admin/Home/Annuaire/Departements/HAUTDESEINE/autres_structures/delete/PresentationDelete'
 // VAL DE MARNE  ADMIN
 // USP
 import VALDEMARNE from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/USP/VALDEMARNE'
@@ -220,6 +261,18 @@ import GetVALDEMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDEMARN
 import PostVALDEMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/ASSOS/post/post'
 import UpdateVALDEMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/ASSOS/update/Header'
 import DeleteVALDEMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/ASSOS/delete/PresentationDelete'
+// AUTRES
+import VALDEMARNEautres from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres/VALDEMARNE'
+import GetVALDEMARNEautres from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres/get/get'
+import PostVALDEMARNEautres from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres/post/post'
+import UpdateVALDEMARNEautres from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres/update/Header'
+import DeleteVALDEMARNEautres from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import VALDEMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres_structures/VALDEMARNE'
+import GetVALDEMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres_structures/get/get'
+import PostVALDEMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres_structures/post/post'
+import UpdateVALDEMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres_structures/update/Header'
+import DeleteVALDEMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDEMARNE/autres_structures/delete/PresentationDelete'
 // SEINE SAINT DENIS  ADMIN
 // USP
 import SEINESAINTDENIS from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/USP/SEINESAINTDENIS'
@@ -257,6 +310,18 @@ import GetSEINESAINTDENISASSOS from 'views/Admin/Home/Annuaire/Departements/SEIN
 import PostSEINESAINTDENISASSOS from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/ASSOS/post/post'
 import UpdateSEINESAINTDENISASSOS from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/ASSOS/update/Header'
 import DeleteSEINESAINTDENISASSOS from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/ASSOS/delete/PresentationDelete'
+// AUTRES
+import SEINESAINTDENISautres from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres/SEINESAINTDENIS'
+import GetSEINESAINTDENISautres from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres/get/get'
+import PostSEINESAINTDENISautres from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres/post/post'
+import UpdateSEINESAINTDENISautres from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres/update/Header'
+import DeleteSEINESAINTDENISautres from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import SEINESAINTDENISautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres_structures/SEINESAINTDENIS'
+import GetSEINESAINTDENISautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres_structures/get/get'
+import PostSEINESAINTDENISautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres_structures/post/post'
+import UpdateSEINESAINTDENISautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres_structures/update/Header'
+import DeleteSEINESAINTDENISautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINESAINTDENIS/autres_structures/delete/PresentationDelete'
 // SEINE ET MARNE  ADMIN
 // USP
 import SEINEETMARNE from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/USP/SEINEETMARNE'
@@ -294,8 +359,22 @@ import GetSEINEETMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/SEINEET
 import PostSEINEETMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/ASSOS/post/post'
 import UpdateSEINEETMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/ASSOS/update/Header'
 import DeleteSEINEETMARNEASSOS from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/ASSOS/delete/PresentationDelete'
+// AUTRES
+import SEINEETMARNEautres from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres/SEINEETMARNE'
+import GetSEINEETMARNEautres from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres/get/get'
+import PostSEINEETMARNEautres from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres/post/post'
+import UpdateSEINEETMARNEautres from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres/update/Header'
+import DeleteSEINEETMARNEautres from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import SEINEETMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres_structures/SEINEETMARNE'
+import GetSEINEETMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres_structures/get/get'
+import PostSEINEETMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres_structures/post/post'
+import UpdateSEINEETMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres_structures/update/Header'
+import DeleteSEINEETMARNEautres_structures from 'views/Admin/Home/Annuaire/Departements/SEINEETMARNE/autres_structures/delete/PresentationDelete'
+
 // ESSONNE  ADMIN
 // USP
+
 import ESSONNE from 'views/Admin/Home/Annuaire/Departements/ESSONNE/USP/ESSONNE'
 import GetUSPESSONNE from 'views/Admin/Home/Annuaire/Departements/ESSONNE/USP/get/get'
 import PostUSPESSONNE from 'views/Admin/Home/Annuaire/Departements/ESSONNE/USP/post/post'
@@ -313,6 +392,18 @@ import GetESSONNELITS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/LITS/
 import PostESSONNELITS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/LITS/post/post'
 import UpdateESSONNELITS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/LITS/update/Header'
 import DeleteESSONNELITS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/LITS/delete/PresentationDelete'
+// AUTRES
+import ESSONNEautres from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres/ESSONNE'
+import GetESSONNEautres from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres/get/get'
+import PostESSONNEautres from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres/post/post'
+import UpdateESSONNEautres from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres/update/Header'
+import DeleteESSONNEautres from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import ESSONNEautres_structures from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres_structures/ESSONNE'
+import GetESSONNEautres_structures from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres_structures/get/get'
+import PostESSONNEautres_structures from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres_structures/post/post'
+import UpdateESSONNEautres_structures from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres_structures/update/Header'
+import DeleteESSONNEautres_structures from 'views/Admin/Home/Annuaire/Departements/ESSONNE/autres_structures/delete/PresentationDelete'
 // STRUCTURES
 import ESSONNETRUCTURES from 'views/Admin/Home/Annuaire/Departements/ESSONNE/STRUCTURES/ESSONNE'
 import GetESSONNESTRUCTURES from 'views/Admin/Home/Annuaire/Departements/ESSONNE/STRUCTURES/get/get'
@@ -368,6 +459,19 @@ import GetYVELINESASSOS from 'views/Admin/Home/Annuaire/Departements/YVELINES/AS
 import PostYVELINESASSOS from 'views/Admin/Home/Annuaire/Departements/YVELINES/ASSOS/post/post'
 import UpdateYVELINESASSOS from 'views/Admin/Home/Annuaire/Departements/YVELINES/ASSOS/update/Header'
 import DeleteYVELINESASSOS from 'views/Admin/Home/Annuaire/Departements/YVELINES/ASSOS/delete/PresentationDelete'
+// AUTRES
+import YVELINESautres from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres/YVELINES'
+import GetYVELINESautres from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres/get/get'
+import PostYVELINESautres from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres/post/post'
+import UpdateYVELINESautres from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres/update/Header'
+import DeleteYVELINESautres from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import YVELINESautres_structures from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres_structures/YVELINES'
+import GetYVELINESautres_structures from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres_structures/get/get'
+import PostYVELINESautres_structures from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres_structures/post/post'
+import UpdateYVELINESautres_structures from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres_structures/update/Header'
+import DeleteYVELINESautres_structures from 'views/Admin/Home/Annuaire/Departements/YVELINES/autres_structures/delete/PresentationDelete'
+
 // VAL D'OISE  ADMIN
 // USP
 import VALDOISE from 'views/Admin/Home/Annuaire/Departements/VALDOISE/USP/VALDOISE'
@@ -405,7 +509,18 @@ import GetVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE/AS
 import PostVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE/ASSOS/post/post'
 import UpdateVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE/ASSOS/update/Header'
 import DeleteVALDOISEASSOS from 'views/Admin/Home/Annuaire/Departements/VALDOISE/ASSOS/delete/PresentationDelete'
-
+// AUTRES
+import VALDOISEautres from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres/VALDOISE'
+import GetVALDOISEautres from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres/get/get'
+import PostVALDOISEautres from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres/post/post'
+import UpdateVALDOISEautres from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres/update/Header'
+import DeleteVALDOISEautres from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres/delete/PresentationDelete'
+// AUTRES STRUCTURES
+import VALDOISEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres_structures/VALDOISE'
+import GetVALDOISEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres_structures/get/get'
+import PostVALDOISEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres_structures/post/post'
+import UpdateVALDOISEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres_structures/update/Header'
+import DeleteVALDOISEautres_structures from 'views/Admin/Home/Annuaire/Departements/VALDOISE/autres_structures/delete/PresentationDelete'
 // MENU
 // COORDINATION REGIONALE
 import CorpalifPage from 'views/Menu/coordinationregionale/corpalif/corpalif.js'
@@ -433,7 +548,7 @@ import PresentationEvenement from 'views/Menu/VeilleMedicale/evenements/getData/
 import PresentationEmploi from 'views/Menu/offresdemploi/offres/getData/offres.jsx'
 import PresentationFormation from 'views/Menu/formations/getData/formations.jsx'
 // NOS RENCONTRES
-
+import PresentationInfoSubscribers from 'views/Menu/VeilleMedicale/rencontres/Subscribers/PresentationInfoSubscribers.jsx'
 import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/rencontres.jsx'
 
 // ACTUALITES
@@ -444,6 +559,23 @@ import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/
 import PaymentPage from 'views/Adherent/individuel/PaymentPage'
 import PaymentPage50euros from 'views/Adherent/collectif/PaymentPage50euros'
 //Admin
+// COORDINATION REGIONALE
+// ADHERENTS
+import OrientationAdminPage from 'views/Admin/Menu/coordinationregionale/orientation/orientation'
+import AdhererAdminPage from 'views/Admin/Menu/coordinationregionale/adherer/adherer'
+import CorpalifAdminPage from 'views/Admin/Menu/coordinationregionale/corpalif/corpalif'
+
+// CORPALIF
+
+// ORIENTATION
+
+// SOINS PALLIATIFS
+
+// LEGISLATION
+
+// DEMARCHE
+
+//ACCOMPAGNEMENT
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
 import Recommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/getData/recommandation&outils.jsx'
@@ -461,6 +593,11 @@ import Rencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/getData/rencont
 import DeleteOneRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/delete/PresentationDelete'
 import UpdateRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/update/Header'
 import PostRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre/post/Header'
+// RENCONTRES_INSCRIT CONTENU PRIVE
+import Rencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/getData/rencontres.jsx'
+import DeleteOneRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/delete/PresentationDelete'
+import UpdateRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/update/Header'
+import PostRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/post/Header'
 // ACTUALITE
 import Actualite from 'views/Admin/Menu/VeilleMedicale/actualite/getData/actualites.jsx'
 import DeleteOneActualite from 'views/Admin/Menu/VeilleMedicale/actualite/delete/PresentationDelete'
@@ -563,6 +700,12 @@ class App extends Component {
 							<Route exact path="/reset/:token" component={UpdatePasswordPage} />
 							{/* Annuaire
 							{/* paris */}
+							<Route
+								exact
+								path="/annuaire/PARIS/autres_structures"
+								component={Presentation_PARIS_autres_structures}
+							/>
+							<Route exact path="/annuaire/PARIS/autres" component={Presentation_PARIS_Autres} />
 							<Route exact path="/annuaire/paris" component={ModalSearchParis} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/Paris/lits" component={PresentationLitsParis} />
@@ -572,6 +715,12 @@ class App extends Component {
 							<Route exact path="/annuaire/Paris/usp" component={PresentationUspParis} />
 							<Route exact path="/annuaire/Paris/reseaux" component={PresentationReseauxParis} />
 							{/* Yvelines */}
+							<Route
+								exact
+								path="/annuaire/YVELINES/autres_structures"
+								component={Presentation_YVELINES_autres_structures}
+							/>
+							<Route exact path="/annuaire/YVELINES/autres" component={Presentation_YVELINES_Autres} />
 							<Route exact path="/annuaire/yvelines" component={ModalSearchYvelines} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/Yvelines/lits" component={PresentationLitsYvelines} />
@@ -589,6 +738,16 @@ class App extends Component {
 							<Route exact path="/annuaire/Yvelines/usp" component={PresentationUspYvelines} />
 							<Route exact path="/annuaire/Yvelines/reseaux" component={PresentationReseauxYvelines} />
 							{/* Seine Saint Denis */}
+							<Route
+								exact
+								path="/annuaire/SEINESAINTDENIS/autres_structures"
+								component={Presentation_SEINESAINTDENIS_autres_structures}
+							/>
+							<Route
+								exact
+								path="/annuaire/SEINESAINTDENIS/autres"
+								component={Presentation_SEINESAINTDENIS_Autres}
+							/>
 							<Route exact path="/annuaire/seinesaintdenis" component={ModalSearchSeineSaintDenis} />
 							{/* Offres de soins */}
 							<Route
@@ -622,6 +781,16 @@ class App extends Component {
 								component={PresentationReseauxSeineSaintDenis}
 							/>
 							{/* Seine et Marne */}
+							<Route
+								exact
+								path="/annuaire/SEINEETMARNE/autres_structures"
+								component={Presentation_SEINEETMARNE_autres_structures}
+							/>
+							<Route
+								exact
+								path="/annuaire/SEINEETMARNE/autres"
+								component={Presentation_SEINEETMARNE_Autres}
+							/>
 							<Route exact path="/annuaire/seineetmarne" component={ModalSearchSeineetMarne} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/SeineetMarne/lits" component={PresentationLitsSeineetMarne} />
@@ -647,6 +816,12 @@ class App extends Component {
 								component={PresentationReseauxSeineetMarne}
 							/>
 							{/* Val d'Oise */}
+							<Route
+								exact
+								path="/annuaire/VALDOISE/autres_structures"
+								component={Presentation_VALDOISE_autres_structures}
+							/>
+							<Route exact path="/annuaire/VALDOISE/autres" component={Presentation_VALDOISE_Autres} />
 							<Route exact path="/annuaire/valdoise" component={ModalSearchValdOise} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/ValdOise/lits" component={PresentationLitsValdOise} />
@@ -665,7 +840,6 @@ class App extends Component {
 							<Route exact path="/annuaire/ValdOise/reseaux" component={PresentationReseauxValdOise} />
 							{/* Essonne */}
 							<Route exact path="/annuaire/essonne" component={ModalSearchEssonne} />
-							{/* Offres de soins */}
 							<Route exact path="/annuaire/essonne/lits" component={PresentationLitsEssonne} />
 							<Route exact path="/annuaire/essonne/structure" component={PresentationStructureEssonne} />
 							<Route
@@ -673,10 +847,26 @@ class App extends Component {
 								path="/annuaire/essonne/association"
 								component={PresentationAssociationEssonne}
 							/>
+							<Route
+								exact
+								path="/annuaire/essonne/autres_structures"
+								component={Presentation_ESSONNE_autres_structures}
+							/>
+							<Route exact path="/annuaire/essonne/autres" component={Presentation_ESSONNE_Autres} />
 							<Route exact path="/annuaire/essonne/equipesmobiles" component={PresentationHadEssonne} />
 							<Route exact path="/annuaire/essonne/usp" component={PresentationUspEssonne} />
 							<Route exact path="/annuaire/essonne/reseaux" component={PresentationReseauxEssonne} />
 							{/* Val de Marne */}
+							<Route
+								exact
+								path="/annuaire/VALDEMARNE/autres_structures"
+								component={Presentation_VALDEMARNE_autres_structures}
+							/>
+							<Route
+								exact
+								path="/annuaire/VALDEMARNE/autres"
+								component={Presentation_VALDEMARNE_Autres}
+							/>
 							<Route exact path="/annuaire/valdemarne" component={ModalSearchValdeMarne} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/ValdeMarne/lits" component={PresentationLitsValdeMarne} />
@@ -702,6 +892,16 @@ class App extends Component {
 								component={PresentationReseauxValdeMarne}
 							/>
 							{/* Hauts de Seine */}
+							<Route
+								exact
+								path="/annuaire/HAUTSDESEINE/autres_structures"
+								component={Presentation_HAUTSDESEINE_autres_structures}
+							/>
+							<Route
+								exact
+								path="/annuaire/HAUTSDESEINE/autres"
+								component={Presentation_HAUTSDESEINE_Autres}
+							/>
 							<Route exact path="/annuaire/hautsdeseine" component={ModalSearchHautsdeSeine} />
 							{/* Offres de soins */}
 							<Route exact path="/annuaire/HautsdeSeine/lits" component={PresentationLitsHautsdeSeine} />
@@ -726,7 +926,6 @@ class App extends Component {
 								path="/annuaire/HautsdeSeine/reseaux"
 								component={PresentationReseauxHautsdeSeine}
 							/>{' '}
-							*/}
 							<Switch>
 								<PrivateRoute exact path="/dashboard" component={Dashboard} />
 								<PrivateRoute exact path="/monprofile" component={ProfilePagePresentation} />
@@ -746,6 +945,39 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Paris */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/Paris/autres" component={Parisautres} />
+								<AdminRoute exact path="/admin/Paris/autres/:id" component={GetParisautres} />
+								<AdminRoute exact path="/admin/update/Paris/autres/:id" component={UpdateParisautres} />
+								<AdminRoute exact path="/admin/post/Paris/autres" component={PostParisautres} />
+								<AdminRoute exact path="/admin/delete/Paris/autres/:id" component={DeleteParisautres} />
+
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/Paris/autres_structures"
+									component={Parisautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/Paris/autres_structures/:id"
+									component={GetParisautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/Paris/autres_structures/:id"
+									component={UpdateParisautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/Paris/autres_structures"
+									component={PostParisautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/Paris/autres_structures/:id"
+									component={DeleteParisautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/paris/usp" component={Paris} />
 								<AdminRoute exact path="/admin/paris/usp/:id" component={Get} />
@@ -817,7 +1049,55 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Hauts de Seine */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/HAUTDESEINE/autres" component={HAUTDESEINEautres} />
+								<AdminRoute
+									exact
+									path="/admin/HAUTDESEINE/autres/:id"
+									component={GetHAUTDESEINEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/HAUTDESEINE/autres/:id"
+									component={UpdateHAUTDESEINEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/HAUTDESEINE/autres"
+									component={PostHAUTDESEINEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/HAUTDESEINE/autres/:id"
+									component={DeleteHAUTDESEINEautres}
+								/>
 
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/HAUTDESEINE/autres_structures"
+									component={HAUTDESEINEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/HAUTDESEINE/autres_structures/:id"
+									component={GetHAUTDESEINEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/HAUTDESEINE/autres_structures/:id"
+									component={UpdateHAUTDESEINEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/HAUTDESEINE/autres_structures"
+									component={PostHAUTDESEINEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/HAUTDESEINE/autres_structures/:id"
+									component={DeleteHAUTDESEINEautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/hautdeseine/usp" component={HautsdeSeine} />
 								<AdminRoute exact path="/admin/HAUTDESEINE/usp/:id" component={GetUSPHAUTDESEINE} />
@@ -941,7 +1221,51 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Val de Marne */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/VALDEMARNE/autres" component={VALDEMARNEautres} />
+								<AdminRoute exact path="/admin/VALDEMARNE/autres/:id" component={GetVALDEMARNEautres} />
+								<AdminRoute
+									exact
+									path="/admin/update/VALDEMARNE/autres/:id"
+									component={UpdateVALDEMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/VALDEMARNE/autres"
+									component={PostVALDEMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/VALDEMARNE/autres/:id"
+									component={DeleteVALDEMARNEautres}
+								/>
 
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/VALDEMARNE/autres_structures"
+									component={VALDEMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/VALDEMARNE/autres_structures/:id"
+									component={GetVALDEMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/VALDEMARNE/autres_structures/:id"
+									component={UpdateVALDEMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/VALDEMARNE/autres_structures"
+									component={PostVALDEMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/VALDEMARNE/autres_structures/:id"
+									component={DeleteVALDEMARNEautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/VALDEMARNE/usp" component={VALDEMARNE} />
 								<AdminRoute exact path="/admin/VALDEMARNE/usp/:id" component={GetUSPVALDEMARNE} />
@@ -1061,7 +1385,59 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Seine Saint Denis */}
+								{/* {Autres} */}
+								<AdminRoute
+									exact
+									path="/admin/SEINESAINTDENIS/autres"
+									component={SEINESAINTDENISautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/SEINESAINTDENIS/autres/:id"
+									component={GetSEINESAINTDENISautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/SEINESAINTDENIS/autres/:id"
+									component={UpdateSEINESAINTDENISautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/SEINESAINTDENIS/autres"
+									component={PostSEINESAINTDENISautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/SEINESAINTDENIS/autres/:id"
+									component={DeleteSEINESAINTDENISautres}
+								/>
 
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/SEINESAINTDENIS/autres_structures"
+									component={SEINESAINTDENISautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/SEINESAINTDENIS/autres_structures/:id"
+									component={GetSEINESAINTDENISautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/SEINESAINTDENIS/autres_structures/:id"
+									component={UpdateSEINESAINTDENISautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/SEINESAINTDENIS/autres_structures"
+									component={PostSEINESAINTDENISautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/SEINESAINTDENIS/autres_structures/:id"
+									component={DeleteSEINESAINTDENISautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/SEINESAINTDENIS/usp" component={SEINESAINTDENIS} />
 								<AdminRoute
@@ -1213,6 +1589,47 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Val d'Oise */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/VALDOISE/autres" component={VALDOISEautres} />
+								<AdminRoute exact path="/admin/VALDOISE/autres/:id" component={GetVALDOISEautres} />
+								<AdminRoute
+									exact
+									path="/admin/update/VALDOISE/autres/:id"
+									component={UpdateVALDOISEautres}
+								/>
+								<AdminRoute exact path="/admin/post/VALDOISE/autres" component={PostVALDOISEautres} />
+								<AdminRoute
+									exact
+									path="/admin/delete/VALDOISE/autres/:id"
+									component={DeleteVALDOISEautres}
+								/>
+
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/VALDOISE/autres_structures"
+									component={VALDOISEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/VALDOISE/autres_structures/:id"
+									component={GetVALDOISEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/VALDOISE/autres_structures/:id"
+									component={UpdateVALDOISEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/VALDOISE/autres_structures"
+									component={PostVALDOISEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/VALDOISE/autres_structures/:id"
+									component={DeleteVALDOISEautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/VALDOISE/usp" component={VALDOISE} />
 								<AdminRoute exact path="/admin/VALDOISE/usp/:id" component={GetUSPVALDOISE} />
@@ -1392,9 +1809,100 @@ class App extends Component {
 								<AdminRoute exact path="/admin/update/ESSONNE/lits/:id" component={UpdateESSONNELITS} />
 								<AdminRoute exact path="/admin/post/ESSONNE/lits" component={PostESSONNELITS} />
 								<AdminRoute exact path="/admin/delete/ESSONNE/lits/:id" component={DeleteESSONNELITS} />
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/ESSONNE/autres" component={ESSONNEautres} />
+								<AdminRoute exact path="/admin/ESSONNE/autres/:id" component={GetESSONNEautres} />
+								<AdminRoute
+									exact
+									path="/admin/update/ESSONNE/autres/:id"
+									component={UpdateESSONNEautres}
+								/>
+								<AdminRoute exact path="/admin/post/ESSONNE/autres" component={PostESSONNEautres} />
+								<AdminRoute
+									exact
+									path="/admin/delete/ESSONNE/autres/:id"
+									component={DeleteESSONNEautres}
+								/>
+
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/ESSONNE/autres_structures"
+									component={ESSONNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/ESSONNE/autres_structures/:id"
+									component={GetESSONNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/ESSONNE/autres_structures/:id"
+									component={UpdateESSONNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/ESSONNE/autres_structures"
+									component={PostESSONNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/ESSONNE/autres_structures/:id"
+									component={DeleteESSONNEautres_structures}
+								/>
 							</Switch>
 							<Switch>
 								{/* Seine et Marne */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/SEINEETMARNE/autres" component={SEINEETMARNEautres} />
+								<AdminRoute
+									exact
+									path="/admin/SEINEETMARNE/autres/:id"
+									component={GetSEINEETMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/SEINEETMARNE/autres/:id"
+									component={UpdateSEINEETMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/SEINEETMARNE/autres"
+									component={PostSEINEETMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/SEINEETMARNE/autres/:id"
+									component={DeleteSEINEETMARNEautres}
+								/>
+
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/SEINEETMARNE/autres_structures"
+									component={SEINEETMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/SEINEETMARNE/autres_structures/:id"
+									component={GetSEINEETMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/SEINEETMARNE/autres_structures/:id"
+									component={UpdateSEINEETMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/SEINEETMARNE/autres_structures"
+									component={PostSEINEETMARNEautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/SEINEETMARNE/autres_structures/:id"
+									component={DeleteSEINEETMARNEautres_structures}
+								/>
+
 								{/* USP */}
 								<AdminRoute exact path="/admin/SEINEETMARNE/usp" component={SEINEETMARNE} />
 								<AdminRoute exact path="/admin/SEINEETMARNE/usp/:id" component={GetUSPSEINEETMARNE} />
@@ -1530,6 +2038,47 @@ class App extends Component {
 							</Switch>
 							<Switch>
 								{/* Yvelines */}
+								{/* {Autres} */}
+								<AdminRoute exact path="/admin/YVELINES/autres" component={YVELINESautres} />
+								<AdminRoute exact path="/admin/YVELINES/autres/:id" component={GetYVELINESautres} />
+								<AdminRoute
+									exact
+									path="/admin/update/YVELINES/autres/:id"
+									component={UpdateYVELINESautres}
+								/>
+								<AdminRoute exact path="/admin/post/YVELINES/autres" component={PostYVELINESautres} />
+								<AdminRoute
+									exact
+									path="/admin/delete/YVELINES/autres/:id"
+									component={DeleteYVELINESautres}
+								/>
+
+								{/* {Autres_structures} */}
+								<AdminRoute
+									exact
+									path="/admin/YVELINES/autres_structures"
+									component={YVELINESautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/YVELINES/autres_structures/:id"
+									component={GetYVELINESautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/YVELINES/autres_structures/:id"
+									component={UpdateYVELINESautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/post/YVELINES/autres_structures"
+									component={PostYVELINESautres_structures}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/YVELINES/autres_structures/:id"
+									component={DeleteYVELINESautres_structures}
+								/>
 								{/* USP */}
 								<AdminRoute exact path="/admin/YVELINES/usp" component={YVELINES} />
 								<AdminRoute exact path="/admin/YVELINES/usp/:id" component={GetUSPYVELINES} />
@@ -1688,12 +2237,34 @@ class App extends Component {
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
+								<PrivateRoute
+									exact
+									path="/menu/veillemedicale/infosforSubscribers"
+									component={PresentationInfoSubscribers}
+								/>
+
+								<Route exact path="/admin/maps" component={PresentationMapEssonne} />
 								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
 								{/* {admin } */}
+									<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									component={OrientationAdminPage}
+								/>
+									<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/adherer/adherer/"
+									component={AdhererAdminPage}
+								/>
+									<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/corpalif/corpalif/"
+									component={CorpalifAdminPage}
+								/>
 								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/"
@@ -1730,6 +2301,27 @@ class App extends Component {
 									exact
 									path="/admin/menu/veillemedicale/evenement/post"
 									component={PostEvenement}
+								/>
+								{/* rencontre_inscrit, Contenu privé */}
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfo/"
+									component={Rencontre_inscrit}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfo/delete/:id"
+									component={DeleteOneRencontre_inscrit}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfo/update/:id"
+									component={UpdateRencontre_inscrit}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfo/post"
+									component={PostRencontre_inscrit}
 								/>
 								{/* rencontre */}
 								<AdminRoute exact path="/admin/menu/veillemedicale/rencontre/" component={Rencontre} />

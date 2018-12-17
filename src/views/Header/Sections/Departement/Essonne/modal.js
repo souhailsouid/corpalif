@@ -28,7 +28,9 @@ import {
 	getCurrentStructureHAD,
 	getCurrentStructureAssos,
 	getCurrentStructureReseaux,
-	getCurrentStructureTEAM
+	getCurrentStructureTEAM,
+	getCurrentStructure_autres,
+	getCurrentStructure_autres_structures
 } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -51,6 +53,8 @@ class ModalSearchEssonne extends React.Component {
 		this.props.getCurrentStructureAssos()
 		this.props.getCurrentStructureReseaux()
 		this.props.getCurrentStructureTEAM()
+		this.props.getCurrentStructure_autres()
+		this.props.getCurrentStructure_autres_structures()
 	}
 	handleClickOpen(modal) {
 		var x = []
@@ -63,7 +67,7 @@ class ModalSearchEssonne extends React.Component {
 		this.setState(x)
 	}
 	render() {
-		const { association, soin, reseaux, lit, usp, had } = this.props.association
+		const { association, soin, reseaux, lit, usp, had, autres, autres_structures } = this.props.association
 		const { classes, ...rest } = this.props
 		return (
 			<div>
@@ -149,7 +153,7 @@ class ModalSearchEssonne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(soin).length}</h3> Structures
-																		d'hospitalisation à domicile
+																		d'hospitalisation à domicile (HAD)
 																	</div>
 																}
 															/>
@@ -181,7 +185,7 @@ class ModalSearchEssonne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(had).length}</h3> Équipes
-																		mobiles de soins palliatifs (HAD)
+																		mobiles de soins palliatifs
 																	</div>
 																}
 															/>
@@ -197,6 +201,54 @@ class ModalSearchEssonne extends React.Component {
 																	<div>
 																		<h3>{Object.keys(association).length}</h3>
 																		Association de bénévoles d'accompagnement
+																	</div>
+																}
+															/>
+														</Link>
+													</GridItem>
+												</GridContainer>
+												<GridContainer className={classes.gridContainer} justify="center">
+													<GridItem
+														xs={12}
+														sm={4}
+														className={classes.gridItem}
+														style={{
+															borderLeft: '1px solid #D3D3D3',
+															borderBottom: '1px solid #D3D3D3'
+														}}
+													>
+														<Link to="/annuaire/essonne/autres_structures">
+															<InfoArea
+																vertical
+																className={classes.infoArea5}
+																icon={SupervisedUserCircle}
+																title={
+																	<div>
+																		<h3>{Object.keys(autres_structures).length}</h3>
+																		Autres structures
+																	</div>
+																}
+															/>
+														</Link>
+													</GridItem>
+													<GridItem
+														xs={12}
+														sm={4}
+														className={classes.gridItem}
+														style={{
+															borderRight: '1px solid #D3D3D3',
+															borderBottom: '1px solid #D3D3D3'
+														}}
+													>
+														<Link to="/annuaire/essonne/autres">
+															<InfoArea
+																vertical
+																className={classes.infoArea5}
+																icon={SupervisedUserCircle}
+																title={
+																	<div>
+																		<h3>{Object.keys(autres).length}</h3>
+																		Autres ...
 																	</div>
 																}
 															/>
@@ -223,20 +275,28 @@ ModalSearchEssonne.propTypes = {
 	getCurrentStructureAssos: PropTypes.func.isRequired,
 	getCurrentStructureReseaux: PropTypes.func.isRequired,
 	getCurrentStructureTEAM: PropTypes.func.isRequired,
+	getCurrentStructure_autres: PropTypes.func.isRequired,
+	getCurrentStructure_autres_structures: PropTypes.func.isRequired,
 	association: PropTypes.object.isRequired,
+	autres: PropTypes.object.isRequired,
+	autres_structures: PropTypes.object.isRequired,
 	lit: PropTypes.object.isRequired,
 	soin: PropTypes.object.isRequired,
 	reseaux: PropTypes.object.isRequired,
 	team: PropTypes.object.isRequired,
 	usp: PropTypes.object.isRequired,
-	classes: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired,
+	had: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
+	autres: state.autres,
+	autres_structures: state.autres_structures,
 	association: state.association,
 	soin: state.soin,
 	team: state.team,
 	usp: state.usp,
+	had: state.had,
 	reseaux: state.reseaux,
 	lit: state.lit
 })
@@ -248,6 +308,8 @@ export default compose(withStyles(javascriptStyles))(
 		getCurrentStructureHAD,
 		getCurrentStructureAssos,
 		getCurrentStructureReseaux,
-		getCurrentStructureTEAM
+		getCurrentStructureTEAM,
+		getCurrentStructure_autres,
+		getCurrentStructure_autres_structures
 	})(withRouter(ModalSearchEssonne))
 )

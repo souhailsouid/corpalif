@@ -15,7 +15,7 @@ export const getCurrentRencontre = () => (dispatch) => {
 // Get current Rencontre
 export const getCurrentRencontre_id = (id) => (dispatch) => {
 	axios
-		.get(`/api/rencontre${id}`)
+		.get(`/api/rencontre/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_RENCONTRE,
@@ -33,7 +33,7 @@ export const getCurrentRencontre_id = (id) => (dispatch) => {
 // Delete Post
 export const delete_Rencontre = (id) => (dispatch) => {
 	axios
-		.delete(`/api/rencontre${id}`)
+		.delete(`/api/rencontre/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_RENCONTRE,
@@ -49,7 +49,7 @@ export const delete_Rencontre = (id) => (dispatch) => {
 }
 // Add Comment
 export const updatRencontre = (id, Data) => (dispatch) => {
-	axios.patch(`/api/rencontre${id}`, Data).then((res) => res.data).catch((err) =>
+	axios.patch(`/api/rencontre/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}

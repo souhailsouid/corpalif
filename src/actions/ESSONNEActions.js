@@ -15,7 +15,11 @@ import {
 	GET_STRUCTURELITS,
 	DELETE_STRUCTURELITS,
 	GET_STRUCTURESOINS,
-	DELETE_STRUCTURESOINS
+	DELETE_STRUCTURESOINS,
+	GET_STRUCTURE_AUTRES,
+	GET_STRUCTURE_AUTRES_STRUCTURES,
+	DELETE_STRUCTURE_AUTRES_STRUCTURES,
+	DELETE_STRUCTURE_AUTRES
 } from './types'
 //USP
 // Get current structure
@@ -448,6 +452,149 @@ export const postHAD = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/annuaire/essonne/essonne/HAD', Data)
 		.then((res) => history.push('/admin/essonne/structures'))
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
+}
+
+// Autres_structures
+
+// Get all structures
+export const getCurrentStructure_autres_structures = () => (dispatch) => {
+	dispatch(setStructureLoading())
+	axios.get('/api/annuaire/essonne/essonne/autres_structures').then((res) =>
+		dispatch({
+			type: GET_STRUCTURE_AUTRES_STRUCTURES,
+			payload: res.data
+		})
+	)
+}
+
+// Get current structure
+export const getCurrentStructure_id_autres_structures = (id) => (dispatch) => {
+	dispatch(setStructureLoading())
+	axios
+		.get(`/api/annuaire/essonne/essonne/autres_structures/${id}`)
+		.then((res) =>
+			dispatch({
+				type: GET_STRUCTURE_AUTRES_STRUCTURES,
+				payload: res.data
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_STRUCTURE_AUTRES_STRUCTURES,
+				payload: null
+			})
+		)
+}
+
+// Delete Post
+export const deleteStructure_id_autres_structures = (id) => (dispatch) => {
+	axios
+		.delete(`/api/annuaire/essonne/essonne/autres_structures/${id}`)
+		.then((res) =>
+			dispatch({
+				type: DELETE_STRUCTURE_AUTRES_STRUCTURES,
+				payload: id
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
+}
+// Add Comment
+export const updateStructure_autres_structures = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/essonne/essonne/autres_structures/${id}`, Data).then((res) => res.data).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: {}
+		})
+	)
+}
+
+// Create structure
+export const post_essonne_autres_structures = (Data, history) => (dispatch) => {
+	axios
+		.post('/api/annuaire/essonne/essonne/autres_structures', Data)
+		.then((res) => history.push('/admin/essonne/autres_structures'))
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
+}
+//Autres ...
+
+// Get all structures
+export const getCurrentStructure_autres = () => (dispatch) => {
+	dispatch(setStructureLoading())
+	axios.get('/api/annuaire/essonne/essonne/autres').then((res) =>
+		dispatch({
+			type: GET_STRUCTURE_AUTRES,
+			payload: res.data
+		})
+	)
+}
+
+// Get current structure
+export const getCurrentStructure_id_autres = (id) => (dispatch) => {
+	dispatch(setStructureLoading())
+	axios
+		.get(`/api/annuaire/essonne/essonne/autres/${id}`)
+		.then((res) =>
+			dispatch({
+				type: GET_STRUCTURE_AUTRES,
+				payload: res.data
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_STRUCTURE_AUTRES,
+				payload: null
+			})
+		)
+}
+
+// Delete Post
+export const deleteStructure_id_autres = (id) => (dispatch) => {
+	axios
+		.delete(`/api/annuaire/essonne/essonne/autres/${id}`)
+		.then((res) =>
+			dispatch({
+				type: DELETE_STRUCTURE_AUTRES,
+				payload: id
+			})
+		)
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		)
+}
+// Add Comment
+export const updateStructure_autres = (id, Data) => (dispatch) => {
+	axios.put(`/api/annuaire/essonne/essonne/autres/${id}`, Data).then((res) => res.data).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: {}
+		})
+	)
+}
+
+// Create structure
+export const post_essonne_autres = (Data, history) => (dispatch) => {
+	axios
+		.post('/api/annuaire/essonne/essonne/autres', Data)
+		.then((res) => history.push('/admin/essonne/autres'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,

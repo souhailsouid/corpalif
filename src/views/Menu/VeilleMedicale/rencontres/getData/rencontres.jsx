@@ -8,7 +8,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 import SectionRencontre from './get.jsx'
-// section CSS
+import Rencontre from '../Subscribers/forSubscribers'
 
 class PresentationRencontre extends React.Component {
 	componentDidMount() {
@@ -25,10 +25,10 @@ class PresentationRencontre extends React.Component {
 					<GridContainer justify="center">
 						<SectionRencontre />
 					</GridContainer>
-					<SectionFooter />
 				</div>
+				<Rencontre />
 
-				<div />
+				<SectionFooter />
 			</div>
 		)
 	}

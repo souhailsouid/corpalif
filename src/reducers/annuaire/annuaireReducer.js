@@ -12,7 +12,11 @@ import {
 	DELETE_STRUCTURESOINS,
 	GET_STRUCTURESOINS,
 	DELETE_STRUCTUREHAD,
-	GET_STRUCTUREHAD
+	GET_STRUCTUREHAD,
+	GET_STRUCTURE_AUTRES,
+	GET_STRUCTURE_AUTRES_STRUCTURES,
+	DELETE_STRUCTURE_AUTRES_STRUCTURES,
+	DELETE_STRUCTURE_AUTRES
 } from 'actions/types'
 
 const initialState = {
@@ -22,6 +26,8 @@ const initialState = {
 	lit: [],
 	had: [],
 	soin: [],
+	autres_structures: [],
+	autres: [],
 	loading: false
 }
 
@@ -116,6 +122,34 @@ export default function(state = initialState, action) {
 				...state,
 				posts: state.soins.filter((soin) => soin._id !== action.payload)
 			}
+		// AUTRES_STRUCTURES
+		case GET_STRUCTURE_AUTRES_STRUCTURES:
+			return {
+				...state,
+				autres_structures: action.payload,
+				loading: false
+			}
+
+		case DELETE_STRUCTURE_AUTRES_STRUCTURES:
+			return {
+				...state,
+				posts: state.autres_structures.filter((autres_structures) => autres_structures._id !== action.payload)
+			}
+
+		// AUTRES
+		case GET_STRUCTURE_AUTRES:
+			return {
+				...state,
+				autres: action.payload,
+				loading: false
+			}
+
+		case DELETE_STRUCTURE_AUTRES:
+			return {
+				...state,
+				posts: state.autres.filter((autres) => autres._id !== action.payload)
+			}
+
 		default:
 			return state
 	}

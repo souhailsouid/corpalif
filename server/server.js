@@ -21,7 +21,8 @@ const paris_association = require('./routes/api/Annuaire/Paris/association')
 const paris_team = require('./routes/api/Annuaire/Paris/team')
 const paris_had = require('./routes/api/Annuaire/Paris/had')
 const paris_lits = require('./routes/api/Annuaire/Paris/lits')
-
+const paris_autres_structures = require('./routes/api/Annuaire/Paris/autres_structures')
+const paris_autres = require('./routes/api/Annuaire/Paris/autres')
 // Yvelines
 const yvelines_usp = require('./routes/api/Annuaire/Yvelines/usp')
 const yvelines_reseaux = require('./routes/api/Annuaire/Yvelines/reseaux')
@@ -29,6 +30,8 @@ const yvelines_association = require('./routes/api/Annuaire/Yvelines/association
 const yvelines_team = require('./routes/api/Annuaire/Yvelines/team')
 const yvelines_had = require('./routes/api/Annuaire/Yvelines/had')
 const yvelines_lits = require('./routes/api/Annuaire/Yvelines/lits')
+const yvelines_autres_structures = require('./routes/api/Annuaire/Yvelines/autres_structures')
+const yvelines_autres = require('./routes/api/Annuaire/Yvelines/autres')
 // Val d'Oise
 const valdoise_usp = require('./routes/api/Annuaire/ValDoise/usp')
 const valdoise_reseaux = require('./routes/api/Annuaire/ValDoise/reseaux')
@@ -36,6 +39,8 @@ const valdoise_association = require('./routes/api/Annuaire/ValDoise/association
 const valdoise_team = require('./routes/api/Annuaire/ValDoise/team')
 const valdoise_had = require('./routes/api/Annuaire/ValDoise/had')
 const valdoise_lits = require('./routes/api/Annuaire/ValDoise/lits')
+const valdoise_autres_structures = require('./routes/api/Annuaire/ValDoise/autres_structures')
+const valdoise_autres = require('./routes/api/Annuaire/ValDoise/autres')
 // Seine Saint Denis
 const seinesaintdenis_usp = require('./routes/api/Annuaire/SeineSaintDenis/usp')
 const seinesaintdenis_reseaux = require('./routes/api/Annuaire/SeineSaintDenis/reseaux')
@@ -43,6 +48,8 @@ const seinesaintdenis_association = require('./routes/api/Annuaire/SeineSaintDen
 const seinesaintdenis_team = require('./routes/api/Annuaire/SeineSaintDenis/team')
 const seinesaintdenis_had = require('./routes/api/Annuaire/SeineSaintDenis/had')
 const seinesaintdenis_lits = require('./routes/api/Annuaire/SeineSaintDenis/lits')
+const seinesaintdenis_autres_structures = require('./routes/api/Annuaire/SeineSaintDenis/autres_structures')
+const seinesaintdenis_autres = require('./routes/api/Annuaire/SeineSaintDenis/autres')
 // Val de Marne
 const valdemarne_usp = require('./routes/api/Annuaire/ValDeMarne/usp')
 const valdemarne_reseaux = require('./routes/api/Annuaire/ValDeMarne/reseaux')
@@ -50,6 +57,8 @@ const valdemarne_association = require('./routes/api/Annuaire/ValDeMarne/associa
 const valdemarne_team = require('./routes/api/Annuaire/ValDeMarne/team')
 const valdemarne_had = require('./routes/api/Annuaire/ValDeMarne/had')
 const valdemarne_lits = require('./routes/api/Annuaire/ValDeMarne/lits')
+const valdemarne_autres_structures = require('./routes/api/Annuaire/ValDeMarne/autres_structures')
+const valdemarne_autres = require('./routes/api/Annuaire/ValDeMarne/autres')
 // Seine et Marne
 const seineetmarne_usp = require('./routes/api/Annuaire/SeineEtMarne/usp')
 const seineetmarne_reseaux = require('./routes/api/Annuaire/SeineEtMarne/reseaux')
@@ -57,7 +66,8 @@ const seineetmarne_association = require('./routes/api/Annuaire/SeineEtMarne/ass
 const seineetmarne_team = require('./routes/api/Annuaire/SeineEtMarne/team')
 const seineetmarne_had = require('./routes/api/Annuaire/SeineEtMarne/had')
 const seineetmarne_lits = require('./routes/api/Annuaire/SeineEtMarne/lits')
-
+const seineetmarne_autres_structures = require('./routes/api/Annuaire/SeineEtMarne/autres_structures')
+const seineetmarne_autres = require('./routes/api/Annuaire/SeineEtMarne/autres')
 // Essonne
 const essonne_usp = require('./routes/api/Annuaire/Essonne/usp')
 const essonne_reseaux = require('./routes/api/Annuaire/Essonne/reseaux')
@@ -65,6 +75,8 @@ const essonne_association = require('./routes/api/Annuaire/Essonne/association')
 const essonne_team = require('./routes/api/Annuaire/Essonne/team')
 const essonne_had = require('./routes/api/Annuaire/Essonne/had')
 const essonne_lits = require('./routes/api/Annuaire/Essonne/lits')
+const essonne_autres_structures = require('./routes/api/Annuaire/Essonne/autres_structures')
+const essonne_autres = require('./routes/api/Annuaire/Essonne/autres')
 // Hauts de Seine
 const hautsdeseine_usp = require('./routes/api/Annuaire/HautsDeSeine/usp')
 const hautsdeseine_reseaux = require('./routes/api/Annuaire/HautsDeSeine/reseaux')
@@ -72,22 +84,33 @@ const hautsdeseine_association = require('./routes/api/Annuaire/HautsDeSeine/ass
 const hautsdeseine_team = require('./routes/api/Annuaire/HautsDeSeine/team')
 const hautsdeseine_had = require('./routes/api/Annuaire/HautsDeSeine/had')
 const hautsdeseine_lits = require('./routes/api/Annuaire/HautsDeSeine/lits')
-
+const hautsdeseine_autres_structures = require('./routes/api/Annuaire/HautsDeSeine/autres_structures')
+const hautsdeseine_autres = require('./routes/api/Annuaire/HautsDeSeine/autres')
 // VEILLE MEDICALE
 
 const veillemedicale_recommandation = require('./routes/api/veillemedicale/recommandations&outils')
 const veillemedicale_rencontre = require('./routes/api/veillemedicale/rencontre')
+const veillemedicale_rencontre_inscrit = require('./routes/api/veillemedicale/PrivateInfo')
 const veillemedicale_evenement = require('./routes/api/veillemedicale/evenement')
 const veillemedicale_actualite = require('./routes/api/veillemedicale/actualite')
 const caroussel = require('./routes/api/HomePage/caroussel')
 const adherent = require('./routes/api/HomePage/adherent')
 const register_file = require('./routes/api/HomePage/Register_file')
+// SOINS PALLIATIFS
+const accompagnement = require('./routes/api/soinspalliatifs/accompagnement/accompagnement')
+const demarche = require('./routes/api/soinspalliatifs/demarche/demarche')
+const legislation = require('./routes/api/soinspalliatifs/legislation/legislation')
+// COORDINATION REGIONALE
+// SOINS PALLIATIFS
+const corpalif = require('./routes/api/coordinationsregionales/corpalif/corpalif')
+const orientation = require('./routes/api/coordinationsregionales/orientation/orientation')
+const adherer = require('./routes/api/coordinationsregionales/adherer/adherer')
 // AGENDA
 const agenda = require('./routes/api/HomePage//agenda')
 // OFFRE DEMPLOI & FORMATIONS
 const offresdemplois = require('./routes/api/offredemploi&formations/offredemploi')
 const formations = require('./routes/api/offredemploi&formations/formations')
-//NOTIFCATION
+//NOTIFICATION
 const agenda1 = require('./routes/api/HomePage/agenda1')
 const agenda2 = require('./routes/api/HomePage/agenda2')
 const offre = require('./routes/api/HomePage/offre')
@@ -218,6 +241,8 @@ app.use('/api/annuaire/paris', paris_association)
 app.use('/api/annuaire/paris', paris_team)
 app.use('/api/annuaire/paris', paris_had)
 app.use('/api/annuaire/paris', paris_lits)
+app.use('/api/annuaire/paris', paris_autres_structures)
+app.use('/api/annuaire/paris', paris_autres)
 
 // Yvelines
 app.use('/api/annuaire/yvelines', yvelines_usp)
@@ -226,6 +251,8 @@ app.use('/api/annuaire/yvelines', yvelines_association)
 app.use('/api/annuaire/yvelines', yvelines_team)
 app.use('/api/annuaire/yvelines', yvelines_had)
 app.use('/api/annuaire/yvelines', yvelines_lits)
+app.use('/api/annuaire/yvelines', yvelines_autres_structures)
+app.use('/api/annuaire/yvelines', yvelines_autres)
 // Val d'Oise
 app.use('/api/annuaire/valdoise', valdoise_usp)
 app.use('/api/annuaire/valdoise', valdoise_reseaux)
@@ -233,6 +260,8 @@ app.use('/api/annuaire/valdoise', valdoise_association)
 app.use('/api/annuaire/valdoise', valdoise_team)
 app.use('/api/annuaire/valdoise', valdoise_had)
 app.use('/api/annuaire/valdoise', valdoise_lits)
+app.use('/api/annuaire/valdoise', valdoise_autres_structures)
+app.use('/api/annuaire/valdoise', valdoise_autres)
 // Seine Saint Denis
 app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_usp)
 app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_reseaux)
@@ -240,6 +269,8 @@ app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_association)
 app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_team)
 app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_had)
 app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_lits)
+app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_autres_structures)
+app.use('/api/annuaire/seinesaintdenis', seinesaintdenis_autres)
 // Val de Marne
 app.use('/api/annuaire/valdemarne', valdemarne_usp)
 app.use('/api/annuaire/valdemarne', valdemarne_reseaux)
@@ -247,6 +278,8 @@ app.use('/api/annuaire/valdemarne', valdemarne_association)
 app.use('/api/annuaire/valdemarne', valdemarne_team)
 app.use('/api/annuaire/valdemarne', valdemarne_had)
 app.use('/api/annuaire/valdemarne', valdemarne_lits)
+app.use('/api/annuaire/valdemarne', valdemarne_autres_structures)
+app.use('/api/annuaire/valdemarne', valdemarne_autres)
 // Seine et Marne
 app.use('/api/annuaire/seineetmarne', seineetmarne_usp)
 app.use('/api/annuaire/seineetmarne', seineetmarne_reseaux)
@@ -254,6 +287,8 @@ app.use('/api/annuaire/seineetmarne', seineetmarne_association)
 app.use('/api/annuaire/seineetmarne', seineetmarne_team)
 app.use('/api/annuaire/seineetmarne', seineetmarne_had)
 app.use('/api/annuaire/seineetmarne', seineetmarne_lits)
+app.use('/api/annuaire/seineetmarne', seineetmarne_autres_structures)
+app.use('/api/annuaire/seineetmarne', seineetmarne_autres)
 // Essonne
 app.use('/api/annuaire/essonne', essonne_usp)
 app.use('/api/annuaire/essonne', essonne_reseaux)
@@ -261,6 +296,8 @@ app.use('/api/annuaire/essonne', essonne_association)
 app.use('/api/annuaire/essonne', essonne_team)
 app.use('/api/annuaire/essonne', essonne_had)
 app.use('/api/annuaire/essonne', essonne_lits)
+app.use('/api/annuaire/essonne', essonne_autres_structures)
+app.use('/api/annuaire/essonne', essonne_autres)
 // Hauts de Seine
 app.use('/api/annuaire/hautsdeseine', hautsdeseine_usp)
 app.use('/api/annuaire/hautsdeseine', hautsdeseine_reseaux)
@@ -268,6 +305,8 @@ app.use('/api/annuaire/hautsdeseine', hautsdeseine_association)
 app.use('/api/annuaire/hautsdeseine', hautsdeseine_team)
 app.use('/api/annuaire/hautsdeseine', hautsdeseine_had)
 app.use('/api/annuaire/hautsdeseine', hautsdeseine_lits)
+app.use('/api/annuaire/hautsdeseine', hautsdeseine_autres_structures)
+app.use('/api/annuaire/hautsdeseine', hautsdeseine_autres)
 
 // Reset password
 // VEILLE MEDICALE
@@ -276,6 +315,7 @@ app.use('/api/annuaire/hautsdeseine', hautsdeseine_lits)
 app.use('/api/recommandation', veillemedicale_recommandation)
 // Rencontres
 app.use('/api/rencontre', veillemedicale_rencontre)
+app.use('/api/rencontre_inscrit', veillemedicale_rencontre_inscrit)
 // Evenements
 app.use('/api/evenement', veillemedicale_evenement)
 // Actualites
@@ -298,7 +338,16 @@ app.use('/api/agenda2', agenda2)
 app.use('/api/offre', offre)
 app.use('/api/offres', offresdemplois)
 app.use('/api/formations', formations)
+// SOINS PALLIATIFS
 
+app.use('/api/accompagnement', accompagnement)
+app.use('/api/demarche', demarche)
+app.use('/api/legislation', legislation)
+// COORDINATION REGIONALE
+
+app.use('/api/corpalif', corpalif)
+app.use('/api/orientation', orientation)
+app.use('/api/adherer', adherer)
 //Maps
 // Paris
 // app.use('/api/maps/paris', paris_maps_usp)
