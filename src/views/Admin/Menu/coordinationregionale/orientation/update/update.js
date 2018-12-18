@@ -4,13 +4,10 @@ import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
-import Dialog from '@material-ui/core/Dialog'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import DialogContent from '@material-ui/core/DialogContent'
 
 // @material-ui/icons
 import Grid from '@material-ui/core/Grid'
-import Close from '@material-ui/icons/Close'
+
 // core components
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { TextField } from '@material-ui/core'
@@ -18,7 +15,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
-import Card from 'components/Card/Card.jsx'
+
 // common
 import TextFieldGroup from 'views/common/TextFieldGroup'
 // Redux
@@ -26,7 +23,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentEvenement_id } from 'actions/menu/veillemedicale/evenementActions'
+import { getCurrentOrientation_id, updateOrientation } from 'actions/coordinationregionale/OrientationActions'
 const theme = createMuiTheme({
 	palette: {
 		primary: {
@@ -35,27 +32,28 @@ const theme = createMuiTheme({
 	}
 })
 
-function Transition(props) {
-	return <Slide direction="down" {...props} />
-}
-
 class Modal extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			searchModal: true,
-			evenement: null,
-			theme: '',
-			message: '',
-			picture: null,
-			file: null,
+			orientation: null,
 			title: '',
-			fileName: ''
+			theme: '',
+			subtitle: '',
+			subtitle2: '',
+			subtitleDescription: '',
+			subtitleDescription2: '',
+			subtitleDescription3: '',
+			description: '',
+			liensTitle: '',
+			liensTitle2: '',
+			liensUrl: '',
+			liensUrl2: ''
 		}
-		this.onFormSubmit = this.onFormSubmit.bind(this)
-		this.onChangeField = this.onChangeField.bind(this)
+		this.onSubmit = this.onSubmit.bind(this)
+
 		this.onChange = this.onChange.bind(this)
-		this.onChangePicture = this.onChangePicture.bind(this)
 	}
 
 	handleClickOpen(modal) {
@@ -73,219 +71,251 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentEvenement_id(this.props.match.params.id)
+		this.props.getCurrentOrientation_id(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.evenement.evenement) {
-			const evenement = nextProps.evenement.evenement
+		if (nextProps.orientation.orientation) {
+			const orientation = nextProps.orientation.orientation
 
-			// If evenement field doesnt exist, make empty string
-			evenement.theme = !isEmpty(evenement.theme) ? evenement.theme : ''
-			evenement.title = !isEmpty(evenement.title) ? evenement.title : ''
-			evenement.message = !isEmpty(evenement.message) ? evenement.message : ''
-			evenement.fileName = !isEmpty(evenement.fileName) ? evenement.fileName : ''
-
+			orientation.theme = !isEmpty(orientation.theme) ? orientation.theme : ''
+			orientation.subtitle = !isEmpty(orientation.subtitle) ? orientation.subtitle : ''
+			orientation.subtitle2 = !isEmpty(orientation.subtitle2) ? orientation.subtitle2 : ''
+			orientation.subtitleDescription = !isEmpty(orientation.subtitleDescription)
+				? orientation.subtitleDescription
+				: ''
+			orientation.subtitleDescription2 = !isEmpty(orientation.subtitleDescription2)
+				? orientation.subtitleDescription2
+				: ''
+			orientation.subtitleDescription3 = !isEmpty(orientation.subtitleDescription3)
+				? orientation.subtitleDescription3
+				: ''
+			orientation.description = !isEmpty(orientation.description) ? orientation.description : ''
+			orientation.liensTitle = !isEmpty(orientation.liensTitle) ? orientation.liensTitle : ''
+			orientation.liensTitle2 = !isEmpty(orientation.liensTitle2) ? orientation.liensTitle2 : ''
+			orientation.liensUrl = !isEmpty(orientation.liensUrl) ? orientation.liensUrl : ''
+			orientation.liensUrl2 = !isEmpty(orientation.liensUrl2) ? orientation.liensUrl2 : ''
 			// Set component fields state
 			this.setState({
-				theme: evenement.theme,
-				title: evenement.title,
-				message: evenement.message,
-				fileName: evenement.fileName
+				title: orientation.title,
+				theme: orientation.theme,
+				subtitle: orientation.subtitle,
+				subtitle2: orientation.subtitle2,
+				subtitleDescription: orientation.subtitleDescription,
+				subtitleDescription2: orientation.subtitleDescription2,
+				subtitleDescription3: orientation.subtitleDescription3,
+				description: orientation.description,
+
+				liensTitle: orientation.liensTitle,
+				liensTitle2: orientation.liensTitle2,
+				liensUrl: orientation.liensUrl,
+				liensUrl2: orientation.liensUrl2
 			})
 		}
 	}
 
-	onFormSubmit(e) {
-		e.preventDefault() // Stop form submit
-		this.fileUpload(
-			this.state.file,
-			this.state.picture,
-			this.state.theme,
-			this.state.title,
-			this.state.message,
-			this.state.fileName
-		).then((response) => {
-			console.log(response.data)
-		})
-	}
 	onChange(e) {
 		this.setState({ [e.target.name]: e.target.value })
 	}
+	onSubmit(e) {
+		e.preventDefault()
 
-	onChangeField(e) {
-		this.setState({ file: e.target.files[0] })
-	}
-	onChangePicture(e) {
-		this.setState({ picture: e.target.files[0] })
-	}
-	fileUpload(file, picture, theme, title, message, fileName) {
-		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/evenement/${id}`
-		const formData = new FormData()
-		formData.append('picture', picture)
-		formData.append('file', file)
-		formData.append('theme', theme)
-		formData.append('title', title)
-		formData.append('message', message)
-		formData.append('fileName', fileName)
-		const config = {
-			headers: {
-				'content-type': 'multipart/form-data'
-			}
+		const Data = {
+			title: this.state.title,
+			theme: this.state.theme,
+			subtitle: this.state.subtitle,
+			subtitle2: this.state.subtitle2,
+			subtitleDescription: this.state.subtitleDescription,
+			subtitleDescription2: this.state.subtitleDescription2,
+			subtitleDescription3: this.state.subtitleDescription3,
+			description: this.state.description,
+
+			liensTitle: this.state.liensTitle,
+			liensTitle2: this.state.liensTitle2,
+			liensUrl: this.state.liensUrl,
+			liensUrl2: this.state.liensUrl2
 		}
 
-		return axios.patch(url, formData, config)
+		this.props.updateOrientation(this.props.match.params.id, Data)
+		window.location.assign('/admin/menu/coordinationregionale/orientation/orientation')
 	}
 
 	render() {
 		const { classes, ...rest } = this.props
 
 		return (
-			<div>
-				<Dialog
-					classes={{
-						root: classes.modalRoot,
-						paper: classes.modal + ' ' + classes.modalSearch
-					}}
-					open={this.state.searchModal}
-					TransitionComponent={Transition}
-					keepMounted
-					onClose={() =>
-						this.handleClose(
-							'searchModal',
-							window.location.replace('/admin/menu/veillemedicale/evenement/')
-						)}
-					aria-labelledby="search-modal-slide-title"
-					aria-describedby="search-modal-slide-description"
+			<GridContainer>
+				<GridItem
+					xs={12}
+					sm={12}
+					md={12}
+					className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 				>
-					<Card plain className={classes.modalSearchCard}>
-						<DialogTitle id="search-modal-slide-title" disableTypography className={classes.modalHeader}>
-							<Button
-								simple
-								className={classes.modalCloseButton}
-								key="close"
-								aria-label="Close"
-								onClick={() => this.handleClose('searchModal')}
-							>
-								{' '}
-								<Close className={classes.modalClose} />
-							</Button>
-						</DialogTitle>
-						<DialogContent id="search-modal-slide-description" className={classes.modalBody}>
-							<div className="cd-section" {...rest}>
-								<div className={classes.features5}>
-									<GridContainer>
-										<GridContainer style={{ minWidth: 'auto', margin: 'auto', flexWrap: 'wrap' }}>
-											<GridItem
-												xs={12}
-												sm={12}
-												md={12}
-												className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
-											>
-												<h1 style={{ textAlign: 'center' }}>Editer </h1>
-											</GridItem>
-											<div className={classes.container}>
-												<GridContainer className={classes.gridContainer}>
-													<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
-														<form
-															onSubmit={this.onFormSubmit}
-															encType="multipart/form-data"
-															id="my-form"
-														>
-															<TextFieldGroup
-																label="Theme"
-																name="theme"
-																value={this.state.theme}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<TextFieldGroup
-																type="title"
-																className={classes.margin}
-																name="title"
-																value={this.state.title}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<MuiThemeProvider theme={theme}>
-																<TextField
-																	label="message"
-																	className={classes.margin}
-																	name="message"
-																	inputProps={{
-																		rows: 8
-																	}}
-																	fullWidth
-																	multiline
-																	value={this.state.message}
-																	onChange={this.onChange}
-																/>
-															</MuiThemeProvider>
-															<br /> <br />
-															<TextFieldGroup
-																type="fileName"
-																className={classes.margin}
-																name="fileName"
-																value={this.state.fileName}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<h4>Choisir une photo</h4>
-															<input
-																type="file"
-																name="picture"
-																onChange={this.onChangePicture}
-															/>
-															<br /> <br />
-															<h4>Choisir un fichier</h4>
-															<input
-																type="file"
-																name="file"
-																onChange={this.onChangeField}
-															/>
-															<br /> <br />
-															<Grid
-																container
-																direction="row"
-																justify="center"
-																style={{
-																	marginTop: 40,
-																	justifyContent: 'space-around'
-																}}
-															>
-																<Button type="submit" value="Submit" color="green">
-																	Modifier
-																</Button>
-															</Grid>
-														</form>
-													</GridItem>
-												</GridContainer>
-											</div>
-										</GridContainer>
-									</GridContainer>
-								</div>
-							</div>
-						</DialogContent>
-					</Card>
-				</Dialog>
-			</div>
+					<h1 style={{ textAlign: 'center' }}>Editer </h1>
+				</GridItem>
+				<div className={classes.container}>
+					<GridContainer className={classes.gridContainer}>
+						<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
+							<form onSubmit={this.onSubmit}>
+								<h1>1er sections</h1>
+								<TextFieldGroup
+									label="Title"
+									name="title"
+									value={this.state.title}
+									onChange={this.onChange}
+								/>
+								<TextFieldGroup
+									label="Theme"
+									name="theme"
+									value={this.state.theme}
+									onChange={this.onChange}
+								/>
+								<br /> <br />
+								<MuiThemeProvider theme={theme}>
+									<TextField
+										label="description"
+										className={classes.margin}
+										name="description"
+										inputProps={{
+											rows: 5
+										}}
+										fullWidth
+										multiline
+										value={this.state.description}
+										onChange={this.onChange}
+									/>
+								</MuiThemeProvider>
+								<br /> <br />
+								<h1>2nd sections</h1>
+								<TextFieldGroup
+									type="subtitle"
+									className={classes.margin}
+									name="subtitle"
+									value={this.state.subtitle}
+									onChange={this.onChange}
+								/>
+								<br /> <br />
+								<MuiThemeProvider theme={theme}>
+									<TextField
+										label="subtitleDescription"
+										className={classes.margin}
+										name="subtitleDescription"
+										inputProps={{
+											rows: 5
+										}}
+										fullWidth
+										multiline
+										value={this.state.subtitleDescription}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="subtitleDescription2"
+											className={classes.margin}
+											name="subtitleDescription2"
+											inputProps={{
+												rows: 4
+											}}
+											fullWidth
+											multiline
+											value={this.state.subtitleDescription2}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+									<br /> <br />
+									<h1>3nd sections</h1>
+									<TextFieldGroup
+										type="subtitle2"
+										className={classes.margin}
+										name="subtitle2"
+										value={this.state.subtitle2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="subtitleDescription3"
+											className={classes.margin}
+											name="subtitleDescription3"
+											inputProps={{
+												rows: 4
+											}}
+											fullWidth
+											multiline
+											value={this.state.subtitleDescription3}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+									<br />
+									<br />
+									<h1>4nd sections</h1>
+									<TextFieldGroup
+										type="liensTitle"
+										className={classes.margin}
+										name="liensTitle"
+										value={this.state.liensTitle}
+										onChange={this.onChange}
+									/>
+									<TextFieldGroup
+										type="liensUrl"
+										className={classes.margin}
+										name="liensUrl"
+										value={this.state.liensUrl}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="liensTitle2"
+										className={classes.margin}
+										name="liensTitle2"
+										value={this.state.liensTitle2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="liensUrl2"
+										className={classes.margin}
+										name="liensUrl2"
+										value={this.state.liensUrl2}
+										onChange={this.onChange}
+									/>
+									<Grid
+										container
+										direction="row"
+										justify="center"
+										style={{
+											marginTop: 40,
+											justifyContent: 'space-around'
+										}}
+									>
+										<Button type="submit" value="Submit" color="green">
+											Modifier
+										</Button>
+									</Grid>
+								</MuiThemeProvider>
+							</form>
+						</GridItem>
+					</GridContainer>
+				</div>
+			</GridContainer>
 		)
 	}
 }
 
 Modal.propTypes = {
-	evenement: PropTypes.object.isRequired,
-	getCurrentEvenement_id: PropTypes.func.isRequired,
+	orientation: PropTypes.object.isRequired,
+	getCurrentOrientation_id: PropTypes.func.isRequired,
+	updateOrientation: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	evenement: state.evenement,
+	orientation: state.orientation,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { getCurrentEvenement_id })(withRouter(Modal))
+	connect(mapStateTopProps, { getCurrentOrientation_id, updateOrientation })(withRouter(Modal))
 )

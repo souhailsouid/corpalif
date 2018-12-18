@@ -8,6 +8,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 import HeaderComponent from 'views/Header/AppBar'
 import SectionFooter from 'views/Footer/SectionFooter'
+
 import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
 
 // Sections for this page
@@ -15,20 +16,19 @@ import Section from './Sections/section.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentOrientation } from 'actions/coordinationregionale/OrientationActions'
+import { getCurrentDemarche } from 'actions/soinspalliatifs/DemarcheActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
-class OrientationAdminPage extends React.Component {
+class DemarchePalliatifAdminPage extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-		this.props.getCurrentOrientation()
+		this.props.getCurrentDemarche()
 	}
 	render() {
 		const { classes } = this.props
-		const { orientation } = this.props.orientation
-		const DataElements = orientation.map((orientation) => <Section orientation={orientation} />)
+		const { demarche } = this.props.demarche
+		const DataElements = demarche.map((demarche) => <Section demarche={demarche} />)
 		return (
 			<div>
 				<HeaderComponent />
@@ -41,16 +41,16 @@ class OrientationAdminPage extends React.Component {
 		)
 	}
 }
-OrientationAdminPage.propTypes = {
-	getCurrentOrientation: PropTypes.func.isRequired,
-	orientation: PropTypes.object.isRequired,
+DemarchePalliatifAdminPage.propTypes = {
+	getCurrentDemarche: PropTypes.func.isRequired,
+	demarche: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	orientation: state.orientation
+	demarche: state.demarche
 })
 
 export default compose(withStyles(landingPageStyle))(
-	connect(mapStateToProps, { getCurrentOrientation })(withRouter(OrientationAdminPage))
+	connect(mapStateToProps, { getCurrentDemarche })(withRouter(DemarchePalliatifAdminPage))
 )

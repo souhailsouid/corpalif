@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-import { GET_ADHERENTPAGEPAGE, GET_ERRORS } from 'actions/types'
+import { GET_ADHERENTPAGE, GET_ERRORS } from 'actions/types'
 
 // Get  all  ADHERENT
-export const getCurrentAdherent = () => (dispatch) => {
-	axios.get('/api/adherent/').then((res) =>
+export const getCurrentAdherer = () => (dispatch) => {
+	axios.get('/api/adherers/').then((res) =>
 		dispatch({
 			type: GET_ADHERENTPAGE,
 			payload: res.data
@@ -13,9 +13,9 @@ export const getCurrentAdherent = () => (dispatch) => {
 }
 
 // GetcurrentADHERENTs
-export const getCurrentAdherent_id = (id) => (dispatch) => {
+export const getCurrentAdherer_id = (id) => (dispatch) => {
 	axios
-		.get(`/api/adherent/${id}`)
+		.get(`/api/adherers/${id}`)
 		.then((res) =>
 			dispatch({
 				type: GET_ADHERENTPAGE,
@@ -31,8 +31,8 @@ export const getCurrentAdherent_id = (id) => (dispatch) => {
 }
 
 // Add Comment
-export const updateAdherent = (id, Data) => (dispatch) => {
-	axios.patch(`/api/adherent/${id}`, Data).then((res) => res.data).catch((err) =>
+export const updateAdherer = (id, Data) => (dispatch) => {
+	axios.patch(`/api/adherers/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}

@@ -16,7 +16,7 @@ import Section from './Sections/section.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentCorpalif } from 'actions/menu/coordinationregionale/CorpalifActions'
+import { getCurrentCorpalif } from 'actions/coordinationregionale/CorpalifActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 class CorpalifAdminPage extends React.Component {

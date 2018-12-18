@@ -22,6 +22,12 @@ import evenementReducer from './menu/veillemedicale/evenementReducer'
 import statusReducer from './statusReducer'
 import mapReducer from './mapReducer'
 import profile_adherentReducer from './profile_adherentReducer'
+import orientationReducer from './orientationReducer'
+import legislationReducer from './legislationReducer'
+import accompagnementReducer from './accompagnementReducer'
+import corpalifReducer from './corpalifReducer'
+import adherentPageReducer from './adherentPageReducer'
+import demarcheReducer from './demarcheReducer'
 export default combineReducers({
 	auth: authReducer,
 	errors: errorReducer,
@@ -57,5 +63,11 @@ export default combineReducers({
 	maplit: mapReducer,
 	mapsoin: mapReducer,
 	status: statusReducer,
-	profile_adherent: profile_adherentReducer
+	profile_adherent: profile_adherentReducer,
+	orientation: orientationReducer,
+	legislation: legislationReducer,
+	accompagnement: accompagnementReducer,
+	corpalif: corpalifReducer,
+	adherentPage: adherentPageReducer,
+	demarche: demarcheReducer
 })

@@ -31,7 +31,7 @@ export const getCurrentCorpalif_id = (id) => (dispatch) => {
 }
 
 // Add Comment
-export const updateCorpalif = (id, Data) => (dispatch) => {
+export const updateCorpalif = (id, Data, history) => (dispatch) => {
 	axios.patch(`/api/corpalif/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,

@@ -121,8 +121,8 @@ import PresentationAssociationYvelines from 'views/Header/Sections/Departement/Y
 import PresentationStructureYvelines from 'views/Header/Sections/Departement/Yvelines/structures/structure/presentation'
 import PresentationUspYvelines from 'views/Header/Sections/Departement/Yvelines/structures/Usp/presentation'
 import PresentationHadYvelines from 'views/Header/Sections/Departement/Yvelines/structures/Team/presentation'
-import Presentation_YVELINES_autres_structures from 'views/Header/Sections/Departement/Yvelines$$$$$$$$$$$$$$$/structures/autres_structures/presentation'
-import Presentation_YVELINES_Autres from 'views/Header/Sections/Departement/Yvelines$$$$$$$$$$$$$$$/structures/autres/presentation'
+import Presentation_YVELINES_autres_structures from 'views/Header/Sections/Departement/Yvelines/structures/autres_structures/presentation'
+import Presentation_YVELINES_Autres from 'views/Header/Sections/Departement/Yvelines/structures/autres/presentation'
 // ADMIN
 import AnnuaireAdminHome from 'views/Admin/Home/Annuaire/Annuaire'
 // PARIS ADMIN
@@ -560,22 +560,30 @@ import PaymentPage from 'views/Adherent/individuel/PaymentPage'
 import PaymentPage50euros from 'views/Adherent/collectif/PaymentPage50euros'
 //Admin
 // COORDINATION REGIONALE
+// page Admin
+import CoordinationPage from 'views/Admin/Menu/coordinationregionale/presentation'
+import SoinsPalliatifPage from 'views/Admin/Menu/soinspalliatifs/presentation'
+
 // ADHERENTS
 import OrientationAdminPage from 'views/Admin/Menu/coordinationregionale/orientation/orientation'
 import AdhererAdminPage from 'views/Admin/Menu/coordinationregionale/adherer/adherer'
 import CorpalifAdminPage from 'views/Admin/Menu/coordinationregionale/corpalif/corpalif'
-
+import UpdateAdherer from 'views/Admin/Menu/coordinationregionale/adherer/update/Header'
 // CORPALIF
-
+import updateCorpalif from 'views/Admin/Menu/coordinationregionale/corpalif/update/Header'
 // ORIENTATION
-
+import UpdateOrientation from 'views/Admin/Menu/coordinationregionale/orientation/update/Header'
 // SOINS PALLIATIFS
 
 // LEGISLATION
-
+import LegislationDemarche from 'views/Admin/Menu/soinspalliatifs/legislation/update/Header'
+import LegislationAdminPage from 'views/Admin/Menu/soinspalliatifs/legislation/legislation'
 // DEMARCHE
-
+import UpdateDemarche from 'views/Admin/Menu/soinspalliatifs/demarche/update/Header'
+import DemarchePalliatifAdminPage from 'views/Admin/Menu/soinspalliatifs/demarche/demarche'
 //ACCOMPAGNEMENT
+import UpdateAccompagnement from 'views/Admin/Menu/soinspalliatifs/accompagnement/update/Header'
+import AccompagnementAdminPage from 'views/Admin/Menu/soinspalliatifs/accompagnement/accompagnement'
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
 import Recommandation from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/getData/recommandation&outils.jsx'
@@ -651,6 +659,7 @@ import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offr
 import Maps from './map'
 import PresentationContact from 'views/Contact/PresentationContact.js'
 import OpenModalLogin from 'views/SigninPage/OpenLogin.js'
+
 // Check for token
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -953,6 +962,13 @@ class App extends Component {
 								<AdminRoute exact path="/admin/delete/Paris/autres/:id" component={DeleteParisautres} />
 
 								{/* {Autres_structures} */}
+
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale"
+									component={CoordinationPage}
+								/>
+								<AdminRoute exact path="/admin/menu/soinspalliatifs" component={SoinsPalliatifPage} />
 								<AdminRoute
 									exact
 									path="/admin/Paris/autres_structures"
@@ -2181,14 +2197,12 @@ class App extends Component {
 								{/* soins palliatifs */}
 								{/* Coordination régionale */}
 								<Route exact path="/menu/coordinationregionale/corpalif/" component={CorpalifPage} />
-
 								<Route
 									exact
 									path="/menu/coordinationregionale/orientationregionale/"
 									component={OrientationPage}
 								/>
 								<Route exact path="/menu/coordinationregionale/adherer/" component={AdhererPage} />
-
 								{/* Veille medicale */}
 								<Route
 									exact
@@ -2196,7 +2210,6 @@ class App extends Component {
 									component={PresentationRecommandation}
 								/>
 								{/* soins palliatifs */}
-
 								<Route
 									exact
 									path="/menu/soinspalliatifs/demarche-palliative"
@@ -2209,7 +2222,6 @@ class App extends Component {
 									path="/menu/soinspalliatifs/accompagnement"
 									component={AccompagnementRecommandation}
 								/>
-
 								{/* {evenements } */}
 								<Route
 									exact
@@ -2225,46 +2237,104 @@ class App extends Component {
 									path="/menu/veillemedicale/actualites/"
 									component={PresentationActualite}
 								/>
-
 								{/* {Contact page}	 */}
 								<Route exact path="/menu/contact" component={PresentationContact} />
 								{/* {Modal Open for Login}	 */}
 								<Route exact path="/login" component={OpenModalLogin} />
-
 								{/* {rencontres } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
+								<Route exact path="/admin/maps" component={PresentationMapEssonne} />
 								<PrivateRoute
 									exact
 									path="/menu/veillemedicale/infosforSubscribers"
 									component={PresentationInfoSubscribers}
 								/>
-
-								<Route exact path="/admin/maps" component={PresentationMapEssonne} />
+								{/* {admin } */}
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/legislation/"
+									component={LegislationAdminPage}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/demarche/"
+									component={DemarchePalliatifAdminPage}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/accompagnement/"
+									component={AccompagnementAdminPage}
+								/>
 								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
-								{/* {admin } */}
-									<AdminRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/coordinationregionale/orientation/orientation/"
 									component={OrientationAdminPage}
 								/>
-									<AdminRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/coordinationregionale/adherer/adherer/"
 									component={AdhererAdminPage}
 								/>
-									<AdminRoute
+								<AdminRoute
 									exact
 									path="/admin/menu/coordinationregionale/corpalif/corpalif/"
 									component={CorpalifAdminPage}
 								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									component={OrientationAdminPage}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/adherer/adherer/"
+									component={AdhererAdminPage}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/corpalif/update/:id"
+									component={updateCorpalif}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/orientation/update/:id"
+									component={UpdateOrientation}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/adherer/update/:id"
+									component={UpdateAdherer}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									component={OrientationAdminPage}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/demarche/update/:id"
+									component={UpdateDemarche}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/legislation/update/:id"
+									component={LegislationDemarche}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/soinspalliatifs/accompagnement/update/:id"
+									component={UpdateAccompagnement}
+								/>
+
 								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/recommandation&outils/"
@@ -2357,7 +2427,6 @@ class App extends Component {
 									path="/admin/menu/veillemedicale/actualite/post"
 									component={PostActualite}
 								/>
-
 								{/* offres d'emploi */}
 								<AdminRoute exact path="/admin/menu/offres-emplois" component={OffreEmploi} />
 								<AdminRoute
@@ -2384,7 +2453,6 @@ class App extends Component {
 									component={UpdateFormations}
 								/>
 								<AdminRoute exact path="/admin/menu/formations/post" component={PostFormation} />
-
 								{/* file */}
 								{/* HomePage */}
 								{/* Caroussel1	*/}
@@ -2412,7 +2480,6 @@ class App extends Component {
 								<AdminRoute exact path="/admin/offre" component={SectionOffreAdmin} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 								{/* {USERS} // ALL PROFILES // NEWSLETTERS // ALL ADHRENTS ... */}
-
 								<AdminRoute exact path="/admin/users/all" component={SectionProfilesAll} />
 								<AdminRoute exact path="/admin/users/adherents" component={SectionProfilesAdherent} />
 								<AdminRoute
@@ -2426,7 +2493,6 @@ class App extends Component {
 									path="/admin/users/newsletters"
 									component={SectionProfilesNewsletter}
 								/>
-
 								{/* <AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />

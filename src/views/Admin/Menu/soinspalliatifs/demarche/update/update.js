@@ -23,7 +23,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentCorpalif_id, updateCorpalif } from 'actions/coordinationregionale/CorpalifActions'
+import { getCurrentDemarche_id, updateDemarche } from 'actions/soinspalliatifs/DemarcheActions'
 const theme = createMuiTheme({
 	palette: {
 		primary: {
@@ -37,31 +37,31 @@ class Modal extends React.Component {
 		super(props)
 		this.state = {
 			searchModal: true,
-			corpalif: null,
+			demarche: null,
 			title: '',
-			text: '',
-			theme: '',
-			subtitle: '',
-			subtitle2: '',
-			subtitle3: '',
 			description: '',
+			description2: '',
+			subtitle: '',
+			linksTitle: '',
+			linksTitle2: '',
+			linksURL: '',
+			linksURL2: '',
 			InfoAreaTitle: '',
 			InfoAreaTitle2: '',
 			InfoAreaTitle3: '',
 			InfoAreaTitle4: '',
 			InfoAreaTitle5: '',
+			InfoAreaTitle6: '',
 			InfoAreaDescription: '',
 			InfoAreaDescription2: '',
 			InfoAreaDescription3: '',
 			InfoAreaDescription4: '',
 			InfoAreaDescription5: '',
-			paragraphe1: '',
-			paragraphe2: '',
-			paragraphe3: ''
+			InfoAreaDescription6: ''
 		}
-		this.onSubmit = this.onSubmit.bind(this)
 
 		this.onChange = this.onChange.bind(this)
+		this.onSubmit = this.onSubmit.bind(this)
 	}
 
 	handleClickOpen(modal) {
@@ -79,86 +79,109 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentCorpalif_id(this.props.match.params.id)
+		this.props.getCurrentDemarche_id(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.corpalif.corpalif) {
-			const corpalif = nextProps.corpalif.corpalif
-			corpalif.title = !isEmpty(corpalif.title) ? corpalif.title : ''
-			corpalif.text = !isEmpty(corpalif.text) ? corpalif.text : ''
-			corpalif.theme = !isEmpty(corpalif.theme) ? corpalif.theme : ''
-			corpalif.subtitle = !isEmpty(corpalif.subtitle) ? corpalif.subtitle : ''
-			corpalif.subtitle2 = !isEmpty(corpalif.subtitle2) ? corpalif.subtitle2 : ''
-			corpalif.subtitle3 = !isEmpty(corpalif.subtitle3) ? corpalif.subtitle3 : ''
-			corpalif.description = !isEmpty(corpalif.description) ? corpalif.description : ''
-			corpalif.InfoAreaTitle = !isEmpty(corpalif.InfoAreaTitle) ? corpalif.InfoAreaTitle : ''
-			corpalif.InfoAreaTitle2 = !isEmpty(corpalif.InfoAreaTitle2) ? corpalif.InfoAreaTitle2 : ''
-			corpalif.InfoAreaTitle3 = !isEmpty(corpalif.InfoAreaTitle3) ? corpalif.InfoAreaTitle3 : ''
-			corpalif.InfoAreaTitle4 = !isEmpty(corpalif.InfoAreaTitle4) ? corpalif.InfoAreaTitle4 : ''
-			corpalif.InfoAreaTitle5 = !isEmpty(corpalif.InfoAreaTitle5) ? corpalif.InfoAreaTitle5 : ''
-			corpalif.InfoAreaDescription = !isEmpty(corpalif.InfoAreaDescription) ? corpalif.InfoAreaDescription : ''
-			corpalif.InfoAreaDescription2 = !isEmpty(corpalif.InfoAreaDescription2) ? corpalif.InfoAreaDescription2 : ''
-			corpalif.InfoAreaDescription3 = !isEmpty(corpalif.InfoAreaDescription3) ? corpalif.InfoAreaDescription3 : ''
-			corpalif.InfoAreaDescription4 = !isEmpty(corpalif.InfoAreaDescription4) ? corpalif.InfoAreaDescription4 : ''
-			corpalif.InfoAreaDescription5 = !isEmpty(corpalif.InfoAreaDescription5) ? corpalif.InfoAreaDescription5 : ''
-			corpalif.paragraphe1 = !isEmpty(corpalif.paragraphe1) ? corpalif.paragraphe1 : ''
-			corpalif.paragraphe2 = !isEmpty(corpalif.paragraphe2) ? corpalif.paragraphe2 : ''
-			corpalif.paragraphe3 = !isEmpty(corpalif.paragraphe3) ? corpalif.paragraphe3 : ''
+		if (nextProps.demarche.demarche) {
+			const demarche = nextProps.demarche.demarche
+
+			demarche.title = !isEmpty(demarche.title) ? demarche.title : ''
+
+			demarche.description = !isEmpty(demarche.description) ? demarche.description : ''
+
+			demarche.description2 = !isEmpty(demarche.description2) ? demarche.description2 : ''
+
+			demarche.subtitle = !isEmpty(demarche.subtitle) ? demarche.subtitle : ''
+
+			demarche.linksTitle = !isEmpty(demarche.linksTitle) ? demarche.linksTitle : ''
+
+			demarche.linksTitle2 = !isEmpty(demarche.linksTitle2) ? demarche.linksTitle2 : ''
+
+			demarche.linksURL = !isEmpty(demarche.linksURL) ? demarche.linksURL : ''
+
+			demarche.linksURL2 = !isEmpty(demarche.linksURL2) ? demarche.linksURL2 : ''
+
+			demarche.InfoAreaTitle = !isEmpty(demarche.InfoAreaTitle) ? demarche.InfoAreaTitle : ''
+
+			demarche.InfoAreaTitle2 = !isEmpty(demarche.InfoAreaTitle2) ? demarche.InfoAreaTitle2 : ''
+
+			demarche.InfoAreaTitle3 = !isEmpty(demarche.InfoAreaTitle3) ? demarche.InfoAreaTitle3 : ''
+
+			demarche.InfoAreaTitle4 = !isEmpty(demarche.InfoAreaTitle4) ? demarche.InfoAreaTitle4 : ''
+
+			demarche.InfoAreaTitle5 = !isEmpty(demarche.InfoAreaTitle5) ? demarche.InfoAreaTitle5 : ''
+
+			demarche.InfoAreaTitle6 = !isEmpty(demarche.InfoAreaTitle6) ? demarche.InfoAreaTitle6 : ''
+
+			demarche.InfoAreaDescription = !isEmpty(demarche.InfoAreaDescription) ? demarche.InfoAreaDescription : ''
+
+			demarche.InfoAreaDescription2 = !isEmpty(demarche.InfoAreaDescription2) ? demarche.InfoAreaDescription2 : ''
+
+			demarche.InfoAreaDescription3 = !isEmpty(demarche.InfoAreaDescription3) ? demarche.InfoAreaDescription3 : ''
+
+			demarche.InfoAreaDescription4 = !isEmpty(demarche.InfoAreaDescription4) ? demarche.InfoAreaDescription4 : ''
+
+			demarche.InfoAreaDescription5 = !isEmpty(demarche.InfoAreaDescription5) ? demarche.InfoAreaDescription5 : ''
+
+			demarche.InfoAreaDescription6 = !isEmpty(demarche.InfoAreaDescription6) ? demarche.InfoAreaDescription6 : ''
 
 			// Set component fields state
 			this.setState({
-				text: corpalif.text,
-				title: corpalif.title,
-				theme: corpalif.theme,
-				subtitle: corpalif.subtitle,
-				subtitle2: corpalif.subtitle2,
-				subtitle3: corpalif.subtitle3,
-				description: corpalif.description,
-				InfoAreaTitle: corpalif.InfoAreaTitle,
-				InfoAreaTitle2: corpalif.InfoAreaTitle2,
-				InfoAreaTitle3: corpalif.InfoAreaTitle3,
-				InfoAreaTitle4: corpalif.InfoAreaTitle4,
-				InfoAreaTitle5: corpalif.InfoAreaTitle5,
-				InfoAreaDescription: corpalif.InfoAreaDescription,
-				InfoAreaDescription2: corpalif.InfoAreaDescription2,
-				InfoAreaDescription3: corpalif.InfoAreaDescription3,
-				InfoAreaDescription4: corpalif.InfoAreaDescription4,
-				InfoAreaDescription5: corpalif.InfoAreaDescription5,
-				paragraphe1: corpalif.paragraphe1,
-				paragraphe2: corpalif.paragraphe2,
-				paragraphe3: corpalif.paragraphe3
+				title: demarche.title,
+
+				description: demarche.description,
+				description2: demarche.description2,
+				subtitle: demarche.subtitle,
+				linksTitle: demarche.linksTitle,
+				linksTitle2: demarche.linksTitle2,
+				linksURL: demarche.linksURL,
+				linksURL2: demarche.linksURL2,
+				InfoAreaTitle: demarche.InfoAreaTitle,
+				InfoAreaTitle2: demarche.InfoAreaTitle2,
+				InfoAreaTitle3: demarche.InfoAreaTitle3,
+				InfoAreaTitle4: demarche.InfoAreaTitle4,
+				InfoAreaTitle5: demarche.InfoAreaTitle5,
+				InfoAreaTitle6: demarche.InfoAreaTitle6,
+				InfoAreaDescription: demarche.InfoAreaDescription,
+				InfoAreaDescription2: demarche.InfoAreaDescription2,
+				InfoAreaDescription3: demarche.InfoAreaDescription3,
+				InfoAreaDescription4: demarche.InfoAreaDescription4,
+				InfoAreaDescription5: demarche.InfoAreaDescription5,
+				InfoAreaDescription6: demarche.InfoAreaDescription6
 			})
 		}
 	}
+
 	onSubmit(e) {
 		e.preventDefault()
 
 		const Data = {
 			title: this.state.title,
-			text: this.state.text,
-			theme: this.state.theme,
-			subtitle: this.state.subtitle,
-			subtitle2: this.state.subtitle2,
-			subtitle3: this.state.subtitle3,
+
 			description: this.state.description,
+			description2: this.state.description2,
+			subtitle: this.state.subtitle,
+			linksTitle: this.state.linksTitle,
+			linksTitle2: this.state.linksTitle2,
+			linksURL: this.state.linksURL,
+			linksURL2: this.state.linksURL2,
 			InfoAreaTitle: this.state.InfoAreaTitle,
 			InfoAreaTitle2: this.state.InfoAreaTitle2,
 			InfoAreaTitle3: this.state.InfoAreaTitle3,
 			InfoAreaTitle4: this.state.InfoAreaTitle4,
 			InfoAreaTitle5: this.state.InfoAreaTitle5,
+			InfoAreaTitle6: this.state.InfoAreaTitle6,
 			InfoAreaDescription: this.state.InfoAreaDescription,
 			InfoAreaDescription2: this.state.InfoAreaDescription2,
 			InfoAreaDescription3: this.state.InfoAreaDescription3,
 			InfoAreaDescription4: this.state.InfoAreaDescription4,
 			InfoAreaDescription5: this.state.InfoAreaDescription5,
-			paragraphe1: this.state.paragraphe1,
-			paragraphe2: this.state.paragraphe2,
-			paragraphe3: this.state.paragraphe3
+			InfoAreaDescription6: this.state.InfoAreaDescription6
 		}
 
-		this.props.updateCorpalif(this.props.match.params.id, Data)
-		window.location.assign('/admin/menu/coordinationregionale/corpalif/corpalif')
+		this.props.updateDemarche(this.props.match.params.id, Data)
+		window.location.assign('/admin/menu/soinspalliatifs/demarche/')
 	}
 
 	onChange(e) {
@@ -166,7 +189,7 @@ class Modal extends React.Component {
 	}
 
 	render() {
-		const { classes, ...rest } = this.props
+		const { classes } = this.props
 
 		return (
 			<GridContainer>
@@ -190,40 +213,23 @@ class Modal extends React.Component {
 									onChange={this.onChange}
 								/>
 								<TextFieldGroup
-									label="Theme"
-									name="theme"
+									label="description"
+									name="description"
 									fullWidth
 									multiline
-									value={this.state.theme}
+									value={this.state.description}
+									onChange={this.onChange}
+								/>
+								<TextFieldGroup
+									label="description2"
+									name="description2"
+									fullWidth
+									multiline
+									value={this.state.description2}
 									onChange={this.onChange}
 								/>
 								<br /> <br />
-								<MuiThemeProvider theme={theme}>
-									<TextField
-										label="text"
-										className={classes.margin}
-										name="text"
-										inputProps={{
-											rows: 5
-										}}
-										fullWidth
-										multiline
-										value={this.state.text}
-										onChange={this.onChange}
-									/>
-								</MuiThemeProvider>
-								<br />
 								<h1>2nd section</h1>
-								<h2 style={{ color: '#cc4949', textAlign: 'center' }}>titre</h2>
-								<TextFieldGroup
-									type="subtitle"
-									className={classes.margin}
-									name="subtitle"
-									fullWidth
-									multiline
-									value={this.state.subtitle}
-									onChange={this.onChange}
-								/>
 								<br /> <br />
 								<h2 style={{ color: '#cc4949', textAlign: 'center' }}>Place icon</h2>
 								<MuiThemeProvider theme={theme}>
@@ -307,79 +313,13 @@ class Modal extends React.Component {
 									<h1>3nd sections</h1>
 									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>TITRE</h2>
 									<TextFieldGroup
-										type="subtitle2"
+										type="subtitle"
 										className={classes.margin}
-										name="subtitle2"
-										value={this.state.subtitle2}
+										name="subtitle"
+										value={this.state.subtitle}
 										onChange={this.onChange}
 									/>
 									<br /> <br />
-									<TextField
-										label="Description"
-										className={classes.margin}
-										name="description"
-										fullWidth
-										multiline
-										value={this.state.description}
-										onChange={this.onChange}
-									/>
-									<br /> <br />
-									<MuiThemeProvider theme={theme}>
-										<TextField
-											label="paragraphe1"
-											className={classes.margin}
-											name="paragraphe1"
-											inputProps={{
-												rows: 2
-											}}
-											fullWidth
-											multiline
-											value={this.state.paragraphe1}
-											onChange={this.onChange}
-										/>
-									</MuiThemeProvider>
-									<br /> <br />
-									<MuiThemeProvider theme={theme}>
-										<TextField
-											label="paragraphe2"
-											className={classes.margin}
-											name="paragraphe2"
-											inputProps={{
-												rows: 2
-											}}
-											fullWidth
-											multiline
-											value={this.state.paragraphe2}
-											onChange={this.onChange}
-										/>
-									</MuiThemeProvider>
-									<br />
-									<br />
-									<MuiThemeProvider theme={theme}>
-										<TextField
-											label="paragraphe3"
-											className={classes.margin}
-											name="paragraphe3"
-											inputProps={{
-												rows: 2
-											}}
-											fullWidth
-											multiline
-											value={this.state.paragraphe3}
-											onChange={this.onChange}
-										/>
-									</MuiThemeProvider>
-									<h1>4nd sections</h1>
-									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>titre</h2>
-									<TextFieldGroup
-										type="subtitle3"
-										className={classes.margin}
-										name="subtitle3"
-										value={this.state.subtitle3}
-										onChange={this.onChange}
-									/>
-									<br /> <br />
-									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>Place icon</h2>
 									<MuiThemeProvider theme={theme}>
 										<TextField
 											label="InfoAreaTitle4"
@@ -424,8 +364,7 @@ class Modal extends React.Component {
 											onChange={this.onChange}
 										/>
 									</MuiThemeProvider>
-									<br />
-									<br />
+									<br /> <br />
 									<MuiThemeProvider theme={theme}>
 										<TextField
 											label="InfoAreaDescription5"
@@ -440,21 +379,85 @@ class Modal extends React.Component {
 											onChange={this.onChange}
 										/>
 									</MuiThemeProvider>
-									<MuiThemeProvider>
-										<Grid
-											container
-											direction="row"
-											justify="center"
-											style={{
-												marginTop: 40,
-												justifyContent: 'space-around'
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="InfoAreaTitle6"
+											className={classes.margin}
+											name="InfoAreaTitle6"
+											inputProps={{
+												rows: 2
 											}}
-										>
-											<Button type="submit" value="Submit" color="green">
-												Modifier
-											</Button>
-										</Grid>
+											fullWidth
+											multiline
+											value={this.state.InfoAreaTitle6}
+											onChange={this.onChange}
+										/>
 									</MuiThemeProvider>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="InfoAreaDescription6"
+											className={classes.margin}
+											name="InfoAreaDescription6"
+											inputProps={{
+												rows: 2
+											}}
+											fullWidth
+											multiline
+											value={this.state.InfoAreaDescription6}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+									<br /> <br />
+									<h1>Sections suivantes</h1>
+									<TextFieldGroup
+										type="linksTitle"
+										className={classes.margin}
+										name="linksTitle"
+										value={this.state.linksTitle}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="linksURL"
+										className={classes.margin}
+										name="linksURL"
+										value={this.state.linksURL}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="linksTitle2"
+										className={classes.margin}
+										name="linksTitle2"
+										value={this.state.linksTitle2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="linksURL2"
+										className={classes.margin}
+										name="linksURL2"
+										value={this.state.linksURL2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+								</MuiThemeProvider>
+								<MuiThemeProvider>
+									<Grid
+										container
+										direction="row"
+										justify="center"
+										style={{
+											marginTop: 40,
+											justifyContent: 'space-around'
+										}}
+									>
+										<Button type="submit" value="Submit" color="green">
+											Modifier
+										</Button>
+									</Grid>
 								</MuiThemeProvider>
 							</form>
 						</GridItem>
@@ -466,18 +469,18 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	corpalif: PropTypes.object.isRequired,
-	getCurrentCorpalif_id: PropTypes.func.isRequired,
-	updateCorpalif: PropTypes.func.isRequired,
+	demarche: PropTypes.object.isRequired,
+	getCurrentDemarche_id: PropTypes.func.isRequired,
+	updateDemarche: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	corpalif: state.corpalif,
+	demarche: state.demarche,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { getCurrentCorpalif_id, updateCorpalif })(withRouter(Modal))
+	connect(mapStateTopProps, { getCurrentDemarche_id, updateDemarche })(withRouter(Modal))
 )

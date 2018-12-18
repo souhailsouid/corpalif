@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 
-class UpdateOrientation extends React.Component {
+class UpdateDemarche extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -55,9 +55,13 @@ class UpdateOrientation extends React.Component {
 					/>
 				</div>
 				<div className={classNames(classes.main, classes.mainRaised)}>
-					<GridItem xs={12} sm={12} md={12}>
-						<Modal />
-					</GridItem>
+					<div className={classes.container}>
+						<GridItem xs={12} sm={10} md={12}>
+							<Modal />
+							<div />
+						</GridItem>
+						<Clearfix />
+					</div>
 				</div>
 				<SectionFooter />
 			</div>
@@ -65,8 +69,8 @@ class UpdateOrientation extends React.Component {
 	}
 }
 
-UpdateOrientation.propTypes = {
+UpdateDemarche.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(UpdateOrientation))
+export default compose(withStyles(profilePageStyle))(withRouter(UpdateDemarche))

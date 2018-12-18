@@ -167,13 +167,12 @@ class ProfilePage extends React.Component {
 																		backgroundImage: 'url(' + paris + ')'
 																	}}
 																>
-																	<a href="#pablo" />
 																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
+																		<Link to="/admin/menu/coordinationregionale">
 																			<h2 className={classes.cardTitleWhite}>
 																				Coordination régionale
 																			</h2>
-																		</a>
+																		</Link>
 																	</CardBody>
 																</Card>
 															</GridItem>
@@ -184,13 +183,12 @@ class ProfilePage extends React.Component {
 																		backgroundImage: 'url(' + darrenColeshill + ')'
 																	}}
 																>
-																	<a href="#pablo" />
 																	<CardBody background className={classes.cardBody}>
-																		<a href="#pablo">
+																		<Link to="/admin/menu/soinspalliatifs">
 																			<h2 className={classes.cardTitleWhite}>
 																				Les soins palliatifs
 																			</h2>
-																		</a>
+																		</Link>
 																	</CardBody>
 																</Card>
 															</GridItem>

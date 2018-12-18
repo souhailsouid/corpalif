@@ -14,9 +14,22 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import InfoArea from 'components/InfoArea/InfoAreaBis.jsx'
 import productStyle from 'assets/jss/material-kit-pro-react/views/landingPageSections/productStyle.jsx'
-
+import { Link } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
+import Button from 'components/CustomButtons/Button.jsx'
+import Edit from '@material-ui/icons/Edit'
+const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
+	return (
+		<Button round justIcon size="sm" color={prop.color} key={key}>
+			<prop.icon />
+		</Button>
+	)
+})
 const Section = ({ demarche, classes }) => (
 	<div className={classes.section}>
+		<Grid item xs={4} style={{ textAlign: 'right' }}>
+			<Link to={`/admin/menu/soinspalliatifs/demarche/update/${demarche._id}`}>{update}</Link>
+		</Grid>
 		<GridContainer justify="center">
 			<GridItem xs={12} sm={8} md={8}>
 				<h1 className={classes.title}>{demarche.title}</h1>
@@ -100,16 +113,16 @@ const Section = ({ demarche, classes }) => (
 				<br />
 				<br /> <b style={{ color: '#337467' }}> {demarche.linksTitle}</b>
 				<br />
-				<a href={demarche.linksUrl} target="_blank" style={{ color: '#999' }}>
+				<a href={demarche.linksURL} target="_blank" style={{ color: '#999' }}>
 					<h5 className="link">
-						<b> {demarche.linksUrl}</b>
+						<b> {demarche.linksURL}</b>
 					</h5>
 				</a>
 				<b style={{ color: '#337467' }}>{demarche.linksTitle2}</b>
-				<a href={demarche.linksUrl2} target="_blank" style={{ color: '#999' }}>
+				<a href={demarche.linksURL2} target="_blank" style={{ color: '#999' }}>
 					<h5 className="link">
 						{' '}
-						<b> {demarche.linksUrl2} </b>
+						<b> {demarche.linksURL2} </b>
 					</h5>
 				</a>
 			</h5>
