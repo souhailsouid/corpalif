@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
 		subtitle2: req.body.subtitle2,
 		subtitleDescription: req.body.subtitleDescription,
 		subtitleDescription2: req.body.subtitleDescription2,
+		subtitleDescription3: req.body.subtitleDescription3,
 		description: req.body.description,
 
 		liensTitle: req.body.liensTitle,
@@ -42,7 +43,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	Orientation.findById(req.params.id)
 		.select(
-			'title theme subtitle subtitle2 subtitleDescription subtitleDescription2  description liensTitle liensTitle liensUrl liensUrl2'
+			'title theme subtitle subtitle2 subtitleDescription subtitleDescription2 subtitleDescription3 description liensTitle liensTitle2 liensUrl liensUrl2'
 		)
 		.exec()
 		.then((orientation) => res.json(orientation))
@@ -56,6 +57,7 @@ router.patch('/:id', (req, res) => {
 		subtitle2: req.body.subtitle2,
 		subtitleDescription: req.body.subtitleDescription,
 		subtitleDescription2: req.body.subtitleDescription2,
+		subtitleDescription3: req.body.subtitleDescription3,
 		description: req.body.description,
 
 		liensTitle: req.body.liensTitle,

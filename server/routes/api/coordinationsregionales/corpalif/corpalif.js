@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	const corpalif = new Corpalif({
 		_id: new mongoose.Types.ObjectId(),
+		title: req.body.title,
 		text: req.body.text,
 		theme: req.body.theme,
 		subtitle: req.body.subtitle,
@@ -49,7 +50,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	Corpalif.findById(req.params.id)
 		.select(
-			'text  theme description  subtitle subtitle2 subtitle3 InfoAreaTitle  InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaTitle5  InfoAreaDescription InfoAreaDescription2  InfoAreaDescription3 InfoAreaDescription4 InfoAreaDescription5   paragraphe1 paragraphe2 paragraphe3'
+			'title text  theme description  subtitle subtitle2 subtitle3 InfoAreaTitle  InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaTitle5  InfoAreaDescription InfoAreaDescription2  InfoAreaDescription3 InfoAreaDescription4 InfoAreaDescription5   paragraphe1 paragraphe2 paragraphe3'
 		)
 		.exec()
 		.then((corpalif) => res.json(corpalif))
@@ -57,6 +58,7 @@ router.get('/:id', (req, res) => {
 })
 router.patch('/:id', (req, res) => {
 	const updateOps = {
+		title: req.body.title,
 		text: req.body.text,
 		theme: req.body.theme,
 		subtitle: req.body.subtitle,

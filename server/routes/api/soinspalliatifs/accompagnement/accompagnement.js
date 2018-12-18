@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
 		description2: req.body.description2,
 		subtitle: req.body.subtitle,
 		subtitle2: req.body.subtitle2,
-		subtitleDescription: req.body.subtitleDescription,
-		subtitle2Description: req.body.subtitle2Description,
+		subtitledescription: req.body.subtitledescription,
+		subtitledescription2: req.body.subtitledescription2,
 		linksTitle: req.body.linksTitle,
 		linksTitle2: req.body.linksTitle2,
 		linksURL: req.body.linksURL,
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	Accompagnement.findById(req.params.id)
 		.select(
-			' title title2 description description2 subtitle subtitle2 subtitleDescription subtitle2Description  linksTitle linksTitle2 linksURL linksURL2'
+			' title title2 description description2 subtitle subtitle2 subtitledescription subtitledescription2  linksTitle linksTitle2 linksURL linksURL2'
 		)
 		.exec()
 		.then((accompagnement) => res.json(accompagnement))
@@ -56,8 +56,8 @@ router.patch('/:id', (req, res) => {
 		description2: req.body.description2,
 		subtitle: req.body.subtitle,
 		subtitle2: req.body.subtitle2,
-		subtitleDescription: req.body.subtitleDescription,
-		subtitle2Description: req.body.subtitle2Description,
+		subtitledescription: req.body.subtitledescription,
+		subtitledescription2: req.body.subtitledescription2,
 		linksTitle: req.body.linksTitle,
 		linksTitle2: req.body.linksTitle2,
 		linksURL: req.body.linksURL,

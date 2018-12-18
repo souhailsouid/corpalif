@@ -347,7 +347,7 @@ app.use('/api/legislation', legislation)
 
 app.use('/api/corpalif', corpalif)
 app.use('/api/orientation', orientation)
-app.use('/api/adherer', adherer)
+app.use('/api/adherers', adherer)
 //Maps
 // Paris
 // app.use('/api/maps/paris', paris_maps_usp)

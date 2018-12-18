@@ -67,6 +67,7 @@ const AdhererSchema = mongoose.Schema({
 	cardCategoryIndividuelSubTitle: {
 		type: String
 	},
+
 	cardCategoryIndividuelDescription: {
 		type: String
 	},

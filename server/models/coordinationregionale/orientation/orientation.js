@@ -23,6 +23,9 @@ const OrientationSchema = mongoose.Schema({
 	subtitleDescription2: {
 		type: String
 	},
+	subtitleDescription3: {
+		type: String
+	},
 	description: {
 		type: String
 	},

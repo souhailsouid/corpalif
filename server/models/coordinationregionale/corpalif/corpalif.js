@@ -4,7 +4,9 @@ const CorpalifSchema = mongoose.Schema({
 	_id: {
 		type: mongoose.Schema.Types.ObjectId
 	},
-
+	title: {
+		type: String
+	},
 	text: {
 		type: String
 	},

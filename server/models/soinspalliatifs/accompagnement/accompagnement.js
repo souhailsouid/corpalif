@@ -24,10 +24,10 @@ const AccompagnementSchema = mongoose.Schema({
 	subtitle2: {
 		type: String
 	},
-	subtitleDescription: {
+	subtitledescription: {
 		type: String
 	},
-	subtitle2Description: {
+	subtitledescription2: {
 		type: String
 	},
 

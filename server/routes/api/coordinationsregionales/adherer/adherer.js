@@ -68,7 +68,7 @@ router.post(
 			imgCardIndividuel: req.files['imgCardIndividuel'][0].path,
 			cardCategoryIndividuelTitle: req.body.cardCategoryIndividuelTitle,
 			cardCategoryIndividuelSubTitle: req.body.cardCategoryIndividuelSubTitle,
-			cardCategoryIndividuelDescription: req.body.CardCategoryIndividuelDescription,
+			cardCategoryIndividuelDescription: req.body.cardCategoryIndividuelDescription,
 
 			file: req.files['file'][0].path
 		})
@@ -135,7 +135,7 @@ router.patch(
 			imgCardIndividuel: req.files['imgCardIndividuel'][0].path,
 			cardCategoryIndividuelTitle: req.body.cardCategoryIndividuelTitle,
 			cardCategoryIndividuelSubTitle: req.body.cardCategoryIndividuelSubTitle,
-			cardCategoryIndividuelDescription: req.body.CardCategoryIndividuelDescription,
+			cardCategoryIndividuelDescription: req.body.cardCategoryIndividuelDescription,
 
 			file: req.files['file'][0].path
 		}
