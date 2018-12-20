@@ -7,7 +7,7 @@ const passport = require('passport')
 
 // Load Annuaire Model
 
-const Team = require('../../../../models/maps/paris/team')
+const Team = require('../../../../models/maps/ValDeMarne/team')
 // Load User Model
 
 // @route   GET api/annuaire/test
