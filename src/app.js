@@ -60,7 +60,7 @@ import PresentationHadParis from 'views/Header/Sections/Departement/Paris/struct
 import Presentation_PARIS_autres_structures from 'views/Header/Sections/Departement/Paris/structures/autres_structures/presentation'
 import Presentation_PARIS_Autres from 'views/Header/Sections/Departement/Paris/structures/autres/presentation'
 // Essonne
-import PresentationMapEssonne from 'views/Header/Sections/Departement/Essonne/structures/Usp/leaflet'
+
 import PresentationLitsEssonne from 'views/Header/Sections/Departement/Essonne/structures/lits/presentation'
 import PresentationReseauxEssonne from 'views/Header/Sections/Departement/Essonne/structures/Reseaux/presentation'
 import PresentationAssociationEssonne from 'views/Header/Sections/Departement/Essonne/structures/Association/presentation'
@@ -422,6 +422,11 @@ import GetESSONNEASSOS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSO
 import PostESSONNEASSOS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/post/post'
 import UpdateESSONNEASSOS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/update/Header'
 import DeleteESSONNEASSOS from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/delete/PresentationDelete'
+//MAPS
+import PostESSONNEASSOSMaps from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/maps/Post'
+import UpdateESSONNEASSOSMaps from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/maps/Header'
+import DeleteESSONNEASSOSMaps from 'views/Admin/Home/Annuaire/Departements/ESSONNE/ASSOS/maps/Delete'
+
 // YVELINES  ADMIN
 // USP
 import YVELINES from 'views/Admin/Home/Annuaire/Departements/YVELINES/USP/YVELINES'
@@ -656,7 +661,6 @@ import SectionAgenda2Admin from 'views/Admin/Home/HomePage/notification/agenda2/
 import UpdateOffre from 'views/Admin/Home/HomePage/notification/offre/update/Header'
 import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offre'
 
-import Maps from './map'
 import PresentationContact from 'views/Contact/PresentationContact.js'
 import OpenModalLogin from 'views/SigninPage/OpenLogin.js'
 
@@ -700,7 +704,6 @@ class App extends Component {
 						<Route exact path="/adherents/adherer/individuel" component={PaymentPage} />
 						<Route exact path="/adherents/adherer/collectif" component={PaymentPage50euros} />
 
-						<Route exact path="/map" component={Maps} />
 						<div className="container">
 							<Route exact path="/annuaire-francilien" component={Annuaire} />
 							<Route exact path="/structure" component={PresentationStructures} />
@@ -1776,6 +1779,22 @@ class App extends Component {
 								<AdminRoute exact path="/admin/post/ESSONNE/association" component={PostESSONNEASSOS} />
 								<AdminRoute
 									exact
+									path="/admin/post/ESSONNE/maps/association"
+									component={PostESSONNEASSOSMaps}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/update/ESSONNE/maps/association/:id"
+									component={UpdateESSONNEASSOSMaps}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/delete/ESSONNE/maps/association/:id"
+									component={DeleteESSONNEASSOSMaps}
+								/>
+
+								<AdminRoute
+									exact
 									path="/admin/delete/ESSONNE/association/:id"
 									component={DeleteESSONNEASSOS}
 								/>
@@ -2247,7 +2266,7 @@ class App extends Component {
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
-								<Route exact path="/admin/maps" component={PresentationMapEssonne} />
+
 								<PrivateRoute
 									exact
 									path="/menu/veillemedicale/infosforSubscribers"

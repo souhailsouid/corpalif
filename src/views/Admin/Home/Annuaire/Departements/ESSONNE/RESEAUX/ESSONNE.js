@@ -26,20 +26,31 @@ import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructureReseaux, deleteStructure_idReseaux } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureReseauxMAPS } from 'actions/maps/mapsEssonneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ mapreseaux }) => (
+	<div>
+		<Marker position={[ mapreseaux.long, mapreseaux.lat ]}>
+			<Popup>{mapreseaux.name}</Popup>
+		</Marker>
+	</div>
+)
 class ESSONNERESEAUX extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+		this.props.getCurrentStructureReseauxMAPS()
 		this.props.getCurrentStructureReseaux()
 	}
 
 	render() {
 		const { classes } = this.props
 		const { reseaux } = this.props.reseaux
+		const { mapreseaux } = this.props.mapreseaux
 		const DataElements = reseaux.map((reseaux) => <Tables reseaux={reseaux} />)
-
+		const Data = mapreseaux.map((mapreseaux) => <Map mapreseaux={mapreseaux} />)
+		const ButtonMaps = mapreseaux.map((mapreseaux) => <TablesMaps mapreseaux={mapreseaux} />)
 		return (
 			<div>
 				<Header
@@ -96,12 +107,56 @@ class ESSONNERESEAUX extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
-
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/ESSONNE/maps/RESEAUX">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 							<TablesHead />
 							{DataElements}
 
 							<div />
 						</GridItem>
+						<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 						<Clearfix />
 					</div>
 				</div>
@@ -113,15 +168,20 @@ class ESSONNERESEAUX extends React.Component {
 
 ESSONNERESEAUX.propTypes = {
 	getCurrentStructureReseaux: PropTypes.func.isRequired,
+	getCurrentStructureReseauxMAPS: PropTypes.func.isRequired,
 	reseaux: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idReseaux: PropTypes.func.isRequired
+	deleteStructure_idReseaux: PropTypes.func.isRequired,
+	mapreseaux: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	reseaux: state.reseaux
+	reseaux: state.reseaux,
+	mapreseaux: state.mapreseaux
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureReseaux, deleteStructure_idReseaux })(withRouter(ESSONNERESEAUX))
+	connect(mapStateToProps, { getCurrentStructureReseaux, deleteStructure_idReseaux, getCurrentStructureReseauxMAPS })(
+		withRouter(ESSONNERESEAUX)
+	)
 )

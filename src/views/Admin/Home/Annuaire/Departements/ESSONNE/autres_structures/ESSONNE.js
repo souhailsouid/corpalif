@@ -26,22 +26,35 @@ import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructure_autres_structures, deleteStructure_id_autres_structures } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureAutresstructuresMAPS } from 'actions/maps/mapsEssonneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ mapautresstructure }) => (
+	<div>
+		<Marker position={[ mapautresstructure.long, mapautresstructure.lat ]}>
+			<Popup>{mapautresstructure.name}</Popup>
+		</Marker>
+	</div>
+)
 class ESSONNEautres_structures extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+		this.props.getCurrentStructureAutresstructuresMAPS()
 		this.props.getCurrentStructure_autres_structures()
 	}
 
 	render() {
 		const { classes } = this.props
+		const { mapautresstructure } = this.props.mapautresstructure
 		const { autres_structures } = this.props.autres_structures
 		const DataElements = autres_structures.map((autres_structures) => (
 			<Tables autres_structures={autres_structures} />
 		))
-
+		const Data = mapautresstructure.map((mapautresstructure) => <Map mapautresstructure={mapautresstructure} />)
+		const ButtonMaps = mapautresstructure.map((mapautresstructure) => (
+			<TablesMaps mapautresstructure={mapautresstructure} />
+		))
 		return (
 			<div>
 				<Header
@@ -95,12 +108,56 @@ class ESSONNEautres_structures extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
-
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/ESSONNE/maps/autres_structures">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 							<GridItem xs={12} sm={10} md={12}>
 								<TablesHead />
 								{DataElements}
 							</GridItem>
 						</GridItem>
+						<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 					</div>
 				</div>
 
@@ -112,17 +169,22 @@ class ESSONNEautres_structures extends React.Component {
 
 ESSONNEautres_structures.propTypes = {
 	getCurrentStructure_autres_structures: PropTypes.func.isRequired,
+	getCurrentStructureAutresstructuresMAPS: PropTypes.func.isRequired,
 	autres_structures: PropTypes.object.isRequired,
+	mapautresstructure: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_id_autres_structures: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	autres_structures: state.autres_structures
+	autres_structures: state.autres_structures,
+	mapautresstructure: state.mapautresstructure
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructure_autres_structures, deleteStructure_id_autres_structures })(
-		withRouter(ESSONNEautres_structures)
-	)
+	connect(mapStateToProps, {
+		getCurrentStructure_autres_structures,
+		deleteStructure_id_autres_structures,
+		getCurrentStructureAutresstructuresMAPS
+	})(withRouter(ESSONNEautres_structures))
 )

@@ -16,7 +16,7 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
-import Clearfix from 'components/Clearfix/Clearfix.jsx'
+
 import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
@@ -26,20 +26,31 @@ import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructureLITS, deleteStructure_idLITS } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureLITSMAPS } from 'actions/maps/mapsEssonneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ maplit }) => (
+	<div>
+		<Marker position={[ maplit.long, maplit.lat ]}>
+			<Popup>{maplit.name}</Popup>
+		</Marker>
+	</div>
+)
 class ESSONNELITS extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+		this.props.getCurrentStructureLITSMAPS()
 		this.props.getCurrentStructureLITS()
 	}
 
 	render() {
 		const { classes } = this.props
 		const { lit } = this.props.lit
+		const { maplit } = this.props.maplit
 		const DataElements = lit.map((lit) => <Tables lit={lit} />)
-
+		const Data = maplit.map((maplit) => <Map maplit={maplit} />)
+		const ButtonMaps = maplit.map((maplit) => <TablesMaps maplit={maplit} />)
 		return (
 			<div>
 				<Header
@@ -96,13 +107,56 @@ class ESSONNELITS extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
-
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/ESSONNE/maps/LITS">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 							<TablesHead />
 							{DataElements}
 
 							<div />
 						</GridItem>
-						<Clearfix />
+						<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 					</div>
 				</div>
 				<SectionFooter />
@@ -113,15 +167,20 @@ class ESSONNELITS extends React.Component {
 
 ESSONNELITS.propTypes = {
 	getCurrentStructureLITS: PropTypes.func.isRequired,
+	getCurrentStructureLITSMAPS: PropTypes.func.isRequired,
 	lit: PropTypes.object.isRequired,
+	maplit: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_idLITS: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	lit: state.lit
+	lit: state.lit,
+	maplit: state.maplit
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureLITS, deleteStructure_idLITS })(withRouter(ESSONNELITS))
+	connect(mapStateToProps, { getCurrentStructureLITS, deleteStructure_idLITS, getCurrentStructureLITSMAPS })(
+		withRouter(ESSONNELITS)
+	)
 )

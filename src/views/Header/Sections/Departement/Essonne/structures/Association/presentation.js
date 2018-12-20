@@ -16,63 +16,38 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
-import L from 'leaflet'
+
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentStructureAssos, deleteStructure_id } from 'actions/ESSONNEActions'
+import { getCurrentStructureAssos } from 'actions/ESSONNEActions'
+import { getCurrentStructureAssociationMaps } from 'actions/maps/paris/mapsParisActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+const Map = ({ mapassociation }) => (
+	<div>
+		<Marker position={[ mapassociation.long, mapassociation.lat ]}>
+			<Popup>{mapassociation.name}</Popup>
+		</Marker>
+	</div>
+)
 class ESSONNEASSOS extends React.Component {
-	state = {
-		showingInfoWindow: false,
-		activeMarker: {},
-		selectedPlace: {}
-	}
-
-	onMarkerClick = (props, marker, e) =>
-		this.setState({
-			selectedPlace: props,
-			activeMarker: marker,
-			showingInfoWindow: true
-		})
-
-	onMapClicked = (props) => {
-		if (this.state.showingInfoWindow) {
-			this.setState({
-				showingInfoWindow: false,
-				activeMarker: null
-			})
-		}
-	}
-
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
 		this.props.getCurrentStructureAssos()
-
-		var mymap = L.map('mapid').setView([ 48.702442, 2.130318 ], 10)
-		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-			attribution:
-				'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-			maxZoom: 18,
-			id: 'mapbox.streets',
-			accessToken: 'pk.eyJ1Ijoic291aGFpbHMiLCJhIjoiY2pwNW53NWt1MTIxdzNrcGhyN2g3aDZlYSJ9.RhGI7ibxm_dMpFycmibT0g'
-		}).addTo(mymap)
-
-		var marker = L.marker([ 48.702442, 2.130318 ]).addTo(mymap)
-
-		marker.bindPopup('ASP 91').openPopup()
+		this.props.getCurrentStructureAssociationMaps()
 	}
 
 	render() {
 		const { classes } = this.props
 		const { association } = this.props.association
+		const { mapassociation } = this.props.mapassociation
 		const DataElements = association.map((association) => <Tables association={association} />)
-
+		const Data = mapassociation.map((mapassociation) => <Map mapassociation={mapassociation} />)
 		return (
 			<div>
 				<HeaderSearchBar />
@@ -96,6 +71,7 @@ class ESSONNEASSOS extends React.Component {
 							<br />
 							<GridContainer>
 								<br />
+
 								<GridItem xs={12} sm={12} md={12}>
 									<TablesHead />
 									{DataElements}
@@ -116,47 +92,64 @@ class ESSONNEASSOS extends React.Component {
 															marginTop: 40
 														}}
 													>
-														<div
-															id="mapid"
-															style={{
-																textAlign: 'right',
-																justifyContent: 'right',
-																height: '80%',
-
-																position: 'relative',
-																marginTop: 40
-															}}
-														/>
+														<div>
+															<br />
+															<br />
+															<LeafletMap
+																style={{
+																	height: '500px',
+																	width: '100%'
+																}}
+																center={[ 48.693836, 2.7 ]}
+																zoom={12}
+																attributionControl={true}
+																zoomControl={true}
+																doubleClickZoom={true}
+																scrollWheelZoom={true}
+																dragging={true}
+																animate={true}
+																easeLinearity={0.35}
+															>
+																<TileLayer
+																	url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+																	attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+																/>
+																{Data}
+															</LeafletMap>
+														</div>
 													</Grid>
 												</GridContainer>
 											) : (
-												<GridContainer justify="center">
-													<Grid
-														xs={12}
-														sm={12}
-														md={10}
+												<div>
+													<br />
+													<br />
+													<LeafletMap
 														style={{
-															textAlign: 'right',
-															justifyContent: 'right',
-															height: '800px',
+															marginLeft: 'auto',
+															marginRight: 'auto',
 
-															position: 'relative',
-															marginTop: 40
+															height: '500px',
+															width: '80%'
 														}}
+														center={[ 48.693836, 2.7 ]}
+														zoom={12}
+														attributionControl={true}
+														zoomControl={true}
+														doubleClickZoom={true}
+														scrollWheelZoom={true}
+														dragging={true}
+														animate={true}
+														easeLinearity={0.35}
 													>
-														<div
-															id="mapid"
-															style={{
-																textAlign: 'right',
-																justifyContent: 'right',
-																height: '70%',
-
-																position: 'relative',
-																marginTop: 40
-															}}
+														<TileLayer
+															url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+															attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
 														/>
-													</Grid>
-												</GridContainer>
+														{Data}
+													</LeafletMap>
+													<br />
+													<br />
+												</div>
 											)}
 									</Media>
 								</GridItem>
@@ -175,14 +168,17 @@ class ESSONNEASSOS extends React.Component {
 
 ESSONNEASSOS.propTypes = {
 	getCurrentStructureAssos: PropTypes.func.isRequired,
+	getCurrentStructureAssociationMaps: PropTypes.func.isRequired,
 	association: PropTypes.object.isRequired,
-	classes: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired,
+	mapassociation: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	association: state.association
+	association: state.association,
+	mapassociation: state.mapassociation
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(withRouter(ESSONNEASSOS))
+	connect(mapStateToProps, { getCurrentStructureAssos, getCurrentStructureAssociationMaps })(withRouter(ESSONNEASSOS))
 )

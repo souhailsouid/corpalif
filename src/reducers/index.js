@@ -62,6 +62,8 @@ export default combineReducers({
 	mapreseaux: mapReducer,
 	maplit: mapReducer,
 	mapsoin: mapReducer,
+	mapautre: mapReducer,
+	mapautresstructure: mapReducer,
 	status: statusReducer,
 	profile_adherent: profile_adherentReducer,
 	orientation: orientationReducer,

@@ -88,7 +88,6 @@ class ProfilesItem extends React.Component {
 											{Object.values(profile.adherent[0].date).slice(11, 19)}
 											<br />
 											Id: {Object.values(profile.adherent[0]._id)}
-											{/* {profile.adherent.map((profile.adherent) => <li key={profile.adherent._id} profile={profile} />){profile.adherent.date} */}
 										</ul>
 										<br />
 										<br />

@@ -1,19 +1,21 @@
 import {
-	GET_STRUCTURE,
-	GET_MAPS,
-	MAP_LOADING,
+	GET_STRUCTUREHADMAPS,
 	STRUCTURE_LOADING,
-	DELETE_STRUCTURE,
-	DELETE_STRUCTUREASSOCIATION,
-	GET_STRUCTUREASSOCIATION,
-	DELETE_STRUCTURERESEAUX,
-	GET_STRUCTURERESEAUX,
-	DELETE_STRUCTURELITS,
-	GET_STRUCTURELITS,
-	DELETE_STRUCTURESOINS,
-	GET_STRUCTURESOINS,
-	DELETE_STRUCTUREHAD,
-	GET_STRUCTUREHAD
+	GET_STRUCTUREMAPS,
+	DELETE_STRUCTUREMAPS,
+	GET_STRUCTUREMAPSASSOCIATION,
+	DELETE_STRUCTUREMAPSASSOCIATION,
+	GET_STRUCTURERESEAUXMAPS,
+	DELETE_STRUCTURERESEAUXMAPS,
+	DELETE_STRUCTUREHADMAPS,
+	GET_STRUCTURELITSMAPS,
+	DELETE_STRUCTURELITSMAPS,
+	GET_STRUCTURESOINSMAPS,
+	DELETE_STRUCTURESOINSMAPS,
+	GET_AUTRESMAPS,
+	DELETE_AUTRESMAPS,
+	GET_AUTRES_STRUCTUREMAPS,
+	DELETE_AUTRES_STRUCTUREMAPS
 } from 'actions/types'
 
 const initialState = {
@@ -23,6 +25,8 @@ const initialState = {
 	mapreseaux: [],
 	maplit: [],
 	mapsoin: [],
+	mapautre: [],
+	mapautresstructure: [],
 	loading: false
 }
 
@@ -34,83 +38,113 @@ export default function(state = initialState, action) {
 				loading: true
 			}
 		// USP
-		case GET_STRUCTURE:
+		case GET_STRUCTUREMAPS:
 			return {
 				...state,
 				mapusp: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTURE:
+		case DELETE_STRUCTUREMAPS:
 			return {
 				...state,
 				posts: state.mapusps.filter((mapusp) => mapusp._id !== action.payload)
 			}
+
 		// association
-		case GET_STRUCTUREASSOCIATION:
+		case GET_STRUCTUREMAPSASSOCIATION:
 			return {
 				...state,
 				mapassociation: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTUREASSOCIATION:
+		case DELETE_STRUCTUREMAPSASSOCIATION:
 			return {
 				...state,
 				posts: state.mapassociations.filter((mapassociation) => mapassociation._id !== action.payload)
 			}
 		// HAD
-		case GET_MAPS:
+		case GET_STRUCTUREHADMAPS:
 			return {
 				...state,
 				mapteam: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTUREHAD:
+		case DELETE_STRUCTUREHADMAPS:
 			return {
 				...state,
 				posts: state.mapteams.filter((mapteam) => mapteam._id !== action.payload)
 			}
 		// RESEAUX
-		case GET_STRUCTURERESEAUX:
+		case GET_STRUCTURERESEAUXMAPS:
 			return {
 				...state,
 				mapreseaux: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTURERESEAUX:
+		case DELETE_STRUCTURERESEAUXMAPS:
 			return {
 				...state,
 				posts: state.mapreseauxs.filter((mapreseaux) => mapreseaux._id !== action.payload)
 			}
 		// LITS
-		case GET_STRUCTURELITS:
+		case GET_STRUCTURELITSMAPS:
 			return {
 				...state,
 				maplit: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTURELITS:
+		case DELETE_STRUCTURELITSMAPS:
 			return {
 				...state,
 				posts: state.maplits.filter((maplit) => maplit._id !== action.payload)
 			}
 		//STRUCTURES
-		case GET_STRUCTURESOINS:
+		case GET_STRUCTURESOINSMAPS:
 			return {
 				...state,
 				mapoins: action.payload,
 				loading: false
 			}
 
-		case DELETE_STRUCTURESOINS:
+		case DELETE_STRUCTURESOINSMAPS:
 			return {
 				...state,
 				posts: state.mapsoins.filter((mapsoin) => mapsoin._id !== action.payload)
 			}
+		// AUTRES STRUCTURES
+		case GET_AUTRES_STRUCTUREMAPS:
+			return {
+				...state,
+				autresstructures: action.payload,
+				loading: false
+			}
+
+		case DELETE_AUTRES_STRUCTUREMAPS:
+			return {
+				...state,
+				posts: state.mapautresstructures.filter(
+					(mapautresstructure) => mapautresstructure._id !== action.payload
+				)
+			}
+		// AUTRES
+		case GET_AUTRESMAPS:
+			return {
+				...state,
+				autres: action.payload,
+				loading: false
+			}
+
+		case DELETE_AUTRESMAPS:
+			return {
+				...state,
+				posts: state.mapautres.filter((mapautre) => mapautre._id !== action.payload)
+			}
+
 		default:
 			return state
 	}

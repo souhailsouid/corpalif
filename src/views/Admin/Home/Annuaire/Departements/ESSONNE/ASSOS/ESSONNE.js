@@ -6,7 +6,9 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 // @material-ui/icons
 import AddIcon from '@material-ui/icons/Add'
-
+import Person from '@material-ui/icons/Person'
+import Edit from '@material-ui/icons/Edit'
+import Close from '@material-ui/icons/Close'
 // core components
 import Tables from './data/tables'
 import TablesHead from './data/tablehead'
@@ -16,52 +18,41 @@ import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
-import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructureAssos, deleteStructure_id } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureAssociationMaps } from 'actions/maps/mapsEssonneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ mapassociation }) => (
+	<div>
+		<Marker position={[ mapassociation.long, mapassociation.lat ]}>
+			<Popup>{mapassociation.name}</Popup>
+		</Marker>
+	</div>
+)
 
 class ESSONNEASSOS extends React.Component {
-	state = {
-		showingInfoWindow: false,
-		activeMarker: {},
-		selectedPlace: {}
-	}
-
-	onMarkerClick = (props, marker, e) =>
-		this.setState({
-			selectedPlace: props,
-			activeMarker: marker,
-			showingInfoWindow: true
-		})
-
-	onMapClicked = (props) => {
-		if (this.state.showingInfoWindow) {
-			this.setState({
-				showingInfoWindow: false,
-				activeMarker: null
-			})
-		}
-	}
-
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+		this.props.getCurrentStructureAssociationMaps()
 		this.props.getCurrentStructureAssos()
 	}
 
 	render() {
 		const { classes } = this.props
 		const { association } = this.props.association
+		const { mapassociation } = this.props.mapassociation
 		const DataElements = association.map((association) => <Tables association={association} />)
+		const Data = mapassociation.map((mapassociation) => <Map mapassociation={mapassociation} />)
+		const ButtonMaps = mapassociation.map((mapassociation) => <TablesMaps mapassociation={mapassociation} />)
 
 		return (
 			<div>
@@ -116,12 +107,15 @@ class ESSONNEASSOS extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/ESSONNE/maps/association">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 
-							<br />
-							<br />
-
-							<br />
-							<br />
 							<GridContainer>
 								<br />
 								<GridItem xs={12} sm={10} md={12}>
@@ -129,55 +123,44 @@ class ESSONNEASSOS extends React.Component {
 									{DataElements}
 								</GridItem>
 							</GridContainer>
-							<GridContainer>
-								<Grid
-									xs={12}
-									sm={10}
-									md={12}
-									style={{
-										textAlign: 'right',
-										justifyContent: 'right',
-										height: 600,
-										marginTop: 40
-									}}
-								>
-									<Map
-										google={this.props.google}
-										initialCenter={{
-											lat: 48.8519,
-											lng: 2.291172
-										}}
-										onClick={this.onMapClicked}
-										zoom={14}
-										style={{ height: '60%' }}
-									>
-										<Marker
-											onClick={this.onMarkerClick}
-											position={{ lat: 48.8519, lng: 2.291172 }}
-											name={'Jeanne Garnier'}
-										/>
-
-										<Marker
-											title={'The marker`s title will appear as a tooltip.'}
-											onClick={this.onMarkerClick}
-											position={{ lat: 48.846737, lng: 2.289693 }}
-											name={'Current location'}
-										/>
-										<InfoWindow
-											marker={this.state.activeMarker}
-											visible={this.state.showingInfoWindow}
-										>
-											<div>
-												<h4 style={{ textAlign: 'center' }}>{this.state.selectedPlace.name}</h4>
-											</div>
-										</InfoWindow>
-									</Map>
-								</Grid>
-							</GridContainer>
-
-							<div />
 						</GridItem>
-						<Clearfix />
+						<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 					</div>
 				</div>
 
@@ -188,19 +171,23 @@ class ESSONNEASSOS extends React.Component {
 }
 
 ESSONNEASSOS.propTypes = {
+	getCurrentStructureAssociationMaps: PropTypes.func.isRequired,
 	getCurrentStructureAssos: PropTypes.func.isRequired,
 	association: PropTypes.object.isRequired,
+	mapassociation: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_id: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	association: state.association
+	association: state.association,
+	mapassociation: state.mapassociation
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyDeNfzPwX0--lYUtdesYTIp80KKu9CoybA'
-	}),
-	withStyles(profilePageStyle)
-)(connect(mapStateToProps, { getCurrentStructureAssos, deleteStructure_id })(withRouter(ESSONNEASSOS)))
+export default compose(withStyles(profilePageStyle))(
+	connect(mapStateToProps, {
+		getCurrentStructureAssos,
+		deleteStructure_id,
+		getCurrentStructureAssociationMaps
+	})(withRouter(ESSONNEASSOS))
+)

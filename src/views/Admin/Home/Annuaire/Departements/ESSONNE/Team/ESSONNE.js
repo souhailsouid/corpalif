@@ -19,27 +19,38 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructureTEAM, deleteStructure_idTEAM } from 'actions/ESSONNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureTEAMMAPS } from 'actions/maps/mapsEssonneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ mapteam }) => (
+	<div>
+		<Marker position={[ mapteam.long, mapteam.lat ]}>
+			<Popup>{mapteam.name}</Popup>
+		</Marker>
+	</div>
+)
 class ESSONNEHAD extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+		this.props.getCurrentStructureTEAMMAPS()
 		this.props.getCurrentStructureTEAM()
 	}
 
 	render() {
 		const { classes } = this.props
 		const { had } = this.props.had
+		const { mapteam } = this.props.mapteam
 		const DataElements = had.map((had) => <Tables had={had} />)
-
+		const Data = mapteam.map((mapteam) => <Map mapteam={mapteam} />)
+		const ButtonMaps = mapteam.map((mapteam) => <TablesMaps mapteam={mapteam} />)
 		return (
 			<div>
 				<Header
@@ -96,34 +107,56 @@ class ESSONNEHAD extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
-
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/ESSONNE/maps/equipesmobiles">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 							<TablesHead />
 							{DataElements}
-							<GridContainer>
-								<Grid
-									xs={12}
-									sm={10}
-									md={12}
-									style={{
-										textAlign: 'right',
-										justifyContent: 'right',
-										height: 600,
-										marginTop: 40
-									}}
-								>
-									<Map google={this.props.google} zoom={14} style={{ height: '60%' }}>
-										<Marker onClick={this.onMarkerClick} name={'Current location'} />
 
-										<InfoWindow onClose={this.onInfoWindowClose}>
-											{' '}
-											*/}
-											{/* <div> <h1>{this.state.selectedPlace.name}</h1></div> */}
-										</InfoWindow>
-									</Map>
-								</Grid>
-							</GridContainer>
 							<div />
 						</GridItem>
+						<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 						<Clearfix />
 					</div>
 				</div>
@@ -135,18 +168,20 @@ class ESSONNEHAD extends React.Component {
 
 ESSONNEHAD.propTypes = {
 	getCurrentStructureTEAM: PropTypes.func.isRequired,
+	getCurrentStructureTEAMMAPS: PropTypes.func.isRequired,
 	had: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idTEAM: PropTypes.func.isRequired
+	deleteStructure_idTEAM: PropTypes.func.isRequired,
+	mapteam: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	had: state.had
+	had: state.had,
+	mapteam: state.mapteam
 })
 
-export default compose(
-	GoogleApiWrapper({
-		apiKey: 'AIzaSyBOvIvu1AQ2Yrmb2H3AhnbiA97lg83_ZKI'
-	}),
-	withStyles(profilePageStyle)
-)(connect(mapStateToProps, { getCurrentStructureTEAM, deleteStructure_idTEAM })(withRouter(ESSONNEHAD)))
+export default compose(withStyles(profilePageStyle))(
+	connect(mapStateToProps, { getCurrentStructureTEAM, deleteStructure_idTEAM, getCurrentStructureTEAMMAPS })(
+		withRouter(ESSONNEHAD)
+	)
+)

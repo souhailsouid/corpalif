@@ -151,7 +151,6 @@ class ProfileData extends React.Component {
 								</b>{' '}
 								et jusqu'au 31 décembre <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>
 							</h3>
-							{profile.location}
 						</h2>
 					</div>
 				)

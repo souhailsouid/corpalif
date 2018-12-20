@@ -30,6 +30,7 @@ class CorpalifAdminPage extends React.Component {
 		const { classes } = this.props
 		const { corpalif } = this.props.corpalif
 		const DataElements = corpalif.map((corpalif) => <Section corpalif={corpalif} />)
+
 		return (
 			<div>
 				<HeaderComponent />
