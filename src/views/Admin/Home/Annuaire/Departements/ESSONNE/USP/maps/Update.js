@@ -23,7 +23,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { updateStructureAssosMaps, getCurrentStructure_idAssosMaps } from 'actions/maps/paris/mapsParisActions'
+import { updateStructure, getCurrentMaps_id } from 'actions/maps/mapsEssonneActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -56,23 +56,23 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentStructure_idAssosMaps(this.props.match.params.id)
+		this.props.getCurrentMaps_id(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.mapassociation.mapassociation) {
-			const mapassociation = nextProps.mapassociation.mapassociation
+		if (nextProps.mapusp.mapusp) {
+			const mapusp = nextProps.mapusp.mapusp
 
 			// If association field doesnt exist, make empty string
-			mapassociation.name = !isEmpty(mapassociation.name) ? mapassociation.name : ''
-			mapassociation.long = !isEmpty(mapassociation.long) ? mapassociation.long : ''
-			mapassociation.lat = !isEmpty(mapassociation.lat) ? mapassociation.lat : ''
+			mapusp.name = !isEmpty(mapusp.name) ? mapusp.name : ''
+			mapusp.long = !isEmpty(mapusp.long) ? mapusp.long : ''
+			mapusp.lat = !isEmpty(mapusp.lat) ? mapusp.lat : ''
 
 			// Set component fields state
 			this.setState({
-				name: mapassociation.name,
-				long: mapassociation.long,
-				lat: mapassociation.lat
+				name: mapusp.name,
+				long: mapusp.long,
+				lat: mapusp.lat
 			})
 		}
 	}
@@ -86,8 +86,8 @@ class Modal extends React.Component {
 			lat: this.state.lat
 		}
 
-		this.props.updateStructureAssosMaps(this.props.match.params.id, Data)
-		window.location.replace('/annuaire/ESSONNE/association')
+		this.props.updateStructure(this.props.match.params.id, Data)
+		window.location.replace('/annuaire/ESSONNE/usp')
 	}
 
 	onChange(e) {
@@ -106,8 +106,7 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() =>
-						this.handleClose('searchModal', window.location.replace('/admin/ESSONNE/association'))}
+					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/ESSONNE/usp'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>
@@ -197,15 +196,15 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	mapassociation: PropTypes.object.isRequired,
-	getCurrentStructure_idAssosMaps: PropTypes.func.isRequired,
+	mapusp: PropTypes.object.isRequired,
+	getCurrentMaps_id: PropTypes.func.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	mapassociation: state.mapassociation,
+	mapusp: state.mapusp,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { updateStructureAssosMaps, getCurrentStructure_idAssosMaps })(withRouter(Modal))
+	connect(mapStateTopProps, { updateStructure, getCurrentMaps_id })(withRouter(Modal))
 )

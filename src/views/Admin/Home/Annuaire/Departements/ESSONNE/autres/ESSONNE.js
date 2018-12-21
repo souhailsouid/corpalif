@@ -47,8 +47,9 @@ class ESSONNEautres extends React.Component {
 	render() {
 		const { classes } = this.props
 		const { autres } = this.props.autres
-		const { mapautre } = this.props.mapautre
+	
 		const DataElements = autres.map((autres) => <Tables autres={autres} />)
+			const { mapautre } = this.props.mapautre
 		const Data = mapautre.map((mapautre) => <Map mapautre={mapautre} />)
 		const ButtonMaps = mapautre.map((mapautre) => <TablesMaps mapautre={mapautre} />)
 		return (
@@ -170,7 +171,8 @@ ESSONNEautres.propTypes = {
 	autres: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_id_autres: PropTypes.func.isRequired,
-	mapautre: PropTypes.object.isRequired
+	mapautre: PropTypes.object.isRequired,
+		getCurrentStructureAutresMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

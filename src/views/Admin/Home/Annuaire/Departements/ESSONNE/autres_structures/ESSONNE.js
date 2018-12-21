@@ -45,16 +45,18 @@ class ESSONNEautres_structures extends React.Component {
 	}
 
 	render() {
-		const { classes } = this.props
-		const { mapautresstructure } = this.props.mapautresstructure
 		const { autres_structures } = this.props.autres_structures
-		const DataElements = autres_structures.map((autres_structures) => (
-			<Tables autres_structures={autres_structures} />
-		))
-		const Data = mapautresstructure.map((mapautresstructure) => <Map mapautresstructure={mapautresstructure} />)
+			const Data = mapautresstructure.map((mapautresstructure) => <Map mapautresstructure={mapautresstructure} />)
 		const ButtonMaps = mapautresstructure.map((mapautresstructure) => (
 			<TablesMaps mapautresstructure={mapautresstructure} />
 		))
+		const { classes } = this.props
+		const { mapautresstructure } = this.props.mapautresstructure
+		
+		const DataElements = autres_structures.map((autres_structures) => (
+			<Tables autres_structures={autres_structures} />
+		))
+	
 		return (
 			<div>
 				<Header
@@ -171,9 +173,11 @@ ESSONNEautres_structures.propTypes = {
 	getCurrentStructure_autres_structures: PropTypes.func.isRequired,
 	getCurrentStructureAutresstructuresMAPS: PropTypes.func.isRequired,
 	autres_structures: PropTypes.object.isRequired,
-	mapautresstructure: PropTypes.object.isRequired,
+	
 	classes: PropTypes.object.isRequired,
-	deleteStructure_id_autres_structures: PropTypes.func.isRequired
+	deleteStructure_id_autres_structures: PropTypes.func.isRequired,
+	mapautresstructure: PropTypes.object.isRequired,
+	getCurrentStructureAutresstructuresMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

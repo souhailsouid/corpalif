@@ -21,7 +21,7 @@ import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePag
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { getCurrentStructureAssos } from 'actions/ESSONNEActions'
-import { getCurrentStructureAssociationMaps } from 'actions/maps/paris/mapsParisActions'
+import { getCurrentStructureAssociationMaps } from 'actions/maps/mapsParisActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 

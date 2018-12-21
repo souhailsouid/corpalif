@@ -40,17 +40,20 @@ class ESSONNERESEAUX extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-		this.props.getCurrentStructureReseauxMAPS()
+	
 		this.props.getCurrentStructureReseaux()
+			this.props.getCurrentStructureReseauxMAPS()
 	}
 
 	render() {
-		const { classes } = this.props
-		const { reseaux } = this.props.reseaux
 		const { mapreseaux } = this.props.mapreseaux
-		const DataElements = reseaux.map((reseaux) => <Tables reseaux={reseaux} />)
 		const Data = mapreseaux.map((mapreseaux) => <Map mapreseaux={mapreseaux} />)
 		const ButtonMaps = mapreseaux.map((mapreseaux) => <TablesMaps mapreseaux={mapreseaux} />)
+		const { classes } = this.props
+		const { reseaux } = this.props.reseaux
+		
+		const DataElements = reseaux.map((reseaux) => <Tables reseaux={reseaux} />)
+		
 		return (
 			<div>
 				<Header
@@ -168,11 +171,11 @@ class ESSONNERESEAUX extends React.Component {
 
 ESSONNERESEAUX.propTypes = {
 	getCurrentStructureReseaux: PropTypes.func.isRequired,
-	getCurrentStructureReseauxMAPS: PropTypes.func.isRequired,
 	reseaux: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_idReseaux: PropTypes.func.isRequired,
-	mapreseaux: PropTypes.object.isRequired
+	mapreseaux: PropTypes.object.isRequired,
+	getCurrentStructureReseauxMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

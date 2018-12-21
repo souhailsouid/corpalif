@@ -26,12 +26,21 @@ import { withRouter, Link } from 'react-router-dom'
 import { getCurrentStructure_autres, deleteStructure_id_autres } from 'actions/SEINEETMARNEActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-
+import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getCurrentStructureAutresMAPS } from 'actions/maps/mapsSeineetMarneActions'
+import TablesMaps from './maps/data/tables'
+const Map = ({ mapautre }) => (
+	<div>
+		<Marker position={[ mapautre.long, mapautre.lat ]}>
+			<Popup>{mapautre.name}</Popup>
+		</Marker>
+	</div>
+)
 class SEINEETMARNEautres extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-
+this.props.getCurrentStructureAutresMAPS()
 		this.props.getCurrentStructure_autres()
 	}
 
@@ -39,7 +48,9 @@ class SEINEETMARNEautres extends React.Component {
 		const { classes } = this.props
 		const { autres } = this.props.autres
 		const DataElements = autres.map((autres) => <Tables autres={autres} />)
-
+	const { mapautre } = this.props.mapautre
+		const Data = mapautre.map((mapautre) => <Map mapautre={mapautre} />)
+		const ButtonMaps = mapautre.map((mapautre) => <TablesMaps mapautre={mapautre} />)
 		return (
 			<div>
 				<Header
@@ -93,12 +104,56 @@ class SEINEETMARNEautres extends React.Component {
 									</Button>
 								</Link>
 							</Grid>
-
+	<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+								<b>Ajouter une structure sur la carte </b>
+								<Link to="/admin/post/SEINEETMARNE/maps/autres">
+									<Button round variant="fab" color="green" aria-label="Add">
+										<AddIcon />
+									</Button>
+								</Link>
+							</Grid>
 							<GridItem xs={12} sm={10} md={12}>
 								<TablesHead />
 								{DataElements}
 							</GridItem>
 						</GridItem>
+							<div>
+							<br />
+							<br />
+
+							{
+								<LeafletMap
+									style={{
+										marginLeft: 'auto',
+										marginRight: 'auto',
+
+										height: '500px',
+										width: '80%'
+									}}
+									center={[ 48.876407, 2.369558 ]}
+									zoom={9}
+									attributionControl={true}
+									zoomControl={true}
+									doubleClickZoom={true}
+									scrollWheelZoom={true}
+									dragging={true}
+									animate={true}
+									easeLinearity={0.35}
+								>
+									}
+									<TileLayer
+										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+										attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+									/>
+									{Data}
+								</LeafletMap>
+							}
+
+							<br />
+							<h4>Pour la maps</h4>
+							{ButtonMaps}
+							<br />
+						</div>
 					</div>
 				</div>
 
@@ -112,13 +167,16 @@ SEINEETMARNEautres.propTypes = {
 	getCurrentStructure_autres: PropTypes.func.isRequired,
 	autres: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
-	deleteStructure_id_autres: PropTypes.func.isRequired
+	deleteStructure_id_autres: PropTypes.func.isRequired,
+		mapautre: PropTypes.object.isRequired,
+		getCurrentStructureAutresMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-	autres: state.autres
+	autres: state.autres,
+	mapautre: state.mapautre
 })
 
 export default compose(withStyles(profilePageStyle))(
-	connect(mapStateToProps, { getCurrentStructure_autres, deleteStructure_id_autres })(withRouter(SEINEETMARNEautres))
+	connect(mapStateToProps, { getCurrentStructure_autres, deleteStructure_id_autres , getCurrentStructureAutresMAPS})(withRouter(SEINEETMARNEautres))
 )

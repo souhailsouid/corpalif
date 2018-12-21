@@ -45,12 +45,14 @@ class ESSONNELITS extends React.Component {
 	}
 
 	render() {
-		const { classes } = this.props
-		const { lit } = this.props.lit
 		const { maplit } = this.props.maplit
-		const DataElements = lit.map((lit) => <Tables lit={lit} />)
 		const Data = maplit.map((maplit) => <Map maplit={maplit} />)
 		const ButtonMaps = maplit.map((maplit) => <TablesMaps maplit={maplit} />)
+		const { classes } = this.props
+		const { lit } = this.props.lit
+		
+		const DataElements = lit.map((lit) => <Tables lit={lit} />)
+		
 		return (
 			<div>
 				<Header
@@ -167,11 +169,13 @@ class ESSONNELITS extends React.Component {
 
 ESSONNELITS.propTypes = {
 	getCurrentStructureLITS: PropTypes.func.isRequired,
-	getCurrentStructureLITSMAPS: PropTypes.func.isRequired,
+	
 	lit: PropTypes.object.isRequired,
-	maplit: PropTypes.object.isRequired,
+	
 	classes: PropTypes.object.isRequired,
-	deleteStructure_idLITS: PropTypes.func.isRequired
+	deleteStructure_idLITS: PropTypes.func.isRequired,
+	getCurrentStructureLITSMAPS: PropTypes.func.isRequired,
+	maplit: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => ({

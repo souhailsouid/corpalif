@@ -17,7 +17,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 
 // Redux
 import { withRouter } from 'react-router-dom'
-import { deleteStructure_idAssosMaps } from 'actions/maps/paris/mapsParisActions'
+import { deleteStructure_idAssosMaps } from 'actions/maps/mapsEssonneActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 function Transition(props) {
@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idAssosMaps(this.props.match.params.id)
-		window.location.replace('/admin/ESSONNE/association')
+		window.location.replace('/admin/ESSONNE/autres_structures')
 	}
 
 	render() {
@@ -72,7 +72,7 @@ class Modal extends React.Component {
 						open={this.state.liveDemo}
 						TransitionComponent={Transition}
 						keepMounted
-						onClose={() => this.handleClose(window.location.replace('/admin/ESSONNE/association'))}
+						onClose={() => this.handleClose(window.location.replace('/admin/ESSONNE/autres_structures'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -95,7 +95,10 @@ class Modal extends React.Component {
 						<DialogActions className={classes.modalFooter}>
 							<Button
 								onClick={() =>
-									this.handleClose('liveDemo', window.location.replace('/admin/ESSONNE/association'))}
+									this.handleClose(
+										'liveDemo',
+										window.location.replace('/admin/ESSONNE/autres_structures')
+									)}
 								color="secondary"
 							>
 								Annuler
@@ -112,13 +115,13 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	mapassociation: PropTypes.object.isRequired,
+	mapautresstructure: PropTypes.object.isRequired,
 	deleteStructure_idAssosMaps: PropTypes.func.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	mapassociation: state.mapassociation,
+	mapautresstructure: state.mapautresstructure,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(

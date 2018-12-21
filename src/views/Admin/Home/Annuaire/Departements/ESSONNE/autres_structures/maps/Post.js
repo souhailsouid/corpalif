@@ -19,9 +19,9 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postAssos } from 'actions/maps/paris/mapsParisActions'
+import { postAUTRES_STRUCTURES } from 'actions/maps/mapsEssonneActions'
 
-class PostESSONNEASSOSMaps extends Component {
+class PostESSONNEAUTRES_STRUCTURESMaps extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -36,13 +36,13 @@ class PostESSONNEASSOSMaps extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.mapassociation) {
-			const mapassociation = nextProps.auth.mapassociation
+		if (nextProps.auth.mapautresstructure) {
+			const mapautresstructure = nextProps.auth.mapautresstructure
 
 			this.setState({
-				name: mapassociation.name,
-				long: mapassociation.long,
-				lat: mapassociation.lat
+				name: mapautresstructure.name,
+				long: mapautresstructure.long,
+				lat: mapautresstructure.lat
 			})
 		}
 	}
@@ -56,7 +56,7 @@ class PostESSONNEASSOSMaps extends Component {
 			lat: this.state.lat
 		}
 
-		this.props.postAssos(Data, this.props.history)
+		this.props.postAUTRES_STRUCTURES(Data, this.props.history)
 	}
 
 	onChange(e) {
@@ -122,15 +122,15 @@ class PostESSONNEASSOSMaps extends Component {
 	}
 }
 
-PostESSONNEASSOSMaps.propTypes = {
-	mapassociation: PropTypes.object.isRequired,
+PostESSONNEAUTRES_STRUCTURESMaps.propTypes = {
+	mapautresstructure: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	mapassociation: state.mapassociation,
+	mapautresstructure: state.mapautresstructure,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postAssos })(withRouter(PostESSONNEASSOSMaps))
+	connect(mapStateTopProps, { postAUTRES_STRUCTURES })(withRouter(PostESSONNEAUTRES_STRUCTURESMaps))
 )

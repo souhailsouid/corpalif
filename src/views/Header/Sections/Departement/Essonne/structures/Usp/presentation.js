@@ -21,7 +21,7 @@ import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePag
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { getCurrentStructure } from 'actions/ESSONNEActions'
-import { getCurrentStructureMaps } from 'actions/maps/paris/mapsParisActions'
+import { getCurrentStructureMaps } from 'actions/maps/mapsParisActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
@@ -35,14 +35,6 @@ const Map = ({ mapteam }) => (
 	</div>
 )
 class PresentationUspEssonne extends React.Component {
-	state = {
-		clicked: 0
-	}
-
-	onClickCircle = () => {
-		this.setState({ clicked: this.state.clicked + 1 })
-	}
-
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0

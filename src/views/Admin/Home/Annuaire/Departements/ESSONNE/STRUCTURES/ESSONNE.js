@@ -40,17 +40,20 @@ class ESSONNETRUCTURES extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-		this.props.getCurrentStructureHADMAPS()
+		
 		this.props.getCurrentStructureHAD()
+		this.props.getCurrentStructureHADMAPS()
 	}
 
 	render() {
+			const { mapsoin } = this.props.mapsoin
+				const Data = mapsoin.map((mapsoin) => <Map mapsoin={mapsoin} />)
+		const ButtonMaps = mapsoin.map((mapsoin) => <TablesMaps mapsoin={mapsoin} />)
 		const { classes } = this.props
 		const { soin } = this.props.soin
-		const { mapsoin } = this.props.mapsoin
+	
 		const DataElements = soin.map((soin) => <Tables soin={soin} />)
-		const Data = mapsoin.map((mapsoin) => <Map mapsoin={mapsoin} />)
-		const ButtonMaps = mapsoin.map((mapsoin) => <TablesMaps mapsoin={mapsoin} />)
+	
 		return (
 			<div>
 				<Header
@@ -168,11 +171,11 @@ class ESSONNETRUCTURES extends React.Component {
 
 ESSONNETRUCTURES.propTypes = {
 	getCurrentStructureHAD: PropTypes.func.isRequired,
-	getCurrentStructureHADMAPS: PropTypes.func.isRequired,
 	soin: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_idHAD: PropTypes.func.isRequired,
-	mapsoin: PropTypes.object.isRequired
+	mapsoin: PropTypes.object.isRequired,
+		getCurrentStructureHADMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

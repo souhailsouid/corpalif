@@ -39,17 +39,20 @@ const Map = ({ mapusp }) => (
 class ESSONNE extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
-		this.props.getCurrentStructureMaps()
+	
 		this.props.getCurrentStructure()
+			this.props.getCurrentStructureMaps()
 	}
 
 	render() {
+		const { mapusp } = this.props.mapusp
+			const Data = mapusp.map((mapusp) => <Map mapusp={mapusp} />)
+		const ButtonMaps = mapusp.map((mapusp) => <TablesMaps mapusp={mapusp} />)
 		const { classes } = this.props
 		const { usp } = this.props.usp
-		const { mapusp } = this.props.mapusp
+		
 		const DataElements = usp.map((usp) => <Tables usp={usp} />)
-		const Data = mapusp.map((mapusp) => <Map mapusp={mapusp} />)
-		const ButtonMaps = mapusp.map((mapusp) => <TablesMaps mapusp={mapusp} />)
+	
 		return (
 			<div>
 				<Header
@@ -167,11 +170,12 @@ class ESSONNE extends React.Component {
 
 ESSONNE.propTypes = {
 	getCurrentStructure: PropTypes.func.isRequired,
-	getCurrentStructureMaps: PropTypes.func.isRequired,
+
 	usp: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_id: PropTypes.func.isRequired,
-	mapusp: PropTypes.object.isRequired
+	mapusp: PropTypes.object.isRequired,
+		getCurrentStructureMaps: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

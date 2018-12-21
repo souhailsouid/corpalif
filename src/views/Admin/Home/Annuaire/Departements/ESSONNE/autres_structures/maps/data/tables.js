@@ -46,8 +46,8 @@ const TablesMaps = ({ mapautresstructure }) => (
 				</Grid>
 
 				<Grid item xs={3} style={{ textAlign: 'right' }}>
-					<Link to={`/admin/update/ESSONNE/maps/association/${mapautresstructure._id}`}>{update}</Link>
-					<Link to={`/admin/delete/ESSONNE/maps/association/${mapautresstructure._id}`}>{deleteButton}</Link>
+					<Link to={`/admin/update/ESSONNE/maps/autres_structures/${mapautresstructure._id}`}>{update}</Link>
+					<Link to={`/admin/delete/ESSONNE/maps/autres_structures/${mapautresstructure._id}`}>{deleteButton}</Link>
 				</Grid>
 			</GridItem>
 		</GridContainer>

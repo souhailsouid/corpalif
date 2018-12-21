@@ -158,7 +158,7 @@ export const updateStructureAssosMaps = (id, Data) => (dispatch) => {
 export const postAssos = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/association', Data)
-		.then((res) => history.push('/admin/ESSONNE/association'))
+		.then((res) => history.push('/admin/seineetmarne/association'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -168,7 +168,7 @@ export const postAssos = (Data, history) => (dispatch) => {
 }
 //RESEAUX
 // Get all structures
-export const getCurrentStructureReseaux = () => (dispatch) => {
+export const getCurrentStructureReseauxMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios.get('/api/maps/seineetmarne/reseaux').then((res) =>
 		dispatch({
@@ -239,7 +239,7 @@ export const postReseaux = (Data, history) => (dispatch) => {
 
 //Had
 // Get all structures
-export const getCurrentStructureTEAM = () => (dispatch) => {
+export const getCurrentStructureTEAMMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios.get('/api/maps/seineetmarne/team').then((res) =>
 		dispatch({
@@ -269,7 +269,7 @@ export const getCurrentStructure_idTEAM = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idTEAMMAPS = (id) => (dispatch) => {
+export const deleteStructure_idTEAM = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/seineetmarne/team/${id}`)
 		.then((res) =>
@@ -286,7 +286,7 @@ export const deleteStructure_idTEAMMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureTEAMMPAS = (id, Data) => (dispatch) => {
+export const updateStructureTEAM = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/seineetmarne/team/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -296,7 +296,7 @@ export const updateStructureTEAMMPAS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postTEAMMAPS = (Data, history) => (dispatch) => {
+export const postTEAM = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/team', Data)
 		.then((res) => history.push('/admin/seineetmarne/equipesmobiles'))
@@ -320,7 +320,7 @@ export const getCurrentStructureLITSMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idLITSMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idLITS = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/seineetmarne/LITS/${id}`)
@@ -339,7 +339,7 @@ export const getCurrentStructure_idLITSMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idLITSMAPS = (id) => (dispatch) => {
+export const deleteStructure_idLITS = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/seineetmarne/LITS/${id}`)
 		.then((res) =>
@@ -356,7 +356,7 @@ export const deleteStructure_idLITSMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureLITSMAPS = (id, Data) => (dispatch) => {
+export const updateStructureLITS = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/seineetmarne/LITS/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -366,7 +366,7 @@ export const updateStructureLITSMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postLITSMAPS = (Data, history) => (dispatch) => {
+export const postLITS = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/LITS', Data)
 		.then((res) => history.push('/admin/seineetmarne/LITS'))
@@ -390,7 +390,7 @@ export const getCurrentStructureHADMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idHADMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/seineetmarne/had/${id}`)
@@ -409,7 +409,7 @@ export const getCurrentStructure_idHADMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idHADMAPS = (id) => (dispatch) => {
+export const deleteStructure_idHAD = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/seineetmarne/had/${id}`)
 		.then((res) =>
@@ -426,7 +426,7 @@ export const deleteStructure_idHADMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureHADMAPS = (id, Data) => (dispatch) => {
+export const updateStructureHAD = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/seineetmarne//had/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -436,7 +436,7 @@ export const updateStructureHADMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postHADMAPS = (Data, history) => (dispatch) => {
+export const postHAD = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/had', Data)
 		.then((res) => history.push('/admin/seineetmarne/structure'))
@@ -461,7 +461,7 @@ export const getCurrentStructureAutresstructuresMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idAutresstructures = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/seineetmarne/autresStructures/${id}`)
@@ -480,7 +480,7 @@ export const getCurrentStructure_idAutresstructuresMAPS = (id) => (dispatch) => 
 }
 
 // Delete Post
-export const deleteStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
+export const deleteStructure_idAutresstructures = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/seineetmarne/autresStructures/${id}`)
 		.then((res) =>
@@ -497,7 +497,7 @@ export const deleteStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureAutresstructuresMAPS = (id, Data) => (dispatch) => {
+export const updateStructureAutresstructures = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/seineetmarne/autresStructures/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -507,7 +507,7 @@ export const updateStructureAutresstructuresMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresstructuresMAPS = (Data, history) => (dispatch) => {
+export const postAutresstructures = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/autresStructures', Data)
 		.then((res) => history.push('/admin/seineetmarne/structure'))
@@ -532,7 +532,7 @@ export const getCurrentStructureAutresMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idAutresMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idAutres = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/seineetmarne/Autres/${id}`)
@@ -551,7 +551,7 @@ export const getCurrentStructure_idAutresMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idAutresMAPS = (id) => (dispatch) => {
+export const deleteStructure_idAutres = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/seineetmarne/Autres/${id}`)
 		.then((res) =>
@@ -568,7 +568,7 @@ export const deleteStructure_idAutresMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureAutresMAPS = (id, Data) => (dispatch) => {
+export const updateStructureAutres = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/seineetmarne/Autres/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -578,7 +578,7 @@ export const updateStructureAutresMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresMAPS = (Data, history) => (dispatch) => {
+export const postAutres = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/seineetmarne/Autres', Data)
 		.then((res) => history.push('/admin/seineetmarne/structure'))

@@ -19,9 +19,9 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postAssos } from 'actions/maps/paris/mapsParisActions'
+import { postTEAM } from 'actions/maps/mapsEssonneActions'
 
-class PostESSONNEASSOSMaps extends Component {
+class PostESSONNETEAMMaps extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -36,13 +36,13 @@ class PostESSONNEASSOSMaps extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.mapassociation) {
-			const mapassociation = nextProps.auth.mapassociation
+		if (nextProps.auth.mapteam) {
+			const mapteam = nextProps.auth.mapteam
 
 			this.setState({
-				name: mapassociation.name,
-				long: mapassociation.long,
-				lat: mapassociation.lat
+				name: mapteam.name,
+				long: mapteam.long,
+				lat: mapteam.lat
 			})
 		}
 	}
@@ -56,7 +56,7 @@ class PostESSONNEASSOSMaps extends Component {
 			lat: this.state.lat
 		}
 
-		this.props.postAssos(Data, this.props.history)
+		this.props.postTEAM(Data, this.props.history)
 	}
 
 	onChange(e) {
@@ -122,15 +122,15 @@ class PostESSONNEASSOSMaps extends Component {
 	}
 }
 
-PostESSONNEASSOSMaps.propTypes = {
-	mapassociation: PropTypes.object.isRequired,
+PostESSONNETEAMMaps.propTypes = {
+	mapteam: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	mapassociation: state.mapassociation,
+	mapteam: state.mapteam,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postAssos })(withRouter(PostESSONNEASSOSMaps))
+	connect(mapStateTopProps, { postTEAM })(withRouter(PostESSONNETEAMMaps))
 )

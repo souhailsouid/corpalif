@@ -64,6 +64,7 @@ const Tables = ({ autres_structures }) => (
 					{autres_structures.email}
 				</Grid>
 				<Grid item xs={4} style={{ textAlign: 'right' }}>
+				
 					<Link to={`/admin/ESSONNE/autres_structures/${autres_structures._id}`}>{get}</Link>
 					<Link to={`/admin/update/ESSONNE/autres_structures/${autres_structures._id}`}>{update}</Link>
 					<Link to={`/admin/delete/ESSONNE/autres_structures/${autres_structures._id}`}>{deleteButton}</Link>

@@ -47,8 +47,8 @@ const TablesMaps = ({ maplit }) => (
 				</Grid>
 
 				<Grid item xs={3} style={{ textAlign: 'right' }}>
-					<Link to={`/admin/update/ESSONNE/maps/association/${maplit._id}`}>{update}</Link>
-					<Link to={`/admin/delete/ESSONNE/maps/association/${maplit._id}`}>{deleteButton}</Link>
+					<Link to={`/admin/update/ESSONNE/maps/lits/${maplit._id}`}>{update}</Link>
+					<Link to={`/admin/delete/ESSONNE/maps/lits/${maplit._id}`}>{deleteButton}</Link>
 				</Grid>
 			</GridItem>
 		</GridContainer>

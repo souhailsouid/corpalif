@@ -158,7 +158,7 @@ export const updateStructureAssosMaps = (id, Data) => (dispatch) => {
 export const postAssos = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/valdoise/association', Data)
-		.then((res) => history.push('/admin/ESSONNE/association'))
+		.then((res) => history.push('/admin/valdoise/association'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -168,7 +168,7 @@ export const postAssos = (Data, history) => (dispatch) => {
 }
 //RESEAUX
 // Get all structures
-export const getCurrentStructureReseaux = () => (dispatch) => {
+export const getCurrentStructureReseauxMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios.get('/api/maps/valdoise/reseaux').then((res) =>
 		dispatch({
@@ -236,7 +236,7 @@ export const postReseaux = (Data, history) => (dispatch) => {
 
 //Had
 // Get all structures
-export const getCurrentStructureTEAM = () => (dispatch) => {
+export const getCurrentStructureTEAMMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios.get('/api/maps/valdoise/team').then((res) =>
 		dispatch({
@@ -266,7 +266,7 @@ export const getCurrentStructure_idTEAM = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idTEAMMAPS = (id) => (dispatch) => {
+export const deleteStructure_idTEAM = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/valdoise/team/${id}`)
 		.then((res) =>
@@ -283,7 +283,7 @@ export const deleteStructure_idTEAMMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureTEAMMPAS = (id, Data) => (dispatch) => {
+export const updateStructureTEAM = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/valdoise/team/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -293,7 +293,7 @@ export const updateStructureTEAMMPAS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postTEAMMAPS = (Data, history) => (dispatch) => {
+export const postTEAM = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/valdoise/team', Data)
 		.then((res) => history.push('/admin/valdoise/equipesmobiles'))
@@ -317,7 +317,7 @@ export const getCurrentStructureLITSMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idLITSMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idLITS = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/valdoise/LITS/${id}`)
@@ -336,7 +336,7 @@ export const getCurrentStructure_idLITSMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idLITSMAPS = (id) => (dispatch) => {
+export const deleteStructure_idLITS = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/valdoise/LITS/${id}`)
 		.then((res) =>
@@ -353,7 +353,7 @@ export const deleteStructure_idLITSMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureLITSMAPS = (id, Data) => (dispatch) => {
+export const updateStructureLITS = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/valdoise/LITS/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -363,7 +363,7 @@ export const updateStructureLITSMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postLITSMAPS = (Data, history) => (dispatch) => {
+export const postLITS = (Data, history) => (dispatch) => {
 	axios.post('/api/maps/valdoise/LITS', Data).then((res) => history.push('/admin/valdoise/LITS')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -384,7 +384,7 @@ export const getCurrentStructureHADMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idHADMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/valdoise/had/${id}`)
@@ -403,7 +403,7 @@ export const getCurrentStructure_idHADMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idHADMAPS = (id) => (dispatch) => {
+export const deleteStructure_idHAD = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/valdoise/had/${id}`)
 		.then((res) =>
@@ -420,7 +420,7 @@ export const deleteStructure_idHADMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureHADMAPS = (id, Data) => (dispatch) => {
+export const updateStructureHAD = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/valdoise//had/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -430,7 +430,7 @@ export const updateStructureHADMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postHADMAPS = (Data, history) => (dispatch) => {
+export const postHAD = (Data, history) => (dispatch) => {
 	axios.post('/api/maps/valdoise/had', Data).then((res) => history.push('/admin/valdoise/structure')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -452,7 +452,7 @@ export const getCurrentStructureAutresstructuresMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idAutresstructures = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/valdoise/autresStructures/${id}`)
@@ -471,7 +471,7 @@ export const getCurrentStructure_idAutresstructuresMAPS = (id) => (dispatch) => 
 }
 
 // Delete Post
-export const deleteStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
+export const deleteStructure_idAutresstructures = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/valdoise/autresStructures/${id}`)
 		.then((res) =>
@@ -488,7 +488,7 @@ export const deleteStructure_idAutresstructuresMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureAutresstructuresMAPS = (id, Data) => (dispatch) => {
+export const updateStructureAutresstructures = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/valdoise/autresStructures/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -498,7 +498,7 @@ export const updateStructureAutresstructuresMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresstructuresMAPS = (Data, history) => (dispatch) => {
+export const postAutresstructures = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/valdoise/autresStructures', Data)
 		.then((res) => history.push('/admin/valdoise/structure'))
@@ -523,7 +523,7 @@ export const getCurrentStructureAutresMAPS = () => (dispatch) => {
 }
 
 // Get current structure
-export const getCurrentStructure_idAutresMAPS = (id) => (dispatch) => {
+export const getCurrentStructure_idAutres = (id) => (dispatch) => {
 	dispatch(setStructureLoading())
 	axios
 		.get(`/api/maps/valdoise/Autres/${id}`)
@@ -542,7 +542,7 @@ export const getCurrentStructure_idAutresMAPS = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idAutresMAPS = (id) => (dispatch) => {
+export const deleteStructure_idAutres = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/valdoise/Autres/${id}`)
 		.then((res) =>
@@ -559,7 +559,7 @@ export const deleteStructure_idAutresMAPS = (id) => (dispatch) => {
 		)
 }
 // Add Comment
-export const updateStructureAutresMAPS = (id, Data) => (dispatch) => {
+export const updateStructureAutres = (id, Data) => (dispatch) => {
 	axios.put(`/api/maps/valdoise/Autres/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
@@ -569,7 +569,7 @@ export const updateStructureAutresMAPS = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresMAPS = (Data, history) => (dispatch) => {
+export const postAutres = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/valdoise/Autres', Data)
 		.then((res) => history.push('/admin/valdoise/structure'))

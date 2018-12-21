@@ -40,17 +40,20 @@ class ESSONNEHAD extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
-		this.props.getCurrentStructureTEAMMAPS()
+
 		this.props.getCurrentStructureTEAM()
+				this.props.getCurrentStructureTEAMMAPS()
 	}
 
 	render() {
+		const { mapteam } = this.props.mapteam
+				const Data = mapteam.map((mapteam) => <Map mapteam={mapteam} />)
+		const ButtonMaps = mapteam.map((mapteam) => <TablesMaps mapteam={mapteam} />)
 		const { classes } = this.props
 		const { had } = this.props.had
-		const { mapteam } = this.props.mapteam
+		
 		const DataElements = had.map((had) => <Tables had={had} />)
-		const Data = mapteam.map((mapteam) => <Map mapteam={mapteam} />)
-		const ButtonMaps = mapteam.map((mapteam) => <TablesMaps mapteam={mapteam} />)
+
 		return (
 			<div>
 				<Header
@@ -168,11 +171,12 @@ class ESSONNEHAD extends React.Component {
 
 ESSONNEHAD.propTypes = {
 	getCurrentStructureTEAM: PropTypes.func.isRequired,
-	getCurrentStructureTEAMMAPS: PropTypes.func.isRequired,
+	
 	had: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_idTEAM: PropTypes.func.isRequired,
-	mapteam: PropTypes.object.isRequired
+	mapteam: PropTypes.object.isRequired,
+	getCurrentStructureTEAMMAPS: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

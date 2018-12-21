@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import Modal from './delete'
-class DeleteESSONNEASSOSMaps extends React.Component {
+class DeleteESSONNEAUTRES_STRUCTURESMaps extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -69,8 +69,8 @@ class DeleteESSONNEASSOSMaps extends React.Component {
 	}
 }
 
-DeleteESSONNEASSOSMaps.propTypes = {
+DeleteESSONNEAUTRES_STRUCTURESMaps.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(DeleteESSONNEASSOSMaps))
+export default compose(withStyles(profilePageStyle))(withRouter(DeleteESSONNEAUTRES_STRUCTURESMaps))
