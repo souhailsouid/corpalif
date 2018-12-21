@@ -10,9 +10,6 @@ const ParisMapsTeamSchema = new Schema({
 	name: {
 		type: String
 	},
-	message: {
-		type: String
-	},
 
 	long: { type: String, coordinates: [ Number ] },
 	lat: { type: String, coordinates: [ Number ] },
