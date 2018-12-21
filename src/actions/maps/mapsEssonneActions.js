@@ -439,7 +439,7 @@ export const postHAD = (Data, history) => (dispatch) => {
 	)
 }
 
-//STRUCTURES
+// AUTRES STRUCTURES
 // Get all structures
 export const getCurrentStructureAutresstructuresMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
@@ -510,7 +510,7 @@ export const postAutresstructures = (Data, history) => (dispatch) => {
 		)
 }
 
-//STRUCTURES
+//Autres
 // Get all structures
 export const getCurrentStructureAutresMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())

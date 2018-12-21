@@ -19,7 +19,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postAutres } from 'actions/maps/mapsEssonneActions'
+import { postAutres } from 'actions/maps/mapsParisActions'
 
 class PostESSONNEAUTRESMaps extends Component {
 	constructor(props) {
