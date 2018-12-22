@@ -403,7 +403,7 @@ export const getCurrentStructure_idHAD = (id) => (dispatch) => {
 }
 
 // Delete Post
-export const deleteStructure_idHAD = (id) => (dispatch) => {
+export const deletestructures_idHAD = (id) => (dispatch) => {
 	axios
 		.delete(`/api/maps/essonne/had/${id}`)
 		.then((res) =>
@@ -421,7 +421,7 @@ export const deleteStructure_idHAD = (id) => (dispatch) => {
 }
 // Add Comment
 export const updateStructureHAD = (id, Data) => (dispatch) => {
-	axios.put(`/api/maps/essonne//had/${id}`, Data).then((res) => res.data).catch((err) =>
+	axios.put(`/api/maps/essonne/had/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -431,7 +431,7 @@ export const updateStructureHAD = (id, Data) => (dispatch) => {
 
 // Create structure
 export const postHAD = (Data, history) => (dispatch) => {
-	axios.post('/api/maps/essonne/had', Data).then((res) => history.push('/admin/essonne/structure')).catch((err) =>
+	axios.post('/api/maps/essonne/had', Data).then((res) => history.push('/admin/essonne/structures')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -473,7 +473,7 @@ export const getCurrentStructure_idAutresstructures = (id) => (dispatch) => {
 // Delete Post
 export const deleteStructure_idAutresstructures = (id) => (dispatch) => {
 	axios
-		.delete(`/api/maps/essonne/autresStructures/${id}`)
+		.delete(`/api/maps/essonne/autresstructures/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_AUTRES_STRUCTUREMAPS,
@@ -498,10 +498,10 @@ export const updateStructureAutresstructures = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresstructures = (Data, history) => (dispatch) => {
+export const postAUTRES_STRUCTURES = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/essonne/autresStructures', Data)
-		.then((res) => history.push('/admin/essonne/structure'))
+		.then((res) => history.push('/admin/essonne/autres_structures'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -514,7 +514,7 @@ export const postAutresstructures = (Data, history) => (dispatch) => {
 // Get all structures
 export const getCurrentStructureAutresMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/maps/essonne/had').then((res) =>
+	axios.get('/api/maps/essonne/Autres').then((res) =>
 		dispatch({
 			type: GET_AUTRESMAPS,
 			payload: res.data
@@ -570,7 +570,7 @@ export const updateStructureAutres = (id, Data) => (dispatch) => {
 
 // Create structure
 export const postAutres = (Data, history) => (dispatch) => {
-	axios.post('/api/maps/essonne/Autres', Data).then((res) => history.push('/admin/essonne/structure')).catch((err) =>
+	axios.post('/api/maps/essonne/Autres', Data).then((res) => history.push('/admin/essonne/autres')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}

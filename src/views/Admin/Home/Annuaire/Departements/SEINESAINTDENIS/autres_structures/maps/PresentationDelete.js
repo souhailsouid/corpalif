@@ -16,7 +16,7 @@ import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePag
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import Modal from './delete'
+import Modal from './Delete'
 class DeleteSEINESAINTDENISAUTRES_STRUCTURESMaps extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
@@ -69,8 +69,8 @@ class DeleteSEINESAINTDENISAUTRES_STRUCTURESMaps extends React.Component {
 	}
 }
 
-DeleteESSONNEAUTRES_STRUCTURESMaps.propTypes = {
+DeleteSEINESAINTDENISAUTRES_STRUCTURESMaps.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(DeleteESSONNEAUTRES_STRUCTURESMaps))
+export default compose(withStyles(profilePageStyle))(withRouter(DeleteSEINESAINTDENISAUTRES_STRUCTURESMaps))

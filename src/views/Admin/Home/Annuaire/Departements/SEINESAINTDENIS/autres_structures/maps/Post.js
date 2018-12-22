@@ -122,7 +122,7 @@ class PostSEINESAINTDENISAUTRES_STRUCTURESMaps extends Component {
 	}
 }
 
-PostESSONNEAUTRES_STRUCTURESMaps.propTypes = {
+PostSEINESAINTDENISAUTRES_STRUCTURESMaps.propTypes = {
 	mapautresstructure: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -132,5 +132,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postAUTRES_STRUCTURES })(withRouter(PostESSONNEAUTRES_STRUCTURESMaps))
+	connect(mapStateTopProps, { postAUTRES_STRUCTURES })(withRouter(PostSEINESAINTDENISAUTRES_STRUCTURESMaps))
 )

@@ -294,15 +294,12 @@ export const updateStructureTEAM = (id, Data) => (dispatch) => {
 
 // Create structure
 export const postTEAM = (Data, history) => (dispatch) => {
-	axios
-		.post('/api/maps/paris/team', Data)
-		.then((res) => history.push('/admin/paris/equipesmobiles'))
-		.catch((err) =>
-			dispatch({
-				type: GET_ERRORS,
-				payload: {}
-			})
-		)
+	axios.post('/api/maps/paris/team', Data).then((res) => history.push('/admin/paris/equipesmobiles')).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: {}
+		})
+	)
 }
 // Lits
 // Get all structures
@@ -421,7 +418,7 @@ export const deleteStructure_idHAD = (id) => (dispatch) => {
 }
 // Add Comment
 export const updateStructureHAD = (id, Data) => (dispatch) => {
-	axios.put(`/api/maps/paris//had/${id}`, Data).then((res) => res.data).catch((err) =>
+	axios.put(`/api/maps/paris/had/${id}`, Data).then((res) => res.data).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -431,7 +428,7 @@ export const updateStructureHAD = (id, Data) => (dispatch) => {
 
 // Create structure
 export const postHAD = (Data, history) => (dispatch) => {
-	axios.post('/api/maps/paris/had', Data).then((res) => history.push('/admin/paris/structure')).catch((err) =>
+	axios.post('/api/maps/paris/had', Data).then((res) => history.push('/admin/paris/structures')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
@@ -439,7 +436,7 @@ export const postHAD = (Data, history) => (dispatch) => {
 	)
 }
 
-//STRUCTURES
+// AUTRES STRUCTURES
 // Get all structures
 export const getCurrentStructureAutresstructuresMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
@@ -473,7 +470,7 @@ export const getCurrentStructure_idAutresstructures = (id) => (dispatch) => {
 // Delete Post
 export const deleteStructure_idAutresstructures = (id) => (dispatch) => {
 	axios
-		.delete(`/api/maps/paris/autresStructures/${id}`)
+		.delete(`/api/maps/paris/autresstructures/${id}`)
 		.then((res) =>
 			dispatch({
 				type: DELETE_AUTRES_STRUCTUREMAPS,
@@ -498,10 +495,10 @@ export const updateStructureAutresstructures = (id, Data) => (dispatch) => {
 }
 
 // Create structure
-export const postAutresstructures = (Data, history) => (dispatch) => {
+export const postAUTRES_STRUCTURES = (Data, history) => (dispatch) => {
 	axios
 		.post('/api/maps/paris/autresStructures', Data)
-		.then((res) => history.push('/admin/paris/structure'))
+		.then((res) => history.push('/admin/paris/autres_structures'))
 		.catch((err) =>
 			dispatch({
 				type: GET_ERRORS,
@@ -510,11 +507,11 @@ export const postAutresstructures = (Data, history) => (dispatch) => {
 		)
 }
 
-//STRUCTURES
+//Autres
 // Get all structures
 export const getCurrentStructureAutresMAPS = () => (dispatch) => {
 	dispatch(setStructureLoading())
-	axios.get('/api/maps/paris/had').then((res) =>
+	axios.get('/api/maps/paris/Autres').then((res) =>
 		dispatch({
 			type: GET_AUTRESMAPS,
 			payload: res.data
@@ -570,7 +567,7 @@ export const updateStructureAutres = (id, Data) => (dispatch) => {
 
 // Create structure
 export const postAutres = (Data, history) => (dispatch) => {
-	axios.post('/api/maps/paris/Autres', Data).then((res) => history.push('/admin/paris/structure')).catch((err) =>
+	axios.post('/api/maps/paris/Autres', Data).then((res) => history.push('/admin/paris/autres')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}

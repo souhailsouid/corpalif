@@ -19,7 +19,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postAssos } from 'actions/maps/mapsSeineSaintDenisActions'
+import { postHAD } from 'actions/maps/mapsSeineSaintDenisActions'
 
 class PostSEINESAINTDENISSTRUCTURESMaps extends Component {
 	constructor(props) {
@@ -122,7 +122,7 @@ class PostSEINESAINTDENISSTRUCTURESMaps extends Component {
 	}
 }
 
-PostESSONNESTRUCTURESMaps.propTypes = {
+PostSEINESAINTDENISSTRUCTURESMaps.propTypes = {
 	mapsoin: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -132,5 +132,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postHAD })(withRouter(PostESSONNESTRUCTURESMaps))
+	connect(mapStateTopProps, { postHAD })(withRouter(PostSEINESAINTDENISSTRUCTURESMaps))
 )

@@ -17,7 +17,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 
 // Redux
 import { withRouter } from 'react-router-dom'
-import { deleteStructure_idAssosMaps } from 'actions/maps/mapsYvelinesActions'
+import { deleteStructure_idAutresstructures } from 'actions/maps/mapsYvelinesActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 function Transition(props) {
@@ -44,7 +44,7 @@ class Modal extends React.Component {
 	}
 
 	onDeleteClick() {
-		this.props.deleteStructure_idAssosMaps(this.props.match.params.id)
+		this.props.deleteStructure_idAutresstructures(this.props.match.params.id)
 		window.location.replace('/admin/YVELINES/autres_structures')
 	}
 
@@ -95,7 +95,10 @@ class Modal extends React.Component {
 						<DialogActions className={classes.modalFooter}>
 							<Button
 								onClick={() =>
-									this.handleClose('liveDemo', window.location.replace('/admin/YVELINES/autres_structures'))}
+									this.handleClose(
+										'liveDemo',
+										window.location.replace('/admin/YVELINES/autres_structures')
+									)}
 								color="secondary"
 							>
 								Annuler
@@ -113,7 +116,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
 	mapautresstructure: PropTypes.object.isRequired,
-	deleteStructure_idAssosMaps: PropTypes.func.isRequired,
+	deleteStructure_idAutresstructures: PropTypes.func.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
@@ -122,5 +125,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { deleteStructure_idAssosMaps })(withRouter(Modal))
+	connect(mapStateTopProps, { deleteStructure_idAutresstructures })(withRouter(Modal))
 )

@@ -19,7 +19,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { postReseaux} from 'actions/maps/paris/mapsParisActions'
+import { postReseaux } from 'actions/maps/mapsParisActions'
 
 class PostPARISRESEAUXMaps extends Component {
 	constructor(props) {
@@ -56,7 +56,7 @@ class PostPARISRESEAUXMaps extends Component {
 			lat: this.state.lat
 		}
 
-		this.props.postRESEAUX(Data, this.props.history)
+		this.props.postReseaux(Data, this.props.history)
 	}
 
 	onChange(e) {
@@ -132,5 +132,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postReseaux})(withRouter(PostPARISRESEAUXMaps))
+	connect(mapStateTopProps, { postReseaux })(withRouter(PostPARISRESEAUXMaps))
 )

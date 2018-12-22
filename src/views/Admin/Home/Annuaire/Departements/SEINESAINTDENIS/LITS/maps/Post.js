@@ -21,7 +21,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { postLITS } from 'actions/maps/mapsSeineSaintDenisActions'
 
-class PostESSONNELITSMaps extends Component {
+class PostSEINESAINTDENISLITSMaps extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -122,7 +122,7 @@ class PostESSONNELITSMaps extends Component {
 	}
 }
 
-PostESSONNELITSMaps.propTypes = {
+PostSEINESAINTDENISLITSMaps.propTypes = {
 	maplit: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -132,5 +132,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postLITS })(withRouter(PostESSONNELITSMaps))
+	connect(mapStateTopProps, { postLITS })(withRouter(PostSEINESAINTDENISLITSMaps))
 )

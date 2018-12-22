@@ -90,7 +90,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructureAutresstructures(this.props.match.params.id, Data)
-		window.location.replace('/annuaire/YVELINES/autres_structures')
+		window.location.replace('/admin/YVELINES/autres_structures')
 	}
 
 	onChange(e) {

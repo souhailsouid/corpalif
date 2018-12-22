@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 
-class UpdateESSONNELITSMaps extends React.Component {
+class UpdateSEINESAINTDENISLITSMaps extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -69,8 +69,8 @@ class UpdateESSONNELITSMaps extends React.Component {
 	}
 }
 
-UpdateESSONNELITSMaps.propTypes = {
+UpdateSEINESAINTDENISLITSMaps.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(UpdateESSONNELITSMaps))
+export default compose(withStyles(profilePageStyle))(withRouter(UpdateSEINESAINTDENISLITSMaps))

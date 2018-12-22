@@ -122,7 +122,7 @@ class PostSEINESAINTDENISTEAMMaps extends Component {
 	}
 }
 
-PostESSONNETEAMMaps.propTypes = {
+PostSEINESAINTDENISTEAMMaps.propTypes = {
 	mapteam: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -132,5 +132,5 @@ const mapStateTopProps = (state) => ({
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { postTEAM })(withRouter(PostESSONNETEAMMaps))
+	connect(mapStateTopProps, { postTEAM })(withRouter(PostSEINESAINTDENISTEAMMaps))
 )

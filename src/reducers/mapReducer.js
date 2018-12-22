@@ -107,7 +107,7 @@ export default function(state = initialState, action) {
 		case GET_STRUCTURESOINSMAPS:
 			return {
 				...state,
-				mapoins: action.payload,
+				mapsoin: action.payload,
 				loading: false
 			}
 
@@ -120,7 +120,7 @@ export default function(state = initialState, action) {
 		case GET_AUTRES_STRUCTUREMAPS:
 			return {
 				...state,
-				autresstructures: action.payload,
+				mapautresstructure: action.payload,
 				loading: false
 			}
 
@@ -135,7 +135,7 @@ export default function(state = initialState, action) {
 		case GET_AUTRESMAPS:
 			return {
 				...state,
-				autres: action.payload,
+				mapautre: action.payload,
 				loading: false
 			}
 

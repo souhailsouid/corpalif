@@ -69,8 +69,8 @@ class UpdateSEINESAINTDENISAUTRESMaps extends React.Component {
 	}
 }
 
-UpdateESSONNEAUTRESMaps.propTypes = {
+UpdateSEINESAINTDENISAUTRESMaps.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(UpdateESSONNEAUTRESMaps))
+export default compose(withStyles(profilePageStyle))(withRouter(UpdateSEINESAINTDENISAUTRESMaps))

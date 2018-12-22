@@ -17,7 +17,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 
 // Redux
 import { withRouter } from 'react-router-dom'
-import { deleteStructure_idAssosMaps } from 'actions/maps/paris/mapsParisActions'
+import { deleteStructure_idAssosMaps } from 'actions/maps/mapsParisActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 function Transition(props) {
@@ -95,7 +95,10 @@ class Modal extends React.Component {
 						<DialogActions className={classes.modalFooter}>
 							<Button
 								onClick={() =>
-									this.handleClose('liveDemo', window.location.replace('/admin/paris/equipesmobiles'))}
+									this.handleClose(
+										'liveDemo',
+										window.location.replace('/admin/paris/equipesmobiles')
+									)}
 								color="secondary"
 							>
 								Annuler

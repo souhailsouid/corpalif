@@ -23,10 +23,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {
-	updateStructureAutresstructures,
-	getCurrentStructure_idAutresstructures
-} from 'actions/maps/mapsParisActions'
+import { updateStructureAutresstructures, getCurrentStructure_idAutresstructures } from 'actions/maps/mapsParisActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -90,7 +87,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructureAutresstructures(this.props.match.params.id, Data)
-		window.location.replace('/annuaire/paris/autres_structures')
+		window.location.replace('/admin/paris/autres_structures')
 	}
 
 	onChange(e) {
