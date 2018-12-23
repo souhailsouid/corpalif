@@ -35,11 +35,7 @@ const Tables = ({ reseaux }) => (
 							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
-									<a
-										href={`http://${reseaux.web}`}
-										target="_blank"
-										style={{ color: 'rgb(60, 72, 88)' }}
-									>
+									<a href={reseaux.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -76,12 +72,13 @@ const Tables = ({ reseaux }) => (
 								display: 'flex',
 								justifyContent: 'stretch',
 								minWidth: 'auto',
-								flewWrap: 'wrap'
+								flewWrap: 'wrap',
+								borderBottom: '2px solid #D3D3D3'
 							}}
 						>
-							<Grid item md={3} style={{ textAlign: 'center' }}>
+							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={`http://${reseaux.web}`} target="_blank">
+									<a href={reseaux.web} target="_blank">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{reseaux.name}
 										</h3>
@@ -106,11 +103,7 @@ const Tables = ({ reseaux }) => (
 							>
 								<div>
 									{' '}
-									<a
-										href={`http://${reseaux.web}`}
-										target="_blank"
-										style={{ color: 'rgb(60, 72, 88)' }}
-									>
+									<a href={reseaux.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -138,6 +131,8 @@ const Tables = ({ reseaux }) => (
 								</div>
 							</Grid>
 						</GridItem>
+						<br />
+						<br />
 					</GridContainer>
 				)}
 		</Media>

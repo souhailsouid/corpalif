@@ -35,7 +35,7 @@ const Tables = ({ had }) => (
 							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
-									<a href={`http://${had.web}`} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a href={had.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -71,12 +71,13 @@ const Tables = ({ had }) => (
 								display: 'flex',
 								justifyContent: 'stretch',
 								minWidth: 'auto',
-								flewWrap: 'wrap'
+								flewWrap: 'wrap',
+								borderBottom: '2px solid #D3D3D3'
 							}}
 						>
-							<Grid item md={3} style={{ textAlign: 'center' }}>
+							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={`http://${had.web}`} target="_blank">
+									<a href={had.web} target="_blank">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{had.name}
 										</h3>
@@ -101,7 +102,7 @@ const Tables = ({ had }) => (
 							>
 								<div>
 									{' '}
-									<a href={`http://${had.web}`} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a href={had.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -126,6 +127,8 @@ const Tables = ({ had }) => (
 								</div>
 							</Grid>
 						</GridItem>
+						<br />
+						<br />
 					</GridContainer>
 				)}
 		</Media>

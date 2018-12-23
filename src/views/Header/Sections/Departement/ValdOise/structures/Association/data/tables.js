@@ -35,11 +35,7 @@ const Tables = ({ association }) => (
 							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
-									<a
-										href={`http://${association.web}`}
-										target="_blank"
-										style={{ color: 'rgb(60, 72, 88)' }}
-									>
+									<a href={association.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -76,12 +72,13 @@ const Tables = ({ association }) => (
 								display: 'flex',
 								justifyContent: 'stretch',
 								minWidth: 'auto',
-								flewWrap: 'wrap'
+								flewWrap: 'wrap',
+								borderBottom: '2px solid #D3D3D3'
 							}}
 						>
-							<Grid item md={3} style={{ textAlign: 'center' }}>
+							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={`http://${association.web}`} target="_blank">
+									<a href={association.web} target="_blank">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{association.name}
 										</h3>
@@ -106,11 +103,7 @@ const Tables = ({ association }) => (
 							>
 								<div>
 									{' '}
-									<a
-										href={`http://${association.web}`}
-										target="_blank"
-										style={{ color: 'rgb(60, 72, 88)' }}
-									>
+									<a href={association.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
 										<h5
 											className="link"
 											style={{
@@ -138,6 +131,8 @@ const Tables = ({ association }) => (
 								</div>
 							</Grid>
 						</GridItem>
+						<br />
+						<br />
 					</GridContainer>
 				)}
 		</Media>

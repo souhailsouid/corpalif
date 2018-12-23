@@ -36,7 +36,7 @@ const Tables = ({ autres_structures }) => (
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
 									<a
-										href={`http://${autres_structures.web}`}
+										href={autres_structures.web}
 										target="_blank"
 										style={{ color: 'rgb(60, 72, 88)' }}
 									>
@@ -76,12 +76,13 @@ const Tables = ({ autres_structures }) => (
 								display: 'flex',
 								justifyContent: 'stretch',
 								minWidth: 'auto',
-								flewWrap: 'wrap'
+								flewWrap: 'wrap',
+								borderBottom: '2px solid #D3D3D3'
 							}}
 						>
-							<Grid item md={3} style={{ textAlign: 'center' }}>
+							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={`http://${autres_structures.web}`} target="_blank">
+									<a href={autres_structures.web} target="_blank">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{autres_structures.name}
 										</h3>
@@ -107,7 +108,7 @@ const Tables = ({ autres_structures }) => (
 								<div>
 									{' '}
 									<a
-										href={`http://${autres_structures.web}`}
+										href={autres_structures.web}
 										target="_blank"
 										style={{ color: 'rgb(60, 72, 88)' }}
 									>
@@ -138,6 +139,8 @@ const Tables = ({ autres_structures }) => (
 								</div>
 							</Grid>
 						</GridItem>
+						<br />
+						<br />
 					</GridContainer>
 				)}
 		</Media>
