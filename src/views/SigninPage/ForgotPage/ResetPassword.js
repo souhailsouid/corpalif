@@ -8,17 +8,13 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
-import Snackbar from '@material-ui/core/Snackbar'
 import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
-
 // core components
 import ConfirmationSendPassword from './modalSendPassword'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
-import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
 import SignUp from 'views/SignupPage/SignUpPage.js'
-
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -65,12 +61,6 @@ class ForgotPassword extends React.Component {
 		}
 	}
 
-	// async onSubmit(e) {
-	// 	let response = await fetch('/api/users/forgot_password', {
-	// 		method: 'POST'
-	// 	})
-	// 	if (response.ok) this.setState({ email: this.state.email })
-	// }
 	onSubmit(e, isEmpty) {
 		e.preventDefault()
 

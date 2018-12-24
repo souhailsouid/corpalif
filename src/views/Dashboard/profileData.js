@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -25,11 +24,6 @@ import { compose } from 'redux'
 import { withRouter, Link } from 'react-router-dom'
 import { createProfile, getCurrentProfile } from 'actions/profileActions'
 import isEmpty from 'validation/is-empty'
-import { is } from 'immutable'
-
-function Transition(props) {
-	return <Slide direction="down" {...props} />
-}
 
 class ProfileData extends React.Component {
 	constructor(props) {
@@ -70,7 +64,7 @@ class ProfileData extends React.Component {
 			profile.location = !isEmpty(profile.location) ? profile.location : ''
 			profile.fonction = !isEmpty(profile.fonction) ? profile.fonction : ''
 			profile.newsletter = !isEmpty(profile.newsletter) ? profile.newsletter : ''
-			// profile.adherent.member = !isEmpty(profile.adherent.member) ? profile.adherent.member : ''
+
 			// Set component fields state
 			this.setState({
 				structure: profile.structure,
@@ -121,9 +115,7 @@ class ProfileData extends React.Component {
 	}
 	render() {
 		const { errors } = this.state
-
 		const { classes } = this.props
-		const { user } = this.props.auth
 		const { profile, loading } = this.props.profile
 
 		let dashboardContent
@@ -371,7 +363,6 @@ class ProfileData extends React.Component {
 										style={{ paddingTop: 40 }}
 									>
 										{dashboardContent}
-										{/* {valueMember} */}
 									</GridItem>
 								</GridContainer>
 							</DialogContent>

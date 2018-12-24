@@ -12,27 +12,45 @@ import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPag
 
 // Sections for this page
 import Section from './Sections/section.jsx'
+// Redux
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { getCurrentOrientation } from 'actions/coordinationregionale/OrientationActions'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
 class OrientationPage extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
+		this.props.getCurrentOrientation()
 	}
 	render() {
 		const { classes } = this.props
+		const { orientation } = this.props.orientation
+		const DataElements = orientation.map((orientation) => <Section orientation={orientation} />)
 		return (
 			<div>
 				<HeaderComponent />
 
 				<div className={classNames(classes.main, classes.mainRaised)} style={{ marginTop: 100 }}>
-					<div className={classes.container}>
-						<Section />
-					</div>
+					<div className={classes.container}>{DataElements}</div>
 					<SectionFooter />
 				</div>
 			</div>
 		)
 	}
 }
+OrientationPage.propTypes = {
+	getCurrentOrientation: PropTypes.func.isRequired,
+	orientation: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+}
 
-export default withStyles(landingPageStyle)(OrientationPage)
+const mapStateToProps = (state) => ({
+	orientation: state.orientation
+})
+
+export default compose(withStyles(landingPageStyle))(
+	connect(mapStateToProps, { getCurrentOrientation })(withRouter(OrientationPage))
+)

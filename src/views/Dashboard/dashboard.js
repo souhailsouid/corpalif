@@ -6,18 +6,16 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
-import ProfileActions from './ProfileActions'
 import Spinner from 'views/common/Spinner'
-import ProfileData from 'views/Dashboard/profileData'
 import HeaderComponent from 'views/Header/AppBar.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
 import CompleteProfile from 'views/create-profile/complete'
-import Button from 'components/CustomButtons/Button.jsx'
+
 // Redux
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -32,7 +30,6 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		const { user } = this.props.auth
 		const { profile, loading } = this.props.profile
 		const { classes } = this.props
 

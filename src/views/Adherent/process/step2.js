@@ -3,25 +3,13 @@ import PropTypes from 'prop-types'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
-
 import DialogContent from '@material-ui/core/DialogContent'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Icon from '@material-ui/core/Icon'
 
-// @material-ui/icons
-
-import Timeline from '@material-ui/icons/Timeline'
-import Face from '@material-ui/icons/Face'
-import Mail from '@material-ui/icons/Mail'
 // core components
 
-import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
-
-import InfoArea from 'components/InfoArea/InfoArea.jsx'
 
 // core components
 import SectionFooter from 'views/Footer/SectionFooter'
@@ -54,7 +42,6 @@ class Step2 extends React.Component {
 			fonction: '',
 			last_name: '',
 			location: '',
-			errors: {},
 			displaySnack: false,
 			snack: { variant: 'warning', message: '' }
 		}
@@ -64,8 +51,7 @@ class Step2 extends React.Component {
 	}
 
 	render() {
-		const { errors } = this.state
-		const { isAuthenticated, user } = this.props.auth
+		const { user } = this.props.auth
 
 		const { profile, loading } = this.props.profile
 		const { classes } = this.props
@@ -133,9 +119,6 @@ class Step2 extends React.Component {
 				<div>
 					<HeaderComponent />
 
-					{/* <Card onClick={() => this.handleClickOpen('signupModal')} className={classes.modalSignupCard}>
-						{isAuthenticated ? authLinks : guestLinks}
-					</Card> */}
 					<Card>{dashboardContent}</Card>
 					<OpenLogin />
 				</div>

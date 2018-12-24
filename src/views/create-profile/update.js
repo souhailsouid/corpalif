@@ -380,8 +380,7 @@ class EditProfile extends React.Component {
 								<GridContainer
 									justify="center"
 									style={{
-										justifyContent: 'space-evenly',
-										justifyContent: 'center'
+										justifyContent: ('space-evenly', 'center')
 									}}
 								>
 									<GridItem xs={12} sm={12} md={12} className={classes.mlAuto}>
@@ -394,8 +393,7 @@ class EditProfile extends React.Component {
 											<div
 												style={{
 													display: 'flex',
-													justifyContent: 'center',
-													justifyContent: 'space-evenly'
+													justifyContent: ('space-evenly', 'center')
 												}}
 											>
 												<div

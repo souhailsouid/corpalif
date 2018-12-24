@@ -9,15 +9,12 @@ import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
 import Snackbar from '@material-ui/core/Snackbar'
-import Close from '@material-ui/icons/Close'
-import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 import Icon from '@material-ui/core/Icon'
 
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
-import SignUp from 'views/SignupPage/SignUpPage.js'
 import ForgotPassword from 'views/SigninPage/ForgotPage/ResetPassword'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'

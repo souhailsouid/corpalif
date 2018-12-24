@@ -71,13 +71,23 @@ const Section = ({ accompagnement, classes }) => (
 						<br />
 						<br /> <b style={{ color: '#337467' }}> {accompagnement.linksTitle}</b>
 						<br />
-						<a href="{accompagnement.linksURL}" target="_blank" style={{ color: '#999' }}>
+						<a
+							href="{accompagnement.linksURL}"
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> {accompagnement.linksURL}</b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}>{accompagnement.linksTitle2}</b>
-						<a href={accompagnement.linksURL2} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={accompagnement.linksURL2}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								{' '}
 								<b> {accompagnement.linksURL2} </b>

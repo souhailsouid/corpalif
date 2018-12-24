@@ -378,8 +378,6 @@ CompleteProcess.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-	auth: state.auth,
-
 	profile: state.profile,
 	errors: state.errors,
 	auth: state.auth

@@ -24,8 +24,8 @@ class SectionProfilesIndividuel extends React.Component {
 
 	render() {
 		const { classes } = this.props
-		const { user } = this.props.auth
-		const { profiles, loading, profile } = this.props.profile
+
+		const { profiles, loading } = this.props.profile
 
 		let dashboardProfiles
 		if (profiles === null || loading) {

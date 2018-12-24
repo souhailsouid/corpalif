@@ -24,8 +24,7 @@ class SectionProfilesNewsletter extends React.Component {
 
 	render() {
 		const { classes } = this.props
-		const { user } = this.props.auth
-		const { profiles, loading, profile } = this.props.profile
+		const { profiles, loading } = this.props.profile
 
 		let dashboardProfiles
 		if (profiles === null || loading) {
@@ -71,7 +70,6 @@ class SectionProfilesNewsletter extends React.Component {
 
 SectionProfilesNewsletter.propTypes = {
 	getProfiles: PropTypes.func.isRequired,
-
 	profile: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -79,7 +77,6 @@ SectionProfilesNewsletter.propTypes = {
 
 const mapStateToProps = (state) => ({
 	profile: state.profile,
-
 	auth: state.auth
 })
 

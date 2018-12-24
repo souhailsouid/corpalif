@@ -68,13 +68,23 @@ const Section = ({ orientation, classes }) => (
 						<br />
 						<br /> <b style={{ color: '#337467' }}> {orientation.liensTitle}</b>
 						<br />
-						<a href={orientation.liensUrl} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={orientation.liensUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> {orientation.liensUrl}</b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}>{orientation.liensTitle2}</b>
-						<a href={orientation.liensUrl2} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={orientation.liensUrl2}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								{' '}
 								<b> {orientation.liensUrl2} </b>

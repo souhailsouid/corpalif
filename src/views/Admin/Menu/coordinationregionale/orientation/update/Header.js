@@ -9,7 +9,6 @@ import Header from 'components/Header/Header.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
-import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 import Modal from './update'
 // Redux

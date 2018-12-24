@@ -1,15 +1,12 @@
 import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-// @material-ui/icons
-
-import office2 from 'assets/img/examples/office2.jpg'
 
 // core components
 import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
-// import AdhererParticulier from '/Components/ModalAdhererParticulier'
-// import AdhererPro from './Components/ModalAdhererPro'
+import AdhererParticulier from '/Components/ModalAdhererParticulier'
+import AdhererPro from './Components/ModalAdhererPro'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import projectsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/projectsStyle.jsx'
@@ -41,7 +38,7 @@ const SectionAdherer = ({ adherentPage, classes }) => (
 							<br />
 							<br />
 						</p>
-						{/* <AdhererPro /> */}
+						<AdhererPro />
 					</CardBody>
 				</Card>
 			</GridItem>
@@ -53,7 +50,7 @@ const SectionAdherer = ({ adherentPage, classes }) => (
 							<h3 className={classes.cardTitleWhite}> {adherentPage.cardCategoryIndividuelSubTitle}</h3>
 						</a>
 						<p className={classes.cardDescription}>{adherentPage.cardCategoryIndividuelDescription}</p>
-						{/* <AdhererParticulier /> */}
+						<AdhererParticulier />
 					</CardBody>
 				</Card>
 			</GridItem>
@@ -89,7 +86,7 @@ const SectionAdherer = ({ adherentPage, classes }) => (
 					</Link>
 					<br />
 					<div style={{ textAlign: 'center' }}>
-						Corpalif <br /> Trésorier de la CORPALIF <br />Hôpital Jeanne Garnier, 75 016 PARIS
+						{adherentPage.adresseName} <br /> {adherentPage.adresseName2} <br /> {adherentPage.lieu}
 					</div>
 				</h3>
 				<br />

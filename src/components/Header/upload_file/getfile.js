@@ -5,7 +5,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import ListItem from '@material-ui/core/ListItem'
-import Icon from '@material-ui/core/Icon'
 const FileUpload = ({ file, classes }) => (
 	<div>
 		<ListItem className={classes.listItem}>

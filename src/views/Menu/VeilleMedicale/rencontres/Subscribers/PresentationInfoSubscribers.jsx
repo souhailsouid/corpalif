@@ -8,8 +8,6 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 import SectionRencontre from './get.jsx'
-import InfoSubscribers from './forSubscribers'
-import GridItem from 'components/Grid/GridItem.jsx'
 
 class PresentationInfoSubscribers extends React.Component {
 	componentDidMount() {

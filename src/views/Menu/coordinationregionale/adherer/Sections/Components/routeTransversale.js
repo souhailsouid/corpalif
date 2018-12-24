@@ -2,39 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
-import Dialog from '@material-ui/core/Dialog'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import DialogContent from '@material-ui/core/DialogContent'
-import Icon from '@material-ui/core/Icon'
-import InputAdornment from '@material-ui/core/InputAdornment'
-// @material-ui/icons
-import Timeline from '@material-ui/icons/Timeline'
-import Face from '@material-ui/icons/Face'
-import Mail from '@material-ui/icons/Mail'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import Close from '@material-ui/icons/Close'
-// core components
-import Spinner from 'views/common/Spinner'
-import InfoArea from 'components/InfoArea/InfoArea.jsx'
-import ComponentLogin from './loginInput'
-import TextFieldGroup from 'views/common/TextFieldGroup.js'
-import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
-import { Link } from 'react-router-dom'
-import GridContainer from 'components/Grid/GridContainer.jsx'
-import GridItem from 'components/Grid/GridItem.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
-import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Radio from '@material-ui/core/Radio'
 
-// @material-ui/icons
-import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
-// @material-ui/icons
-import Check from '@material-ui/icons/Check'
-// core components
 // Redux
 import isEmpty from 'validation/is-empty'
 import { connect } from 'react-redux'
@@ -42,9 +11,6 @@ import { compose } from 'redux'
 import { registerUser } from 'actions/authActions'
 import { withRouter } from 'react-router-dom'
 import { completeProfile, getCurrentProfile } from 'actions/profileActions'
-function Transition(props) {
-	return <Slide direction="down" {...props} />
-}
 
 class DetectStatus extends React.Component {
 	constructor(props) {
@@ -57,7 +23,6 @@ class DetectStatus extends React.Component {
 			company: '',
 			location: '',
 			fonction: '',
-			errors: {},
 			newsletter: '',
 			checked: [ 24, 3 ],
 			selectedEnabled: '',
@@ -90,10 +55,6 @@ class DetectStatus extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.errors) {
-			this.setState({ errors: nextProps.errors })
-		}
-
 		if (nextProps.profile.profile) {
 			const profile = nextProps.profile.profile
 
@@ -162,9 +123,8 @@ class DetectStatus extends React.Component {
 		this.setState({ value: event.target.value })
 	}
 	render() {
-		const { errors } = this.state
 		const { profile, loading } = this.props.profile
-		const { classes } = this.props
+
 		const { isAuthenticated, user } = this.props.auth
 
 		let dashboardContent
@@ -175,13 +135,6 @@ class DetectStatus extends React.Component {
 			// Check if logged in user has profile data
 			if (user.status === 'individuel') {
 				dashboardContent = window.location.assign('/adherents/adherer/individuel')
-
-				// <div style={{ marginBottom: '60px' }} />
-				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-				// 	Delete My Account
-				// </button>
-
-				// </div>
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = window.location.assign('/adherents/adherer/collectif')
@@ -198,13 +151,11 @@ DetectStatus.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	registerUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
-	errors: PropTypes.object.isRequired,
 	profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
 	auth: state.auth,
-	errors: state.errors,
 	profile: state.profile
 })
 export default compose(withStyles(javascriptStyles))(

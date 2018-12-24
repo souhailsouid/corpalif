@@ -10,11 +10,9 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
 import Snackbar from '@material-ui/core/Snackbar'
 import Icon from '@material-ui/core/Icon'
-
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
-
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import CardHeader from 'components/Card/CardHeader.jsx'
@@ -25,8 +23,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { updatePassword } from 'actions/authActions'
 import { compose } from 'redux'
-import { withRouter, Link } from 'react-router-dom'
-import ConfirmationSendPassword from './modalSendPassword'
+import { withRouter } from 'react-router-dom'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -97,8 +94,7 @@ class SeConnecter extends React.Component {
 	}
 
 	render() {
-		const { errors, Validator, data, helperText } = this.state
-		const { user } = this.props.auth
+		const { errors, helperText } = this.state
 		const { classes } = this.props
 
 		return (
@@ -216,7 +212,6 @@ class SeConnecter extends React.Component {
 
 SeConnecter.propTypes = {
 	updatePassword: PropTypes.func.isRequired,
-	// getUpdatePassword: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 }

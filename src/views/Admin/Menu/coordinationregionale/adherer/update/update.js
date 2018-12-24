@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
-
 // @material-ui/icons
 import Grid from '@material-ui/core/Grid'
 
@@ -59,7 +57,10 @@ class Modal extends React.Component {
 			cardCategoryIndividuelTitle: '',
 			cardCategoryIndividuelSubTitle: '',
 			cardCategoryIndividuelDescription: '',
-			file: ''
+			file: '',
+			adresseName: '',
+			adresseName2: '',
+			lieu: ''
 		}
 
 		this.onChange = this.onChange.bind(this)
@@ -133,6 +134,9 @@ class Modal extends React.Component {
 			adherentPage.cardCategoryIndividuelDescription = !isEmpty(adherentPage.cardCategoryIndividuelDescription)
 				? adherentPage.cardCategoryIndividuelDescription
 				: ''
+			adherentPage.adresseName = !isEmpty(adherentPage.adresseName) ? adherentPage.adresseName : ''
+			adherentPage.adresseName2 = !isEmpty(adherentPage.adresseName2) ? adherentPage.adresseName2 : ''
+			adherentPage.lieu = !isEmpty(adherentPage.lieu) ? adherentPage.lieu : ''
 
 			// Set component fields state
 			this.setState({
@@ -157,7 +161,10 @@ class Modal extends React.Component {
 				cardCategoryIndividuelTitle: adherentPage.cardCategoryIndividuelTitle,
 				cardCategoryIndividuelSubTitle: adherentPage.cardCategoryIndividuelSubTitle,
 				cardCategoryIndividuelDescription: adherentPage.cardCategoryIndividuelDescription,
-				file: adherentPage.file
+				file: adherentPage.file,
+				adresseName: adherentPage.adresseName,
+				adresseName2: adherentPage.adresseName2,
+				lieu: adherentPage.lieu
 			})
 		}
 	}
@@ -186,7 +193,10 @@ class Modal extends React.Component {
 			this.state.cardCategoryIndividuelTitle,
 			this.state.cardCategoryIndividuelSubTitle,
 			this.state.cardCategoryIndividuelDescription,
-			this.state.file
+			this.state.file,
+			this.state.adresseName,
+			this.state.adresseName2,
+			this.state.lieu
 		).then((response) => {
 			console.log(response.data)
 		})
@@ -227,7 +237,10 @@ class Modal extends React.Component {
 		cardCategoryIndividuelTitle,
 		cardCategoryIndividuelSubTitle,
 		cardCategoryIndividuelDescription,
-		file
+		file,
+		adresseName,
+		adresseName2,
+		lieu
 	) {
 		const id = this.props.match.params.id
 		const url = `http://localhost:5000/api/adherers/${id}`
@@ -253,7 +266,9 @@ class Modal extends React.Component {
 		formData.append('cardCategoryIndividuelTitle', cardCategoryIndividuelTitle)
 		formData.append('cardCategoryIndividuelSubTitle', cardCategoryIndividuelSubTitle)
 		formData.append('cardCategoryIndividuelDescription', cardCategoryIndividuelDescription)
-
+		formData.append('lieu', lieu)
+		formData.append('adresseName', adresseName)
+		formData.append('adresseName2', adresseName2)
 		formData.append('file', file)
 
 		const config = {
@@ -264,12 +279,9 @@ class Modal extends React.Component {
 		window.location.assign('/admin/menu/coordinationregionale/adherer/adherer/')
 		return axios.patch(url, formData, config)
 	}
-	onChange(e) {
-		this.setState({ [e.target.name]: e.target.value })
-	}
 
 	render() {
-		const { classes, ...rest } = this.props
+		const { classes } = this.props
 
 		return (
 			<GridContainer>
@@ -292,14 +304,19 @@ class Modal extends React.Component {
 									value={this.state.title}
 									onChange={this.onChange}
 								/>
-								<TextFieldGroup
-									label="Theme"
-									name="theme"
-									fullWidth
-									multiline
-									value={this.state.theme}
-									onChange={this.onChange}
-								/>
+								<MuiThemeProvider theme={theme}>
+									<TextField
+										label="Theme"
+										name="theme"
+										fullWidth
+										multiline
+										inputProps={{
+											rows: 3
+										}}
+										value={this.state.theme}
+										onChange={this.onChange}
+									/>
+								</MuiThemeProvider>
 								<br /> <br />
 								<h1>2nd section</h1>
 								<h2 style={{ color: '#cc4949', textAlign: 'center' }}>titre</h2>
@@ -307,7 +324,6 @@ class Modal extends React.Component {
 									type="subtitle"
 									className={classes.margin}
 									name="subtitle"
-									fullWidth
 									multiline
 									value={this.state.subtitle}
 									onChange={this.onChange}
@@ -517,6 +533,31 @@ class Modal extends React.Component {
 										onChange={this.onChange}
 									/>
 								</MuiThemeProvider>
+								<h1>Derniere sections, Adherer par chèques</h1>
+								<TextFieldGroup
+									type="adresseName"
+									className={classes.margin}
+									name="adresseName"
+									value={this.state.adresseName}
+									onChange={this.onChange}
+								/>
+								<br /> <br />
+								<TextFieldGroup
+									type="adresseName2"
+									className={classes.margin}
+									name="adresseName2"
+									value={this.state.adresseName2}
+									onChange={this.onChange}
+								/>
+								<br /> <br />
+								<TextFieldGroup
+									type="lieu"
+									className={classes.margin}
+									name="lieu"
+									value={this.state.lieu}
+									onChange={this.onChange}
+								/>
+								<br /> <br />
 								<MuiThemeProvider>
 									<Grid
 										container

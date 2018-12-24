@@ -7,12 +7,9 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 import HeaderComponent from 'views/Header/AppBar'
 import SectionFooter from 'views/Footer/SectionFooter'
-
 import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
-
 // Sections for this page
 import Section from './Sections/Sections.jsx'
-import SectionAdherer from './Sections/SectionsAdherer'
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -29,7 +26,7 @@ class AdhererAdminPage extends React.Component {
 		const { classes } = this.props
 		const { adherentPage } = this.props.adherentPage
 		const DataElements = adherentPage.map((adherentPage) => <Section adherentPage={adherentPage} />)
-		// const Second = adherentPage.map((adherentPage) => <SectionAdherer adherentPage={adherentPage} />)
+
 		return (
 			<div>
 				<HeaderComponent />
@@ -38,7 +35,7 @@ class AdhererAdminPage extends React.Component {
 					<div className={classes.container}>
 						{DataElements} <br />
 					</div>
-					{/* {Second} */}
+
 					<SectionFooter />
 				</div>
 			</div>

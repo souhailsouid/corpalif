@@ -84,7 +84,6 @@ class CompleteProfile extends React.Component {
 			fonction: this.state.fonction,
 			location: this.state.location,
 			newsletter: this.state.newsletter
-			// member: this.state.member
 		}
 
 		this.props.createProfile(profileData, this.props.history)
@@ -378,8 +377,6 @@ CompleteProfile.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-	auth: state.auth,
-
 	profile: state.profile,
 	errors: state.errors,
 	auth: state.auth

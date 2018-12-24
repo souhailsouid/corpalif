@@ -32,8 +32,7 @@ const Section = ({ legislation, classes }) => (
 		<div>
 			<GridContainer justify="center">
 				<GridItem xs={12} sm={12} md={12}>
-					<a href="{legislation.links} 
-" target="_blank" style={{ color: '#999' }}>
+					<a href={legislation.links} target="_blank" rel="noopener noreferrer" style={{ color: '#999' }}>
 						<h3 className={classes.title} style={{ textAlign: 'center' }}>
 							<div className="linkGreen"> {legislation.subtitle}</div>
 
@@ -52,6 +51,7 @@ const Section = ({ legislation, classes }) => (
 						href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000446240&categorieLien=id 
 "
 						target="_blank"
+						rel="noopener noreferrer"
 						style={{ color: '#999' }}
 					>
 						<h3 className={classes.title} style={{ textAlign: 'center' }}>
@@ -71,6 +71,7 @@ const Section = ({ legislation, classes }) => (
 						href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000446240&categorieLien=id 
 "
 						target="_blank"
+						rel="noopener noreferrer"
 						style={{ color: '#999' }}
 					>
 						<h3 className={classes.title} style={{ textAlign: 'center' }}>
@@ -101,34 +102,59 @@ const Section = ({ legislation, classes }) => (
 						<br />
 						<b style={{ color: '#337467' }}> {legislation.linksTitle}</b>
 						<br />
-						<a href={legislation.linksURL} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={legislation.linksURL}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> {legislation.linksURL}</b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}> {legislation.linksTitle2}</b>
 						<br />
-						<a href={legislation.linksURL2} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={legislation.linksURL2}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> {legislation.linksURL2}</b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}> {legislation.linksTitle3}</b>
 						<br />
-						<a href={legislation.linksURL3} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={legislation.linksURL3}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> ({legislation.linksURL3}</b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}>{legislation.linksTitle4}</b>
-						<a href={legislation.linksURL4} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={legislation.linksURL4}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b> {legislation.linksURL4} </b>
 							</h5>
 						</a>
 						<b style={{ color: '#337467' }}>{legislation.linksTitle5}</b>
 						<br />
-						<a href={legislation.linksURL5} target="_blank" style={{ color: '#999' }}>
+						<a
+							href={legislation.linksURL5}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: '#999' }}
+						>
 							<h5 className="link">
 								<b>{legislation.linksURL5} </b>
 							</h5>

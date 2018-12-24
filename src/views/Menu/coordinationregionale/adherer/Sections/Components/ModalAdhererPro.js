@@ -25,7 +25,6 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import Spinner from 'views/common/Spinner'
 // Redux
 import isEmpty from 'validation/is-empty'
 import { connect } from 'react-redux'
@@ -314,8 +313,7 @@ class AdhererParticulier extends React.Component {
 									<div
 										style={{
 											display: 'flex',
-											justifyContent: 'center',
-											justifyContent: 'space-evenly'
+											justifyContent: ('center', 'space-evenly')
 										}}
 									>
 										<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
@@ -419,18 +417,7 @@ class AdhererParticulier extends React.Component {
 				</Dialog>
 			</div>
 		)
-		const ButtonLinks = (
-			<Button round color="green" onClick={() => this.handleClickOpen('signupModal')}>
-				{' '}
-				<Icon>content_copy</Icon> Payer votre adhésion
-			</Button>
-		)
-		const ButtonLocked = (
-			<Button disabled round color="green" onClick={() => this.handleClickOpen('signupModal')}>
-				{' '}
-				<Icon>content_copy</Icon> Payer votre adhésion
-			</Button>
-		)
+
 		const ButtonGuest = (
 			<Button round color="green" onClick={() => this.handleClickOpen('signupModal')}>
 				{' '}
@@ -451,13 +438,6 @@ class AdhererParticulier extends React.Component {
 						<Icon>content_copy</Icon> Payer votre adhésion
 					</Button>
 				)
-
-				// <div style={{ marginBottom: '60px' }} />
-				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-				// 	Delete My Account
-				// </button>
-
-				// </div>
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = (
@@ -470,11 +450,6 @@ class AdhererParticulier extends React.Component {
 		}
 		return (
 			<div>
-				{' '}
-				{/* <Button round color="green" onClick={() => this.handleClickOpen('signupModal')}>
-					{' '}
-					<Icon>content_copy</Icon> Payer votre adhésion
-				</Button> */}
 				{isAuthenticated ? dashboardContent : ButtonGuest}
 				{isAuthenticated ? authLinks : guestLinks}
 			</div>

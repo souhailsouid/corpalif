@@ -85,6 +85,7 @@ class SectionAdherer extends React.Component {
 							<a
 								href="http://solidarites-sante.gouv.fr/systeme-de-sante-et-medico-social/parcours-des-patients-et-des-usagers/article/parcours-de-sante-de-soins-et-de-vie"
 								target="_blank"
+								rel="noopener noreferrer"
 								style={{ color: '#cc4949' }}
 							>
 								<h5 className="link">

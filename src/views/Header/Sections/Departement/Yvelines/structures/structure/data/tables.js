@@ -35,7 +35,12 @@ const Tables = ({ soin }) => (
 							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
-									<a href={soin.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a
+										href={soin.web}
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
 										<h5
 											className="link"
 											style={{
@@ -78,7 +83,7 @@ const Tables = ({ soin }) => (
 						>
 							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={soin.web} target="_blank">
+									<a href={soin.web} target="_blank" rel="noopener noreferrer">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{soin.name}
 										</h3>
@@ -103,7 +108,12 @@ const Tables = ({ soin }) => (
 							>
 								<div>
 									{' '}
-									<a href={soin.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a
+										href={soin.web}
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
 										<h5
 											className="link"
 											style={{

@@ -20,7 +20,6 @@ class CompleteprofilePage extends Component {
 	}
 	render() {
 		const { classes } = this.props
-		const { user } = this.props.auth
 		const { profile, loading } = this.props.profile
 		let dashboardContent
 

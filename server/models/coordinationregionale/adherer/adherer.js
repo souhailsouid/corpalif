@@ -74,6 +74,15 @@ const AdhererSchema = mongoose.Schema({
 	file: {
 		type: String
 	},
+	adresseName: {
+		type: String
+	},
+	adresseName2: {
+		type: String
+	},
+	lieu: {
+		type: String
+	},
 
 	date: {
 		type: Date,

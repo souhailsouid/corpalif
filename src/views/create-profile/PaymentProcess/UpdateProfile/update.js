@@ -237,7 +237,6 @@ class EditProfile extends React.Component {
 											{' '}
 											<FormHelperText>S'abonner à la newsletter</FormHelperText>
 										</div>
-										{/* <h5 style={{ textAlign: 'left' }}>Newsletter</h5> */}
 										<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
 											<div
 												className={
@@ -372,8 +371,7 @@ class EditProfile extends React.Component {
 										<div
 											style={{
 												display: 'flex',
-												justifyContent: 'center',
-												justifyContent: 'space-evenly'
+												justifyContent: ('space-evenly', 'center')
 											}}
 										>
 											<div className={classes.textCenter} style={{ justifyContent: 'center' }}>

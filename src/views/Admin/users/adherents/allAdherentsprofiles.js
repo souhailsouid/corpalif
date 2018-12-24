@@ -24,15 +24,14 @@ class SectionProfilesAdherent extends React.Component {
 
 	render() {
 		const { classes } = this.props
-		const { user } = this.props.auth
-		const { profiles, loading, profile } = this.props.profile
+
+		const { profiles, loading } = this.props.profile
 
 		let dashboardProfiles
 		if (profiles === null || loading) {
 			dashboardProfiles = <Spinner />
 		} else {
 			if (profiles.length > 0) {
-				// dashboardProfiles = <h1>{profile.user.name}</h1>
 				dashboardProfiles = profiles.map((profile) => <ProfilesItem key={profile._id} profile={profile} />)
 			} else {
 				dashboardProfiles = <div>sdodok</div>
@@ -77,7 +76,6 @@ class SectionProfilesAdherent extends React.Component {
 
 SectionProfilesAdherent.propTypes = {
 	getProfiles: PropTypes.func.isRequired,
-
 	profile: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
@@ -85,7 +83,6 @@ SectionProfilesAdherent.propTypes = {
 
 const mapStateToProps = (state) => ({
 	profile: state.profile,
-
 	auth: state.auth
 })
 

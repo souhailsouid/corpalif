@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
-
 // @material-ui/icons
 import Grid from '@material-ui/core/Grid'
 
@@ -105,7 +102,6 @@ class Modal extends React.Component {
 				subtitleDescription2: orientation.subtitleDescription2,
 				subtitleDescription3: orientation.subtitleDescription3,
 				description: orientation.description,
-
 				liensTitle: orientation.liensTitle,
 				liensTitle2: orientation.liensTitle2,
 				liensUrl: orientation.liensUrl,
@@ -129,7 +125,6 @@ class Modal extends React.Component {
 			subtitleDescription2: this.state.subtitleDescription2,
 			subtitleDescription3: this.state.subtitleDescription3,
 			description: this.state.description,
-
 			liensTitle: this.state.liensTitle,
 			liensTitle2: this.state.liensTitle2,
 			liensUrl: this.state.liensUrl,
@@ -141,7 +136,7 @@ class Modal extends React.Component {
 	}
 
 	render() {
-		const { classes, ...rest } = this.props
+		const { classes } = this.props
 
 		return (
 			<GridContainer>

@@ -113,13 +113,13 @@ const Section = ({ demarche, classes }) => (
 				<br />
 				<br /> <b style={{ color: '#337467' }}> {demarche.linksTitle}</b>
 				<br />
-				<a href={demarche.linksURL} target="_blank" style={{ color: '#999' }}>
+				<a href={demarche.linksURL} target="_blank" rel="noopener noreferrer" style={{ color: '#999' }}>
 					<h5 className="link">
 						<b> {demarche.linksURL}</b>
 					</h5>
 				</a>
 				<b style={{ color: '#337467' }}>{demarche.linksTitle2}</b>
-				<a href={demarche.linksURL2} target="_blank" style={{ color: '#999' }}>
+				<a href={demarche.linksURL2} target="_blank" rel="noopener noreferrer" style={{ color: '#999' }}>
 					<h5 className="link">
 						{' '}
 						<b> {demarche.linksURL2} </b>

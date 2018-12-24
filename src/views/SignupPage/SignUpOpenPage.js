@@ -417,8 +417,7 @@ class SignUpOpen extends React.Component {
 								<GridContainer
 									justify="center"
 									style={{
-										justifyContent: 'space-evenly',
-										justifyContent: 'center'
+										justifyContent: ('center', 'space-evenly')
 									}}
 								>
 									<GridItem xs={12} sm={12} md={12} className={classes.mlAuto}>
@@ -431,8 +430,7 @@ class SignUpOpen extends React.Component {
 											<div
 												style={{
 													display: 'flex',
-													justifyContent: 'center',
-													justifyContent: 'space-evenly'
+													justifyContent: ('center', 'space-evenly')
 												}}
 											>
 												<div

@@ -69,6 +69,7 @@ const SectionFooter = (props) => {
 								<a
 									href="https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<div>
 										<i className="fab fa-linkedin" />
@@ -84,7 +85,11 @@ const SectionFooter = (props) => {
 						<GridItem xs={12} sm={12} md={4}>
 							<h5>Nos partenaires</h5>
 							<div className={classes.galleryFeed}>
-								<a href="https://www.iledefrance.ars.sante.fr/" target="_blank">
+								<a
+									href="https://www.iledefrance.ars.sante.fr/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<img
 										src={ars}
 										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
@@ -99,7 +104,7 @@ const SectionFooter = (props) => {
 								<br />
 								<br />
 								<br />
-								<a href="http://www.sfap.org/" target="_blank">
+								<a href="http://www.sfap.org/" target="_blank" rel="noopener noreferrer">
 									<img
 										src={sfap}
 										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}

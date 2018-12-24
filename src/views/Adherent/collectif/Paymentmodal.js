@@ -6,7 +6,6 @@ import Slide from '@material-ui/core/Slide'
 import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
-import Icon from '@material-ui/core/Icon'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
 import Timeline from '@material-ui/icons/Timeline'
@@ -27,7 +26,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 // Stripe
-import { Elements, StripeProvider } from 'react-stripe-elements'
+import { Elements } from 'react-stripe-elements'
 import CheckoutForm50euros from './CheckoutForm50euros'
 // Redux
 import isEmpty from 'validation/is-empty'
@@ -133,8 +132,6 @@ class PaymentCollectif extends React.Component {
 		const { errors } = this.state
 
 		const { classes } = this.props
-		const { isAuthenticated } = this.props.auth
-
 		const { profile, loading } = this.props.profile
 
 		let dashboardContent
@@ -362,8 +359,7 @@ class PaymentCollectif extends React.Component {
 												<div
 													style={{
 														display: 'flex',
-														justifyContent: 'center',
-														justifyContent: 'space-evenly'
+														justifyContent: ('center', 'space-evenly')
 													}}
 												>
 													<div
@@ -384,15 +380,6 @@ class PaymentCollectif extends React.Component {
 														className={classes.textCenter}
 														style={{ justifyContent: 'center' }}
 													>
-														{/* <Link to="/adherents/adherer/paiement">
-															<Button
-																type="submit"
-																round
-																style={{ backgroundColor: '#337467' }}
-															>
-																Paiement
-															</Button>
-														</Link> */}
 														<Elements>
 															<CheckoutForm50euros />
 														</Elements>

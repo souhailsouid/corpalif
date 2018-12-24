@@ -35,7 +35,12 @@ const Tables = ({ reseaux }) => (
 							<Grid item md={12} style={{ marginLeft: 20 }}>
 								<div style={{ display: 'flex' }}>
 									<i class="material-icons">language</i>
-									<a href={reseaux.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a
+										href={reseaux.web}
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
 										<h5
 											className="link"
 											style={{
@@ -78,7 +83,7 @@ const Tables = ({ reseaux }) => (
 						>
 							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={reseaux.web} target="_blank">
+									<a href={reseaux.web} target="_blank" rel="noopener noreferrer">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{reseaux.name}
 										</h3>
@@ -103,7 +108,12 @@ const Tables = ({ reseaux }) => (
 							>
 								<div>
 									{' '}
-									<a href={reseaux.web} target="_blank" style={{ color: 'rgb(60, 72, 88)' }}>
+									<a
+										href={reseaux.web}
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{ color: 'rgb(60, 72, 88)' }}
+									>
 										<h5
 											className="link"
 											style={{

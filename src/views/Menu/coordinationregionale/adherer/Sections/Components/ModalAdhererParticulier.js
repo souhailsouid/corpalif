@@ -15,7 +15,6 @@ import Mail from '@material-ui/icons/Mail'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Close from '@material-ui/icons/Close'
 // core components
-import Spinner from 'views/common/Spinner'
 import InfoArea from 'components/InfoArea/InfoArea.jsx'
 import ComponentLogin from './loginInput'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
@@ -26,15 +25,10 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Radio from '@material-ui/core/Radio'
-
 // @material-ui/icons
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
-// @material-ui/icons
-import Check from '@material-ui/icons/Check'
-// core components
 // Redux
 import isEmpty from 'validation/is-empty'
 import { connect } from 'react-redux'
@@ -45,7 +39,6 @@ import { completeProfile, getCurrentProfile } from 'actions/profileActions'
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
-
 class AdhererParticulier extends React.Component {
 	constructor(props) {
 		super(props)
@@ -134,7 +127,6 @@ class AdhererParticulier extends React.Component {
 			fonction: this.state.fonction,
 			structure: this.state.structure,
 			newsletter: this.state.newsletter,
-
 			selectedEnabled: this.state.selectedEnabled
 		}
 		this.props.completeProfile(profileData, this.props.history)
@@ -360,39 +352,6 @@ class AdhererParticulier extends React.Component {
 										className={classes.form}
 										style={{ marginTop: 40 }}
 									>
-										{/* <RadioExample/> */}
-										{/* <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-											<div
-												className={
-													classes.checkboxAndRadio + ' ' + classes.checkboxAndRadioHorizontal
-												}
-											> */}
-										{/* <FormControlLabel
-													control={
-														<Checkbox
-															tabIndex={-1}
-															onClick={() => this.handleToggle(22)}
-															onChange={this.onChange}
-															value={
-																this.state.checked.indexOf(22) !== -1 ? 'non' : 'oui'
-															}
-															name="newsletter"
-															checked={
-																this.state.checked.indexOf(22) !== -1 ? true : false
-															}
-															checkedIcon={<Check className={classes.checkedIcon} />}
-															icon={<Check className={classes.uncheckedIcon} />}
-															classes={{
-																checked: classes.checked,
-																root: classes.checkRoot
-															}}
-														/>
-													}
-													classes={{ label: classes.label }}
-													label="Cochez la case si vous voulez vous abonner à la newsletter"
-												/> */}
-										{/* </div>
-										</div> */}
 										<br />
 										<TextFieldGroup
 											label="Votre lieu de travail"
@@ -464,8 +423,7 @@ class AdhererParticulier extends React.Component {
 									<div
 										style={{
 											display: 'flex',
-											justifyContent: 'center',
-											justifyContent: 'space-evenly'
+											justifyContent: ('center', 'space-evenly')
 										}}
 									>
 										<div className={classes.textCenter} style={{ justifyContent: 'center' }}>
@@ -581,13 +539,6 @@ class AdhererParticulier extends React.Component {
 						<Icon>content_copy</Icon> Payer votre adhésion
 					</Button>
 				)
-
-				// <div style={{ marginBottom: '60px' }} />
-				// <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
-				// 	Delete My Account
-				// </button>
-
-				// </div>
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = (

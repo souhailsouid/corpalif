@@ -6,7 +6,6 @@ import Slide from '@material-ui/core/Slide'
 import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
-import Icon from '@material-ui/core/Icon'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
 import Timeline from '@material-ui/icons/Timeline'
@@ -15,7 +14,6 @@ import Mail from '@material-ui/icons/Mail'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Close from '@material-ui/icons/Close'
 // core components
-import Spinner from 'views/common/Spinner'
 import InfoArea from 'components/InfoArea/InfoArea.jsx'
 import ComponentLogin from 'views/Menu/coordinationregionale/adherer/Sections/Components/loginInput'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
@@ -27,7 +25,7 @@ import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 // Stripe
-import { Elements, StripeProvider } from 'react-stripe-elements'
+import { Elements } from 'react-stripe-elements'
 import CheckoutForm from './CheckoutForm'
 // Redux
 import isEmpty from 'validation/is-empty'
@@ -362,8 +360,7 @@ class PaymentParticulier extends React.Component {
 												<div
 													style={{
 														display: 'flex',
-														justifyContent: 'center',
-														justifyContent: 'space-evenly'
+														justifyContent: ('center', 'space-evenly')
 													}}
 												>
 													<div

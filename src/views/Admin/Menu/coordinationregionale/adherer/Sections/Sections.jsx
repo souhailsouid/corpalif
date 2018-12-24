@@ -10,7 +10,8 @@ import CardTravel from '@material-ui/icons/CardTravel'
 import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
 import Edit from '@material-ui/icons/Edit'
-import SectionAdherer from './SectionsAdherer'
+import AdhererParticulier from 'views/Menu/coordinationregionale/adherer/Sections/Components/ModalAdhererParticulier'
+import AdhererPro from 'views/Menu/coordinationregionale/adherer/Sections/Components/ModalAdhererPro'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import InfoArea from 'components/InfoArea/InfoAreaBis.jsx'
@@ -122,7 +123,7 @@ const Section = ({ adherentPage, classes }) => (
 									<br />
 									<br />
 								</p>
-								{/* <AdhererPro /> */}
+								<AdhererPro />
 							</CardBody>
 						</Card>
 					</GridItem>
@@ -145,7 +146,7 @@ const Section = ({ adherentPage, classes }) => (
 								<p className={classes.cardDescription}>
 									{adherentPage.cardCategoryIndividuelDescription}
 								</p>
-								{/* <AdhererParticulier /> */}
+								<AdhererParticulier />
 							</CardBody>
 						</Card>
 					</GridItem>
@@ -169,6 +170,7 @@ const Section = ({ adherentPage, classes }) => (
 							<a
 								href={`http://localhost:5000/api/${adherentPage.file}`}
 								target="_blank"
+								rel="noopener noreferrer"
 								style={{ color: '#cc4949' }}
 							>
 								<h5 className="link">
@@ -181,14 +183,13 @@ const Section = ({ adherentPage, classes }) => (
 							</a>
 							<br />
 							<div style={{ textAlign: 'center' }}>
-								Corpalif <br /> Trésorier de la CORPALIF <br />Hôpital Jeanne Garnier, 75 016 PARIS
+								{adherentPage.adresseName} <br /> {adherentPage.adresseName2} <br /> {adherentPage.lieu}
 							</div>
 						</h3>
 						<br />
 					</GridItem>
 				</GridContainer>
 			</div>
-			{/* <SectionAdherer /> */}
 		</div>
 	</div>
 )

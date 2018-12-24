@@ -1,7 +1,7 @@
 import React from 'react'
 
 // material-ui icons
-import Person from '@material-ui/icons/Person'
+
 import Edit from '@material-ui/icons/Edit'
 import Close from '@material-ui/icons/Close'
 // core components
@@ -13,13 +13,6 @@ import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'
 
-const get = [ { color: 'info', icon: Person } ].map((prop, key) => {
-	return (
-		<Button round justIcon size="sm" color={prop.color} key={key}>
-			<prop.icon />
-		</Button>
-	)
-})
 const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
 	return (
 		<Button round justIcon size="sm" color={prop.color} key={key}>

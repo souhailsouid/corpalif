@@ -11,7 +11,6 @@ import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections
 // ICONS SECTIONS
 import United from 'views/AnnuaireFrancilien/Sections/Icons/UniteSoinsPalliatifs.jsx'
 import Associations from 'views/AnnuaireFrancilien/Sections/Icons/Association.jsx'
-import Autres from 'views/AnnuaireFrancilien/Sections/Icons/Autres.jsx'
 import Lits from 'views/AnnuaireFrancilien/Sections/Icons/Lits.jsx'
 import Reseaux from 'views/AnnuaireFrancilien/Sections/Icons/ReseauxPalliatifs.jsx'
 import Structures from 'views/AnnuaireFrancilien/Sections/Icons/StructuresDomicile.jsx'
@@ -238,6 +237,7 @@ function SectionBlogs({ ...props }) {
 											href="http://www.sfap.org/rubrique/definition-et-organisation-des-soins-palliatifs-en-france 
 "
 											target="_blank"
+											rel="noopener noreferrer"
 											style={{ color: '#999' }}
 										>
 											<h5 className="link">
@@ -255,6 +255,7 @@ function SectionBlogs({ ...props }) {
 											href="http://www.spfv.fr/actualites/lorganisation-soins-et-soins 
 "
 											target="_blank"
+											rel="noopener noreferrer"
 											style={{ color: '#999' }}
 										>
 											<h5 className="link">
@@ -272,6 +273,7 @@ function SectionBlogs({ ...props }) {
 											href="http://solidarites-sante.gouv.fr/fichiers/bo/2008/08-04/ste_20080004_0100_0113.pdf 
 "
 											target="_blank"
+											rel="noopener noreferrer"
 											style={{ color: '#999' }}
 										>
 											<h5 className="link">

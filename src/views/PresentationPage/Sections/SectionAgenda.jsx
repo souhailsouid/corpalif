@@ -5,11 +5,9 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
-import GridItem from 'components/Grid/GridItem.jsx'
 import Agenda1 from './notification/agenda1'
 import Agenda2 from './notification/agenda2'
 // Redux
-
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'

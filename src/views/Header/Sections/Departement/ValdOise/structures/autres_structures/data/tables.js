@@ -38,6 +38,7 @@ const Tables = ({ autres_structures }) => (
 									<a
 										href={autres_structures.web}
 										target="_blank"
+										rel="noopener noreferrer"
 										style={{ color: 'rgb(60, 72, 88)' }}
 									>
 										<h5
@@ -82,7 +83,7 @@ const Tables = ({ autres_structures }) => (
 						>
 							<Grid item md={4} style={{ textAlign: 'center' }}>
 								<b>
-									<a href={autres_structures.web} target="_blank">
+									<a href={autres_structures.web} target="_blank" rel="noopener noreferrer">
 										<h3 style={{ color: '#337467', marginTop: 5, textAlign: 'center' }}>
 											{autres_structures.name}
 										</h3>
@@ -110,6 +111,7 @@ const Tables = ({ autres_structures }) => (
 									<a
 										href={autres_structures.web}
 										target="_blank"
+										rel="noopener noreferrer"
 										style={{ color: 'rgb(60, 72, 88)' }}
 									>
 										<h5

@@ -69,7 +69,9 @@ router.post(
 			cardCategoryIndividuelTitle: req.body.cardCategoryIndividuelTitle,
 			cardCategoryIndividuelSubTitle: req.body.cardCategoryIndividuelSubTitle,
 			cardCategoryIndividuelDescription: req.body.cardCategoryIndividuelDescription,
-
+			adresseName: req.body.adresseName,
+			adresseName2: req.body.adresseName2,
+			lieu: req.body.lieu,
 			file: req.files['file'][0].path
 		})
 		adherer
@@ -88,7 +90,7 @@ router.post(
 router.get('/:id', (req, res) => {
 	Adherer.findById(req.params.id)
 		.select(
-			'title theme subtitle subtitle2 subtitle3 InfoAreaTitle InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaDescription InfoAreaDescription2 InfoAreaDescription3 InfoAreaDescription4 imgCardCollectif cardCategoryCollectifTitle cardCategoryCollectifSubTitle cardCategoryCollectifDescription imgCardIndividuel cardCategoryIndividuelTitle cardCategoryIndividuelSubTitle cardCategoryIndividuelDescription file'
+			'title theme subtitle subtitle2 subtitle3 InfoAreaTitle InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaDescription InfoAreaDescription2 InfoAreaDescription3 InfoAreaDescription4 imgCardCollectif cardCategoryCollectifTitle cardCategoryCollectifSubTitle cardCategoryCollectifDescription imgCardIndividuel cardCategoryIndividuelTitle cardCategoryIndividuelSubTitle cardCategoryIndividuelDescription file, adresseName, adresseName2, lieu'
 		)
 		.exec()
 		.then((adherer) => res.json(adherer))
@@ -136,7 +138,9 @@ router.patch(
 			cardCategoryIndividuelTitle: req.body.cardCategoryIndividuelTitle,
 			cardCategoryIndividuelSubTitle: req.body.cardCategoryIndividuelSubTitle,
 			cardCategoryIndividuelDescription: req.body.cardCategoryIndividuelDescription,
-
+			adresseName: req.body.adresseName,
+			adresseName2: req.body.adresseName2,
+			lieu: req.body.lieu,
 			file: req.files['file'][0].path
 		}
 		for (const [ key, value ] of Object.entries(updateOps)) {

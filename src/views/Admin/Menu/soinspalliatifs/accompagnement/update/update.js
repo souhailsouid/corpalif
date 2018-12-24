@@ -8,7 +8,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
 
 // core components
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -23,13 +23,6 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getCurrentAccompagnement_id, updateAccompagnement } from 'actions/soinspalliatifs/AccompagnementActions'
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: '#337467'
-		}
-	}
-})
 
 class Modal extends React.Component {
 	constructor(props) {

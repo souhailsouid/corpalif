@@ -16,7 +16,6 @@ import Face from '@material-ui/icons/Face'
 import Mail from '@material-ui/icons/Mail'
 import FiberManualRecord from '@material-ui/icons/FiberManualRecord'
 // core components
-
 import CustomLinearProgress from 'components/CustomLinearProgress/CustomLinearProgress.jsx'
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
 import { MySnackbarContentWrapper } from 'views/materialAlert/alert.js'
@@ -25,7 +24,6 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
-
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -84,7 +82,6 @@ class CompleteProcess extends React.Component {
 			fonction: this.state.fonction,
 			location: this.state.location,
 			newsletter: this.state.newsletter
-			// member: this.state.member
 		}
 
 		this.props.completeProfile(profileData, this.props.history)
@@ -151,7 +148,6 @@ class CompleteProcess extends React.Component {
 									<CustomLinearProgress variant="determinate" color="green" value={60} />
 								</GridItem>
 							</DialogTitle>
-
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
 								<GridContainer>
 									<GridItem
@@ -219,7 +215,6 @@ class CompleteProcess extends React.Component {
 											}}
 										/>
 										<br />
-										{/* <h5 style={{ textAlign: 'left' }}>Newsletter</h5> */}
 										<div style={{ textAlign: 'center' }}>
 											{' '}
 											<FormHelperText>S'abonner à la newsletter</FormHelperText>
@@ -382,8 +377,6 @@ CompleteProcess.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-	auth: state.auth,
-
 	profile: state.profile,
 	errors: state.errors,
 	auth: state.auth

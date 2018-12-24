@@ -9,7 +9,6 @@ import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
 import Snackbar from '@material-ui/core/Snackbar'
-import Close from '@material-ui/icons/Close'
 import Assignment from '@material-ui/icons/Assignment'
 import Mail from '@material-ui/icons/Mail'
 import Icon from '@material-ui/core/Icon'

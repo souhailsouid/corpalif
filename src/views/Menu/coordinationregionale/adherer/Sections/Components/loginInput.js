@@ -1,20 +1,15 @@
 import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
 import DialogActions from '@material-ui/core/DialogActions'
 import InputAdornment from '@material-ui/core/InputAdornment'
 // @material-ui/icons
-
 import Mail from '@material-ui/icons/Mail'
 import Icon from '@material-ui/core/Icon'
-
 // core components
 import TextFieldGroup from 'views/common/TextFieldGroup.js'
-
 import ForgotPassword from './forgotPassword'
 import Button from 'components/CustomButtons/Button.jsx'
-
 import CardBody from 'components/Card/CardBody.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 // Redux
@@ -23,10 +18,6 @@ import { connect } from 'react-redux'
 import { processLogin } from 'actions/authActions'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
-
-function Transition(props) {
-	return <Slide direction="down" {...props} />
-}
 
 class ComponentLogin extends React.Component {
 	constructor(props) {
