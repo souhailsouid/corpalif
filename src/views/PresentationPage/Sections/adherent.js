@@ -30,9 +30,6 @@ const Adherent = ({ adherent, classes }) => (
 								<a href="#pablito" onClick={(e) => e.preventDefault()}>
 									<h3 className={classes.cardTitleWhite}>{adherent.title}</h3>
 								</a>
-								<p className={classes.cardDescription}>
-									Don't be scared of the truth because we need to restart the human foundation in
-								</p>
 
 								<Button round color="green">
 									<Subject /> Adherer

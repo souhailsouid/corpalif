@@ -16,6 +16,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { createAdherent, updateProfileMember } from 'actions/profileActions'
 import { withRouter } from 'react-router-dom'
+
 function Transition(props) {
 	return <Slide direction="down" {...props} />
 }
@@ -60,6 +61,7 @@ class ConfirmationPaiement extends React.Component {
 	}
 	render() {
 		const { classes } = this.props
+
 		return (
 			<div>
 				<Dialog
@@ -80,7 +82,7 @@ class ConfirmationPaiement extends React.Component {
 						</h3>
 						<br />
 						<h4 className={classes.modalTitle} style={{ textAlign: 'center' }}>
-							Merci pour votre adhésion annuelle à la corpalif pour l'année <b>2018 </b>
+							Merci pour votre adhésion annuelle à la corpalif
 						</h4>
 						<h5 className={classes.modalTitle} style={{ textAlign: 'center' }}>
 							<b>Un email vous sera adressé ! </b>

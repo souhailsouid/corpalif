@@ -18,6 +18,7 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Card from 'components/Card/Card.jsx'
 import javascriptStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.jsx'
 import SectionAdherent from './blockAdherent'
+import AdherentsInfo from 'views/Menu/VeilleMedicale/rencontres/Adherents/forAdherents'
 // Redux
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -133,17 +134,21 @@ class ProfileData extends React.Component {
 				// User is logged in but has no contract
 				dashboardContent = (
 					<div>
-						<h2 style={{ textAlign: 'center' }}>
-							Adhérent pour l'année <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b> depuis
-							le: <br />
-							<h3 style={{ textAlign: 'center' }}>
-								{' '}
-								<b>
-									{Object.values(profile.adherent[0].date).slice(8, 10)}-{Object.values(profile.adherent[0].date).slice(5, 7)}-{Object.values(profile.adherent[0].date).slice(0, 4)}
-								</b>{' '}
-								et jusqu'au 31 décembre <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>
-							</h3>
-						</h2>
+						<div>
+							<h2 style={{ textAlign: 'center' }}>
+								Adhérent pour l'année <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>{' '}
+								depuis le: <br />
+								<h3 style={{ textAlign: 'center' }}>
+									{' '}
+									<b>
+										{Object.values(profile.adherent[0].date).slice(8, 10)}-{Object.values(profile.adherent[0].date).slice(5, 7)}-{Object.values(profile.adherent[0].date).slice(0, 4)}
+									</b>{' '}
+									et jusqu'au 31 décembre{' '}
+									<b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>
+								</h3>
+							</h2>
+						</div>
+						<AdherentsInfo />
 					</div>
 				)
 			}

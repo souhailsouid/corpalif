@@ -2,12 +2,12 @@ import React from 'react'
 
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
-// @material-ui/icons
 
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 import Adherent from 'views/PresentationPage/Sections/adherent'
+import GridItem from 'components/Grid/GridItem.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
@@ -43,7 +43,9 @@ class SectionAdherent extends React.Component {
 			<div className={classes.section} id="carousel">
 				<div className={classes.container}>
 					<GridContainer>
-						<a href="/menu/coordinationregionale/adherer">{DataElements}</a>
+						<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
+							<a href="/menu/coordinationregionale/adherer">{DataElements}</a>
+						</GridItem>
 					</GridContainer>
 				</div>
 			</div>

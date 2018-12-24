@@ -9,7 +9,7 @@ import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 import SectionRencontre from './get.jsx'
 
-class PresentationInfoSubscribers extends React.Component {
+class PresentationInfoAdherents extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -24,7 +24,6 @@ class PresentationInfoSubscribers extends React.Component {
 					<GridContainer justify="center">
 						<SectionRencontre />
 					</GridContainer>
-
 					<SectionFooter />
 				</div>
 
@@ -34,4 +33,4 @@ class PresentationInfoSubscribers extends React.Component {
 	}
 }
 
-export default withStyles(presentationStyle)(PresentationInfoSubscribers)
+export default withStyles(presentationStyle)(PresentationInfoAdherents)

@@ -3,13 +3,16 @@ import React from 'react'
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
+
 import GridContainer from 'components/Grid/GridContainer.jsx'
+
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'
-import SectionRencontre from './get.jsx'
+import SectionRencontre from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/getData/get.jsx'
+// section CSS
 
-class PresentationInfoSubscribers extends React.Component {
+class Rencontre_adherent extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -24,7 +27,6 @@ class PresentationInfoSubscribers extends React.Component {
 					<GridContainer justify="center">
 						<SectionRencontre />
 					</GridContainer>
-
 					<SectionFooter />
 				</div>
 
@@ -34,4 +36,4 @@ class PresentationInfoSubscribers extends React.Component {
 	}
 }
 
-export default withStyles(presentationStyle)(PresentationInfoSubscribers)
+export default withStyles(presentationStyle)(Rencontre_adherent)

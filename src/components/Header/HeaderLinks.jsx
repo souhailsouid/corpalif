@@ -83,44 +83,6 @@ class HeaderLinks extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		// if (nextProps.auth.isAuthenticated) {
-		// 	const snack = {
-		// 		variant: 'success',
-		// 		message: 'Connecté avec succés!'
-		// 	}
-		// 	this.setState({ snack, displaySnack: true })
-		// 	{
-		// 	}
-		// 	setTimeout(
-		// 		function() {
-		// 			this.setState({ displaySnack: false })
-		// 		}.bind(this),
-		// 		1500
-		// 	)
-		// }
-		// if (!nextProps.auth.isAuthenticated) {
-		// 	const snack = {
-		// 		variant: 'warning',
-		// 		message: 'Deconnecté avec succés!'
-		// 	}
-		// 	this.setState({ snack, displaySnack: true })
-		// 	setTimeout(
-		// 		function() {
-		// 			this.setState({ displaySnack: false })
-		// 		}.bind(this),
-		// 		1500
-		// 	)
-		// }
-	}
-
-	// handleCloseAlert = (reason) => {
-	// 	if (reason === 'clickaway') {
-	// 		return
-	// 	}
-
-	// 	this.setState({ displaySnack: false })
-	// }
 	render() {
 		const scrollGo = (element, to, duration) => {
 			var start = element.scrollTop,
@@ -140,7 +102,7 @@ class HeaderLinks extends React.Component {
 		}
 		const { file } = this.props.file
 		const File = file.map((file) => <FileUpload file={file} />)
-		const { classes, dropdownHoverColor } = this.props
+		const { classes } = this.props
 		const { isAuthenticated, user } = this.props.auth
 		let dashboardContent
 		let adminContent
@@ -168,6 +130,7 @@ class HeaderLinks extends React.Component {
 				</div>
 			)
 		}
+
 		const authLinks = (
 			<div>
 				<ListItem className={classes.listItem} style={{ display: 'flex' }}>
@@ -202,7 +165,6 @@ class HeaderLinks extends React.Component {
 								</i>{' '}
 								Mon profile
 							</Link>,
-							// <Button onClick={this.onLogoutClick.bind(this)}> Deconnexion</Button>,
 
 							<Button
 								onClick={this.onLogoutClick.bind(this)}
@@ -229,11 +191,10 @@ class HeaderLinks extends React.Component {
 				<SignUp />
 			</ListItem>
 		)
+
 		return (
 			<div>
 				<List className={classes.list + ' ' + classes.mlAuto}>
-					{/* <CoordinationRegionale />
-					<LesSoinsPalliatifs /> */}
 					<ListItem className={classes.listItem}>
 						<CustomDropdown
 							noLiPadding
@@ -362,21 +323,12 @@ class HeaderLinks extends React.Component {
 					</ListItem>
 					<ListItem className={classes.listItem}>{File}</ListItem>
 					<ListItem className={classes.listItem}>{isAuthenticated ? authLinks : guestLinks}</ListItem>
-					{/* <Snackbar
-						anchorOrigin={{
-							vertical: 'bottom',
-							horizontal: 'right'
-						}}
-						open={this.state.displaySnack}
-						autoHideDuration={1}
-					>
-						<MySnackbarContentWrapper {...this.state.snack} onClose={this.handleCloseAlert} />
-					</Snackbar> */}
 				</List>
 			</div>
 		)
 	}
 }
+
 HeaderLinks.defaultProps = {
 	hoverColor: 'primary'
 }
@@ -386,6 +338,7 @@ HeaderLinks.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	dropdownHoverColor: PropTypes.oneOf([ 'dark', 'primary', 'info', 'success', 'warning', 'danger', 'rose' ]),
 	logoutUser: PropTypes.func.isRequired,
+	profile: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 

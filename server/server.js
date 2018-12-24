@@ -91,6 +91,7 @@ const hautsdeseine_autres = require('./routes/api/Annuaire/HautsDeSeine/autres')
 const veillemedicale_recommandation = require('./routes/api/veillemedicale/recommandations&outils')
 const veillemedicale_rencontre = require('./routes/api/veillemedicale/rencontre')
 const veillemedicale_rencontre_inscrit = require('./routes/api/veillemedicale/PrivateInfo')
+const veillemedicale_rencontre_adherent = require('./routes/api/veillemedicale/adherents_info')
 const veillemedicale_evenement = require('./routes/api/veillemedicale/evenement')
 const veillemedicale_actualite = require('./routes/api/veillemedicale/actualite')
 const caroussel = require('./routes/api/HomePage/caroussel')
@@ -330,6 +331,7 @@ app.use('/api/recommandation', veillemedicale_recommandation)
 // Rencontres
 app.use('/api/rencontre', veillemedicale_rencontre)
 app.use('/api/rencontre_inscrit', veillemedicale_rencontre_inscrit)
+app.use('/api/rencontre_adherents', veillemedicale_rencontre_adherent)
 // Evenements
 app.use('/api/evenement', veillemedicale_evenement)
 // Actualites

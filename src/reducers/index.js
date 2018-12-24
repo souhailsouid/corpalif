@@ -17,6 +17,7 @@ import offresdemploisReducer from './menu/Offres&formations/offresdemploisReduce
 import formationReducer from './menu/Offres&formations/formationReducer'
 import rencontreReducer from './menu/veillemedicale/rencontreReducer'
 import privateInfoReducer from './menu/veillemedicale/privateInfoReducer'
+import privateInfoAdherentsReducer from './menu/veillemedicale/privateInfoAdherentsReducer'
 import actualiteReducer from './menu/veillemedicale/actualiteReducer'
 import evenementReducer from './menu/veillemedicale/evenementReducer'
 import statusReducer from './statusReducer'
@@ -71,5 +72,6 @@ export default combineReducers({
 	accompagnement: accompagnementReducer,
 	corpalif: corpalifReducer,
 	adherentPage: adherentPageReducer,
-	demarche: demarcheReducer
+	demarche: demarcheReducer,
+	privateInfoAdherent: privateInfoAdherentsReducer
 })

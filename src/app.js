@@ -808,6 +808,7 @@ import PresentationEmploi from 'views/Menu/offresdemploi/offres/getData/offres.j
 import PresentationFormation from 'views/Menu/formations/getData/formations.jsx'
 // NOS RENCONTRES
 import PresentationInfoSubscribers from 'views/Menu/VeilleMedicale/rencontres/Subscribers/PresentationInfoSubscribers.jsx'
+import PresentationInfoAdherents from 'views/Menu/VeilleMedicale/rencontres/Adherents/PresentationInfoAdherents.jsx'
 import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/rencontres.jsx'
 
 // ACTUALITES
@@ -865,6 +866,11 @@ import Rencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit
 import DeleteOneRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/delete/PresentationDelete'
 import UpdateRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/update/Header'
 import PostRencontre_inscrit from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/post/Header'
+// RENCONTRES_Adherent CONTENU PRIVE
+import Rencontre_adherent from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/getData/rencontres.jsx'
+import DeleteOneRencontre_adherent from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/delete/PresentationDelete'
+import UpdateRencontre_adherent from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/update/Header'
+import PostRencontre_adherent from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/post/Header'
 // ACTUALITE
 import Actualite from 'views/Admin/Menu/VeilleMedicale/actualite/getData/actualites.jsx'
 import DeleteOneActualite from 'views/Admin/Menu/VeilleMedicale/actualite/delete/PresentationDelete'
@@ -3622,6 +3628,12 @@ class App extends Component {
 									path="/menu/veillemedicale/infosforSubscribers"
 									component={PresentationInfoSubscribers}
 								/>
+								<PrivateRoute
+									exact
+									path="/menu/veillemedicale/infosforAdherents"
+									component={PresentationInfoAdherents}
+								/>
+
 								{/* {admin } */}
 								<AdminRoute
 									exact
@@ -3747,6 +3759,7 @@ class App extends Component {
 									path="/admin/menu/veillemedicale/privateInfo/"
 									component={Rencontre_inscrit}
 								/>
+
 								<AdminRoute
 									exact
 									path="/admin/menu/veillemedicale/privateInfo/delete/:id"
@@ -3761,6 +3774,28 @@ class App extends Component {
 									exact
 									path="/admin/menu/veillemedicale/privateInfo/post"
 									component={PostRencontre_inscrit}
+								/>
+								{/* rencontre_adherent, Contenu privé */}
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/adherentsinfo/"
+									component={Rencontre_adherent}
+								/>
+
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfoAdherent/delete/:id"
+									component={DeleteOneRencontre_adherent}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfoAdherent/update/:id"
+									component={UpdateRencontre_adherent}
+								/>
+								<AdminRoute
+									exact
+									path="/admin/menu/veillemedicale/privateInfoAdherent/post"
+									component={PostRencontre_adherent}
 								/>
 								{/* rencontre */}
 								<AdminRoute exact path="/admin/menu/veillemedicale/rencontre/" component={Rencontre} />

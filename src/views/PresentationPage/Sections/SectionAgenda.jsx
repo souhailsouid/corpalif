@@ -7,7 +7,7 @@ import notificationsStyles from 'assets/jss/material-kit-pro-react/views/compone
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import Agenda1 from './notification/agenda1'
 import Agenda2 from './notification/agenda2'
-// Redux
+// Reduxé"&
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
