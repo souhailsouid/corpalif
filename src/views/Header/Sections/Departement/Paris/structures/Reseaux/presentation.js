@@ -52,12 +52,12 @@ class PresentationReseauxParis extends React.Component {
 				<div className={classNames(classes.main, classes.mainRaised)}>
 					<div className={classes.container}>
 						<GridContainer justify="center">
-							<GridItem xs={12} sm={12} md={6} style={{ marginTop: 100 }}>
+							<GridItem xs={12} sm={12} md={8} style={{ marginTop: 100 }}>
 								<div className={classes.profile}>
 									<div className={classes.name}>
 										<h3 className={classes.title} style={{ color: '#cc4949' }}>
 											{' '}
-											Les Reseaux à Paris{' '}
+											Les réseaux à Paris{' '}
 										</h3>
 									</div>
 								</div>

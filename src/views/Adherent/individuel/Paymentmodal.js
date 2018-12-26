@@ -182,7 +182,16 @@ class PaymentParticulier extends React.Component {
 									<CustomLinearProgress variant="determinate" color="green" value={85} />
 								</GridItem>
 							</DialogTitle>
-
+							<GridContainer justify="center">
+								<div>
+									<h3
+										className={`${classes.cardTitle} ${classes.modalTitle}`}
+										style={{ textAlign: 'center' }}
+									>
+										Récapitulatif
+									</h3>
+								</div>
+							</GridContainer>
 							<DialogContent id="signup-modal-slide-description" className={classes.modalBody}>
 								<GridContainer justify="center">
 									<GridContainer justify="left">
@@ -190,9 +199,9 @@ class PaymentParticulier extends React.Component {
 											<div>
 												<h3
 													className={`${classes.cardTitle} ${classes.modalTitle}`}
-													style={{ textAlign: 'center', marginBottom: '20px' }}
+													style={{ textAlign: 'center', marginBottom: '20px', color: '#fff' }}
 												>
-													Recapitulatifs
+													Récapitulatif
 												</h3>
 											</div>
 											<TextFieldGroup
@@ -215,7 +224,7 @@ class PaymentParticulier extends React.Component {
 											/>
 											<br />
 											<TextFieldGroup
-												label="Prenom"
+												label="Prénom"
 												disabled
 												className={classes.margin}
 												name="last_name"
@@ -324,7 +333,7 @@ class PaymentParticulier extends React.Component {
 												<FormHelperText>Votre structure de travail</FormHelperText>
 
 												<TextFieldGroup
-													label="Etablissement"
+													label="Établissement"
 													name="company"
 													value={this.state.company}
 													onChange={this.onChange}
@@ -332,7 +341,7 @@ class PaymentParticulier extends React.Component {
 												/>
 												<br />
 												<TextFieldGroup
-													label="Status"
+													label="Statut"
 													name="status"
 													value={this.state.status}
 													onChange={this.onChange}
@@ -344,7 +353,7 @@ class PaymentParticulier extends React.Component {
 														className={`${classes.cardTitle} ${classes.modalTitle}`}
 														style={{ color: '#cc4949', textAlign: 'center' }}
 													>
-														Adhérer pour 15 euros seulement
+														Adhérer pour 15 euros
 													</h5>
 												</b>
 											</form>

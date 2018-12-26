@@ -137,7 +137,7 @@ class ProfileData extends React.Component {
 						<div>
 							<h2 style={{ textAlign: 'center' }}>
 								Adhérent pour l'année <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>{' '}
-								depuis le: <br />
+								depuis le : <br />
 								<h3 style={{ textAlign: 'center' }}>
 									{' '}
 									<b>
@@ -176,7 +176,7 @@ class ProfileData extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ textAlign: 'center', color: '#cc4949' }}
 									>
-										Mon profile
+										Mon profil
 									</h2>
 								</div>
 							</DialogTitle>
@@ -200,7 +200,7 @@ class ProfileData extends React.Component {
 										</div>
 										<br />
 										<TextFieldGroup
-											label="Status"
+											label="Statut"
 											name="status"
 											value={this.state.status}
 											onChange={this.onChange}
@@ -233,7 +233,7 @@ class ProfileData extends React.Component {
 										/>
 										<br />
 										<TextFieldGroup
-											label="Prenom"
+											label="Prénom"
 											disabled
 											className={classes.margin}
 											name="last_name"
@@ -322,7 +322,7 @@ class ProfileData extends React.Component {
 										<FormHelperText>Votre structure de travail</FormHelperText>
 										<br />
 										<TextFieldGroup
-											label="Etablissement"
+											label="Établissement"
 											name="company"
 											value={this.state.company}
 											onChange={this.onChange}

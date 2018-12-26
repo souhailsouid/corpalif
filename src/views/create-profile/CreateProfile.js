@@ -150,8 +150,7 @@ class CreateProfile extends Component {
 							<GridContainer style={{ justifyContent: 'center' }}>
 								<GridItem xs={12} sm={12} md={5}>
 									<div style={{ textAlign: 'center', marginTop: 200, marginBottom: 50 }}>
-										<h1>Editer votre profile</h1>
-										<p> Let's get some information to make your profile stand out</p>
+										<h1>Editer votre profil</h1>
 									</div>
 									<form onSubmit={this.onSubmit}>
 										<TextFieldGroup
@@ -174,7 +173,7 @@ class CreateProfile extends Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											label="Prenom"
+											label="Prénom"
 											disabled
 											className={classes.margin}
 											name="last_name"
@@ -194,7 +193,7 @@ class CreateProfile extends Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											type="email"
+											type="Email"
 											disabled
 											className={classes.margin}
 											name="email"
@@ -259,30 +258,13 @@ class CreateProfile extends Component {
 										<FormHelperText>Votre structure de travail</FormHelperText>
 										<br />
 										<TextFieldGroup
-											placeholder="Company"
+											placeholder="Établissement"
 											name="company"
 											value={this.state.company}
 											onChange={this.onChange}
-											info="A unique handle for your profile URL. Your full name, company name, nickname"
 										/>
 										<br /> <br />
 										<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-											<GridItem xs={12} sm={5} md={12} className={classes.mrAuto}>
-												{/* <Button
-													color="linkedin"
-													onClick={() => {
-														this.setState((prevState) => ({
-															displaySocialInputs: !prevState.displaySocialInputs
-														}))
-													}}
-												>
-													<i className={'fab fa-linkedin'} /> Associer votre compte Linkedin
-												</Button>
-												<FormHelperText>Optional</FormHelperText>
-												<span />
-
-												{socialInputs} */}
-											</GridItem>
 											<GridItem xs={12} sm={5} md={12} className={classes.mrAuto}>
 												<Button
 													color="github"

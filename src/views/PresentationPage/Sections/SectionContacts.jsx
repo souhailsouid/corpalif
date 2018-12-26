@@ -125,7 +125,7 @@ class SectionContacts extends Component {
 							<GridContainer>
 								<GridItem xs={12} sm={5} md={5}>
 									<h2 className={classes.title}>Contact</h2>
-									<h5 className={classes.description}>Besoin d'informations?</h5>
+
 									<InfoArea
 										className={classes.infoArea}
 										title="Notre bureau"

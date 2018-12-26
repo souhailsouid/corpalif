@@ -24,7 +24,7 @@ class CheckoutForm extends Component {
 			<div className="checkout" style={{ textAlign: 'center' }}>
 				<StripeCheckout
 					style={{ textAlign: 'center' }}
-					stripeKey="pk_test_eD4nXDlwmoAtBnXfYBo1taDi"
+					stripeKey="pk_live_3YHbiP48Nk6vpFoX1KdlZSb2"
 					token={this.onToken} // submit callback
 					name="Corpalif" // the pop-in header title
 					description="Frais annuel d'adhésion" // the pop-in header subtitle

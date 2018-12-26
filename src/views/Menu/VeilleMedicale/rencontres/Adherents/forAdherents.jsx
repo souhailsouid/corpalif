@@ -15,11 +15,11 @@ const AdherentsInfo = ({ classes }) => (
 			<GridItem xs={12} sm={12} md={10}>
 				<Card raised background style={{ backgroundImage: `url(${office2})` }}>
 					<CardBody background>
-						<h6 className={classes.cardCategory}> SPECIAL ADHERENTS</h6>
+						<h6 className={classes.cardCategory}> RESERVÉ ADHERENTS</h6>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<h3 className={classes.cardTitleWhite}>Contenus complementaires</h3>
+							<h3 className={classes.cardTitleWhite}>Activité de l'association</h3>
 						</a>
-						<p className={classes.cardDescription}>Contenus additionnels pour adherents.</p>
+						<p className={classes.cardDescription}>Rapports et comptes rendus</p>
 						<InfoSubscribers />
 					</CardBody>
 				</Card>

@@ -188,7 +188,7 @@ class EditProfile extends React.Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											label="Prenom"
+											label="Prénom"
 											disabled
 											className={classes.margin}
 											name="last_name"
@@ -208,7 +208,7 @@ class EditProfile extends React.Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											type="email"
+											type="Email"
 											disabled
 											className={classes.margin}
 											name="email"
@@ -227,7 +227,7 @@ class EditProfile extends React.Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											label="status"
+											label="statut"
 											type="status"
 											disabled
 											className={classes.margin}
@@ -297,11 +297,10 @@ class EditProfile extends React.Component {
 											<FormHelperText>Votre structure de travail</FormHelperText>
 											<br />
 											<TextFieldGroup
-												placeholder="Company"
+												placeholder="Établissement"
 												name="company"
 												value={this.state.company}
 												onChange={this.onChange}
-												info=" Your full name, company name, nickname"
 											/>
 											<h5 style={{ textAlign: 'left' }}>Newsletter</h5>
 											<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
@@ -393,12 +392,12 @@ class EditProfile extends React.Component {
 											<div
 												style={{
 													display: 'flex',
-													justifyContent: ('space-evenly', 'center')
+													justifyContent: ('space-around', 'center')
 												}}
 											>
 												<div
 													className={classes.textCenter}
-													style={{ justifyContent: 'center' }}
+													style={{ justifyContent: ('center', 'space-evenly') }}
 												>
 													<Link to="/monprofile">
 														<Button round style={{ backgroundColor: '#337467' }}>
@@ -406,6 +405,7 @@ class EditProfile extends React.Component {
 														</Button>
 													</Link>
 												</div>
+												<br />
 												<br />
 												<Button type="submit" round style={{ backgroundColor: '#337467' }}>
 													S'enregistrer

@@ -163,7 +163,7 @@ class HeaderLinks extends React.Component {
 								<i class="material-icons" style={{ marginRight: 5 }}>
 									account_circle
 								</i>{' '}
-								Mon profile
+								Mon profil
 							</Link>,
 
 							<Button
@@ -177,7 +177,7 @@ class HeaderLinks extends React.Component {
 								<i class="material-icons" style={{ marginRight: 5 }}>
 									exit_to_app
 								</i>{' '}
-								Deconnexion
+								Déconnexion
 							</Button>
 						]}
 					/>
@@ -248,7 +248,7 @@ class HeaderLinks extends React.Component {
 							dropdownList={[
 								<Link to="/menu/soinspalliatifs/demarche-palliative/" className={classes.dropdownLink}>
 									<div style={{ margin: 2 }}>
-										{<Dns className={classes.dropdownIcons} />} La demarche palliative
+										{<Dns className={classes.dropdownIcons} />} La démarche palliative
 									</div>
 								</Link>,
 								<Link to="/annuaire-francilien" className={classes.dropdownLink}>
@@ -260,7 +260,7 @@ class HeaderLinks extends React.Component {
 								<Link to="/menu/soinspalliatifs/legislation" className={classes.dropdownLink}>
 									<div style={{ display: 'flex', color: '#333' }}>
 										{<ListIcon className={classes.dropdownIcons} />}
-										<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Legislation</div>
+										<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Législation</div>
 									</div>
 								</Link>,
 								<Link to="/menu/soinspalliatifs/accompagnement/" className={classes.dropdownLink}>

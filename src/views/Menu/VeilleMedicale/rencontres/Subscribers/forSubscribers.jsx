@@ -15,13 +15,11 @@ const Rencontre = ({ classes }) => (
 			<GridItem xs={12} sm={12} md={10}>
 				<Card raised background style={{ backgroundImage: `url(${office2})` }}>
 					<CardBody background>
-						<h6 className={classes.cardCategory}>INFORMATION COMPLEMENTAIRE</h6>
+						<h6 className={classes.cardCategory}>RESERVÉ INSCRITS</h6>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<h3 className={classes.cardTitleWhite}>Contenue privée</h3>
+							<h3 className={classes.cardTitleWhite}>Contenu des rencontres</h3>
 						</a>
-						<p className={classes.cardDescription}>
-							Pour acceder aux contenus additionnels, veuillez vous connecter.
-						</p>
+						<p className={classes.cardDescription}>Retrouvez les présentations des interventions</p>
 						<InfoSubscribers />
 					</CardBody>
 				</Card>

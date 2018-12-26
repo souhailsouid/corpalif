@@ -29,28 +29,13 @@ const SectionFooter = (props) => {
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
 										<a href="#pablo" className={classes.block} onClick={(e) => e.preventDefault()}>
-											Accueil
-										</a>
-									</ListItem>
-									<ListItem className={classes.inlineBlock}>
-										<a href="#pablo" className={classes.block} onClick={(e) => e.preventDefault()}>
-											Annuaire
-										</a>
-									</ListItem>
-									<ListItem className={classes.inlineBlock}>
-										<a href="#pablo" className={classes.block} onClick={(e) => e.preventDefault()}>
 											Mentions légales
-										</a>
-									</ListItem>
-									<ListItem className={classes.inlineBlock}>
-										<a href="#pablo" className={classes.block} onClick={(e) => e.preventDefault()}>
-											Contact Us
 										</a>
 									</ListItem>
 								</List>
 							</div>
 							<div className={classes.right}>
-								&copy; {1900 + new Date().getYear()} Tous droits réservés.
+								&copy; {1900 + new Date().getYear()} Tous droits réservés
 							</div>
 						</div>
 					}
@@ -60,7 +45,7 @@ const SectionFooter = (props) => {
 							<h5>À propos</h5>
 							<p>La CORPALIF est une association de loi 1901.</p>
 							<p>
-								Elle a pour but de fédérer et représentater les acteurs de soins palliatifs franciliens.{' '}
+								Elle a pour but de fédérer et représenter les acteurs de soins palliatifs franciliens.{' '}
 							</p>
 						</GridItem>
 						<GridItem xs={12} sm={4} md={4}>
@@ -77,8 +62,14 @@ const SectionFooter = (props) => {
 									</div>
 								</a>
 								<div>
-									<i className="fab fa-facebook-square" />
-									<p>A collection of 25 stunning sites that you can use for inspiration.</p>
+									<a
+										href="https://fr-fr.facebook.com/Corpalif/"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<i className="fab fa-facebook-square" />
+										<p>https://fr-fr.facebook.com/Corpalif/</p>
+									</a>
 								</div>
 							</div>
 						</GridItem>
@@ -97,7 +88,7 @@ const SectionFooter = (props) => {
 									/>
 									<div className={classes.socialFeed}>
 										<div>
-											<p style={{ paddingTop: 20 }}>Agence Régionale de Soins Palliatifs.</p>
+											<p style={{ paddingTop: 20 }}>Agence Régionale de Santé Île-de-France</p>
 										</div>
 									</div>
 								</a>
@@ -113,7 +104,7 @@ const SectionFooter = (props) => {
 									<div className={classes.socialFeed}>
 										<div>
 											<p style={{ paddingTop: 10 }}>
-												Société Française d'Accompagnement et de Soins Palliatifs.
+												Société Française d'Accompagnement et de soins Palliatifs
 											</p>
 										</div>
 									</div>

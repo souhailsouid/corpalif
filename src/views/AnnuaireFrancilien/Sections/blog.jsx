@@ -53,10 +53,10 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											Les unités de soins palliatifs une activité spécifique en soins palliatifs
-											et des professionnels formés et spécialisés. Dotées d’une triple mission de
-											soins, de formation et de recherche, les USP accueillent les situations les
-											plus complexes.
+											Les unités de soins palliatifs ont une activité spécifique de soins
+											palliatifs et des professionnels formés et spécialisés. Dotées d’une triple
+											mission de soins, de formation et de recherche, les USP accueillent les
+											situations de fin de vie les plus complexes.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -83,8 +83,8 @@ function SectionBlogs({ ...props }) {
 										</h3>
 										<p className={classes.description}>
 											Les réseaux de soins palliatifs assurent la continuité des soins et la
-											coordination des acteurs qui interviennent au domicile. Ils visent au
-											développement et à la promotion de la démarche palliative en visant le
+											coordination des acteurs intervenant au domicile. Ils visent au
+											développement et à la promotion de la démarche palliative par le
 											décloisonnement des structures et des acteurs.
 										</p>
 									</GridItem>
@@ -111,9 +111,9 @@ function SectionBlogs({ ...props }) {
 											</a>
 										</h3>
 										<p className={classes.description}>
-											L'HAD assure l'organisation des soins palliatifs au domicile et assure la
-											prise en charge des situations complexes. Ils assurent des soins médicaux
-											médicaux et paramédicaux continus.
+											Les services d'hospitalisation à domicile ont pour mission de délivrer des
+											soins médicaux médicaux et paramédicaux continus au domicile des patient.
+											L'HAD assure la prise en charge des situations complexes.
 										</p>
 									</GridItem>
 								</GridContainer>
@@ -132,7 +132,7 @@ function SectionBlogs({ ...props }) {
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}>
 													{' '}
-													Lits identifiés soins palliatifs (LISP)
+													Lits identifiés de soins palliatifs (LISP)
 												</b>
 											</h5>
 										</Info>
@@ -195,7 +195,7 @@ function SectionBlogs({ ...props }) {
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}>
 													{' '}
-													Association de bénévoles d'accompagnement
+													Associations de bénévoles d'accompagnement
 												</b>
 											</h5>
 										</Info>

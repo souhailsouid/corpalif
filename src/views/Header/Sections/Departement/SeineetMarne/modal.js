@@ -108,7 +108,7 @@ class ModalSearchSeineetMarne extends React.Component {
 												className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 											>
 												<h3 className={classes.title} style={{ marginTop: 0 }}>
-													L' offre de soins en Seine et Marne
+													L' offre de soins en Seine-et-Marne
 												</h3>
 											</GridItem>
 											<div className={classes.container}>
@@ -123,7 +123,7 @@ class ModalSearchSeineetMarne extends React.Component {
 																	<div>
 																		<b>
 																			<h3>{Object.keys(usp).length} </h3>
-																		</b>Unités de soins palliatifs (USP)
+																		</b>Unités de soins palliatifs
 																	</div>
 																}
 															/>
@@ -152,8 +152,8 @@ class ModalSearchSeineetMarne extends React.Component {
 																icon={Home}
 																title={
 																	<div>
-																		<h3>{Object.keys(soin).length}</h3> Structures
-																		d'hospitalisation à domicile
+																		<h3>{Object.keys(soin).length}</h3>{' '}
+																		Hospitalisation à domicile
 																	</div>
 																}
 															/>
@@ -170,7 +170,7 @@ class ModalSearchSeineetMarne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(lit).length}</h3> Lits
-																		identifiés
+																		identifiés soins palliatifs
 																	</div>
 																}
 															/>
@@ -185,7 +185,7 @@ class ModalSearchSeineetMarne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(had).length}</h3> Équipes
-																		mobiles de soins palliatifs (HAD)
+																		mobiles de soins palliatifs
 																	</div>
 																}
 															/>
@@ -225,7 +225,7 @@ class ModalSearchSeineetMarne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(autres_structures).length}</h3>
-																		Autres structures
+																		Autres structures de prise en charge
 																	</div>
 																}
 															/>
@@ -248,7 +248,7 @@ class ModalSearchSeineetMarne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(autres).length}</h3>
-																		Autres ...
+																		Autres associations
 																	</div>
 																}
 															/>

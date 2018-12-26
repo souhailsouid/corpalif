@@ -133,7 +133,7 @@ class CompleteProfile extends React.Component {
 										className={`${classes.cardTitle} ${classes.modalTitle}`}
 										style={{ justifyContent: 'center' }}
 									>
-										Completer votre Profile
+										Completer votre Profil
 									</h2>
 								</div>
 								<GridItem
@@ -180,7 +180,7 @@ class CompleteProfile extends React.Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											label="Prenom"
+											label="Prénom"
 											disabled
 											className={classes.margin}
 											name="last_name"
@@ -200,7 +200,7 @@ class CompleteProfile extends React.Component {
 										/>
 										<br /> <br />
 										<TextFieldGroup
-											type="email"
+											type="Email"
 											disabled
 											className={classes.margin}
 											name="email"
@@ -333,11 +333,10 @@ class CompleteProfile extends React.Component {
 											<FormHelperText>Votre structure de travail</FormHelperText>
 											<br />
 											<TextFieldGroup
-												placeholder="Company"
+												placeholder="Établissement"
 												name="company"
 												value={this.state.company}
 												onChange={this.onChange}
-												info="A unique handle for your profile URL. Your full name, company name, nickname"
 											/>
 											<br /> <br />
 											<div

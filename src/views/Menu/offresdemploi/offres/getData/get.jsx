@@ -33,7 +33,7 @@ class SectionOffres extends React.Component {
 							<GridItem xs={12} sm={12} md={12} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
-									Offres d'emplois en Île-de-France
+									Offres d'emploi en Île-de-France
 								</h2>
 								<br />
 

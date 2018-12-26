@@ -8,7 +8,6 @@ import SectionContacts from 'views/PresentationPage/Sections/SectionContacts.jsx
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
-
 import SectionMissions from 'views/PresentationPage/Sections/SectionMissions'
 
 // sections CSS
@@ -24,7 +23,6 @@ function PresentationPage({ ...props }) {
 			<HeaderSearchBar />
 			<div className={classNames(classes.main, classes.mainRaised)}>
 				<SectionCarroussel />
-
 				<SectionMissions />
 				<SectionAdherent />
 

@@ -2,10 +2,10 @@ import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // @material-ui/icons
-
-import AccountBalance from '@material-ui/icons/AccountBalance'
-import CardTravel from '@material-ui/icons/CardTravel'
-
+import LeakAdd from '@material-ui/icons/LeakAdd'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import GroupWork from '@material-ui/icons/GroupWork'
+import TrendingUp from '@material-ui/icons/TrendingUp'
 // core components
 import Card from 'components/Card/Card.jsx'
 import CardBody from 'components/Card/CardBody.jsx'
@@ -19,7 +19,7 @@ import productStyle from 'assets/jss/material-kit-pro-react/views/landingPageSec
 const Section = ({ adherentPage, classes }) => (
 	<div className={classes.section}>
 		<GridContainer justify="center">
-			<GridItem xs={12} sm={8} md={8}>
+			<GridItem xs={12} sm={12} md={12}>
 				<h1 className={classes.title}>{adherentPage.title}</h1>
 				<h4 className={classes.description}>{adherentPage.theme}</h4>
 			</GridItem>
@@ -34,7 +34,7 @@ const Section = ({ adherentPage, classes }) => (
 					<InfoArea
 						title={adherentPage.InfoAreaTitle}
 						description={adherentPage.InfoAreaDescription}
-						icon={AccountBalance}
+						icon={AccountCircle}
 						iconColor="green"
 						vertical
 					/>
@@ -43,7 +43,7 @@ const Section = ({ adherentPage, classes }) => (
 					<InfoArea
 						title={adherentPage.InfoAreaTitle2}
 						description={adherentPage.InfoAreaDescription2}
-						icon={CardTravel}
+						icon={GroupWork}
 						iconColor="green"
 						vertical
 					/>
@@ -60,7 +60,7 @@ const Section = ({ adherentPage, classes }) => (
 					<InfoArea
 						title={adherentPage.InfoAreaTitle3}
 						description={adherentPage.InfoAreaDescription3}
-						icon={AccountBalance}
+						icon={TrendingUp}
 						iconColor="green"
 						vertical
 					/>
@@ -69,7 +69,7 @@ const Section = ({ adherentPage, classes }) => (
 					<InfoArea
 						title={adherentPage.InfoAreaTitle4}
 						description={adherentPage.InfoAreaDescription4}
-						icon={CardTravel}
+						icon={LeakAdd}
 						iconColor="green"
 						vertical
 					/>

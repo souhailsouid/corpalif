@@ -26,6 +26,8 @@ const Adherent = ({ adherent, classes }) => (
 							}}
 						>
 							<CardBody background>
+								<br />
+								<br />
 								<h6 className={classes.cardCategory}>ADHESION</h6>
 								<a href="#pablito" onClick={(e) => e.preventDefault()}>
 									<h3 className={classes.cardTitleWhite}>{adherent.title}</h3>

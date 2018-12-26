@@ -123,7 +123,7 @@ class ModalSearchEssonne extends React.Component {
 																	<div>
 																		<b>
 																			<h3>{Object.keys(usp).length} </h3>
-																		</b>Unités de soins palliatifs (USP)
+																		</b>Unités de soins palliatifs
 																	</div>
 																}
 															/>
@@ -152,8 +152,8 @@ class ModalSearchEssonne extends React.Component {
 																icon={Home}
 																title={
 																	<div>
-																		<h3>{Object.keys(soin).length}</h3> Structures
-																		d'hospitalisation à domicile (HAD)
+																		<h3>{Object.keys(soin).length}</h3>Hospitalisation
+																		à domicile
 																	</div>
 																}
 															/>
@@ -170,7 +170,7 @@ class ModalSearchEssonne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(lit).length}</h3> Lits
-																		identifiés
+																		identifiés soins palliatifs
 																	</div>
 																}
 															/>
@@ -225,7 +225,7 @@ class ModalSearchEssonne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(autres_structures).length}</h3>
-																		Autres structures
+																		Autres structures de prise en charge
 																	</div>
 																}
 															/>
@@ -248,7 +248,7 @@ class ModalSearchEssonne extends React.Component {
 																title={
 																	<div>
 																		<h3>{Object.keys(autres).length}</h3>
-																		Autres ...
+																		Autres associations
 																	</div>
 																}
 															/>

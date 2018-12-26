@@ -137,18 +137,6 @@ class ProfilePage extends React.Component {
 														</GridItem>
 													</GridContainer>
 												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60</b> Visiteurs
-														</li>
-														<li>
-															<b>49</b> inscrits
-														</li>
-													</ul>
-													<hr />
-												</GridItem>
 											</GridContainer>
 										)
 									},

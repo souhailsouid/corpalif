@@ -33,7 +33,7 @@ class SectionsOffres extends React.Component {
 									<i class="material-icons" style={{ color: 'rgb(51, 116, 103)' }}>
 										work
 									</i>{' '}
-									OFFRES D'EMPLOIS
+									OFFRES D'EMPLOI
 								</h3>
 							</div>
 						</div>

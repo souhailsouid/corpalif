@@ -1,8 +1,6 @@
 import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-// core components
-
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import productStyle from 'assets/jss/material-kit-pro-react/views/landingPageSections/productStyle.jsx'
@@ -10,13 +8,20 @@ import productStyle from 'assets/jss/material-kit-pro-react/views/landingPageSec
 const Section = ({ legislation, classes }) => (
 	<div className={classes.section}>
 		<GridContainer justify="center">
-			<GridItem xs={12} sm={8} md={8}>
+			<GridItem xs={12} sm={12} md={12}>
 				<h2 className={classes.title}>{legislation.title}</h2>
 				<h4 className={classes.description}>{legislation.description}</h4>
 			</GridItem>
 		</GridContainer>
+		<br /> <br />
 		<div>
 			<GridContainer justify="center">
+				<GridItem xs={12} sm={4} md={8}>
+					<i class="material-icons" style={{ fontSize: '80px', color: '#337467' }}>
+						local_library
+					</i>
+				</GridItem>
+				<br /> <br />
 				<GridItem xs={12} sm={12} md={12}>
 					<a href="{legislation.links} 
 " target="_blank" rel="noopener noreferrer" style={{ color: '#999' }}>

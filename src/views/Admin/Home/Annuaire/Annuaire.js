@@ -235,69 +235,6 @@ class AnnuaireAdminHome extends React.Component {
 														</GridItem>
 													</GridContainer>
 												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
-												</GridItem>
 											</GridContainer>
 										)
 									},
@@ -485,69 +422,6 @@ class AnnuaireAdminHome extends React.Component {
 															</GridItem>
 														</GridContainer>
 													</GridItem>
-													<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-														<h4 className={classes.title}>Stats </h4>
-														<ul className={classes.listUnstyled}>
-															<li>
-																<b>60 structures</b>
-															</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	USP
-																</h7>
-															</li>
-															<li>6</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	Reseaux
-																</h7>
-															</li>
-															<li>6</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	Association-Benevoles
-																</h7>
-															</li>
-															<li>60</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	Lits identifiés
-																</h7>
-															</li>
-															<li>60</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	HAD
-																</h7>
-															</li>
-															<li>60</li>
-															<li>
-																<h7
-																	className={classes.title}
-																	style={{ color: 'rgb(51, 116, 103)' }}
-																>
-																	Equipes mobiles
-																</h7>
-															</li>
-															<li>60</li>
-														</ul>
-														<hr />
-													</GridItem>
 												</GridContainer>
 											</div>
 										)
@@ -702,69 +576,6 @@ class AnnuaireAdminHome extends React.Component {
 														</GridItem>
 													</GridContainer>
 												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
-												</GridItem>
 											</GridContainer>
 										)
 									},
@@ -917,69 +728,6 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 													</GridContainer>
-												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -1134,69 +882,6 @@ class AnnuaireAdminHome extends React.Component {
 														</GridItem>
 													</GridContainer>
 												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
-												</GridItem>
 											</GridContainer>
 										)
 									},
@@ -1349,69 +1034,6 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 													</GridContainer>
-												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
 												</GridItem>
 											</GridContainer>
 										)
@@ -1566,69 +1188,6 @@ class AnnuaireAdminHome extends React.Component {
 														</GridItem>
 													</GridContainer>
 												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
-												</GridItem>
 											</GridContainer>
 										)
 									},
@@ -1781,69 +1340,6 @@ class AnnuaireAdminHome extends React.Component {
 															</Link>
 														</GridItem>
 													</GridContainer>
-												</GridItem>
-												<GridItem xs={12} sm={12} md={2} className={classes.gridItem}>
-													<h4 className={classes.title}>Stats </h4>
-													<ul className={classes.listUnstyled}>
-														<li>
-															<b>60 structures</b>
-														</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																USP
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Reseaux
-															</h7>
-														</li>
-														<li>6</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Association-Benevoles
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Lits identifiés
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																HAD
-															</h7>
-														</li>
-														<li>60</li>
-														<li>
-															<h7
-																className={classes.title}
-																style={{ color: 'rgb(51, 116, 103)' }}
-															>
-																Equipes mobiles
-															</h7>
-														</li>
-														<li>60</li>
-													</ul>
-													<hr />
 												</GridItem>
 											</GridContainer>
 										)
