@@ -19,14 +19,7 @@ const validateResetpassinput = require('../../validation/resetpass')
 const validateHelperText = require('../../validation/helperText')
 // Load User model
 const User = require('../../models/User')
-// paypal
-const paypal = require('paypal-rest-sdk')
 
-paypal.configure({
-	mode: 'sandbox', //sandbox or live
-	client_id: 'AS0sA4cFUPz6LLyuobu7_mu3DIEhxfqrhckbfCmz0tK3NlgHStufwkhRFi0zGNhZbgLged0THpdgP276',
-	client_secret: 'EO8sf9w95OkW_dr65BTWaI9_8iXrEL1229QpeaMkP6KeF6EBhs_DIR6M_KH1CzK-_4yGV5ZkM_lnPJSl'
-})
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public

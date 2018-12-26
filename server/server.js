@@ -11,7 +11,7 @@ const app = express()
 const path = require('path')
 var cors = require('cors')
 var flash = require('express-flash')
-var stripe = require('stripe')('sk_test_yShrXQPIikLVP1AMM3BBl8sH')
+var stripe = require('stripe')(process.env.APIKeySTRIPE)
 
 // Annuaire Routes
 // Paris
@@ -230,15 +230,6 @@ app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
 	next()
 })
-// app.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin', '*')
-// 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-// 	if (req.method === 'OPTIONS') {
-// 		res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET')
-// 		return res.status(200).json({})
-// 	}
-// 	next()
-// })
 
 // Use Routes
 app.use('/api/users', users)
