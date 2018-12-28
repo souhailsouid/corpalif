@@ -275,7 +275,7 @@ router.post('/forgot_password', function(req, res, next) {
 					'vous recevez cet email, car vous avez demandé la réinitialisation de votre mot de passe.\n\n' +
 					'Veuillez ouvrir ce lien pour poursuivre:  \n\n' +
 					'http://' +
-					'localhost:3000' +
+					'www.corpalif.com' +
 					'/reset/' +
 					token +
 					'\n\n' +
