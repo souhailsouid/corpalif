@@ -71,6 +71,16 @@ const SectionFooter = (props) => {
 										<p>https://fr-fr.facebook.com/Corpalif/</p>
 									</a>
 								</div>
+								<div>
+									<a
+										href="https://www.linkedin.com/in/souhail-souid-81181915b/"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<i className="fab fa-linkedin" />
+										<p>Développeur web: Souhail SOUID</p>
+									</a>
+								</div>
 							</div>
 						</GridItem>
 						<GridItem xs={12} sm={12} md={4}>
