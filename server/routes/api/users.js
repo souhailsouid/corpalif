@@ -256,7 +256,6 @@ router.post('/forgot_password', function(req, res, next) {
 		function(token, user, done) {
 			var smtpTransport = nodemailer.createTransport({
 				service: process.env.NODEMAILER_SERVICE,
-
 				auth: {
 					type: 'OAuth2',
 					user: process.env.NODEMAILER_USER,
