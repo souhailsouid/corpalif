@@ -28,7 +28,7 @@ const SectionFooter = (props) => {
 							<div className={classes.left}>
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
-										<a href="#pablo" className={classes.block} onClick={(e) => e.preventDefault()}>
+										<a href="/mentionlegale" className={classes.block}>
 											Mentions légales
 										</a>
 									</ListItem>

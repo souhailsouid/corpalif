@@ -18,7 +18,7 @@ import PresentationPage from 'views/PresentationPage/PresentationPage.jsx'
 import LoginPage from 'views/SigninPage/LoginPage.js'
 import RegisterPage from 'views/SignupPage/RegisterPresentation.js'
 import PaymentLoginPage from 'views/SigninPage/Payment/PaymentConnection.js'
-
+import MentionLegale from 'views/PresentationPage/Sections/SectionsMentionslegale'
 import Annuaire from 'views/AnnuaireFrancilien/AnnuaireFrancilien.jsx'
 import PresentationStructures from 'views/StructuresPage/ListStructures.jsx'
 import PresentationBlog from 'views/VeilleMedicale/blog.jsx'
@@ -955,6 +955,7 @@ class App extends Component {
 						<Route exact path="/register" component={RegisterPage} />
 						<Route exact path="/adherent/login" component={PaymentLoginPage} />
 						<Route exact path="/passwordchanged" component={PasswordChanged} />
+						<Route exact path="/mentionlegale" component={MentionLegale} />
 						{/* Adherents process Payment */}
 						<Route exact path="/completeprofile" component={CompleteprofilePage} />
 						<Route exact path="/adherent/?" component={DetectStatus} />
