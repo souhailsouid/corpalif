@@ -5,6 +5,9 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import { SocialIcon } from 'react-social-icons'
+import FontAwesome from 'react-fontawesome'
+
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
@@ -50,6 +53,7 @@ const SectionFooter = (props) => {
 						</GridItem>
 						<GridItem xs={12} sm={4} md={4}>
 							<h5> Réseaux sociaux</h5>
+
 							<div className={classes.socialFeed}>
 								<a
 									href="https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167"
@@ -57,28 +61,27 @@ const SectionFooter = (props) => {
 									rel="noopener noreferrer"
 								>
 									<div>
-										<i className="fab fa-linkedin" />
 										<p>https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167</p>
 									</div>
 								</a>
+
 								<div>
 									<a
 										href="https://fr-fr.facebook.com/Corpalif/"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<i className="fab fa-facebook-square" />
 										<p>https://fr-fr.facebook.com/Corpalif/</p>
 									</a>
 								</div>
+								<h5> Développeur web</h5>
 								<div>
 									<a
 										href="https://www.linkedin.com/in/souhail-souid-81181915b/"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<i className="fab fa-linkedin" />
-										<p>Développeur web: Souhail SOUID</p>
+										<p> Souhail SOUID</p>
 									</a>
 								</div>
 							</div>
@@ -96,14 +99,15 @@ const SectionFooter = (props) => {
 										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
 										alt="..."
 									/>
+									<br />
 									<div className={classes.socialFeed}>
 										<div>
-											<p style={{ paddingTop: 20 }}>Agence Régionale de Santé Île-de-France</p>
+											<p>Agence Régionale de Santé Île-de-France</p>
 										</div>
 									</div>
 								</a>
 								<br />
-								<br />
+
 								<br />
 								<a href="http://www.sfap.org/" target="_blank" rel="noopener noreferrer">
 									<img
