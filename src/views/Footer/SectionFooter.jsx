@@ -5,9 +5,7 @@ import classNames from 'classnames'
 import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import { SocialIcon } from 'react-social-icons'
-import FontAwesome from 'react-fontawesome'
-
+import stripe from 'assets/img/stripe.png'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
@@ -27,7 +25,7 @@ const SectionFooter = (props) => {
 				<Footer
 					theme="dark"
 					content={
-						<div>
+						<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 							<div className={classes.left}>
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
@@ -37,9 +35,12 @@ const SectionFooter = (props) => {
 									</ListItem>
 								</List>
 							</div>
-							<div className={classes.right}>
-								&copy; {1900 + new Date().getYear()} Tous droits réservés
+							<div>
+								{' '}
+								<img src={stripe} alt="..." />
 							</div>
+
+							<div className={classes.right}> {1900 + new Date().getYear()} Tous droits réservés</div>
 						</div>
 					}
 				>
@@ -61,6 +62,7 @@ const SectionFooter = (props) => {
 									rel="noopener noreferrer"
 								>
 									<div>
+										<i className="fab fa-linkedin" />
 										<p>https://www.linkedin.com/in/corpalif-coordination-régionale-1a4468167</p>
 									</div>
 								</a>
@@ -71,6 +73,7 @@ const SectionFooter = (props) => {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
+										<i className="fab fa-facebook-square" />
 										<p>https://fr-fr.facebook.com/Corpalif/</p>
 									</a>
 								</div>
@@ -81,6 +84,7 @@ const SectionFooter = (props) => {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
+										<i className="fab fa-linkedin" />
 										<p> Souhail SOUID</p>
 									</a>
 								</div>
