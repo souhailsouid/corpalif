@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom'
 import { getCurrentRecommandation } from 'actions/menu/veillemedicale/recommandationActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import Recommandation from './recommandation'
+import Recommandation from './Recommandation'
 class SectionRecommandations extends React.Component {
 	componentDidMount() {
 		this.props.getCurrentRecommandation()
