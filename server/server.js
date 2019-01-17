@@ -198,7 +198,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(require('body-parser').text())
 
-app.use('/api', express.static('uploads'))
+app.use('/api/uploads', express.static('uploads'))
 app.use(flash())
 // DB Config
 const db = require('./config/keys').mongoURI
