@@ -17,19 +17,19 @@ const Actualite = ({ actualite, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${actualite.picture}`} alt="" />
+							<img src={`/api/${actualite.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${actualite.picture}`})`,
+								backgroundImage: `url(${`/api/${actualite.picture}`})`,
 								opacity: '1'
 							}}
 						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${actualite.picture}`})`,
+								backgroundImage: `url(${`/api/${actualite.picture}`})`,
 								opacity: '1'
 							}}
 						/>
@@ -45,7 +45,12 @@ const Actualite = ({ actualite, classes }) => (
 					<p className={classes.description}>
 						{actualite.message}
 						<br />
-						<a href={`http://localhost:5000/api/${actualite.file}`} style={{ color: 'rgb(51, 116, 103)' }}>
+						<a
+							href={`/menu/veillemedicale/actualites/${actualite._id}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: 'rgb(51, 116, 103)' }}
+						>
 							<i class="material-icons">library_books</i> <b> {actualite.fileName} </b>
 						</a>
 					</p>

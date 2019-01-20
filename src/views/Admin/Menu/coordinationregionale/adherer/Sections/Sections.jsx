@@ -108,7 +108,7 @@ const Section = ({ adherentPage, classes }) => (
 							raised
 							background
 							style={{
-								backgroundImage: `url(http://localhost:5000/api/${adherentPage.imgCardCollectif})`
+								backgroundImage: `url(/api/${adherentPage.imgCardCollectif})`
 							}}
 						>
 							<CardBody background>
@@ -132,7 +132,7 @@ const Section = ({ adherentPage, classes }) => (
 							raised
 							background
 							style={{
-								backgroundImage: `url(http://localhost:5000/api/${adherentPage.imgCardIndividuel})`
+								backgroundImage: `url(/api/${adherentPage.imgCardIndividuel})`
 							}}
 						>
 							<CardBody background>
@@ -168,7 +168,7 @@ const Section = ({ adherentPage, classes }) => (
 							</b>
 							Adresser le formulaire ci-joint à : <br />
 							<a
-								href={`http://localhost:5000/api/${adherentPage.file}`}
+								href={`/menu/coordinationregionale/adherer/formulaire/${adherentPage._id}`}
 								target="_blank"
 								rel="noopener noreferrer"
 								style={{ color: '#cc4949' }}

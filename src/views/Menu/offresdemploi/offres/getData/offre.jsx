@@ -17,19 +17,19 @@ const Offre = ({ offreemploi, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${offreemploi.picture}`} alt="" />
+							<img src={`/api/${offreemploi.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${offreemploi.picture}`})`,
+								backgroundImage: `url(${`/api/${offreemploi.picture}`})`,
 								opacity: '1'
 							}}
 						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${offreemploi.picture}`})`,
+								backgroundImage: `url(${`/api/${offreemploi.picture}`})`,
 								opacity: '1'
 							}}
 						/>
@@ -46,7 +46,9 @@ const Offre = ({ offreemploi, classes }) => (
 						{offreemploi.message}
 						<br />
 						<a
-							href={`http://localhost:5000/api/${offreemploi.file}`}
+							href={`/offres-d'emplois/${offreemploi._id}`}
+							target="_blank"
+							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}
 						>
 							<i class="material-icons">library_books</i> <b> {offreemploi.fileName} </b>

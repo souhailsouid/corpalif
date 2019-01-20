@@ -76,12 +76,13 @@ router.post(
 	}
 )
 router.get('/:id', (req, res) => {
-	Offres.findById(req.params.id)
+	Propositions.findById(req.params.id)
 		.select('theme title message _id picture file fileName')
 		.exec()
 		.then((offres) => res.json(offres))
 		.catch((err) => res.status(404).json({ nopostfound: 'No post found with that ID' }))
 })
+
 router.patch(
 	'/:id',
 	upload.fields([

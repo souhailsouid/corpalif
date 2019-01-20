@@ -32,7 +32,7 @@ const Recommandation = ({ caroussel, classes }) => (
 									<div className={classes.coloredShadow} />
 
 									<img
-										src={`http://localhost:5000/api/${caroussel.picture}`}
+										src={`api/${caroussel.picture}`}
 										alt="First slide"
 										className="slick-image"
 										style={{
@@ -70,7 +70,7 @@ const Recommandation = ({ caroussel, classes }) => (
 							<div>
 								<a href="/menu/veillemedicale/nosrencontres">
 									<img
-										src={`http://localhost:5000/api/${caroussel.picture2}`}
+										src={`/api/${caroussel.picture2}`}
 										alt="Second slide"
 										className="slick-image"
 										style={{
@@ -100,7 +100,7 @@ const Recommandation = ({ caroussel, classes }) => (
 							<div>
 								<a href="/offres-d'emplois/">
 									<img
-										src={`http://localhost:5000/api/${caroussel.picture3}`}
+										src={`/api/${caroussel.picture3}`}
 										alt="Third slide"
 										className="slick-image"
 										style={{
