@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import stripe from 'assets/img/stripe.png'
+import sll from 'assets/img/sll.png'
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
@@ -38,6 +39,7 @@ const SectionFooter = (props) => {
 							<div>
 								{' '}
 								<img src={stripe} alt="..." />
+								<img src={sll} alt="..." />
 							</div>
 
 							<div className={classes.right}> {1900 + new Date().getYear()} Tous droits réservés</div>

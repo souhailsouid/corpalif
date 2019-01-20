@@ -34,9 +34,8 @@ class HeaderSearchBar extends React.Component {
 								src="http://image.noelshack.com/fichiers/2018/40/1/1538391836-corpalif-logo.png"
 								alt="logo"
 								style={{
-									width: 80,
+									width: 100,
 
-									maxWidth: 'auto',
 									height: 'auto'
 								}}
 							/>

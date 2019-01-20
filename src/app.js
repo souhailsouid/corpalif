@@ -785,6 +785,7 @@ import UpdateVALDOISEAUTRES_STRUCTURESMaps from 'views/Admin/Home/Annuaire/Depar
 import CorpalifPage from 'views/Menu/coordinationregionale/corpalif/corpalif.js'
 import OrientationPage from 'views/Menu/coordinationregionale/orientation/orientation.js'
 import AdhererPage from 'views/Menu/coordinationregionale/adherer/adherer.js'
+import AdhererFile from 'views/Admin/Menu/coordinationregionale/adherer/Sections/AdhererFile.js'
 // SOINS PALLIATIFS
 //DEMARCHE PALLIATIVE
 import DemarchePalliatifPage from 'views/Menu/soinspalliatifs/demarchepalliative/DemarchePalliatifPage.js'
@@ -797,23 +798,27 @@ import AccompagnementRecommandation from 'views/Menu/soinspalliatifs/accompagnem
 // VEILLE MEDICALE
 // RECOMMANDATIONS & OUTILS
 import PresentationRecommandation from 'views/Menu/VeilleMedicale/Recommandations/Section/getData/recommandation&outils.jsx'
-// import GetRecommandation from 'views/Menu/VeilleMedicale/Recommandations/get'
+import RecommandationFile from 'views/Admin/Menu/VeilleMedicale/recommandation&outils/getData/recommandationsFile.jsx'
 import Recommandation_id from 'views/Menu/VeilleMedicale/Recommandations/Section/get_id/get_id.js'
 // EVENEMENTS
 
 import PresentationEvenement from 'views/Menu/VeilleMedicale/evenements/getData/evenements.jsx'
-
+import EvenementFile from 'views/Admin/Menu/VeilleMedicale/evenement/getData/evenementsFile.jsx'
 // OFFRES D'EMPLOIS & FORMATIONS
 import PresentationEmploi from 'views/Menu/offresdemploi/offres/getData/offres.jsx'
+import EmploiFile from 'views/Admin/Menu/offres&emplois/offres/getData/EmploiFile.jsx'
 import PresentationFormation from 'views/Menu/formations/getData/formations.jsx'
+import FormationFile from 'views/Admin/Menu/offres&emplois/formations/getData/FormationFile.jsx'
 // NOS RENCONTRES
 import PresentationInfoSubscribers from 'views/Menu/VeilleMedicale/rencontres/Subscribers/PresentationInfoSubscribers.jsx'
 import PresentationInfoAdherents from 'views/Menu/VeilleMedicale/rencontres/Adherents/PresentationInfoAdherents.jsx'
 import PresentationRencontre from 'views/Menu/VeilleMedicale/rencontres/getData/rencontres.jsx'
-
+import RencontreFile from 'views/Admin/Menu/VeilleMedicale/rencontre/getData/RencontreFile.jsx'
+import RencontrepriveFile from 'views/Admin/Menu/VeilleMedicale/rencontre_inscrit/getData/RencontrepriveFile.jsx'
+import RencontreadherentFile from 'views/Admin/Menu/VeilleMedicale/rencontre_adherent/getData/RencontreadherentFile.jsx'
 // ACTUALITES
 import PresentationActualite from 'views/Menu/VeilleMedicale/actualites/getData/actualites.jsx'
-
+import ActualiteFile from 'views/Admin/Menu/VeilleMedicale/actualite/getData/ActualiteFile.jsx'
 // Adherent
 
 import PaymentPage from 'views/Adherent/individuel/PaymentPage'
@@ -908,7 +913,7 @@ import SectioncadherentAdmin from 'views/Admin/Home/HomePage/Adherent/carousel'
 
 import PresentationFile from 'views/Admin/Menu/formulaire/PresentationFile'
 import Updatefichier from 'views/Admin/Menu/formulaire/update/Header'
-
+import FilePDF from 'views/Admin/Menu/formulaire/pdf'
 // Agenda
 // Agenda 1
 
@@ -953,6 +958,7 @@ class App extends Component {
 						<Route exact path="/" component={PresentationPage} />
 						<Route exact path="/login" component={LoginPage} />
 						<Route exact path="/register" component={RegisterPage} />
+						<Route exact path="/formulaired'admission" component={FilePDF} />
 						<Route exact path="/adherent/login" component={PaymentLoginPage} />
 						<Route exact path="/passwordchanged" component={PasswordChanged} />
 						<Route exact path="/mentionlegale" component={MentionLegale} />
@@ -3579,12 +3585,23 @@ class App extends Component {
 									component={OrientationPage}
 								/>
 								<Route exact path="/menu/coordinationregionale/adherer/" component={AdhererPage} />
+								<Route
+									exact
+									path="/menu/coordinationregionale/adherer/formulaire/:id"
+									component={AdhererFile}
+								/>
 								{/* Veille medicale */}
 								<Route
 									exact
 									path="/menu/veillemedicale/recommandation&outils/"
 									component={PresentationRecommandation}
 								/>
+								<Route
+									exact
+									path="/menu/veillemedicale/recommandation&outils/:id"
+									component={RecommandationFile}
+								/>
+
 								{/* soins palliatifs */}
 								<Route
 									exact
@@ -3604,15 +3621,20 @@ class App extends Component {
 									path="/menu/veillemedicale/evenements/"
 									component={PresentationEvenement}
 								/>
+								<Route exact path="/menu/veillemedicale/evenements/:id" component={EvenementFile} />
+
 								{/* {offres d'emplois et formations } */}
 								<Route exact path="/offres-d'emplois" component={PresentationEmploi} />
+								<Route exact path="/offres-d'emplois/:id" component={EmploiFile} />
 								<Route exact path="/formations" component={PresentationFormation} />
+								<Route exact path="/formation/:id" component={FormationFile} />
 								{/* {actualite } */}
 								<Route
 									exact
 									path="/menu/veillemedicale/actualites/"
 									component={PresentationActualite}
 								/>
+								<Route exact path="/menu/veillemedicale/actualites/:id" component={ActualiteFile} />
 								{/* {Contact page}	 */}
 								<Route exact path="/menu/contact" component={PresentationContact} />
 								{/* {Modal Open for Login}	 */}
@@ -3623,7 +3645,17 @@ class App extends Component {
 									path="/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
-
+								<Route exact path="/menu/veillemedicale/nosrencontres/:id" component={RencontreFile} />
+								<Route
+									exact
+									path="/menu/veillemedicale/nosrencontres/contenusprives/:id"
+									component={RencontrepriveFile}
+								/>
+								<Route
+									exact
+									path="/menu/veillemedicale/nosrencontres/contenusadherents/:id"
+									component={RencontreadherentFile}
+								/>
 								<PrivateRoute
 									exact
 									path="/menu/veillemedicale/infosforSubscribers"
@@ -3874,6 +3906,7 @@ class App extends Component {
 								{/* formulaire d'admission	*/}
 								<AdminRoute exact path="/admin/formulaire" component={PresentationFile} />
 								<AdminRoute exact path="/admin/menu/formulaire/update/:id" component={Updatefichier} />
+
 								{/* Agenda	*/}
 								{/* Agenda1	*/}
 								<AdminRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
