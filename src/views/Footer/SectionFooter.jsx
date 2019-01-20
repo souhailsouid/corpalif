@@ -11,8 +11,8 @@ import sll from 'assets/img/sll.png'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Footer from 'components/Footer/Footer.jsx'
-import ars from 'assets/img/ars.jpg'
-import sfap from 'assets/img/sfap.png'
+import ars from 'assets/img/ARS.jpg'
+import sfap from 'assets/img/SFAP.png'
 import styles from 'assets/jss/material-kit-pro-react/views/componentsSections/footerStyle.jsx'
 
 const SectionFooter = (props) => {
