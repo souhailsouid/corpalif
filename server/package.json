@@ -47,7 +47,11 @@
 		"stripe": "^6.17.0",
 		"validator": "^9.4.1",
 		"xoauth2": "^1.2.0"
+<<<<<<< HEAD
 >>>>>>> 513cea23bae9ee64588edc28045bfdb1e2c2fb47
+=======
+>>>>>>> 7aa049248f9351920290f2c215ee325f33de7f4e
+>>>>>>> 80ce2aff706533a69bff2db2418e1767e1b9f3e0
 	},
 	"devDependencies": {
 		"nodemon": "^1.18.5"
