@@ -22,7 +22,7 @@ const Adherent = ({ adherent, classes }) => (
 							raised
 							background
 							style={{
-								backgroundImage: `url(http://localhost:5000/api/${adherent.picture})`
+								backgroundImage: `url(/api/${adherent.picture})`
 							}}
 						>
 							<CardBody background>

@@ -44,19 +44,19 @@ const Formation = ({ formation, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${formation.picture}`} alt="" />
+							<img src={`/api/${formation.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${formation.picture}`})`,
+								backgroundImage: `url(${`/api/${formation.picture}`})`,
 								opacity: '1'
 							}}
 						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${formation.picture}`})`,
+								backgroundImage: `url(${`/api/${formation.picture}`})`,
 								opacity: '1'
 							}}
 						/>
@@ -72,7 +72,12 @@ const Formation = ({ formation, classes }) => (
 					<p className={classes.description}>
 						{formation.message}
 						<br />
-						<a href={`http://localhost:5000/api/${formation.file}`} style={{ color: 'rgb(51, 116, 103)' }}>
+						<a
+							href={`/formation/${formation._id}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: 'rgb(51, 116, 103)' }}
+						>
 							<i class="material-icons">library_books</i> <b> {formation.fileName} </b>
 						</a>
 					</p>

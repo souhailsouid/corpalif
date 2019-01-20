@@ -9,6 +9,7 @@ const crypto = require('crypto')
 const async = require('async')
 var flash = require('express-flash')
 var cors = require('cors')
+
 require('dotenv').config()
 
 // Load Input Validation
@@ -19,7 +20,7 @@ const validateResetpassinput = require('../../validation/resetpass')
 const validateHelperText = require('../../validation/helperText')
 // Load User model
 const User = require('../../models/User')
-
+const xoauth2 = require('xoauth2')
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
@@ -61,11 +62,11 @@ router.post('/register', (req, res) => {
 			nodemailer.createTestAccount((err, account) => {
 				var transporter = nodemailer.createTransport({
 					service: process.env.NODEMAILER_SERVICE,
-					port: process.env.NODEMAILER_PORT,
-					secure: false, // true for 465, false for other ports
+					// port: process.env.NODEMAILER_PORT,
+					// secure: false, // true for 465, false for other ports
 					auth: {
-						user: process.env.NODEMAILER_USER, // generated ethereal user
-						pass: process.env.NODEMAILER_PASS // generated ethereal password
+						user: process.env.NODEMAILER_USER,
+						pass: process.env.NODEMAILER_PASS
 					}
 				})
 
@@ -189,19 +190,18 @@ router.post('/api/form', (req, res) => {
 		`
 		let transporter = nodemailer.createTransport({
 			service: process.env.NODEMAILER_SERVICE,
-			port: process.env.NODEMAILER_PORT,
-			secure: false, // true for 465, false for other ports
+
 			auth: {
-				user: process.env.NODEMAILER_USER, // generated ethereal user
-				pass: process.env.NODEMAILER_PASS // generated ethereal password
+				user: process.env.NODEMAILER_USER,
+				pass: process.env.NODEMAILER_PASS
 			}
 		})
 		let mailOptions = {
 			from: process.env.NODEMAILER_USER, // sender address
 			to: process.env.NODEMAILER_USER,
 			replyTo: process.env.NODEMAILER_USER, // list of receivers
-			subject: 'Contact request ✔', // Subject line
-			text: 'Hello world?', // plain text body
+			subject: 'Contact ✔', // Subject line
+			text: 'Contact', // plain text body
 			html: htmlEmail // html body
 		}
 		transporter.sendMail(mailOptions, (error, info) => {
@@ -256,27 +256,33 @@ router.post('/forgot_password', function(req, res, next) {
 		function(token, user, done) {
 			var smtpTransport = nodemailer.createTransport({
 				service: process.env.NODEMAILER_SERVICE,
-				port: process.env.NODEMAILER_PORT,
-				secure: false, // true for 465, false for other ports
 				auth: {
-					user: process.env.NODEMAILER_USER, // generated ethereal user
-					pass: process.env.NODEMAILER_PASS // generated ethereal password
+					type: 'OAuth2',
+					user: process.env.NODEMAILER_USER,
+					clientId: process.env.NODEMAILER_CLIENTID,
+					clientSecret: process.env.NODEMAILER_CLIENTSECRET,
+					refreshToken: process.env.NODEMAILER_REFRESHTOKEN
 				}
 			})
 
 			var mailOptions = {
 				to: user.email,
 				from: process.env.NODEMAILER_USER,
-				subject: 'Node.js Password Reset',
+				subject: 'Mot de passe oublié',
 				text:
-					'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-					'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+					'Bonjour ' +
+					'\n\n' +
+					'vous recevez cet email, car vous avez demandé la réinitialisation de votre mot de passe.\n\n' +
+					'Veuillez ouvrir ce lien pour poursuivre:  \n\n' +
 					'http://' +
-					'localhost:3000' +
+					'www.corpalif.com' +
 					'/reset/' +
 					token +
 					'\n\n' +
-					'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+					'Ps: Ce lien est valable uniquement une heure.\n' +
+					'\n\n' +
+					'Corpalif' +
+					'\n\n'
 			}
 			smtpTransport.sendMail(mailOptions, function(err) {
 				console.log('mail sent')
@@ -354,11 +360,10 @@ router.post('/reset/:token', (req, res) => {
 
 						var smtpTransport = nodemailer.createTransport({
 							service: process.env.NODEMAILER_SERVICE,
-							port: process.env.NODEMAILER_PORT,
-							secure: false, // true for 465, false for other ports
+
 							auth: {
-								user: process.env.NODEMAILER_USER, // generated ethereal user
-								pass: process.env.NODEMAILER_PASS // generated ethereal password
+								user: process.env.NODEMAILER_USER,
+								pass: process.env.NODEMAILER_PASS
 							}
 						})
 

@@ -2,21 +2,28 @@ import React from 'react'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
-import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import ListItem from '@material-ui/core/ListItem'
+import Tooltip from '@material-ui/core/Tooltip'
+
 const FileUpload = ({ file, classes }) => (
 	<div>
 		<ListItem className={classes.listItem}>
-			<Button
-				href={`http://localhost:5000/api/${file.file}`}
-				style={{ backgroundColor: '#cc4949', padding: 12 }}
-				target="_blank"
-				className={classes.navButton}
-				round
-			>
-				Formulaire <br />d'admission
-			</Button>
+			<a href={"/formulaired'admission"} target="_blank" rel="noopener noreferrer">
+				<Tooltip
+					id="tooltip-bottom"
+					title="Formulaire d'admission en USP"
+					placement="bottom"
+					classes={{ tooltip: classes.tooltip }}
+				>
+					<i
+						class="material-icons"
+						style={{ color: '#cc4949', fontSize: '48px', marginLeft: 'auto', marginRight: 'auto' }}
+					>
+						description
+					</i>
+				</Tooltip>
+			</a>
 		</ListItem>
 	</div>
 )

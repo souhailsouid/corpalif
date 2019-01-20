@@ -44,19 +44,19 @@ const Rencontre = ({ privateInfo, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${privateInfo.picture}`} alt="" />
+							<img src={`/api/${privateInfo.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${privateInfo.picture}`})`,
+								backgroundImage: `url(${`/api/${privateInfo.picture}`})`,
 								opacity: '1'
 							}}
 						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${privateInfo.picture}`})`,
+								backgroundImage: `url(${`/api/${privateInfo.picture}`})`,
 								opacity: '1'
 							}}
 						/>
@@ -73,7 +73,9 @@ const Rencontre = ({ privateInfo, classes }) => (
 						{privateInfo.message}
 						<br />
 						<a
-							href={`http://localhost:5000/api/${privateInfo.file}`}
+							href={`/menu/veillemedicale/nosrencontres/contenusprives/${privateInfo._id}`}
+							target="_blank"
+							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}
 						>
 							<i class="material-icons">library_books</i> <b> {privateInfo.fileName} </b>

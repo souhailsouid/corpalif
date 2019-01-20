@@ -72,8 +72,9 @@ const SectionAdherer = ({ adherentPage, classes }) => (
 					</b>
 					Adresser le formulaire ci-joint à : <br />
 					<Link
-						to={`http://localhost:5000/api/${adherentPage.file}`}
+						to={`/menu/coordinationregionale/adherer/formulaire/${adherentPage._id}`}
 						target="_blank"
+						rel="noopener noreferrer"
 						style={{ color: '#cc4949' }}
 					>
 						<h5 className="link">

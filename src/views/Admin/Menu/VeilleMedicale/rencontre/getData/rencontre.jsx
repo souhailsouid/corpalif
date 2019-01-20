@@ -44,19 +44,19 @@ const Rencontre = ({ rencontre, classes }) => (
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
-							<img src={`http://localhost:5000/api/${rencontre.picture}`} alt="" />
+							<img src={`/api/${rencontre.picture}`} alt="" />
 						</a>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${rencontre.picture}`})`,
+								backgroundImage: `url(${`/api/${rencontre.picture}`})`,
 								opacity: '1'
 							}}
 						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
-								backgroundImage: `url(${`http://localhost:5000/api/${rencontre.picture}`})`,
+								backgroundImage: `url(${`/api/${rencontre.picture}`})`,
 								opacity: '1'
 							}}
 						/>
@@ -72,7 +72,12 @@ const Rencontre = ({ rencontre, classes }) => (
 					<p className={classes.description}>
 						{rencontre.message}
 						<br />
-						<a href={`http://localhost:5000/api/${rencontre.file}`} style={{ color: 'rgb(51, 116, 103)' }}>
+						<a
+							href={`/menu/veillemedicale/nosrencontres/${rencontre.file}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{ color: 'rgb(51, 116, 103)' }}
+						>
 							<i class="material-icons">library_books</i> <b> {rencontre.fileName} </b>
 						</a>
 					</p>

@@ -90,7 +90,7 @@ router.post(
 router.get('/:id', (req, res) => {
 	Adherer.findById(req.params.id)
 		.select(
-			'title theme subtitle subtitle2 subtitle3 InfoAreaTitle InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaDescription InfoAreaDescription2 InfoAreaDescription3 InfoAreaDescription4 imgCardCollectif cardCategoryCollectifTitle cardCategoryCollectifSubTitle cardCategoryCollectifDescription imgCardIndividuel cardCategoryIndividuelTitle cardCategoryIndividuelSubTitle cardCategoryIndividuelDescription file, adresseName, adresseName2, lieu'
+			'title theme subtitle subtitle2 subtitle3 InfoAreaTitle InfoAreaTitle2 InfoAreaTitle3 InfoAreaTitle4 InfoAreaDescription InfoAreaDescription2 InfoAreaDescription3 InfoAreaDescription4 imgCardCollectif cardCategoryCollectifTitle cardCategoryCollectifSubTitle cardCategoryCollectifDescription imgCardIndividuel cardCategoryIndividuelTitle cardCategoryIndividuelSubTitle cardCategoryIndividuelDescription file adresseName adresseName2 lieu'
 		)
 		.exec()
 		.then((adherer) => res.json(adherer))
