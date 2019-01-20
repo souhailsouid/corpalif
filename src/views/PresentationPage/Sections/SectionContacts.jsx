@@ -123,7 +123,7 @@ class SectionContacts extends Component {
 					>
 						<div className={classes.container}>
 							<GridContainer>
-								<GridItem xs={12} sm={5} md={5}>
+								<GridItem xs={12} sm={12} md={5}>
 									<h2 className={classes.title}>Contact</h2>
 
 									<InfoArea
@@ -167,7 +167,7 @@ class SectionContacts extends Component {
 										icon={Email}
 									/>
 								</GridItem>
-								<GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+								<GridItem xs={12} sm={12} md={5} className={classes.mlAuto}>
 									<Card className={classes.card1}>
 										<CardHeader
 											contact

@@ -36,17 +36,24 @@ function SectionMissions({ ...props }) {
 						</GridItem>
 					</GridContainer>
 					<GridContainer
-						style={{ paddingTop: 0, paddingBottom: 50, borderBottom: '3px solid', color: '#337467' }}
+						style={{
+							paddingTop: 0,
+							paddingBottom: 50,
+							borderBottom: '3px solid',
+							color: '#337467',
+							marginLeft: 'auto',
+							marginRight: 'auto'
+						}}
 					>
-						<GridItem xs={12} sm={4} md={6} style={{ padding: 0 }}>
+						<GridItem xs={12} sm={12} md={6}>
 							<InfoArea
 								icon={Timeline}
-								style={{ padding: 0, marginRight: 0 }}
+								style={{ padding: 0 }}
 								title={<div>Assurer le lien entre les {<br />}structures de prise en charge</div>}
 								iconColor="green"
 							/>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={6}>
+						<GridItem xs={12} sm={12} md={6}>
 							<InfoArea
 								style={{ paddingTop: 0 }}
 								icon={TrendingUp}
@@ -59,7 +66,7 @@ function SectionMissions({ ...props }) {
 								iconColor="green"
 							/>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={6}>
+						<GridItem xs={12} sm={12} md={6}>
 							<InfoArea
 								icon={Forum}
 								title={
@@ -70,7 +77,7 @@ function SectionMissions({ ...props }) {
 								iconColor="green"
 							/>
 						</GridItem>
-						<GridItem xs={12} sm={4} md={6}>
+						<GridItem xs={12} sm={12} md={6}>
 							<InfoArea
 								icon={AlternateEmail}
 								title="Promouvoir des actions d'information en soins palliatifs"

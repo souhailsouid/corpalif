@@ -7,7 +7,8 @@ import notificationsStyles from 'assets/jss/material-kit-pro-react/views/compone
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import Agenda1 from './notification/agenda1'
 import Agenda2 from './notification/agenda2'
-// Reduxé"&
+import GridItem from 'components/Grid/GridItem.jsx'
+// Redux"
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
@@ -39,7 +40,7 @@ class SectionNotifications extends React.Component {
 		const Agenda2Elements = agenda2.map((agenda2) => <Agenda2 agenda2={agenda2} />)
 		return (
 			<GridContainer>
-				<div className={`${classes.section} cd-section`} id="notifications">
+				<GridItem xs={12} sm={12} md={12}>
 					<a href="/offres-d'emplois/">
 						<div className={classes.container}>
 							<div className={classes.title}>
@@ -51,13 +52,12 @@ class SectionNotifications extends React.Component {
 								</h3>
 							</div>
 						</div>
-
 						{Agenda1Elements}
 
 						{Agenda2Elements}
 					</a>
 					<Clearfix />
-				</div>
+				</GridItem>
 			</GridContainer>
 		)
 	}

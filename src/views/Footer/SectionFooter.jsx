@@ -92,7 +92,7 @@ const SectionFooter = (props) => {
 								</div>
 							</div>
 						</GridItem>
-						<GridItem xs={12} sm={12} md={4}>
+						<GridItem xs={12} sm={10} md={4}>
 							<h5>Nos partenaires</h5>
 							<div className={classes.galleryFeed}>
 								<a
@@ -105,6 +105,7 @@ const SectionFooter = (props) => {
 										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
 										alt="..."
 									/>
+									<br />
 									<br />
 									<div className={classes.socialFeed}>
 										<div>

@@ -6,6 +6,7 @@ import Clearfix from 'components/Clearfix/Clearfix.jsx'
 import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import Offre from './notification/offre'
+import GridItem from 'components/Grid/GridItem.jsx'
 // Redux
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
@@ -25,7 +26,7 @@ class SectionsOffres extends React.Component {
 		))
 		return (
 			<GridContainer>
-				<div className={`${classes.section} cd-section`} id="notifications">
+				<GridItem xs={12} sm={12} md={12}>
 					<a href="/offres-d'emplois/">
 						<div className={classes.container}>
 							<div className={classes.title}>
@@ -40,7 +41,7 @@ class SectionsOffres extends React.Component {
 						{OffreElements}
 					</a>
 					<Clearfix />
-				</div>
+				</GridItem>
 			</GridContainer>
 		)
 	}

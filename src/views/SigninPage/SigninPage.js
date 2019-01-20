@@ -183,11 +183,26 @@ class SeConnecter extends React.Component {
 									>
 										<Button
 											type="submit"
-											style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+											style={{
+												backgroundColor: '#337467',
+												height: 20,
+
+												marginTop: 20,
+												marginLeft: 'auto',
+												marginRight: 'auto'
+											}}
 											simple
 											size="lg"
 										>
-											<i class="material-icons">power_settings_new</i>
+											<i
+												class="material-icons"
+												style={{
+													marginLeft: 'auto',
+													marginRight: 'auto'
+												}}
+											>
+												power_settings_new
+											</i>
 										</Button>
 									</DialogActions>
 								</form>
