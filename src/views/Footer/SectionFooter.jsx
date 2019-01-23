@@ -26,7 +26,7 @@ const SectionFooter = (props) => {
 				<Footer
 					theme="dark"
 					content={
-						<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+						<div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
 							<div className={classes.left}>
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
@@ -94,7 +94,7 @@ const SectionFooter = (props) => {
 						</GridItem>
 						<GridItem xs={12} sm={10} md={4}>
 							<h5>Nos partenaires</h5>
-							<div className={classes.galleryFeed}>
+							<div className={classes.galleryFeed} style={{ justifyContent: 'start' }}>
 								<a
 									href="https://www.iledefrance.ars.sante.fr/"
 									target="_blank"
@@ -107,7 +107,7 @@ const SectionFooter = (props) => {
 									/>
 									<br />
 									<br />
-									<div className={classes.socialFeed}>
+									<div className={classes.socialFeed} style={{ flexWrap: 'nowrap' }}>
 										<div>
 											<p>Agence Régionale de Santé Île-de-France</p>
 										</div>

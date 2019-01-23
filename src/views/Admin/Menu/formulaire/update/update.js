@@ -73,7 +73,7 @@ class Modal extends React.Component {
 
 	fileUpload(file) {
 		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/register_file/${id}`
+		const url = `178.62.100.224/api/register_file/${id}`
 		const formData = new FormData()
 		formData.append('file', file)
 
