@@ -9,7 +9,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import HeaderComponent from 'views/Header/AppBar'
 
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
-import landingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
+import LandingPageStyle from 'assets/jss/material-kit-pro-react/views/landingPageStyle.jsx'
 
 // Sections for this page
 import Section from './mentionslegale/mentionslegale'
@@ -23,8 +23,6 @@ class MentionLegale extends React.Component {
 	}
 	render() {
 		const { classes } = this.props
-		// const { mention } = this.props.mention
-		// const DataElements = mention.map((mention) => <Section mention={mention} />)
 
 		return (
 			<div>
@@ -45,4 +43,4 @@ MentionLegale.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default withStyles(landingPageStyle)(MentionLegale)
+export default withStyles(LandingPageStyle)(MentionLegale)
