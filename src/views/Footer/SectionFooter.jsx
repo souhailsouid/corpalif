@@ -26,7 +26,12 @@ const SectionFooter = (props) => {
 				<Footer
 					theme="dark"
 					content={
-						<div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'nowrap' }}>
+						<div
+							style={{
+								justifyContent: 'space-between',
+								flexWrap: 'wrap'
+							}}
+						>
 							<div className={classes.left}>
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
@@ -42,7 +47,7 @@ const SectionFooter = (props) => {
 								<img src={sll} alt="..." />
 							</div>
 
-							<div className={classes.right}> {1900 + new Date().getYear()} Tous droits réservés</div>
+							<div className={classes.right}>@ {1900 + new Date().getYear()} Tous droits réservés</div>
 						</div>
 					}
 				>
@@ -94,7 +99,7 @@ const SectionFooter = (props) => {
 						</GridItem>
 						<GridItem xs={12} sm={10} md={4}>
 							<h5>Nos partenaires</h5>
-							<div className={classes.galleryFeed} style={{ justifyContent: 'start' }}>
+							<div className={classes.galleryFeed}>
 								<a
 									href="https://www.iledefrance.ars.sante.fr/"
 									target="_blank"
@@ -102,19 +107,22 @@ const SectionFooter = (props) => {
 								>
 									<img
 										src={ars}
+										style={{ padding: 0, marginBottom: 0 }}
 										className={classNames(classes.img, classes.imgRaised, classes.imgRounded)}
 										alt="..."
 									/>
 									<br />
-									<br />
-									<div className={classes.socialFeed} style={{ flexWrap: 'nowrap' }}>
+
+									<div className={classes.socialFeed}>
 										<div>
 											<p>Agence Régionale de Santé Île-de-France</p>
 										</div>
 									</div>
 								</a>
 								<br />
-
+								<br />
+							</div>
+							<div className={classes.galleryFeed}>
 								<br />
 								<a href="http://www.sfap.org/" target="_blank" rel="noopener noreferrer">
 									<img

@@ -41,7 +41,7 @@ class SectionNotifications extends React.Component {
 		return (
 			<GridContainer>
 				<GridItem xs={12} sm={12} md={12}>
-					<a href="/offres-d'emplois/">
+					<a href="/menu/veillemedicale/evenements/">
 						<div className={classes.container}>
 							<div className={classes.title}>
 								<h3 style={{ color: '#cc4949' }}>

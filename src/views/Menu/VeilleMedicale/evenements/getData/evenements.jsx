@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import GridContainer from 'components/Grid/GridContainer.jsx'
 
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
-import HeaderSearchBar from 'views/Header/HeaderSearchBar'
+import HeaderComponent from 'views/Header/AppBar'
 import SectionFooter from 'views/Footer/SectionFooter'
 import SectionEvenement from './get.jsx'
 // section CSS
@@ -21,9 +21,11 @@ class PresentationEvenement extends React.Component {
 		const { classes } = this.props
 		return (
 			<div>
-				<HeaderSearchBar />
-
-				<div className={classNames(classes.main, classes.mainRaised)}>
+				<HeaderComponent />
+				<br />
+				<br />
+				<br />
+				<div className={classNames(classes.main, classes.mainRaised)} style={{ margin: 'auto' }}>
 					<GridContainer justify="center">
 						<SectionEvenement />
 					</GridContainer>

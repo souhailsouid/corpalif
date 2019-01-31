@@ -945,8 +945,6 @@ if (localStorage.jwtToken) {
 		store.dispatch(logoutUser())
 		// Clear current Profile
 		store.dispatch(clearCurrentProfile())
-		// Redirect to login
-		window.location.href = '/Contact'
 	}
 }
 class App extends Component {
@@ -955,717 +953,753 @@ class App extends Component {
 			<Provider store={store}>
 				<Router history={this.history}>
 					<div className="App">
-						<Route exact path="/" component={PresentationPage} />
-						<Route exact path="/login" component={LoginPage} />
-						<Route exact path="/register" component={RegisterPage} />
-						<Route exact path="/formulaired'admission" component={FilePDF} />
-						<Route exact path="/adherent/login" component={PaymentLoginPage} />
-						<Route exact path="/passwordchanged" component={PasswordChanged} />
-						<Route exact path="/mentionlegale" component={MentionLegale} />
+						<Route exact path="#/" component={PresentationPage} />
+						<Route exact path="#/login" component={LoginPage} />
+						<Route exact path="#/register" component={RegisterPage} />
+						<Route exact path="#/formulaired'admission" component={FilePDF} />
+						<Route exact path="#/adherent/login" component={PaymentLoginPage} />
+						<Route exact path="#/passwordchanged" component={PasswordChanged} />
+						<Route exact path="#/mentionlegale" component={MentionLegale} />
 						{/* Adherents process Payment */}
-						<Route exact path="/completeprofile" component={CompleteprofilePage} />
-						<Route exact path="/adherent/?" component={DetectStatus} />
+						<Route exact path="#/completeprofile" component={CompleteprofilePage} />
+						<Route exact path="#/adherent/?" component={DetectStatus} />
 
-						<Route exact path="/createprofile" component={CreateprofilePage} />
-						<Route exact path="/adherent/check-profile" component={UpdateProfilePage} />
-						<Route exact path="/adherents/adherer/individuel" component={PaymentPage} />
-						<Route exact path="/adherents/adherer/collectif" component={PaymentPage50euros} />
+						<Route exact path="#/createprofile" component={CreateprofilePage} />
+						<Route exact path="#/adherent/check-profile" component={UpdateProfilePage} />
+						<Route exact path="#/adherents/adherer/individuel" component={PaymentPage} />
+						<Route exact path="#/adherents/adherer/collectif" component={PaymentPage50euros} />
 
 						<div className="container">
-							<Route exact path="/annuaire-francilien" component={Annuaire} />
-							<Route exact path="/structure" component={PresentationStructures} />
-							<Route exact path="/blogs" component={PresentationBlog} />
-							<Route exact path="/forgotpassword" component={ForgotPassword} />
-							<Route exact path="/reset/:token" component={UpdatePasswordPage} />
+							<Route exact path="#/annuaire-francilien" component={Annuaire} />
+							<Route exact path="#/structure" component={PresentationStructures} />
+							<Route exact path="#/blogs" component={PresentationBlog} />
+							<Route exact path="#/forgotpassword" component={ForgotPassword} />
+							<Route exact path="#/reset/:token" component={UpdatePasswordPage} />
 							{/* Annuaire
 							{/* paris */}
 							<Route
 								exact
-								path="/annuaire/PARIS/autres_structures"
+								path="#/annuaire/PARIS/autres_structures"
 								component={Presentation_PARIS_autres_structures}
 							/>
-							<Route exact path="/annuaire/PARIS/autres" component={Presentation_PARIS_Autres} />
-							<Route exact path="/annuaire/paris" component={ModalSearchParis} />
+							<Route exact path="#/annuaire/PARIS/autres" component={Presentation_PARIS_Autres} />
+							<Route exact path="#/annuaire/paris" component={ModalSearchParis} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/Paris/lits" component={PresentationLitsParis} />
-							<Route exact path="/annuaire/Paris/structure" component={PresentationStructureParis} />
-							<Route exact path="/annuaire/Paris/association" component={PresentationAssociationParis} />
-							<Route exact path="/annuaire/Paris/equipesmobiles" component={PresentationHadParis} />
-							<Route exact path="/annuaire/Paris/usp" component={PresentationUspParis} />
-							<Route exact path="/annuaire/Paris/reseaux" component={PresentationReseauxParis} />
+							<Route exact path="#/annuaire/Paris/lits" component={PresentationLitsParis} />
+							<Route exact path="#/annuaire/Paris/structure" component={PresentationStructureParis} />
+							<Route exact path="#/annuaire/Paris/association" component={PresentationAssociationParis} />
+							<Route exact path="#/annuaire/Paris/equipesmobiles" component={PresentationHadParis} />
+							<Route exact path="#/annuaire/Paris/usp" component={PresentationUspParis} />
+							<Route exact path="#/annuaire/Paris/reseaux" component={PresentationReseauxParis} />
 							{/* Yvelines */}
 							<Route
 								exact
-								path="/annuaire/YVELINES/autres_structures"
+								path="#/annuaire/YVELINES/autres_structures"
 								component={Presentation_YVELINES_autres_structures}
 							/>
-							<Route exact path="/annuaire/YVELINES/autres" component={Presentation_YVELINES_Autres} />
-							<Route exact path="/annuaire/yvelines" component={ModalSearchYvelines} />
+							<Route exact path="#/annuaire/YVELINES/autres" component={Presentation_YVELINES_Autres} />
+							<Route exact path="#/annuaire/yvelines" component={ModalSearchYvelines} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/Yvelines/lits" component={PresentationLitsYvelines} />
+							<Route exact path="#/annuaire/Yvelines/lits" component={PresentationLitsYvelines} />
 							<Route
 								exact
-								path="/annuaire/Yvelines/structure"
+								path="#/annuaire/Yvelines/structure"
 								component={PresentationStructureYvelines}
 							/>
 							<Route
 								exact
-								path="/annuaire/Yvelines/association"
+								path="#/annuaire/Yvelines/association"
 								component={PresentationAssociationYvelines}
 							/>
-							<Route exact path="/annuaire/Yvelines/equipesmobiles" component={PresentationHadYvelines} />
-							<Route exact path="/annuaire/Yvelines/usp" component={PresentationUspYvelines} />
-							<Route exact path="/annuaire/Yvelines/reseaux" component={PresentationReseauxYvelines} />
+							<Route
+								exact
+								path="#/annuaire/Yvelines/equipesmobiles"
+								component={PresentationHadYvelines}
+							/>
+							<Route exact path="#/annuaire/Yvelines/usp" component={PresentationUspYvelines} />
+							<Route exact path="#/annuaire/Yvelines/reseaux" component={PresentationReseauxYvelines} />
 							{/* Seine Saint Denis */}
 							<Route
 								exact
-								path="/annuaire/SEINESAINTDENIS/autres_structures"
+								path="#/annuaire/SEINESAINTDENIS/autres_structures"
 								component={Presentation_SEINESAINTDENIS_autres_structures}
 							/>
 							<Route
 								exact
-								path="/annuaire/SEINESAINTDENIS/autres"
+								path="#/annuaire/SEINESAINTDENIS/autres"
 								component={Presentation_SEINESAINTDENIS_Autres}
 							/>
-							<Route exact path="/annuaire/seinesaintdenis" component={ModalSearchSeineSaintDenis} />
+							<Route exact path="#/annuaire/seinesaintdenis" component={ModalSearchSeineSaintDenis} />
 							{/* Offres de soins */}
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/lits"
+								path="#/annuaire/SeineSaintDenis/lits"
 								component={PresentationLitsSeineSaintDenis}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/structure"
+								path="#/annuaire/SeineSaintDenis/structure"
 								component={PresentationStructureSeineSaintDenis}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/association"
+								path="#/annuaire/SeineSaintDenis/association"
 								component={PresentationAssociationSeineSaintDenis}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/equipesmobiles"
+								path="#/annuaire/SeineSaintDenis/equipesmobiles"
 								component={PresentationHadSeineSaintDenis}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/usp"
+								path="#/annuaire/SeineSaintDenis/usp"
 								component={PresentationUspSeineSaintDenis}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineSaintDenis/reseaux"
+								path="#/annuaire/SeineSaintDenis/reseaux"
 								component={PresentationReseauxSeineSaintDenis}
 							/>
 							{/* Seine et Marne */}
 							<Route
 								exact
-								path="/annuaire/SEINEETMARNE/autres_structures"
+								path="#/annuaire/SEINEETMARNE/autres_structures"
 								component={Presentation_SEINEETMARNE_autres_structures}
 							/>
 							<Route
 								exact
-								path="/annuaire/SEINEETMARNE/autres"
+								path="#/annuaire/SEINEETMARNE/autres"
 								component={Presentation_SEINEETMARNE_Autres}
 							/>
-							<Route exact path="/annuaire/seineetmarne" component={ModalSearchSeineetMarne} />
+							<Route exact path="#/annuaire/seineetmarne" component={ModalSearchSeineetMarne} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/SeineetMarne/lits" component={PresentationLitsSeineetMarne} />
+							<Route exact path="#/annuaire/SeineetMarne/lits" component={PresentationLitsSeineetMarne} />
 							<Route
 								exact
-								path="/annuaire/SeineetMarne/structure"
+								path="#/annuaire/SeineetMarne/structure"
 								component={PresentationStructureSeineetMarne}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineetMarne/association"
+								path="#/annuaire/SeineetMarne/association"
 								component={PresentationAssociationSeineetMarne}
 							/>
 							<Route
 								exact
-								path="/annuaire/SeineetMarne/equipesmobiles"
+								path="#/annuaire/SeineetMarne/equipesmobiles"
 								component={PresentationHadSeineetMarne}
 							/>
-							<Route exact path="/annuaire/SeineetMarne/usp" component={PresentationUspSeineetMarne} />
+							<Route exact path="#/annuaire/SeineetMarne/usp" component={PresentationUspSeineetMarne} />
 							<Route
 								exact
-								path="/annuaire/SeineetMarne/reseaux"
+								path="#/annuaire/SeineetMarne/reseaux"
 								component={PresentationReseauxSeineetMarne}
 							/>
 							{/* Val d'Oise */}
 							<Route
 								exact
-								path="/annuaire/VALDOISE/autres_structures"
+								path="#/annuaire/VALDOISE/autres_structures"
 								component={Presentation_VALDOISE_autres_structures}
 							/>
-							<Route exact path="/annuaire/VALDOISE/autres" component={Presentation_VALDOISE_Autres} />
-							<Route exact path="/annuaire/valdoise" component={ModalSearchValdOise} />
+							<Route exact path="#/annuaire/VALDOISE/autres" component={Presentation_VALDOISE_Autres} />
+							<Route exact path="#/annuaire/valdoise" component={ModalSearchValdOise} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/ValdOise/lits" component={PresentationLitsValdOise} />
+							<Route exact path="#/annuaire/ValdOise/lits" component={PresentationLitsValdOise} />
 							<Route
 								exact
-								path="/annuaire/ValdOise/structure"
+								path="#/annuaire/ValdOise/structure"
 								component={PresentationStructureValdOise}
 							/>
 							<Route
 								exact
-								path="/annuaire/ValdOise/association"
+								path="#/annuaire/ValdOise/association"
 								component={PresentationAssociationValdOise}
 							/>
-							<Route exact path="/annuaire/ValdOise/equipesmobiles" component={PresentationHadValdOise} />
-							<Route exact path="/annuaire/ValdOise/usp" component={PresentationUspValdOise} />
-							<Route exact path="/annuaire/ValdOise/reseaux" component={PresentationReseauxValdOise} />
-							{/* Essonne */}
-							<Route exact path="/annuaire/essonne" component={ModalSearchEssonne} />
-							<Route exact path="/annuaire/essonne/lits" component={PresentationLitsEssonne} />
-							<Route exact path="/annuaire/essonne/structure" component={PresentationStructureEssonne} />
 							<Route
 								exact
-								path="/annuaire/essonne/association"
+								path="#/annuaire/ValdOise/equipesmobiles"
+								component={PresentationHadValdOise}
+							/>
+							<Route exact path="#/annuaire/ValdOise/usp" component={PresentationUspValdOise} />
+							<Route exact path="#/annuaire/ValdOise/reseaux" component={PresentationReseauxValdOise} />
+							{/* Essonne */}
+							<Route exact path="#/annuaire/essonne" component={ModalSearchEssonne} />
+							<Route exact path="#/annuaire/essonne/lits" component={PresentationLitsEssonne} />
+							<Route exact path="#/annuaire/essonne/structure" component={PresentationStructureEssonne} />
+							<Route
+								exact
+								path="#/annuaire/essonne/association"
 								component={PresentationAssociationEssonne}
 							/>
 							<Route
 								exact
-								path="/annuaire/essonne/autres_structures"
+								path="#/annuaire/essonne/autres_structures"
 								component={Presentation_ESSONNE_autres_structures}
 							/>
-							<Route exact path="/annuaire/essonne/autres" component={Presentation_ESSONNE_Autres} />
-							<Route exact path="/annuaire/essonne/equipesmobiles" component={PresentationHadEssonne} />
-							<Route exact path="/annuaire/essonne/usp" component={PresentationUspEssonne} />
-							<Route exact path="/annuaire/essonne/reseaux" component={PresentationReseauxEssonne} />
+							<Route exact path="#/annuaire/essonne/autres" component={Presentation_ESSONNE_Autres} />
+							<Route exact path="#/annuaire/essonne/equipesmobiles" component={PresentationHadEssonne} />
+							<Route exact path="#/annuaire/essonne/usp" component={PresentationUspEssonne} />
+							<Route exact path="#/annuaire/essonne/reseaux" component={PresentationReseauxEssonne} />
 							{/* Val de Marne */}
 							<Route
 								exact
-								path="/annuaire/VALDEMARNE/autres_structures"
+								path="#/annuaire/VALDEMARNE/autres_structures"
 								component={Presentation_VALDEMARNE_autres_structures}
 							/>
 							<Route
 								exact
-								path="/annuaire/VALDEMARNE/autres"
+								path="#/annuaire/VALDEMARNE/autres"
 								component={Presentation_VALDEMARNE_Autres}
 							/>
-							<Route exact path="/annuaire/valdemarne" component={ModalSearchValdeMarne} />
+							<Route exact path="#/annuaire/valdemarne" component={ModalSearchValdeMarne} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/ValdeMarne/lits" component={PresentationLitsValdeMarne} />
+							<Route exact path="#/annuaire/ValdeMarne/lits" component={PresentationLitsValdeMarne} />
 							<Route
 								exact
-								path="/annuaire/ValdeMarne/structure"
+								path="#/annuaire/ValdeMarne/structure"
 								component={PresentationStructureValdeMarne}
 							/>
 							<Route
 								exact
-								path="/annuaire/ValdeMarne/association"
+								path="#/annuaire/ValdeMarne/association"
 								component={PresentationAssociationValdeMarne}
 							/>
 							<Route
 								exact
-								path="/annuaire/ValdeMarne/equipesmobiles"
+								path="#/annuaire/ValdeMarne/equipesmobiles"
 								component={PresentationHadValdeMarne}
 							/>
-							<Route exact path="/annuaire/ValdeMarne/usp" component={PresentationUspValdeMarne} />
+							<Route exact path="#/annuaire/ValdeMarne/usp" component={PresentationUspValdeMarne} />
 							<Route
 								exact
-								path="/annuaire/ValdeMarne/reseaux"
+								path="#/annuaire/ValdeMarne/reseaux"
 								component={PresentationReseauxValdeMarne}
 							/>
 							{/* Hauts de Seine */}
 							<Route
 								exact
-								path="/annuaire/HAUTSDESEINE/autres_structures"
+								path="#/annuaire/HAUTSDESEINE/autres_structures"
 								component={Presentation_HAUTSDESEINE_autres_structures}
 							/>
 							<Route
 								exact
-								path="/annuaire/HAUTSDESEINE/autres"
+								path="#/annuaire/HAUTSDESEINE/autres"
 								component={Presentation_HAUTSDESEINE_Autres}
 							/>
-							<Route exact path="/annuaire/hautsdeseine" component={ModalSearchHautsdeSeine} />
+							<Route exact path="#/annuaire/hautsdeseine" component={ModalSearchHautsdeSeine} />
 							{/* Offres de soins */}
-							<Route exact path="/annuaire/HautsdeSeine/lits" component={PresentationLitsHautsdeSeine} />
+							<Route exact path="#/annuaire/HautsdeSeine/lits" component={PresentationLitsHautsdeSeine} />
 							<Route
 								exact
-								path="/annuaire/HautsdeSeine/structure"
+								path="#/annuaire/HautsdeSeine/structure"
 								component={PresentationStructureHautsdeSeine}
 							/>
 							<Route
 								exact
-								path="/annuaire/HautsdeSeine/association"
+								path="#/annuaire/HautsdeSeine/association"
 								component={PresentationAssociationHautsdeSeine}
 							/>
 							<Route
 								exact
-								path="/annuaire/HautsdeSeine/equipesmobiles"
+								path="#/annuaire/HautsdeSeine/equipesmobiles"
 								component={PresentationHadHautsdeSeine}
 							/>
-							<Route exact path="/annuaire/HautsdeSeine/usp" component={PresentationUspHautsdeSeine} />
+							<Route exact path="#/annuaire/HautsdeSeine/usp" component={PresentationUspHautsdeSeine} />
 							<Route
 								exact
-								path="/annuaire/HautsdeSeine/reseaux"
+								path="#/annuaire/HautsdeSeine/reseaux"
 								component={PresentationReseauxHautsdeSeine}
 							/>{' '}
 							<Switch>
-								<PrivateRoute exact path="/dashboard" component={Dashboard} />
-								<PrivateRoute exact path="/monprofile" component={ProfilePagePresentation} />
+								<PrivateRoute exact path="#/dashboard" component={Dashboard} />
+								<PrivateRoute exact path="#/monprofile" component={ProfilePagePresentation} />
 							</Switch>
 							<Switch>
-								<PrivateRoute exact path="/complete-profile" component={CreateProfile} />
+								<PrivateRoute exact path="#/complete-profile" component={CreateProfile} />
 							</Switch>
 							<Switch>
-								<PrivateRoute exact path="/edit-profile" component={UpdatePage} />
+								<PrivateRoute exact path="#/edit-profile" component={UpdatePage} />
 							</Switch>
 							{/* Admin */}
 							<Switch>
-								<AdminRoute exact path="/admin" component={ProfilePage} />
-								<AdminRoute exact path="/admin/menu/veillemedicale" component={VeillemedicalePage} />
+								<AdminRoute exact path="#/admin" component={ProfilePage} />
+								<AdminRoute exact path="#/admin/menu/veillemedicale" component={VeillemedicalePage} />
 
-								<AdminRoute exact path="/admin/annuaire" component={AnnuaireAdminHome} />
+								<AdminRoute exact path="#/admin/annuaire" component={AnnuaireAdminHome} />
 							</Switch>
 							<Switch>
 								{/* Paris */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/Paris/autres" component={Parisautres} />
-								<AdminRoute exact path="/admin/Paris/autres/:id" component={GetParisautres} />
-								<AdminRoute exact path="/admin/update/Paris/autres/:id" component={UpdateParisautres} />
-								<AdminRoute exact path="/admin/post/Paris/autres" component={PostParisautres} />
-								<AdminRoute exact path="/admin/delete/Paris/autres/:id" component={DeleteParisautres} />
+								<AdminRoute exact path="#/admin/Paris/autres" component={Parisautres} />
+								<AdminRoute exact path="#/admin/Paris/autres/:id" component={GetParisautres} />
+								<AdminRoute
+									exact
+									path="#/admin/update/Paris/autres/:id"
+									component={UpdateParisautres}
+								/>
+								<AdminRoute exact path="#/admin/post/Paris/autres" component={PostParisautres} />
+								<AdminRoute
+									exact
+									path="#/admin/delete/Paris/autres/:id"
+									component={DeleteParisautres}
+								/>
 
 								{/* {Autres_structures} */}
 
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale"
+									path="#/admin/menu/coordinationregionale"
 									component={CoordinationPage}
 								/>
-								<AdminRoute exact path="/admin/menu/soinspalliatifs" component={SoinsPalliatifPage} />
+								<AdminRoute exact path="#/admin/menu/soinspalliatifs" component={SoinsPalliatifPage} />
 								<AdminRoute
 									exact
-									path="/admin/Paris/autres_structures"
+									path="#/admin/Paris/autres_structures"
 									component={Parisautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/Paris/autres_structures/:id"
+									path="#/admin/Paris/autres_structures/:id"
 									component={GetParisautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/Paris/autres_structures/:id"
+									path="#/admin/update/Paris/autres_structures/:id"
 									component={UpdateParisautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/Paris/autres_structures"
+									path="#/admin/post/Paris/autres_structures"
 									component={PostParisautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/Paris/autres_structures/:id"
+									path="#/admin/delete/Paris/autres_structures/:id"
 									component={DeleteParisautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/paris/usp" component={Paris} />
-								<AdminRoute exact path="/admin/paris/usp/:id" component={Get} />
-								<AdminRoute exact path="/admin/update/paris/usp/:id" component={Update} />
-								<AdminRoute exact path="/admin/post/paris/usp" component={Post} />
-								<AdminRoute exact path="/admin/delete/paris/usp/:id" component={Delete} />
+								<AdminRoute exact path="#/admin/paris/usp" component={Paris} />
+								<AdminRoute exact path="#/admin/paris/usp/:id" component={Get} />
+								<AdminRoute exact path="#/admin/update/paris/usp/:id" component={Update} />
+								<AdminRoute exact path="#/admin/post/paris/usp" component={Post} />
+								<AdminRoute exact path="#/admin/delete/paris/usp/:id" component={Delete} />
 								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/paris/reseaux" component={ParisRESEAUX} />
-								<AdminRoute exact path="/admin/paris/reseaux/:id" component={GetPARISRESEAUX} />
+								<AdminRoute exact path="#/admin/paris/reseaux" component={ParisRESEAUX} />
+								<AdminRoute exact path="#/admin/paris/reseaux/:id" component={GetPARISRESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/update/paris/reseaux/:id"
+									path="#/admin/update/paris/reseaux/:id"
 									component={UpdatePARISRESEAUX}
 								/>
-								<AdminRoute exact path="/admin/post/paris/reseaux" component={PostPARISRESEAUX} />
+								<AdminRoute exact path="#/admin/post/paris/reseaux" component={PostPARISRESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/delete/paris/reseaux/:id"
+									path="#/admin/delete/paris/reseaux/:id"
 									component={DeletePARISRESEAUX}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/paris/association" component={ParisASSOS} />
-								<AdminRoute exact path="/admin/paris/association/:id" component={GetPARISASSOS} />
+								<AdminRoute exact path="#/admin/paris/association" component={ParisASSOS} />
+								<AdminRoute exact path="#/admin/paris/association/:id" component={GetPARISASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/update/paris/association/:id"
+									path="#/admin/update/paris/association/:id"
 									component={UpdatePARISASSOS}
 								/>
-								<AdminRoute exact path="/admin/post/paris/association" component={PostPARISASSOS} />
+								<AdminRoute exact path="#/admin/post/paris/association" component={PostPARISASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/delete/paris/association/:id"
+									path="#/admin/delete/paris/association/:id"
 									component={DeletePARISASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/paris/equipesmobiles" component={ParisHAD} />
-								<AdminRoute exact path="/admin/paris/equipesmobiles/:id" component={GetPARISHAD} />
+								<AdminRoute exact path="#/admin/paris/equipesmobiles" component={ParisHAD} />
+								<AdminRoute exact path="#/admin/paris/equipesmobiles/:id" component={GetPARISHAD} />
 								<AdminRoute
 									exact
-									path="/admin/update/paris/equipesmobiles/:id"
+									path="#/admin/update/paris/equipesmobiles/:id"
 									component={UpdatePARISHAD}
 								/>
-								<AdminRoute exact path="/admin/post/paris/equipesmobiles" component={PostPARISHAD} />
+								<AdminRoute exact path="#/admin/post/paris/equipesmobiles" component={PostPARISHAD} />
 								<AdminRoute
 									exact
-									path="/admin/delete/paris/equipesmobiles/:id"
+									path="#/admin/delete/paris/equipesmobiles/:id"
 									component={DeletePARISHAD}
 								/>
 								{/* STRUCTURES */}
-								<AdminRoute exact path="/admin/paris/structures" component={ParisSTRUCTURES} />
-								<AdminRoute exact path="/admin/paris/structures/:id" component={GetPARISSTRUCTURES} />
+								<AdminRoute exact path="#/admin/paris/structures" component={ParisSTRUCTURES} />
+								<AdminRoute exact path="#/admin/paris/structures/:id" component={GetPARISSTRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/update/paris/structures/:id"
+									path="#/admin/update/paris/structures/:id"
 									component={UpdatePARISSTRUCTURES}
 								/>
-								<AdminRoute exact path="/admin/post/paris/structures" component={PostPARISSTRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/delete/paris/structures/:id"
+									path="#/admin/post/paris/structures"
+									component={PostPARISSTRUCTURES}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/delete/paris/structures/:id"
 									component={DeletePARISSTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/paris/lits" component={ParisLITS} />
-								<AdminRoute exact path="/admin/paris/lits/:id" component={GetPARISLITS} />
-								<AdminRoute exact path="/admin/update/paris/lits/:id" component={UpdatePARISLITS} />
-								<AdminRoute exact path="/admin/post/paris/lits" component={PostPARISLITS} />
-								<AdminRoute exact path="/admin/delete/paris/lits/:id" component={DeletePARISLITS} />
+								<AdminRoute exact path="#/admin/paris/lits" component={ParisLITS} />
+								<AdminRoute exact path="#/admin/paris/lits/:id" component={GetPARISLITS} />
+								<AdminRoute exact path="#/admin/update/paris/lits/:id" component={UpdatePARISLITS} />
+								<AdminRoute exact path="#/admin/post/paris/lits" component={PostPARISLITS} />
+								<AdminRoute exact path="#/admin/delete/paris/lits/:id" component={DeletePARISLITS} />
 							</Switch>
 							<Switch>
 								{/* Hauts de Seine */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/HAUTDESEINE/autres" component={HAUTDESEINEautres} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/autres" component={HAUTDESEINEautres} />
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/autres/:id"
+									path="#/admin/HAUTDESEINE/autres/:id"
 									component={GetHAUTDESEINEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/autres/:id"
+									path="#/admin/update/HAUTDESEINE/autres/:id"
 									component={UpdateHAUTDESEINEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/autres"
+									path="#/admin/post/HAUTDESEINE/autres"
 									component={PostHAUTDESEINEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/autres/:id"
+									path="#/admin/delete/HAUTDESEINE/autres/:id"
 									component={DeleteHAUTDESEINEautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/autres_structures"
+									path="#/admin/HAUTDESEINE/autres_structures"
 									component={HAUTDESEINEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/autres_structures/:id"
+									path="#/admin/HAUTDESEINE/autres_structures/:id"
 									component={GetHAUTDESEINEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/autres_structures/:id"
+									path="#/admin/update/HAUTDESEINE/autres_structures/:id"
 									component={UpdateHAUTDESEINEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/autres_structures"
+									path="#/admin/post/HAUTDESEINE/autres_structures"
 									component={PostHAUTDESEINEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/autres_structures/:id"
+									path="#/admin/delete/HAUTDESEINE/autres_structures/:id"
 									component={DeleteHAUTDESEINEautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/hautdeseine/usp" component={HautsdeSeine} />
-								<AdminRoute exact path="/admin/HAUTDESEINE/usp/:id" component={GetUSPHAUTDESEINE} />
+								<AdminRoute exact path="#/admin/hautdeseine/usp" component={HautsdeSeine} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/usp/:id" component={GetUSPHAUTDESEINE} />
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/usp/:id"
+									path="#/admin/update/HAUTDESEINE/usp/:id"
 									component={UpdateUSPHAUTDESEINE}
 								/>
-								<AdminRoute exact path="/admin/post/HAUTDESEINE/usp" component={PostUSPHAUTDESEINE} />
+								<AdminRoute exact path="#/admin/post/HAUTDESEINE/usp" component={PostUSPHAUTDESEINE} />
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/usp/:id"
+									path="#/admin/delete/HAUTDESEINE/usp/:id"
 									component={DeleteUSPHAUTDESEINE}
 								/>
 								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/HAUTDESEINE/reseaux" component={HAUTDESEINERESEAUX} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/reseaux" component={HAUTDESEINERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/reseaux/:id"
+									path="#/admin/HAUTDESEINE/reseaux/:id"
 									component={GetHAUTDESEINERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/reseaux/:id"
+									path="#/admin/update/HAUTDESEINE/reseaux/:id"
 									component={UpdateHAUTDESEINERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/reseaux"
+									path="#/admin/post/HAUTDESEINE/reseaux"
 									component={PostHAUTDESEINERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/reseaux/:id"
+									path="#/admin/delete/HAUTDESEINE/reseaux/:id"
 									component={DeleteHAUTDESEINERESEAUX}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/HAUTDESEINE/association" component={HAUTDESEINEASSOS} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/association" component={HAUTDESEINEASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/association/:id"
+									path="#/admin/HAUTDESEINE/association/:id"
 									component={GetHAUTDESEINEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/association/:id"
+									path="#/admin/update/HAUTDESEINE/association/:id"
 									component={UpdateHAUTDESEINEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/association"
+									path="#/admin/post/HAUTDESEINE/association"
 									component={PostHAUTDESEINEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/association/:id"
+									path="#/admin/delete/HAUTDESEINE/association/:id"
 									component={DeleteHAUTDESEINEASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/HAUTDESEINE/equipesmobiles" component={HAUTDESEINEHAD} />
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/equipesmobiles/:id"
+									path="#/admin/HAUTDESEINE/equipesmobiles"
+									component={HAUTDESEINEHAD}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/HAUTDESEINE/equipesmobiles/:id"
 									component={GetHAUTDESEINEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/equipesmobiles/:id"
+									path="#/admin/update/HAUTDESEINE/equipesmobiles/:id"
 									component={UpdateHAUTDESEINEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/equipesmobiles"
+									path="#/admin/post/HAUTDESEINE/equipesmobiles"
 									component={PostHAUTDESEINEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/equipesmobiles/:id"
+									path="#/admin/delete/HAUTDESEINE/equipesmobiles/:id"
 									component={DeleteHAUTDESEINEHAD}
 								/>
 								{/* STRUCTURES */}
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/structures"
+									path="#/admin/HAUTDESEINE/structures"
 									component={HAUTDESEINESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/HAUTDESEINE/structures/:id"
+									path="#/admin/HAUTDESEINE/structures/:id"
 									component={GetHAUTDESEINESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/structures/:id"
+									path="#/admin/update/HAUTDESEINE/structures/:id"
 									component={UpdateHAUTDESEINESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/structures"
+									path="#/admin/post/HAUTDESEINE/structures"
 									component={PostHAUTDESEINESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/structures/:id"
+									path="#/admin/delete/HAUTDESEINE/structures/:id"
 									component={DeleteHAUTDESEINESTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/HAUTDESEINE/lits" component={HAUTDESEINELITS} />
-								<AdminRoute exact path="/admin/HAUTDESEINE/lits/:id" component={GetHAUTDESEINELITS} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/lits" component={HAUTDESEINELITS} />
+								<AdminRoute exact path="#/admin/HAUTDESEINE/lits/:id" component={GetHAUTDESEINELITS} />
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/lits/:id"
+									path="#/admin/update/HAUTDESEINE/lits/:id"
 									component={UpdateHAUTDESEINELITS}
 								/>
-								<AdminRoute exact path="/admin/post/HAUTDESEINE/lits" component={PostHAUTDESEINELITS} />
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/lits/:id"
+									path="#/admin/post/HAUTDESEINE/lits"
+									component={PostHAUTDESEINELITS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/delete/HAUTDESEINE/lits/:id"
 									component={DeleteHAUTDESEINELITS}
 								/>
 							</Switch>
 							<Switch>
 								{/* Val de Marne */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/VALDEMARNE/autres" component={VALDEMARNEautres} />
-								<AdminRoute exact path="/admin/VALDEMARNE/autres/:id" component={GetVALDEMARNEautres} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/autres" component={VALDEMARNEautres} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/autres/:id"
+									path="#/admin/VALDEMARNE/autres/:id"
+									component={GetVALDEMARNEautres}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/update/VALDEMARNE/autres/:id"
 									component={UpdateVALDEMARNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/autres"
+									path="#/admin/post/VALDEMARNE/autres"
 									component={PostVALDEMARNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/autres/:id"
+									path="#/admin/delete/VALDEMARNE/autres/:id"
 									component={DeleteVALDEMARNEautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/autres_structures"
+									path="#/admin/VALDEMARNE/autres_structures"
 									component={VALDEMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/autres_structures/:id"
+									path="#/admin/VALDEMARNE/autres_structures/:id"
 									component={GetVALDEMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/autres_structures/:id"
+									path="#/admin/update/VALDEMARNE/autres_structures/:id"
 									component={UpdateVALDEMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/autres_structures"
+									path="#/admin/post/VALDEMARNE/autres_structures"
 									component={PostVALDEMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/autres_structures/:id"
+									path="#/admin/delete/VALDEMARNE/autres_structures/:id"
 									component={DeleteVALDEMARNEautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/VALDEMARNE/usp" component={VALDEMARNE} />
-								<AdminRoute exact path="/admin/VALDEMARNE/usp/:id" component={GetUSPVALDEMARNE} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/usp" component={VALDEMARNE} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/usp/:id" component={GetUSPVALDEMARNE} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/usp/:id"
+									path="#/admin/update/VALDEMARNE/usp/:id"
 									component={UpdateUSPVALDEMARNE}
 								/>
-								<AdminRoute exact path="/admin/post/VALDEMARNE/usp" component={PostUSPVALDEMARNE} />
+								<AdminRoute exact path="#/admin/post/VALDEMARNE/usp" component={PostUSPVALDEMARNE} />
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/usp/:id"
+									path="#/admin/delete/VALDEMARNE/usp/:id"
 									component={DeleteUSPVALDEMARNE}
 								/>
 								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/VALDEMARNE/reseaux" component={VALDEMARNERESEAUX} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/reseaux" component={VALDEMARNERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/reseaux/:id"
+									path="#/admin/VALDEMARNE/reseaux/:id"
 									component={GetVALDEMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/reseaux/:id"
+									path="#/admin/update/VALDEMARNE/reseaux/:id"
 									component={UpdateVALDEMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/reseaux"
+									path="#/admin/post/VALDEMARNE/reseaux"
 									component={PostVALDEMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/reseaux/:id"
+									path="#/admin/delete/VALDEMARNE/reseaux/:id"
 									component={DeleteVALDEMARNERESEAUX}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/VALDEMARNE/association" component={VALDEMARNEASSOS} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/association" component={VALDEMARNEASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/association/:id"
+									path="#/admin/VALDEMARNE/association/:id"
 									component={GetVALDEMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/association/:id"
+									path="#/admin/update/VALDEMARNE/association/:id"
 									component={UpdateVALDEMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/association"
+									path="#/admin/post/VALDEMARNE/association"
 									component={PostVALDEMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/association/:id"
+									path="#/admin/delete/VALDEMARNE/association/:id"
 									component={DeleteVALDEMARNEASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/VALDEMARNE/equipesmobiles" component={VALDEMARNEHAD} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/equipesmobiles" component={VALDEMARNEHAD} />
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/equipesmobiles/:id"
+									path="#/admin/VALDEMARNE/equipesmobiles/:id"
 									component={GetVALDEMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/equipesmobiles/:id"
+									path="#/admin/update/VALDEMARNE/equipesmobiles/:id"
 									component={UpdateVALDEMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/equipesmobiles"
+									path="#/admin/post/VALDEMARNE/equipesmobiles"
 									component={PostVALDEMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/equipesmobiles/:id"
+									path="#/admin/delete/VALDEMARNE/equipesmobiles/:id"
 									component={DeleteVALDEMARNEHAD}
 								/>
 								{/* STRUCTURES */}
-								<AdminRoute exact path="/admin/VALDEMARNE/structures" component={VALDEMARNETRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/VALDEMARNE/structures/:id"
+									path="#/admin/VALDEMARNE/structures"
+									component={VALDEMARNETRUCTURES}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/VALDEMARNE/structures/:id"
 									component={GetVALDEMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/structures/:id"
+									path="#/admin/update/VALDEMARNE/structures/:id"
 									component={UpdateVALDEMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/structures"
+									path="#/admin/post/VALDEMARNE/structures"
 									component={PostVALDEMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/structures/:id"
+									path="#/admin/delete/VALDEMARNE/structures/:id"
 									component={DeleteVALDEMARNESTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/VALDEMARNE/lits" component={VALDEMARNELITS} />
-								<AdminRoute exact path="/admin/VALDEMARNE/lits/:id" component={GetVALDEMARNELITS} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/lits" component={VALDEMARNELITS} />
+								<AdminRoute exact path="#/admin/VALDEMARNE/lits/:id" component={GetVALDEMARNELITS} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/lits/:id"
+									path="#/admin/update/VALDEMARNE/lits/:id"
 									component={UpdateVALDEMARNELITS}
 								/>
-								<AdminRoute exact path="/admin/post/VALDEMARNE/lits" component={PostVALDEMARNELITS} />
+								<AdminRoute exact path="#/admin/post/VALDEMARNE/lits" component={PostVALDEMARNELITS} />
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/lits/:id"
+									path="#/admin/delete/VALDEMARNE/lits/:id"
 									component={DeleteVALDEMARNELITS}
 								/>
 							</Switch>
@@ -1674,342 +1708,358 @@ class App extends Component {
 								{/* {Autres} */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/autres"
+									path="#/admin/SEINESAINTDENIS/autres"
 									component={SEINESAINTDENISautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/autres/:id"
+									path="#/admin/SEINESAINTDENIS/autres/:id"
 									component={GetSEINESAINTDENISautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/autres/:id"
+									path="#/admin/update/SEINESAINTDENIS/autres/:id"
 									component={UpdateSEINESAINTDENISautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/autres"
+									path="#/admin/post/SEINESAINTDENIS/autres"
 									component={PostSEINESAINTDENISautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/autres/:id"
+									path="#/admin/delete/SEINESAINTDENIS/autres/:id"
 									component={DeleteSEINESAINTDENISautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/autres_structures"
+									path="#/admin/SEINESAINTDENIS/autres_structures"
 									component={SEINESAINTDENISautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/autres_structures/:id"
+									path="#/admin/SEINESAINTDENIS/autres_structures/:id"
 									component={GetSEINESAINTDENISautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/autres_structures/:id"
+									path="#/admin/update/SEINESAINTDENIS/autres_structures/:id"
 									component={UpdateSEINESAINTDENISautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/autres_structures"
+									path="#/admin/post/SEINESAINTDENIS/autres_structures"
 									component={PostSEINESAINTDENISautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/autres_structures/:id"
+									path="#/admin/delete/SEINESAINTDENIS/autres_structures/:id"
 									component={DeleteSEINESAINTDENISautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/SEINESAINTDENIS/usp" component={SEINESAINTDENIS} />
+								<AdminRoute exact path="#/admin/SEINESAINTDENIS/usp" component={SEINESAINTDENIS} />
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/usp/:id"
+									path="#/admin/SEINESAINTDENIS/usp/:id"
 									component={GetUSPSEINESAINTDENIS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/usp/:id"
+									path="#/admin/update/SEINESAINTDENIS/usp/:id"
 									component={UpdateUSPSEINESAINTDENIS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/usp"
+									path="#/admin/post/SEINESAINTDENIS/usp"
 									component={PostUSPSEINESAINTDENIS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/usp/:id"
+									path="#/admin/delete/SEINESAINTDENIS/usp/:id"
 									component={DeleteUSPSEINESAINTDENIS}
 								/>
 								{/* RESEAUX */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/reseaux"
+									path="#/admin/SEINESAINTDENIS/reseaux"
 									component={SEINESAINTDENISRESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/reseaux/:id"
+									path="#/admin/SEINESAINTDENIS/reseaux/:id"
 									component={GetSEINESAINTDENISRESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/reseaux/:id"
+									path="#/admin/update/SEINESAINTDENIS/reseaux/:id"
 									component={UpdateSEINESAINTDENISRESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/reseaux"
+									path="#/admin/post/SEINESAINTDENIS/reseaux"
 									component={PostSEINESAINTDENISRESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/reseaux/:id"
+									path="#/admin/delete/SEINESAINTDENIS/reseaux/:id"
 									component={DeleteSEINESAINTDENISRESEAUX}
 								/>
 								{/* ASSOS */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/association"
+									path="#/admin/SEINESAINTDENIS/association"
 									component={SEINESAINTDENISASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/association/:id"
+									path="#/admin/SEINESAINTDENIS/association/:id"
 									component={GetSEINESAINTDENISASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/association/:id"
+									path="#/admin/update/SEINESAINTDENIS/association/:id"
 									component={UpdateSEINESAINTDENISASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/association"
+									path="#/admin/post/SEINESAINTDENIS/association"
 									component={PostSEINESAINTDENISASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/association/:id"
+									path="#/admin/delete/SEINESAINTDENIS/association/:id"
 									component={DeleteSEINESAINTDENISASSOS}
 								/>
 								{/* HAD */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/equipesmobiles"
+									path="#/admin/SEINESAINTDENIS/equipesmobiles"
 									component={SEINESAINTDENISHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/equipesmobiles/:id"
+									path="#/admin/SEINESAINTDENIS/equipesmobiles/:id"
 									component={GetSEINESAINTDENISHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/equipesmobiles/:id"
+									path="#/admin/update/SEINESAINTDENIS/equipesmobiles/:id"
 									component={UpdateSEINESAINTDENISHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/equipesmobiles"
+									path="#/admin/post/SEINESAINTDENIS/equipesmobiles"
 									component={PostSEINESAINTDENISHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/equipesmobiles/:id"
+									path="#/admin/delete/SEINESAINTDENIS/equipesmobiles/:id"
 									component={DeleteSEINESAINTDENISHAD}
 								/>
 								{/* STRUCTURES */}
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/structures"
+									path="#/admin/SEINESAINTDENIS/structures"
 									component={SEINESAINTDENISTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/structures/:id"
+									path="#/admin/SEINESAINTDENIS/structures/:id"
 									component={GetSEINESAINTDENISSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/structures/:id"
+									path="#/admin/update/SEINESAINTDENIS/structures/:id"
 									component={UpdateSEINESAINTDENISSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/structures"
+									path="#/admin/post/SEINESAINTDENIS/structures"
 									component={PostSEINESAINTDENISSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/structures/:id"
+									path="#/admin/delete/SEINESAINTDENIS/structures/:id"
 									component={DeleteSEINESAINTDENISSTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/SEINESAINTDENIS/lits" component={SEINESAINTDENISLITS} />
+								<AdminRoute exact path="#/admin/SEINESAINTDENIS/lits" component={SEINESAINTDENISLITS} />
 								<AdminRoute
 									exact
-									path="/admin/SEINESAINTDENIS/lits/:id"
+									path="#/admin/SEINESAINTDENIS/lits/:id"
 									component={GetSEINESAINTDENISLITS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/lits/:id"
+									path="#/admin/update/SEINESAINTDENIS/lits/:id"
 									component={UpdateSEINESAINTDENISLITS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/lits"
+									path="#/admin/post/SEINESAINTDENIS/lits"
 									component={PostSEINESAINTDENISLITS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/lits/:id"
+									path="#/admin/delete/SEINESAINTDENIS/lits/:id"
 									component={DeleteSEINESAINTDENISLITS}
 								/>
 							</Switch>
 							<Switch>
 								{/* Val d'Oise */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/VALDOISE/autres" component={VALDOISEautres} />
-								<AdminRoute exact path="/admin/VALDOISE/autres/:id" component={GetVALDOISEautres} />
+								<AdminRoute exact path="#/admin/VALDOISE/autres" component={VALDOISEautres} />
+								<AdminRoute exact path="#/admin/VALDOISE/autres/:id" component={GetVALDOISEautres} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/autres/:id"
+									path="#/admin/update/VALDOISE/autres/:id"
 									component={UpdateVALDOISEautres}
 								/>
-								<AdminRoute exact path="/admin/post/VALDOISE/autres" component={PostVALDOISEautres} />
+								<AdminRoute exact path="#/admin/post/VALDOISE/autres" component={PostVALDOISEautres} />
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/autres/:id"
+									path="#/admin/delete/VALDOISE/autres/:id"
 									component={DeleteVALDOISEautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/VALDOISE/autres_structures"
+									path="#/admin/VALDOISE/autres_structures"
 									component={VALDOISEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/VALDOISE/autres_structures/:id"
+									path="#/admin/VALDOISE/autres_structures/:id"
 									component={GetVALDOISEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/autres_structures/:id"
+									path="#/admin/update/VALDOISE/autres_structures/:id"
 									component={UpdateVALDOISEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/autres_structures"
+									path="#/admin/post/VALDOISE/autres_structures"
 									component={PostVALDOISEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/autres_structures/:id"
+									path="#/admin/delete/VALDOISE/autres_structures/:id"
 									component={DeleteVALDOISEautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/VALDOISE/usp" component={VALDOISE} />
-								<AdminRoute exact path="/admin/VALDOISE/usp/:id" component={GetUSPVALDOISE} />
-								<AdminRoute exact path="/admin/update/VALDOISE/usp/:id" component={UpdateUSPVALDOISE} />
-								<AdminRoute exact path="/admin/post/VALDOISE/usp" component={PostUSPVALDOISE} />
-								<AdminRoute exact path="/admin/delete/VALDOISE/usp/:id" component={DeleteUSPVALDOISE} />
-								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/VALDOISE/reseaux" component={VALDOISERESEAUX} />
-								<AdminRoute exact path="/admin/VALDOISE/reseaux/:id" component={GetVALDOISERESEAUX} />
+								<AdminRoute exact path="#/admin/VALDOISE/usp" component={VALDOISE} />
+								<AdminRoute exact path="#/admin/VALDOISE/usp/:id" component={GetUSPVALDOISE} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/reseaux/:id"
+									path="#/admin/update/VALDOISE/usp/:id"
+									component={UpdateUSPVALDOISE}
+								/>
+								<AdminRoute exact path="#/admin/post/VALDOISE/usp" component={PostUSPVALDOISE} />
+								<AdminRoute
+									exact
+									path="#/admin/delete/VALDOISE/usp/:id"
+									component={DeleteUSPVALDOISE}
+								/>
+								{/* RESEAUX */}
+								<AdminRoute exact path="#/admin/VALDOISE/reseaux" component={VALDOISERESEAUX} />
+								<AdminRoute exact path="#/admin/VALDOISE/reseaux/:id" component={GetVALDOISERESEAUX} />
+								<AdminRoute
+									exact
+									path="#/admin/update/VALDOISE/reseaux/:id"
 									component={UpdateVALDOISERESEAUX}
 								/>
-								<AdminRoute exact path="/admin/post/VALDOISE/reseaux" component={PostVALDOISERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/reseaux/:id"
+									path="#/admin/post/VALDOISE/reseaux"
+									component={PostVALDOISERESEAUX}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/delete/VALDOISE/reseaux/:id"
 									component={DeleteVALDOISERESEAUX}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/VALDOISE/association" component={VALDOISEASSOS} />
-								<AdminRoute exact path="/admin/VALDOISE/association/:id" component={GetVALDOISEASSOS} />
+								<AdminRoute exact path="#/admin/VALDOISE/association" component={VALDOISEASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/association/:id"
+									path="#/admin/VALDOISE/association/:id"
+									component={GetVALDOISEASSOS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/update/VALDOISE/association/:id"
 									component={UpdateVALDOISEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/association"
+									path="#/admin/post/VALDOISE/association"
 									component={PostVALDOISEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/association/:id"
+									path="#/admin/delete/VALDOISE/association/:id"
 									component={DeleteVALDOISEASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/VALDOISE/equipesmobiles" component={VALDOISEHAD} />
+								<AdminRoute exact path="#/admin/VALDOISE/equipesmobiles" component={VALDOISEHAD} />
 								<AdminRoute
 									exact
-									path="/admin/VALDOISE/equipesmobiles/:id"
+									path="#/admin/VALDOISE/equipesmobiles/:id"
 									component={GetVALDOISEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/equipesmobiles/:id"
+									path="#/admin/update/VALDOISE/equipesmobiles/:id"
 									component={UpdateVALDOISEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/equipesmobiles"
+									path="#/admin/post/VALDOISE/equipesmobiles"
 									component={PostVALDOISEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/equipesmobiles/:id"
+									path="#/admin/delete/VALDOISE/equipesmobiles/:id"
 									component={DeleteVALDOISEHAD}
 								/>
 								{/* STRUCTURES */}
-								<AdminRoute exact path="/admin/VALDOISE/structures" component={VALDOISETRUCTURES} />
+								<AdminRoute exact path="#/admin/VALDOISE/structures" component={VALDOISETRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/VALDOISE/structures/:id"
+									path="#/admin/VALDOISE/structures/:id"
 									component={GetVALDOISESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/structures/:id"
+									path="#/admin/update/VALDOISE/structures/:id"
 									component={UpdateVALDOISESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/structures"
+									path="#/admin/post/VALDOISE/structures"
 									component={PostVALDOISESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/structures/:id"
+									path="#/admin/delete/VALDOISE/structures/:id"
 									component={DeleteVALDOISESTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/VALDOISE/lits" component={VALDOISELITS} />
-								<AdminRoute exact path="/admin/VALDOISE/lits/:id" component={GetVALDOISELITS} />
+								<AdminRoute exact path="#/admin/VALDOISE/lits" component={VALDOISELITS} />
+								<AdminRoute exact path="#/admin/VALDOISE/lits/:id" component={GetVALDOISELITS} />
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/lits/:id"
+									path="#/admin/update/VALDOISE/lits/:id"
 									component={UpdateVALDOISELITS}
 								/>
-								<AdminRoute exact path="/admin/post/VALDOISE/lits" component={PostVALDOISELITS} />
+								<AdminRoute exact path="#/admin/post/VALDOISE/lits" component={PostVALDOISELITS} />
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/lits/:id"
+									path="#/admin/delete/VALDOISE/lits/:id"
 									component={DeleteVALDOISELITS}
 								/>
 							</Switch>
@@ -2017,569 +2067,605 @@ class App extends Component {
 								{/* Essonne */}
 								{/* USP */}
 
-								<AdminRoute exact path="/admin/ESSONNE/usp" component={ESSONNE} />
-								<AdminRoute exact path="/admin/ESSONNE/usp/:id" component={GetUSPESSONNE} />
-								<AdminRoute exact path="/admin/update/ESSONNE/usp/:id" component={UpdateUSPESSONNE} />
-								<AdminRoute exact path="/admin/post/ESSONNE/usp" component={PostUSPESSONNE} />
-								<AdminRoute exact path="/admin/delete/ESSONNE/usp/:id" component={DeleteUSPESSONNE} />
-								<AdminRoute exact path="/admin/post/ESSONNE/maps/usp" component={PostESSONNEUSPMaps} />
+								<AdminRoute exact path="#/admin/ESSONNE/usp" component={ESSONNE} />
+								<AdminRoute exact path="#/admin/ESSONNE/usp/:id" component={GetUSPESSONNE} />
+								<AdminRoute exact path="#/admin/update/ESSONNE/usp/:id" component={UpdateUSPESSONNE} />
+								<AdminRoute exact path="#/admin/post/ESSONNE/usp" component={PostUSPESSONNE} />
+								<AdminRoute exact path="#/admin/delete/ESSONNE/usp/:id" component={DeleteUSPESSONNE} />
+								<AdminRoute exact path="#/admin/post/ESSONNE/maps/usp" component={PostESSONNEUSPMaps} />
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/usp/:id"
+									path="#/admin/update/ESSONNE/maps/usp/:id"
 									component={UpdateESSONNEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/usp/:id"
+									path="#/admin/delete/ESSONNE/maps/usp/:id"
 									component={DeleteESSONNEUSPMaps}
 								/>
 								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/ESSONNE/reseaux" component={ESSONNERESEAUX} />
-								<AdminRoute exact path="/admin/ESSONNE/reseaux/:id" component={GetESSONNERESEAUX} />
+								<AdminRoute exact path="#/admin/ESSONNE/reseaux" component={ESSONNERESEAUX} />
+								<AdminRoute exact path="#/admin/ESSONNE/reseaux/:id" component={GetESSONNERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/reseaux/:id"
+									path="#/admin/update/ESSONNE/reseaux/:id"
 									component={UpdateESSONNERESEAUX}
 								/>
-								<AdminRoute exact path="/admin/post/ESSONNE/reseaux" component={PostESSONNERESEAUX} />
+								<AdminRoute exact path="#/admin/post/ESSONNE/reseaux" component={PostESSONNERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/reseaux/:id"
+									path="#/admin/delete/ESSONNE/reseaux/:id"
 									component={DeleteESSONNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/reseaux"
+									path="#/admin/post/ESSONNE/maps/reseaux"
 									component={PostESSONNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/reseaux/:id"
+									path="#/admin/update/ESSONNE/maps/reseaux/:id"
 									component={UpdateESSONNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/reseaux/:id"
+									path="#/admin/delete/ESSONNE/maps/reseaux/:id"
 									component={DeleteESSONNERESEAUXMaps}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/ESSONNE/association" component={ESSONNEASSOS} />
-								<AdminRoute exact path="/admin/ESSONNE/association/:id" component={GetESSONNEASSOS} />
+								<AdminRoute exact path="#/admin/ESSONNE/association" component={ESSONNEASSOS} />
+								<AdminRoute exact path="#/admin/ESSONNE/association/:id" component={GetESSONNEASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/association/:id"
+									path="#/admin/update/ESSONNE/association/:id"
 									component={UpdateESSONNEASSOS}
 								/>
-								<AdminRoute exact path="/admin/post/ESSONNE/association" component={PostESSONNEASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/association"
+									path="#/admin/post/ESSONNE/association"
+									component={PostESSONNEASSOS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/post/ESSONNE/maps/association"
 									component={PostESSONNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/association/:id"
+									path="#/admin/update/ESSONNE/maps/association/:id"
 									component={UpdateESSONNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/association/:id"
+									path="#/admin/delete/ESSONNE/maps/association/:id"
 									component={DeleteESSONNEASSOSMaps}
 								/>
 
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/association/:id"
+									path="#/admin/delete/ESSONNE/association/:id"
 									component={DeleteESSONNEASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/ESSONNE/equipesmobiles" component={ESSONNEHAD} />
-								<AdminRoute exact path="/admin/ESSONNE/equipesmobiles/:id" component={GetESSONNEHAD} />
+								<AdminRoute exact path="#/admin/ESSONNE/equipesmobiles" component={ESSONNEHAD} />
+								<AdminRoute exact path="#/admin/ESSONNE/equipesmobiles/:id" component={GetESSONNEHAD} />
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/equipesmobiles/:id"
+									path="#/admin/update/ESSONNE/equipesmobiles/:id"
 									component={UpdateESSONNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/equipesmobiles"
+									path="#/admin/post/ESSONNE/equipesmobiles"
 									component={PostESSONNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/equipesmobiles/:id"
+									path="#/admin/delete/ESSONNE/equipesmobiles/:id"
 									component={DeleteESSONNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/equipesmobiles"
+									path="#/admin/post/ESSONNE/maps/equipesmobiles"
 									component={PostESSONNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/equipesmobiles/:id"
+									path="#/admin/update/ESSONNE/maps/equipesmobiles/:id"
 									component={UpdateESSONNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/equipesmobiles/:id"
+									path="#/admin/delete/ESSONNE/maps/equipesmobiles/:id"
 									component={DeleteESSONNETEAMMaps}
 								/>
 
 								{/* STRUCTURES */}
-								<AdminRoute exact path="/admin/ESSONNE/structures" component={ESSONNETRUCTURES} />
+								<AdminRoute exact path="#/admin/ESSONNE/structures" component={ESSONNETRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/ESSONNE/structures/:id"
+									path="#/admin/ESSONNE/structures/:id"
 									component={GetESSONNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/structures/:id"
+									path="#/admin/update/ESSONNE/structures/:id"
 									component={UpdateESSONNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/structures"
+									path="#/admin/post/ESSONNE/structures"
 									component={PostESSONNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/structures/:id"
+									path="#/admin/delete/ESSONNE/structures/:id"
 									component={DeleteESSONNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/structures"
+									path="#/admin/post/ESSONNE/maps/structures"
 									component={PostESSONNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/structures/:id"
+									path="#/admin/update/ESSONNE/maps/structures/:id"
 									component={UpdateESSONNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/structures/:id"
+									path="#/admin/delete/ESSONNE/maps/structures/:id"
 									component={DeleteESSONNESTRUCTURESMaps}
 								/>
 
 								{/* LITS */}
-								<AdminRoute exact path="/admin/ESSONNE/lits" component={ESSONNELITS} />
-								<AdminRoute exact path="/admin/ESSONNE/lits/:id" component={GetESSONNELITS} />
-								<AdminRoute exact path="/admin/update/ESSONNE/lits/:id" component={UpdateESSONNELITS} />
-								<AdminRoute exact path="/admin/post/ESSONNE/lits" component={PostESSONNELITS} />
-								<AdminRoute exact path="/admin/delete/ESSONNE/lits/:id" component={DeleteESSONNELITS} />
+								<AdminRoute exact path="#/admin/ESSONNE/lits" component={ESSONNELITS} />
+								<AdminRoute exact path="#/admin/ESSONNE/lits/:id" component={GetESSONNELITS} />
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/lits"
+									path="#/admin/update/ESSONNE/lits/:id"
+									component={UpdateESSONNELITS}
+								/>
+								<AdminRoute exact path="#/admin/post/ESSONNE/lits" component={PostESSONNELITS} />
+								<AdminRoute
+									exact
+									path="#/admin/delete/ESSONNE/lits/:id"
+									component={DeleteESSONNELITS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/post/ESSONNE/maps/lits"
 									component={PostESSONNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/lits/:id"
+									path="#/admin/update/ESSONNE/maps/lits/:id"
 									component={UpdateESSONNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/lits/:id"
+									path="#/admin/delete/ESSONNE/maps/lits/:id"
 									component={DeleteESSONNELITSMaps}
 								/>
 
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/ESSONNE/autres" component={ESSONNEautres} />
-								<AdminRoute exact path="/admin/ESSONNE/autres/:id" component={GetESSONNEautres} />
+								<AdminRoute exact path="#/admin/ESSONNE/autres" component={ESSONNEautres} />
+								<AdminRoute exact path="#/admin/ESSONNE/autres/:id" component={GetESSONNEautres} />
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/autres/:id"
+									path="#/admin/update/ESSONNE/autres/:id"
 									component={UpdateESSONNEautres}
 								/>
-								<AdminRoute exact path="/admin/post/ESSONNE/autres" component={PostESSONNEautres} />
+								<AdminRoute exact path="#/admin/post/ESSONNE/autres" component={PostESSONNEautres} />
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/autres/:id"
+									path="#/admin/delete/ESSONNE/autres/:id"
 									component={DeleteESSONNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/autres"
+									path="#/admin/post/ESSONNE/maps/autres"
 									component={PostESSONNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/autres/:id"
+									path="#/admin/update/ESSONNE/maps/autres/:id"
 									component={UpdateESSONNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/autres/:id"
+									path="#/admin/delete/ESSONNE/maps/autres/:id"
 									component={DeleteESSONNEAUTRESMaps}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/ESSONNE/autres_structures"
+									path="#/admin/ESSONNE/autres_structures"
 									component={ESSONNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/ESSONNE/autres_structures/:id"
+									path="#/admin/ESSONNE/autres_structures/:id"
 									component={GetESSONNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/autres_structures/:id"
+									path="#/admin/update/ESSONNE/autres_structures/:id"
 									component={UpdateESSONNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/autres_structures"
+									path="#/admin/post/ESSONNE/autres_structures"
 									component={PostESSONNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/autres_structures/:id"
+									path="#/admin/delete/ESSONNE/autres_structures/:id"
 									component={DeleteESSONNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/ESSONNE/maps/autres_structures"
+									path="#/admin/post/ESSONNE/maps/autres_structures"
 									component={PostESSONNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/ESSONNE/maps/autres_structures/:id"
+									path="#/admin/update/ESSONNE/maps/autres_structures/:id"
 									component={UpdateESSONNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/ESSONNE/maps/autres_structures/:id"
+									path="#/admin/delete/ESSONNE/maps/autres_structures/:id"
 									component={DeleteESSONNEAUTRES_STRUCTURESMaps}
 								/>
 							</Switch>
 							<Switch>
 								{/* Seine et Marne */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/SEINEETMARNE/autres" component={SEINEETMARNEautres} />
+								<AdminRoute exact path="#/admin/SEINEETMARNE/autres" component={SEINEETMARNEautres} />
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/autres/:id"
+									path="#/admin/SEINEETMARNE/autres/:id"
 									component={GetSEINEETMARNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/autres/:id"
+									path="#/admin/update/SEINEETMARNE/autres/:id"
 									component={UpdateSEINEETMARNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/autres"
+									path="#/admin/post/SEINEETMARNE/autres"
 									component={PostSEINEETMARNEautres}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/autres/:id"
+									path="#/admin/delete/SEINEETMARNE/autres/:id"
 									component={DeleteSEINEETMARNEautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/autres_structures"
+									path="#/admin/SEINEETMARNE/autres_structures"
 									component={SEINEETMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/autres_structures/:id"
+									path="#/admin/SEINEETMARNE/autres_structures/:id"
 									component={GetSEINEETMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/autres_structures/:id"
+									path="#/admin/update/SEINEETMARNE/autres_structures/:id"
 									component={UpdateSEINEETMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/autres_structures"
+									path="#/admin/post/SEINEETMARNE/autres_structures"
 									component={PostSEINEETMARNEautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/autres_structures/:id"
+									path="#/admin/delete/SEINEETMARNE/autres_structures/:id"
 									component={DeleteSEINEETMARNEautres_structures}
 								/>
 
 								{/* USP */}
-								<AdminRoute exact path="/admin/SEINEETMARNE/usp" component={SEINEETMARNE} />
-								<AdminRoute exact path="/admin/SEINEETMARNE/usp/:id" component={GetUSPSEINEETMARNE} />
+								<AdminRoute exact path="#/admin/SEINEETMARNE/usp" component={SEINEETMARNE} />
+								<AdminRoute exact path="#/admin/SEINEETMARNE/usp/:id" component={GetUSPSEINEETMARNE} />
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/usp/:id"
+									path="#/admin/update/SEINEETMARNE/usp/:id"
 									component={UpdateUSPSEINEETMARNE}
 								/>
-								<AdminRoute exact path="/admin/post/SEINEETMARNE/usp" component={PostUSPSEINEETMARNE} />
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/usp/:id"
+									path="#/admin/post/SEINEETMARNE/usp"
+									component={PostUSPSEINEETMARNE}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/delete/SEINEETMARNE/usp/:id"
 									component={DeleteUSPSEINEETMARNE}
 								/>
 								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/SEINEETMARNE/reseaux" component={SEINEETMARNERESEAUX} />
+								<AdminRoute exact path="#/admin/SEINEETMARNE/reseaux" component={SEINEETMARNERESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/reseaux/:id"
+									path="#/admin/SEINEETMARNE/reseaux/:id"
 									component={GetSEINEETMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/reseaux/:id"
+									path="#/admin/update/SEINEETMARNE/reseaux/:id"
 									component={UpdateSEINEETMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/reseaux"
+									path="#/admin/post/SEINEETMARNE/reseaux"
 									component={PostSEINEETMARNERESEAUX}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/reseaux/:id"
+									path="#/admin/delete/SEINEETMARNE/reseaux/:id"
 									component={DeleteSEINEETMARNERESEAUX}
 								/>
 								{/* ASSOS */}
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/association"
+									path="#/admin/SEINEETMARNE/association"
 									component={SEINEETMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/association/:id"
+									path="#/admin/SEINEETMARNE/association/:id"
 									component={GetSEINEETMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/association/:id"
+									path="#/admin/update/SEINEETMARNE/association/:id"
 									component={UpdateSEINEETMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/association"
+									path="#/admin/post/SEINEETMARNE/association"
 									component={PostSEINEETMARNEASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/association/:id"
+									path="#/admin/delete/SEINEETMARNE/association/:id"
 									component={DeleteSEINEETMARNEASSOS}
 								/>
 								{/* HAD */}
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/equipesmobiles"
+									path="#/admin/SEINEETMARNE/equipesmobiles"
 									component={SEINEETMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/equipesmobiles/:id"
+									path="#/admin/SEINEETMARNE/equipesmobiles/:id"
 									component={GetSEINEETMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/equipesmobiles/:id"
+									path="#/admin/update/SEINEETMARNE/equipesmobiles/:id"
 									component={UpdateSEINEETMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/equipesmobiles"
+									path="#/admin/post/SEINEETMARNE/equipesmobiles"
 									component={PostSEINEETMARNEHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/equipesmobiles/:id"
+									path="#/admin/delete/SEINEETMARNE/equipesmobiles/:id"
 									component={DeleteSEINEETMARNEHAD}
 								/>
 								{/* STRUCTURES */}
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/structures"
+									path="#/admin/SEINEETMARNE/structures"
 									component={SEINEETMARNETRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/SEINEETMARNE/structures/:id"
+									path="#/admin/SEINEETMARNE/structures/:id"
 									component={GetSEINEETMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/structures/:id"
+									path="#/admin/update/SEINEETMARNE/structures/:id"
 									component={UpdateSEINEETMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/structures"
+									path="#/admin/post/SEINEETMARNE/structures"
 									component={PostSEINEETMARNESTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/structures/:id"
+									path="#/admin/delete/SEINEETMARNE/structures/:id"
 									component={DeleteSEINEETMARNESTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/SEINEETMARNE/lits" component={SEINEETMARNELITS} />
-								<AdminRoute exact path="/admin/SEINEETMARNE/lits/:id" component={GetSEINEETMARNELITS} />
+								<AdminRoute exact path="#/admin/SEINEETMARNE/lits" component={SEINEETMARNELITS} />
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/lits/:id"
+									path="#/admin/SEINEETMARNE/lits/:id"
+									component={GetSEINEETMARNELITS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/update/SEINEETMARNE/lits/:id"
 									component={UpdateSEINEETMARNELITS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/lits"
+									path="#/admin/post/SEINEETMARNE/lits"
 									component={PostSEINEETMARNELITS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/lits/:id"
+									path="#/admin/delete/SEINEETMARNE/lits/:id"
 									component={DeleteSEINEETMARNELITS}
 								/>
 							</Switch>
 							<Switch>
 								{/* Yvelines */}
 								{/* {Autres} */}
-								<AdminRoute exact path="/admin/YVELINES/autres" component={YVELINESautres} />
-								<AdminRoute exact path="/admin/YVELINES/autres/:id" component={GetYVELINESautres} />
+								<AdminRoute exact path="#/admin/YVELINES/autres" component={YVELINESautres} />
+								<AdminRoute exact path="#/admin/YVELINES/autres/:id" component={GetYVELINESautres} />
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/autres/:id"
+									path="#/admin/update/YVELINES/autres/:id"
 									component={UpdateYVELINESautres}
 								/>
-								<AdminRoute exact path="/admin/post/YVELINES/autres" component={PostYVELINESautres} />
+								<AdminRoute exact path="#/admin/post/YVELINES/autres" component={PostYVELINESautres} />
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/autres/:id"
+									path="#/admin/delete/YVELINES/autres/:id"
 									component={DeleteYVELINESautres}
 								/>
 
 								{/* {Autres_structures} */}
 								<AdminRoute
 									exact
-									path="/admin/YVELINES/autres_structures"
+									path="#/admin/YVELINES/autres_structures"
 									component={YVELINESautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/YVELINES/autres_structures/:id"
+									path="#/admin/YVELINES/autres_structures/:id"
 									component={GetYVELINESautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/autres_structures/:id"
+									path="#/admin/update/YVELINES/autres_structures/:id"
 									component={UpdateYVELINESautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/autres_structures"
+									path="#/admin/post/YVELINES/autres_structures"
 									component={PostYVELINESautres_structures}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/autres_structures/:id"
+									path="#/admin/delete/YVELINES/autres_structures/:id"
 									component={DeleteYVELINESautres_structures}
 								/>
 								{/* USP */}
-								<AdminRoute exact path="/admin/YVELINES/usp" component={YVELINES} />
-								<AdminRoute exact path="/admin/YVELINES/usp/:id" component={GetUSPYVELINES} />
-								<AdminRoute exact path="/admin/update/YVELINES/usp/:id" component={UpdateUSPYVELINES} />
-								<AdminRoute exact path="/admin/post/YVELINES/usp" component={PostUSPYVELINES} />
-								<AdminRoute exact path="/admin/delete/YVELINES/usp/:id" component={DeleteUSPYVELINES} />
-								{/* RESEAUX */}
-								<AdminRoute exact path="/admin/YVELINES/reseaux" component={YVELINESRESEAUX} />
-								<AdminRoute exact path="/admin/YVELINES/reseaux/:id" component={GetYVELINESRESEAUX} />
+								<AdminRoute exact path="#/admin/YVELINES/usp" component={YVELINES} />
+								<AdminRoute exact path="#/admin/YVELINES/usp/:id" component={GetUSPYVELINES} />
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/reseaux/:id"
+									path="#/admin/update/YVELINES/usp/:id"
+									component={UpdateUSPYVELINES}
+								/>
+								<AdminRoute exact path="#/admin/post/YVELINES/usp" component={PostUSPYVELINES} />
+								<AdminRoute
+									exact
+									path="#/admin/delete/YVELINES/usp/:id"
+									component={DeleteUSPYVELINES}
+								/>
+								{/* RESEAUX */}
+								<AdminRoute exact path="#/admin/YVELINES/reseaux" component={YVELINESRESEAUX} />
+								<AdminRoute exact path="#/admin/YVELINES/reseaux/:id" component={GetYVELINESRESEAUX} />
+								<AdminRoute
+									exact
+									path="#/admin/update/YVELINES/reseaux/:id"
 									component={UpdateYVELINESRESEAUX}
 								/>
-								<AdminRoute exact path="/admin/post/YVELINES/reseaux" component={PostYVELINESRESEAUX} />
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/reseaux/:id"
+									path="#/admin/post/YVELINES/reseaux"
+									component={PostYVELINESRESEAUX}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/delete/YVELINES/reseaux/:id"
 									component={DeleteYVELINESRESEAUX}
 								/>
 								{/* ASSOS */}
-								<AdminRoute exact path="/admin/YVELINES/association" component={YVELINESASSOS} />
-								<AdminRoute exact path="/admin/YVELINES/association/:id" component={GetYVELINESASSOS} />
+								<AdminRoute exact path="#/admin/YVELINES/association" component={YVELINESASSOS} />
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/association/:id"
+									path="#/admin/YVELINES/association/:id"
+									component={GetYVELINESASSOS}
+								/>
+								<AdminRoute
+									exact
+									path="#/admin/update/YVELINES/association/:id"
 									component={UpdateYVELINESASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/association"
+									path="#/admin/post/YVELINES/association"
 									component={PostYVELINESASSOS}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/association/:id"
+									path="#/admin/delete/YVELINES/association/:id"
 									component={DeleteYVELINESASSOS}
 								/>
 								{/* HAD */}
-								<AdminRoute exact path="/admin/YVELINES/equipesmobiles" component={YVELINESHAD} />
+								<AdminRoute exact path="#/admin/YVELINES/equipesmobiles" component={YVELINESHAD} />
 								<AdminRoute
 									exact
-									path="/admin/YVELINES/equipesmobiles/:id"
+									path="#/admin/YVELINES/equipesmobiles/:id"
 									component={GetYVELINESHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/equipesmobiles/:id"
+									path="#/admin/update/YVELINES/equipesmobiles/:id"
 									component={UpdateYVELINESHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/equipesmobiles"
+									path="#/admin/post/YVELINES/equipesmobiles"
 									component={PostYVELINESHAD}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/equipesmobiles/:id"
+									path="#/admin/delete/YVELINES/equipesmobiles/:id"
 									component={DeleteYVELINESHAD}
 								/>
 								{/* STRUCTURES */}
-								<AdminRoute exact path="/admin/YVELINES/structures" component={YVELINESTRUCTURES} />
+								<AdminRoute exact path="#/admin/YVELINES/structures" component={YVELINESTRUCTURES} />
 								<AdminRoute
 									exact
-									path="/admin/YVELINES/structures/:id"
+									path="#/admin/YVELINES/structures/:id"
 									component={GetYVELINESSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/structures/:id"
+									path="#/admin/update/YVELINES/structures/:id"
 									component={UpdateYVELINESSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/structures"
+									path="#/admin/post/YVELINES/structures"
 									component={PostYVELINESSTRUCTURES}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/structures/:id"
+									path="#/admin/delete/YVELINES/structures/:id"
 									component={DeleteYVELINESSTRUCTURES}
 								/>
 								{/* LITS */}
-								<AdminRoute exact path="/admin/YVELINES/lits" component={YVELINESLITS} />
-								<AdminRoute exact path="/admin/YVELINES/lits/:id" component={GetYVELINESLITS} />
+								<AdminRoute exact path="#/admin/YVELINES/lits" component={YVELINESLITS} />
+								<AdminRoute exact path="#/admin/YVELINES/lits/:id" component={GetYVELINESLITS} />
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/lits/:id"
+									path="#/admin/update/YVELINES/lits/:id"
 									component={UpdateYVELINESLITS}
 								/>
-								<AdminRoute exact path="/admin/post/YVELINES/lits" component={PostYVELINESLITS} />
+								<AdminRoute exact path="#/admin/post/YVELINES/lits" component={PostYVELINESLITS} />
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/lits/:id"
+									path="#/admin/delete/YVELINES/lits/:id"
 									component={DeleteYVELINESLITS}
 								/>
 
@@ -2590,30 +2676,30 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/reseaux"
+									path="#/admin/post/PARIS/maps/reseaux"
 									component={PostPARISRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/reseaux/:id"
+									path="#/admin/update/PARIS/maps/reseaux/:id"
 									component={UpdatePARISRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/reseaux/:id"
+									path="#/admin/delete/PARIS/maps/reseaux/:id"
 									component={DeletePARISRESEAUXMaps}
 								/>
 								{/* USP */}
 
-								<AdminRoute exact path="/admin/post/PARIS/maps/usp" component={PostPARISUSPMaps} />
+								<AdminRoute exact path="#/admin/post/PARIS/maps/usp" component={PostPARISUSPMaps} />
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/usp/:id"
+									path="#/admin/update/PARIS/maps/usp/:id"
 									component={UpdatePARISUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/usp/:id"
+									path="#/admin/delete/PARIS/maps/usp/:id"
 									component={DeletePARISUSPMaps}
 								/>
 
@@ -2621,17 +2707,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/association"
+									path="#/admin/post/PARIS/maps/association"
 									component={PostPARISASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/association/:id"
+									path="#/admin/update/PARIS/maps/association/:id"
 									component={UpdatePARISASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/association/:id"
+									path="#/admin/delete/PARIS/maps/association/:id"
 									component={DeletePARISASSOSMaps}
 								/>
 
@@ -2639,17 +2725,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/equipesmobiles"
+									path="#/admin/post/PARIS/maps/equipesmobiles"
 									component={PostPARISTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/equipesmobiles/:id"
+									path="#/admin/update/PARIS/maps/equipesmobiles/:id"
 									component={UpdatePARISTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/equipesmobiles/:id"
+									path="#/admin/delete/PARIS/maps/equipesmobiles/:id"
 									component={DeletePARISTEAMMaps}
 								/>
 
@@ -2657,31 +2743,31 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/structures"
+									path="#/admin/post/PARIS/maps/structures"
 									component={PostPARISSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/structures/:id"
+									path="#/admin/update/PARIS/maps/structures/:id"
 									component={UpdatePARISSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/structures/:id"
+									path="#/admin/delete/PARIS/maps/structures/:id"
 									component={DeletePARISSTRUCTURESMaps}
 								/>
 
 								{/* LITS */}
 
-								<AdminRoute exact path="/admin/post/PARIS/maps/lits" component={PostPARISLITSMaps} />
+								<AdminRoute exact path="#/admin/post/PARIS/maps/lits" component={PostPARISLITSMaps} />
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/lits/:id"
+									path="#/admin/update/PARIS/maps/lits/:id"
 									component={UpdatePARISLITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/lits/:id"
+									path="#/admin/delete/PARIS/maps/lits/:id"
 									component={DeletePARISLITSMaps}
 								/>
 
@@ -2689,17 +2775,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/autres"
+									path="#/admin/post/PARIS/maps/autres"
 									component={PostPARISAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/autres/:id"
+									path="#/admin/update/PARIS/maps/autres/:id"
 									component={UpdatePARISAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/autres/:id"
+									path="#/admin/delete/PARIS/maps/autres/:id"
 									component={DeletePARISAUTRESMaps}
 								/>
 
@@ -2707,51 +2793,51 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/PARIS/maps/autres_structures"
+									path="#/admin/post/PARIS/maps/autres_structures"
 									component={PostPARISAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/PARIS/maps/autres_structures/:id"
+									path="#/admin/update/PARIS/maps/autres_structures/:id"
 									component={UpdatePARISAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/PARIS/maps/autres_structures/:id"
+									path="#/admin/delete/PARIS/maps/autres_structures/:id"
 									component={DeletePARISAUTRES_STRUCTURESMaps}
 								/>
 								{/* VAL DE MARNE */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/reseaux"
+									path="#/admin/post/VALDEMARNE/maps/reseaux"
 									component={PostVALDEMARNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/reseaux/:id"
+									path="#/admin/update/VALDEMARNE/maps/reseaux/:id"
 									component={UpdateVALDEMARNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/reseaux/:id"
+									path="#/admin/delete/VALDEMARNE/maps/reseaux/:id"
 									component={DeleteVALDEMARNERESEAUXMaps}
 								/>
 								{/* USP */}
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/usp"
+									path="#/admin/post/VALDEMARNE/maps/usp"
 									component={PostVALDEMARNEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/usp/:id"
+									path="#/admin/update/VALDEMARNE/maps/usp/:id"
 									component={UpdateVALDEMARNEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/usp/:id"
+									path="#/admin/delete/VALDEMARNE/maps/usp/:id"
 									component={DeleteVALDEMARNEUSPMaps}
 								/>
 
@@ -2759,17 +2845,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/association"
+									path="#/admin/post/VALDEMARNE/maps/association"
 									component={PostVALDEMARNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/association/:id"
+									path="#/admin/update/VALDEMARNE/maps/association/:id"
 									component={UpdateVALDEMARNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/association/:id"
+									path="#/admin/delete/VALDEMARNE/maps/association/:id"
 									component={DeleteVALDEMARNEASSOSMaps}
 								/>
 
@@ -2777,17 +2863,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/equipesmobiles"
+									path="#/admin/post/VALDEMARNE/maps/equipesmobiles"
 									component={PostVALDEMARNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/equipesmobiles/:id"
+									path="#/admin/update/VALDEMARNE/maps/equipesmobiles/:id"
 									component={UpdateVALDEMARNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/equipesmobiles/:id"
+									path="#/admin/delete/VALDEMARNE/maps/equipesmobiles/:id"
 									component={DeleteVALDEMARNETEAMMaps}
 								/>
 
@@ -2795,17 +2881,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/structures"
+									path="#/admin/post/VALDEMARNE/maps/structures"
 									component={PostVALDEMARNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/structures/:id"
+									path="#/admin/update/VALDEMARNE/maps/structures/:id"
 									component={UpdateVALDEMARNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/structures/:id"
+									path="#/admin/delete/VALDEMARNE/maps/structures/:id"
 									component={DeleteVALDEMARNESTRUCTURESMaps}
 								/>
 
@@ -2813,17 +2899,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/lits"
+									path="#/admin/post/VALDEMARNE/maps/lits"
 									component={PostVALDEMARNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/lits/:id"
+									path="#/admin/update/VALDEMARNE/maps/lits/:id"
 									component={UpdateVALDEMARNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/lits/:id"
+									path="#/admin/delete/VALDEMARNE/maps/lits/:id"
 									component={DeleteVALDEMARNELITSMaps}
 								/>
 
@@ -2831,17 +2917,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/autres"
+									path="#/admin/post/VALDEMARNE/maps/autres"
 									component={PostVALDEMARNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/autres/:id"
+									path="#/admin/update/VALDEMARNE/maps/autres/:id"
 									component={UpdateVALDEMARNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/autres/:id"
+									path="#/admin/delete/VALDEMARNE/maps/autres/:id"
 									component={DeleteVALDEMARNEAUTRESMaps}
 								/>
 
@@ -2849,51 +2935,51 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDEMARNE/maps/autres_structures"
+									path="#/admin/post/VALDEMARNE/maps/autres_structures"
 									component={PostVALDEMARNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDEMARNE/maps/autres_structures/:id"
+									path="#/admin/update/VALDEMARNE/maps/autres_structures/:id"
 									component={UpdateVALDEMARNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDEMARNE/maps/autres_structures/:id"
+									path="#/admin/delete/VALDEMARNE/maps/autres_structures/:id"
 									component={DeleteVALDEMARNEAUTRES_STRUCTURESMaps}
 								/>
 								{/* VAL DOISE */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/reseaux"
+									path="#/admin/post/VALDOISE/maps/reseaux"
 									component={PostVALDOISERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/reseaux/:id"
+									path="#/admin/update/VALDOISE/maps/reseaux/:id"
 									component={UpdateVALDOISERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/reseaux/:id"
+									path="#/admin/delete/VALDOISE/maps/reseaux/:id"
 									component={DeleteVALDOISERESEAUXMaps}
 								/>
 								{/* USP */}
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/usp"
+									path="#/admin/post/VALDOISE/maps/usp"
 									component={PostVALDOISEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/usp/:id"
+									path="#/admin/update/VALDOISE/maps/usp/:id"
 									component={UpdateVALDOISEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/usp/:id"
+									path="#/admin/delete/VALDOISE/maps/usp/:id"
 									component={DeleteVALDOISEUSPMaps}
 								/>
 
@@ -2901,17 +2987,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/association"
+									path="#/admin/post/VALDOISE/maps/association"
 									component={PostVALDOISEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/association/:id"
+									path="#/admin/update/VALDOISE/maps/association/:id"
 									component={UpdateVALDOISEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/association/:id"
+									path="#/admin/delete/VALDOISE/maps/association/:id"
 									component={DeleteVALDOISEASSOSMaps}
 								/>
 
@@ -2919,17 +3005,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/equipesmobiles"
+									path="#/admin/post/VALDOISE/maps/equipesmobiles"
 									component={PostVALDOISETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/equipesmobiles/:id"
+									path="#/admin/update/VALDOISE/maps/equipesmobiles/:id"
 									component={UpdateVALDOISETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/equipesmobiles/:id"
+									path="#/admin/delete/VALDOISE/maps/equipesmobiles/:id"
 									component={DeleteVALDOISETEAMMaps}
 								/>
 
@@ -2937,17 +3023,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/structures"
+									path="#/admin/post/VALDOISE/maps/structures"
 									component={PostVALDOISESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/structures/:id"
+									path="#/admin/update/VALDOISE/maps/structures/:id"
 									component={UpdateVALDOISESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/structures/:id"
+									path="#/admin/delete/VALDOISE/maps/structures/:id"
 									component={DeleteVALDOISESTRUCTURESMaps}
 								/>
 
@@ -2955,17 +3041,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/lits"
+									path="#/admin/post/VALDOISE/maps/lits"
 									component={PostVALDOISELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/lits/:id"
+									path="#/admin/update/VALDOISE/maps/lits/:id"
 									component={UpdateVALDOISELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/lits/:id"
+									path="#/admin/delete/VALDOISE/maps/lits/:id"
 									component={DeleteVALDOISELITSMaps}
 								/>
 
@@ -2973,17 +3059,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/autres"
+									path="#/admin/post/VALDOISE/maps/autres"
 									component={PostVALDOISEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/autres/:id"
+									path="#/admin/update/VALDOISE/maps/autres/:id"
 									component={UpdateVALDOISEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/autres/:id"
+									path="#/admin/delete/VALDOISE/maps/autres/:id"
 									component={DeleteVALDOISEAUTRESMaps}
 								/>
 
@@ -2991,51 +3077,51 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/VALDOISE/maps/autres_structures"
+									path="#/admin/post/VALDOISE/maps/autres_structures"
 									component={PostVALDOISEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/VALDOISE/maps/autres_structures/:id"
+									path="#/admin/update/VALDOISE/maps/autres_structures/:id"
 									component={UpdateVALDOISEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/VALDOISE/maps/autres_structures/:id"
+									path="#/admin/delete/VALDOISE/maps/autres_structures/:id"
 									component={DeleteVALDOISEAUTRES_STRUCTURESMaps}
 								/>
 								{/* SEINE ET MARNE */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/reseaux"
+									path="#/admin/post/SEINEETMARNE/maps/reseaux"
 									component={PostSEINEETMARNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/reseaux/:id"
+									path="#/admin/update/SEINEETMARNE/maps/reseaux/:id"
 									component={UpdateSEINEETMARNERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/reseaux/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/reseaux/:id"
 									component={DeleteSEINEETMARNERESEAUXMaps}
 								/>
 								{/* USP */}
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/usp"
+									path="#/admin/post/SEINEETMARNE/maps/usp"
 									component={PostSEINEETMARNEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/usp/:id"
+									path="#/admin/update/SEINEETMARNE/maps/usp/:id"
 									component={UpdateSEINEETMARNEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/usp/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/usp/:id"
 									component={DeleteSEINEETMARNEUSPMaps}
 								/>
 
@@ -3043,17 +3129,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/association"
+									path="#/admin/post/SEINEETMARNE/maps/association"
 									component={PostSEINEETMARNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/association/:id"
+									path="#/admin/update/SEINEETMARNE/maps/association/:id"
 									component={UpdateSEINEETMARNEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/association/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/association/:id"
 									component={DeleteSEINEETMARNEASSOSMaps}
 								/>
 
@@ -3061,17 +3147,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/equipesmobiles"
+									path="#/admin/post/SEINEETMARNE/maps/equipesmobiles"
 									component={PostSEINEETMARNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/equipesmobiles/:id"
+									path="#/admin/update/SEINEETMARNE/maps/equipesmobiles/:id"
 									component={UpdateSEINEETMARNETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/equipesmobiles/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/equipesmobiles/:id"
 									component={DeleteSEINEETMARNETEAMMaps}
 								/>
 
@@ -3079,17 +3165,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/structures"
+									path="#/admin/post/SEINEETMARNE/maps/structures"
 									component={PostSEINEETMARNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/structures/:id"
+									path="#/admin/update/SEINEETMARNE/maps/structures/:id"
 									component={UpdateSEINEETMARNESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/structures/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/structures/:id"
 									component={DeleteSEINEETMARNESTRUCTURESMaps}
 								/>
 
@@ -3097,17 +3183,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/lits"
+									path="#/admin/post/SEINEETMARNE/maps/lits"
 									component={PostSEINEETMARNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/lits/:id"
+									path="#/admin/update/SEINEETMARNE/maps/lits/:id"
 									component={UpdateSEINEETMARNELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/lits/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/lits/:id"
 									component={DeleteSEINEETMARNELITSMaps}
 								/>
 
@@ -3115,17 +3201,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/autres"
+									path="#/admin/post/SEINEETMARNE/maps/autres"
 									component={PostSEINEETMARNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/autres/:id"
+									path="#/admin/update/SEINEETMARNE/maps/autres/:id"
 									component={UpdateSEINEETMARNEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/autres/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/autres/:id"
 									component={DeleteSEINEETMARNEAUTRESMaps}
 								/>
 
@@ -3133,51 +3219,51 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINEETMARNE/maps/autres_structures"
+									path="#/admin/post/SEINEETMARNE/maps/autres_structures"
 									component={PostSEINEETMARNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINEETMARNE/maps/autres_structures/:id"
+									path="#/admin/update/SEINEETMARNE/maps/autres_structures/:id"
 									component={UpdateSEINEETMARNEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINEETMARNE/maps/autres_structures/:id"
+									path="#/admin/delete/SEINEETMARNE/maps/autres_structures/:id"
 									component={DeleteSEINEETMARNEAUTRES_STRUCTURESMaps}
 								/>
 								{/* SEINE SAINT DENIS */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/reseaux"
+									path="#/admin/post/SEINESAINTDENIS/maps/reseaux"
 									component={PostSEINESAINTDENISRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/reseaux/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/reseaux/:id"
 									component={UpdateSEINESAINTDENISRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/reseaux/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/reseaux/:id"
 									component={DeleteSEINESAINTDENISRESEAUXMaps}
 								/>
 								{/* USP */}
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/usp"
+									path="#/admin/post/SEINESAINTDENIS/maps/usp"
 									component={PostSEINESAINTDENISUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/usp/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/usp/:id"
 									component={UpdateSEINESAINTDENISUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/usp/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/usp/:id"
 									component={DeleteSEINESAINTDENISUSPMaps}
 								/>
 
@@ -3185,17 +3271,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/association"
+									path="#/admin/post/SEINESAINTDENIS/maps/association"
 									component={PostSEINESAINTDENISASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/association/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/association/:id"
 									component={UpdateSEINESAINTDENISASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/association/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/association/:id"
 									component={DeleteSEINESAINTDENISASSOSMaps}
 								/>
 
@@ -3203,17 +3289,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/equipesmobiles"
+									path="#/admin/post/SEINESAINTDENIS/maps/equipesmobiles"
 									component={PostSEINESAINTDENISTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/equipesmobiles/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/equipesmobiles/:id"
 									component={UpdateSEINESAINTDENISTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/equipesmobiles/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/equipesmobiles/:id"
 									component={DeleteSEINESAINTDENISTEAMMaps}
 								/>
 
@@ -3221,17 +3307,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/structures"
+									path="#/admin/post/SEINESAINTDENIS/maps/structures"
 									component={PostSEINESAINTDENISSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/structures/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/structures/:id"
 									component={UpdateSEINESAINTDENISSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/structures/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/structures/:id"
 									component={DeleteSEINESAINTDENISSTRUCTURESMaps}
 								/>
 
@@ -3239,17 +3325,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/lits"
+									path="#/admin/post/SEINESAINTDENIS/maps/lits"
 									component={PostSEINESAINTDENISLITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/lits/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/lits/:id"
 									component={UpdateSEINESAINTDENISLITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/lits/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/lits/:id"
 									component={DeleteSEINESAINTDENISLITSMaps}
 								/>
 
@@ -3257,17 +3343,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/autres"
+									path="#/admin/post/SEINESAINTDENIS/maps/autres"
 									component={PostSEINESAINTDENISAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/autres/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/autres/:id"
 									component={UpdateSEINESAINTDENISAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/autres/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/autres/:id"
 									component={DeleteSEINESAINTDENISAUTRESMaps}
 								/>
 
@@ -3275,34 +3361,34 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/SEINESAINTDENIS/maps/autres_structures"
+									path="#/admin/post/SEINESAINTDENIS/maps/autres_structures"
 									component={PostSEINESAINTDENISAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/SEINESAINTDENIS/maps/autres_structures/:id"
+									path="#/admin/update/SEINESAINTDENIS/maps/autres_structures/:id"
 									component={UpdateSEINESAINTDENISAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/SEINESAINTDENIS/maps/autres_structures/:id"
+									path="#/admin/delete/SEINESAINTDENIS/maps/autres_structures/:id"
 									component={DeleteSEINESAINTDENISAUTRES_STRUCTURESMaps}
 								/>
 								{/* YVELINES */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/reseaux"
+									path="#/admin/post/YVELINES/maps/reseaux"
 									component={PostYVELINESRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/reseaux/:id"
+									path="#/admin/update/YVELINES/maps/reseaux/:id"
 									component={UpdateYVELINESRESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/reseaux/:id"
+									path="#/admin/delete/YVELINES/maps/reseaux/:id"
 									component={DeleteYVELINESRESEAUXMaps}
 								/>
 
@@ -3310,17 +3396,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/usp"
+									path="#/admin/post/YVELINES/maps/usp"
 									component={PostYVELINESUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/usp/:id"
+									path="#/admin/update/YVELINES/maps/usp/:id"
 									component={UpdateYVELINESUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/usp/:id"
+									path="#/admin/delete/YVELINES/maps/usp/:id"
 									component={DeleteYVELINESUSPMaps}
 								/>
 
@@ -3328,17 +3414,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/association"
+									path="#/admin/post/YVELINES/maps/association"
 									component={PostYVELINESASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/association/:id"
+									path="#/admin/update/YVELINES/maps/association/:id"
 									component={UpdateYVELINESASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/association/:id"
+									path="#/admin/delete/YVELINES/maps/association/:id"
 									component={DeleteYVELINESASSOSMaps}
 								/>
 
@@ -3346,17 +3432,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/equipesmobiles"
+									path="#/admin/post/YVELINES/maps/equipesmobiles"
 									component={PostYVELINESTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/equipesmobiles/:id"
+									path="#/admin/update/YVELINES/maps/equipesmobiles/:id"
 									component={UpdateYVELINESTEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/equipesmobiles/:id"
+									path="#/admin/delete/YVELINES/maps/equipesmobiles/:id"
 									component={DeleteYVELINESTEAMMaps}
 								/>
 
@@ -3364,17 +3450,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/structures"
+									path="#/admin/post/YVELINES/maps/structures"
 									component={PostYVELINESSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/structures/:id"
+									path="#/admin/update/YVELINES/maps/structures/:id"
 									component={UpdateYVELINESSTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/structures/:id"
+									path="#/admin/delete/YVELINES/maps/structures/:id"
 									component={DeleteYVELINESSTRUCTURESMaps}
 								/>
 
@@ -3382,17 +3468,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/lits"
+									path="#/admin/post/YVELINES/maps/lits"
 									component={PostYVELINESLITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/lits/:id"
+									path="#/admin/update/YVELINES/maps/lits/:id"
 									component={UpdateYVELINESLITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/lits/:id"
+									path="#/admin/delete/YVELINES/maps/lits/:id"
 									component={DeleteYVELINESLITSMaps}
 								/>
 
@@ -3400,17 +3486,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/autres"
+									path="#/admin/post/YVELINES/maps/autres"
 									component={PostYVELINESAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/autres/:id"
+									path="#/admin/update/YVELINES/maps/autres/:id"
 									component={UpdateYVELINESAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/autres/:id"
+									path="#/admin/delete/YVELINES/maps/autres/:id"
 									component={DeleteYVELINESAUTRESMaps}
 								/>
 
@@ -3418,51 +3504,51 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/YVELINES/maps/autres_structures"
+									path="#/admin/post/YVELINES/maps/autres_structures"
 									component={PostYVELINESAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/YVELINES/maps/autres_structures/:id"
+									path="#/admin/update/YVELINES/maps/autres_structures/:id"
 									component={UpdateYVELINESAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/YVELINES/maps/autres_structures/:id"
+									path="#/admin/delete/YVELINES/maps/autres_structures/:id"
 									component={DeleteYVELINESAUTRES_STRUCTURESMaps}
 								/>
 								{/* HAUT DE SEINE */}
 								{/* {RESEAUX} */}
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/reseaux"
+									path="#/admin/post/HAUTDESEINE/maps/reseaux"
 									component={PostHAUTDESEINERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/reseaux/:id"
+									path="#/admin/update/HAUTDESEINE/maps/reseaux/:id"
 									component={UpdateHAUTDESEINERESEAUXMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/reseaux/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/reseaux/:id"
 									component={DeleteHAUTDESEINERESEAUXMaps}
 								/>
 								{/* USP */}
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/usp"
+									path="#/admin/post/HAUTDESEINE/maps/usp"
 									component={PostHAUTDESEINEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/usp/:id"
+									path="#/admin/update/HAUTDESEINE/maps/usp/:id"
 									component={UpdateHAUTDESEINEUSPMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/usp/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/usp/:id"
 									component={DeleteHAUTDESEINEUSPMaps}
 								/>
 
@@ -3470,17 +3556,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/association"
+									path="#/admin/post/HAUTDESEINE/maps/association"
 									component={PostHAUTDESEINEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/association/:id"
+									path="#/admin/update/HAUTDESEINE/maps/association/:id"
 									component={UpdateHAUTDESEINEASSOSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/association/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/association/:id"
 									component={DeleteHAUTDESEINEASSOSMaps}
 								/>
 
@@ -3488,17 +3574,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/equipesmobiles"
+									path="#/admin/post/HAUTDESEINE/maps/equipesmobiles"
 									component={PostHAUTDESEINETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/equipesmobiles/:id"
+									path="#/admin/update/HAUTDESEINE/maps/equipesmobiles/:id"
 									component={UpdateHAUTDESEINETEAMMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/equipesmobiles/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/equipesmobiles/:id"
 									component={DeleteHAUTDESEINETEAMMaps}
 								/>
 
@@ -3506,17 +3592,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/structures"
+									path="#/admin/post/HAUTDESEINE/maps/structures"
 									component={PostHAUTDESEINESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/structures/:id"
+									path="#/admin/update/HAUTDESEINE/maps/structures/:id"
 									component={UpdateHAUTDESEINESTRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/structures/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/structures/:id"
 									component={DeleteHAUTDESEINESTRUCTURESMaps}
 								/>
 
@@ -3524,17 +3610,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/lits"
+									path="#/admin/post/HAUTDESEINE/maps/lits"
 									component={PostHAUTDESEINELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/lits/:id"
+									path="#/admin/update/HAUTDESEINE/maps/lits/:id"
 									component={UpdateHAUTDESEINELITSMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/lits/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/lits/:id"
 									component={DeleteHAUTDESEINELITSMaps}
 								/>
 
@@ -3542,17 +3628,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/autres"
+									path="#/admin/post/HAUTDESEINE/maps/autres"
 									component={PostHAUTDESEINEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/autres/:id"
+									path="#/admin/update/HAUTDESEINE/maps/autres/:id"
 									component={UpdateHAUTDESEINEAUTRESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/autres/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/autres/:id"
 									component={DeleteHAUTDESEINEAUTRESMaps}
 								/>
 
@@ -3560,17 +3646,17 @@ class App extends Component {
 
 								<AdminRoute
 									exact
-									path="/admin/post/HAUTDESEINE/maps/autres_structures"
+									path="#/admin/post/HAUTDESEINE/maps/autres_structures"
 									component={PostHAUTDESEINEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/update/HAUTDESEINE/maps/autres_structures/:id"
+									path="#/admin/update/HAUTDESEINE/maps/autres_structures/:id"
 									component={UpdateHAUTDESEINEAUTRES_STRUCTURESMaps}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/delete/HAUTDESEINE/maps/autres_structures/:id"
+									path="#/admin/delete/HAUTDESEINE/maps/autres_structures/:id"
 									component={DeleteHAUTDESEINEAUTRES_STRUCTURESMaps}
 								/>
 							</Switch>
@@ -3578,363 +3664,367 @@ class App extends Component {
 							<Switch>
 								{/* soins palliatifs */}
 								{/* Coordination régionale */}
-								<Route exact path="/menu/coordinationregionale/corpalif/" component={CorpalifPage} />
+								<Route exact path="#/menu/coordinationregionale/corpalif/" component={CorpalifPage} />
 								<Route
 									exact
-									path="/menu/coordinationregionale/orientationregionale/"
+									path="#/menu/coordinationregionale/orientationregionale/"
 									component={OrientationPage}
 								/>
-								<Route exact path="/menu/coordinationregionale/adherer/" component={AdhererPage} />
+								<Route exact path="#/menu/coordinationregionale/adherer/" component={AdhererPage} />
 								<Route
 									exact
-									path="/menu/coordinationregionale/adherer/formulaire/:id"
+									path="#/menu/coordinationregionale/adherer/formulaire/:id"
 									component={AdhererFile}
 								/>
 								{/* Veille medicale */}
 								<Route
 									exact
-									path="/menu/veillemedicale/recommandation&outils/"
+									path="#/menu/veillemedicale/recommandation&outils/"
 									component={PresentationRecommandation}
 								/>
 								<Route
 									exact
-									path="/menu/veillemedicale/recommandation&outils/:id"
+									path="#/menu/veillemedicale/recommandation&outils/:id"
 									component={RecommandationFile}
 								/>
 
 								{/* soins palliatifs */}
 								<Route
 									exact
-									path="/menu/soinspalliatifs/demarche-palliative"
+									path="#/menu/soinspalliatifs/demarche-palliative"
 									component={DemarchePalliatifPage}
 								/>
-								<Route exact path="/menu/soinspalliatifs/legislation" component={LegislationPage} />
+								<Route exact path="#/menu/soinspalliatifs/legislation" component={LegislationPage} />
 								{/* Veille medicale */}
 								<Route
 									exact
-									path="/menu/soinspalliatifs/accompagnement"
+									path="#/menu/soinspalliatifs/accompagnement"
 									component={AccompagnementRecommandation}
 								/>
 								{/* {evenements } */}
 								<Route
 									exact
-									path="/menu/veillemedicale/evenements/"
+									path="#/menu/veillemedicale/evenements/"
 									component={PresentationEvenement}
 								/>
-								<Route exact path="/menu/veillemedicale/evenements/:id" component={EvenementFile} />
+								<Route exact path="#/menu/veillemedicale/evenements/:id" component={EvenementFile} />
 
 								{/* {offres d'emplois et formations } */}
-								<Route exact path="/offres-d'emplois" component={PresentationEmploi} />
-								<Route exact path="/offres-d'emplois/:id" component={EmploiFile} />
-								<Route exact path="/formations" component={PresentationFormation} />
-								<Route exact path="/formation/:id" component={FormationFile} />
+								<Route exact path="#/offres-d'emplois" component={PresentationEmploi} />
+								<Route exact path="#/offres-d'emplois/:id" component={EmploiFile} />
+								<Route exact path="#/formations" component={PresentationFormation} />
+								<Route exact path="#/formation/:id" component={FormationFile} />
 								{/* {actualite } */}
 								<Route
 									exact
-									path="/menu/veillemedicale/actualites/"
+									path="#/menu/veillemedicale/actualites/"
 									component={PresentationActualite}
 								/>
-								<Route exact path="/menu/veillemedicale/actualites/:id" component={ActualiteFile} />
+								<Route exact path="#/menu/veillemedicale/actualites/:id" component={ActualiteFile} />
 								{/* {Contact page}	 */}
-								<Route exact path="/menu/contact" component={PresentationContact} />
+								<Route exact path="#/menu/contact" component={PresentationContact} />
 								{/* {Modal Open for Login}	 */}
-								<Route exact path="/login" component={OpenModalLogin} />
+								<Route exact path="#/login" component={OpenModalLogin} />
 								{/* {rencontres } */}
 								<Route
 									exact
-									path="/menu/veillemedicale/nosrencontres/"
+									path="#/menu/veillemedicale/nosrencontres/"
 									component={PresentationRencontre}
 								/>
-								<Route exact path="/menu/veillemedicale/nosrencontres/:id" component={RencontreFile} />
+								<Route exact path="#/menu/veillemedicale/nosrencontres/:id" component={RencontreFile} />
 								<Route
 									exact
-									path="/menu/veillemedicale/nosrencontres/contenusprives/:id"
+									path="#/menu/veillemedicale/nosrencontres/contenusprives/:id"
 									component={RencontrepriveFile}
 								/>
 								<Route
 									exact
-									path="/menu/veillemedicale/nosrencontres/contenusadherents/:id"
+									path="#/menu/veillemedicale/nosrencontres/contenusadherents/:id"
 									component={RencontreadherentFile}
 								/>
 								<PrivateRoute
 									exact
-									path="/menu/veillemedicale/infosforSubscribers"
+									path="#/menu/veillemedicale/infosforSubscribers"
 									component={PresentationInfoSubscribers}
 								/>
 								<PrivateRoute
 									exact
-									path="/menu/veillemedicale/infosforAdherents"
+									path="#/menu/veillemedicale/infosforAdherents"
 									component={PresentationInfoAdherents}
 								/>
 
 								{/* {admin } */}
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/legislation/"
+									path="#/admin/menu/soinspalliatifs/legislation/"
 									component={LegislationAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/demarche/"
+									path="#/admin/menu/soinspalliatifs/demarche/"
 									component={DemarchePalliatifAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/accompagnement/"
+									path="#/admin/menu/soinspalliatifs/accompagnement/"
 									component={AccompagnementAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/get/:id"
+									path="#/admin/menu/veillemedicale/recommandation&outils/get/:id"
 									component={Recommandation_id}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									path="#/admin/menu/coordinationregionale/orientation/orientation/"
 									component={OrientationAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/adherer/adherer/"
+									path="#/admin/menu/coordinationregionale/adherer/adherer/"
 									component={AdhererAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/corpalif/corpalif/"
+									path="#/admin/menu/coordinationregionale/corpalif/corpalif/"
 									component={CorpalifAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									path="#/admin/menu/coordinationregionale/orientation/orientation/"
 									component={OrientationAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/adherer/adherer/"
+									path="#/admin/menu/coordinationregionale/adherer/adherer/"
 									component={AdhererAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/corpalif/update/:id"
+									path="#/admin/menu/coordinationregionale/corpalif/update/:id"
 									component={updateCorpalif}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/orientation/update/:id"
+									path="#/admin/menu/coordinationregionale/orientation/update/:id"
 									component={UpdateOrientation}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/adherer/update/:id"
+									path="#/admin/menu/coordinationregionale/adherer/update/:id"
 									component={UpdateAdherer}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/coordinationregionale/orientation/orientation/"
+									path="#/admin/menu/coordinationregionale/orientation/orientation/"
 									component={OrientationAdminPage}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/demarche/update/:id"
+									path="#/admin/menu/soinspalliatifs/demarche/update/:id"
 									component={UpdateDemarche}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/legislation/update/:id"
+									path="#/admin/menu/soinspalliatifs/legislation/update/:id"
 									component={LegislationDemarche}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/soinspalliatifs/accompagnement/update/:id"
+									path="#/admin/menu/soinspalliatifs/accompagnement/update/:id"
 									component={UpdateAccompagnement}
 								/>
 
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/"
+									path="#/admin/menu/veillemedicale/recommandation&outils/"
 									component={Recommandation}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/delete/:id"
+									path="#/admin/menu/veillemedicale/recommandation&outils/delete/:id"
 									component={DeleteOneRecommandation}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/update/:id"
+									path="#/admin/menu/veillemedicale/recommandation&outils/update/:id"
 									component={UpdateRecommandations}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/recommandation&outils/post"
+									path="#/admin/menu/veillemedicale/recommandation&outils/post"
 									component={PostRecommandations}
 								/>
 								{/* evenements */}
-								<AdminRoute exact path="/admin/menu/veillemedicale/evenement/" component={Evenement} />
+								<AdminRoute exact path="#/admin/menu/veillemedicale/evenement/" component={Evenement} />
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/evenement/delete/:id"
+									path="#/admin/menu/veillemedicale/evenement/delete/:id"
 									component={DeleteOneEvenement}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/evenement/update/:id"
+									path="#/admin/menu/veillemedicale/evenement/update/:id"
 									component={UpdateEvenement}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/evenement/post"
+									path="#/admin/menu/veillemedicale/evenement/post"
 									component={PostEvenement}
 								/>
 								{/* rencontre_inscrit, Contenu privé */}
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfo/"
+									path="#/admin/menu/veillemedicale/privateInfo/"
 									component={Rencontre_inscrit}
 								/>
 
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfo/delete/:id"
+									path="#/admin/menu/veillemedicale/privateInfo/delete/:id"
 									component={DeleteOneRencontre_inscrit}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfo/update/:id"
+									path="#/admin/menu/veillemedicale/privateInfo/update/:id"
 									component={UpdateRencontre_inscrit}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfo/post"
+									path="#/admin/menu/veillemedicale/privateInfo/post"
 									component={PostRencontre_inscrit}
 								/>
 								{/* rencontre_adherent, Contenu privé */}
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/adherentsinfo/"
+									path="#/admin/menu/veillemedicale/adherentsinfo/"
 									component={Rencontre_adherent}
 								/>
 
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfoAdherent/delete/:id"
+									path="#/admin/menu/veillemedicale/privateInfoAdherent/delete/:id"
 									component={DeleteOneRencontre_adherent}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfoAdherent/update/:id"
+									path="#/admin/menu/veillemedicale/privateInfoAdherent/update/:id"
 									component={UpdateRencontre_adherent}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/privateInfoAdherent/post"
+									path="#/admin/menu/veillemedicale/privateInfoAdherent/post"
 									component={PostRencontre_adherent}
 								/>
 								{/* rencontre */}
-								<AdminRoute exact path="/admin/menu/veillemedicale/rencontre/" component={Rencontre} />
+								<AdminRoute exact path="#/admin/menu/veillemedicale/rencontre/" component={Rencontre} />
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/rencontre/delete/:id"
+									path="#/admin/menu/veillemedicale/rencontre/delete/:id"
 									component={DeleteOneRencontre}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/rencontre/update/:id"
+									path="#/admin/menu/veillemedicale/rencontre/update/:id"
 									component={UpdateRencontre}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/rencontre/post"
+									path="#/admin/menu/veillemedicale/rencontre/post"
 									component={PostRencontre}
 								/>
 								{/* actualite */}
-								<AdminRoute exact path="/admin/menu/veillemedicale/actualite/" component={Actualite} />
+								<AdminRoute exact path="#/admin/menu/veillemedicale/actualite/" component={Actualite} />
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/actualite/delete/:id"
+									path="#/admin/menu/veillemedicale/actualite/delete/:id"
 									component={DeleteOneActualite}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/actualite/update/:id"
+									path="#/admin/menu/veillemedicale/actualite/update/:id"
 									component={UpdateActualite}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/veillemedicale/actualite/post"
+									path="#/admin/menu/veillemedicale/actualite/post"
 									component={PostActualite}
 								/>
 								{/* offres d'emploi */}
-								<AdminRoute exact path="/admin/menu/offres-emplois" component={OffreEmploi} />
+								<AdminRoute exact path="#/admin/menu/offres-emplois" component={OffreEmploi} />
 								<AdminRoute
 									exact
-									path="/admin/menu/offres-emplois/delete/:id"
+									path="#/admin/menu/offres-emplois/delete/:id"
 									component={DeleteOneOffre}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/offres-emplois/update/:id"
+									path="#/admin/menu/offres-emplois/update/:id"
 									component={UpdateOffres}
 								/>
-								<AdminRoute exact path="/admin/menu/offres-emplois/post" component={PostOffres} />
+								<AdminRoute exact path="#/admin/menu/offres-emplois/post" component={PostOffres} />
 								{/* formation */}
-								<AdminRoute exact path="/admin/menu/formations" component={Formation} />
+								<AdminRoute exact path="#/admin/menu/formations" component={Formation} />
 								<AdminRoute
 									exact
-									path="/admin/menu/formations/delete/:id"
+									path="#/admin/menu/formations/delete/:id"
 									component={DeleteOneFormations}
 								/>
 								<AdminRoute
 									exact
-									path="/admin/menu/formations/update/:id"
+									path="#/admin/menu/formations/update/:id"
 									component={UpdateFormations}
 								/>
-								<AdminRoute exact path="/admin/menu/formations/post" component={PostFormation} />
+								<AdminRoute exact path="#/admin/menu/formations/post" component={PostFormation} />
 								{/* file */}
 								{/* HomePage */}
 								{/* Caroussel1	*/}
-								<AdminRoute exact path="/admin/HomePage" component={HomePageAdminHome} />
-								<AdminRoute exact path="/admin/carousel" component={SectioncarousselsAdmin} />
+								<AdminRoute exact path="#/admin/HomePage" component={HomePageAdminHome} />
+								<AdminRoute exact path="#/admin/carousel" component={SectioncarousselsAdmin} />
 								<AdminRoute
 									exact
-									path="/admin/menu/caroussel/update/:id"
+									path="#/admin/menu/caroussel/update/:id"
 									component={UpdateCaroussel1}
 								/>
 								{/* Caroussel2	*/}
-								<AdminRoute exact path="/admin/adherent" component={SectioncadherentAdmin} />
-								<AdminRoute exact path="/admin/menu/adherent/update/:id" component={UpdateCaroussel2} />
+								<AdminRoute exact path="#/admin/adherent" component={SectioncadherentAdmin} />
+								<AdminRoute
+									exact
+									path="#/admin/menu/adherent/update/:id"
+									component={UpdateCaroussel2}
+								/>
 								{/* formulaire d'admission	*/}
-								<AdminRoute exact path="/admin/formulaire" component={PresentationFile} />
-								<AdminRoute exact path="/admin/menu/formulaire/update/:id" component={Updatefichier} />
+								<AdminRoute exact path="#/admin/formulaire" component={PresentationFile} />
+								<AdminRoute exact path="#/admin/menu/formulaire/update/:id" component={Updatefichier} />
 
 								{/* Agenda	*/}
 								{/* Agenda1	*/}
-								<AdminRoute exact path="/admin/agenda1" component={SectionAgenda1Admin} />
-								<AdminRoute exact path="/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
+								<AdminRoute exact path="#/admin/agenda1" component={SectionAgenda1Admin} />
+								<AdminRoute exact path="#/admin/menu/agenda1/update/:id" component={UpdateAgenda1} />
 								{/* Agenda2	*/}
-								<AdminRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
-								<AdminRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
+								<AdminRoute exact path="#/admin/agenda2" component={SectionAgenda2Admin} />
+								<AdminRoute exact path="#/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
 								{/* Offre d'emploi	*/}
-								<AdminRoute exact path="/admin/offre" component={SectionOffreAdmin} />
-								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="#/admin/offre" component={SectionOffreAdmin} />
+								<AdminRoute exact path="#/admin/menu/offre/update/:id" component={UpdateOffre} />
 								{/* {USERS} // ALL PROFILES // NEWSLETTERS // ALL ADHRENTS ... */}
-								<AdminRoute exact path="/admin/users/all" component={SectionProfilesAll} />
-								<AdminRoute exact path="/admin/users/adherents" component={SectionProfilesAdherent} />
+								<AdminRoute exact path="#/admin/users/all" component={SectionProfilesAll} />
+								<AdminRoute exact path="#/admin/users/adherents" component={SectionProfilesAdherent} />
 								<AdminRoute
 									exact
-									path="/admin/users/individuel"
+									path="#/admin/users/individuel"
 									component={SectionProfilesIndividuel}
 								/>
-								<AdminRoute exact path="/admin/users/collectif" component={SectionProfilesCollectif} />
+								<AdminRoute exact path="#/admin/users/collectif" component={SectionProfilesCollectif} />
 								<AdminRoute
 									exact
-									path="/admin/users/newsletters"
+									path="#/admin/users/newsletters"
 									component={SectionProfilesNewsletter}
 								/>
-								{/* <AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
-								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
-								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />
-								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} /> */}
+								{/* <AdminRoute exact path="#/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="#/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="#/admin/menu/offre/update/:id" component={UpdateOffre} />
+								<AdminRoute exact path="#/admin/menu/offre/update/:id" component={UpdateOffre} /> */}
 							</Switch>
 						</div>
 					</div>

@@ -5,23 +5,20 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
-
+import Button from 'components/CustomButtons/Button.jsx'
 const FileUpload = ({ file, classes }) => (
 	<div>
 		<ListItem className={classes.listItem}>
 			<a href={"/formulaired'admission"} target="_blank" rel="noopener noreferrer">
 				<Tooltip
 					id="tooltip-bottom"
-					title="Formulaire d'admission en USP"
+					title="Télécharger le formulaire d'admission en unité de soins palliatif"
 					placement="bottom"
 					classes={{ tooltip: classes.tooltip }}
 				>
-					<i
-						class="material-icons"
-						style={{ color: '#cc4949', fontSize: '48px', marginLeft: 'auto', marginRight: 'auto' }}
-					>
-						description
-					</i>
+					<Button className={classes.navButton} round style={{ backgroundColor: '#cc4949' }}>
+						<i class="material-icons">description</i> Formulaire d'admission
+					</Button>
 				</Tooltip>
 			</a>
 		</ListItem>
