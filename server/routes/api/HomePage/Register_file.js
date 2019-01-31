@@ -5,7 +5,7 @@ const multer = require('multer')
 
 const storage = multer.diskStorage({
 	destination: function(req, file, cb) {
-		cb(null, "./uploads/formulaired'admission")
+		cb(null, './uploads/formulairedadmission')
 	},
 	filename: function(req, files, cb) {
 		cb(null, new Date().toISOString() + files.originalname)
