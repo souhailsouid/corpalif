@@ -73,7 +73,7 @@ const Evenement = ({ evenement, classes }) => (
 						{evenement.message}
 						<br />
 						<a
-							href={`/menu/veillemedicale/evenements/${evenement._id}`}
+							href={`/#/menu/veillemedicale/evenements/${evenement._id}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

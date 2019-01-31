@@ -99,7 +99,7 @@ class Modal extends React.Component {
 		this.setState({ picture: e.target.files[0] })
 	}
 	fileUpload(file, picture, theme, title, message, fileName) {
-		const url = `http://localhost:5000/api/evenement`
+		const url = `/api/evenement`
 		const formData = new FormData()
 		formData.append('picture', picture)
 		formData.append('file', file)
@@ -132,7 +132,7 @@ class Modal extends React.Component {
 					onClose={() =>
 						this.handleClose(
 							'searchModal',
-							window.location.replace('/admin/menu/veillemedicale/evenement/')
+							window.location.replace('/#/admin/menu/veillemedicale/evenement/')
 						)}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"

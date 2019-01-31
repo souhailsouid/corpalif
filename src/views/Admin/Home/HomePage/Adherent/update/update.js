@@ -93,7 +93,7 @@ class Modal extends React.Component {
 
 	fileUpload(picture, title) {
 		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/adherent/${id}`
+		const url = `/api/adherent/${id}`
 		const formData = new FormData()
 		formData.append('picture', picture)
 

@@ -86,20 +86,18 @@ class Modal extends React.Component {
 			recommandation.title = !isEmpty(recommandation.title) ? recommandation.title : ''
 			recommandation.message = !isEmpty(recommandation.message) ? recommandation.message : ''
 			recommandation.fileName = !isEmpty(recommandation.fileName) ? recommandation.fileName : ''
-			recommandation.picture = !isEmpty(`http://localhost:5000/api/${recommandation.picture}`)
-				? `http://localhost:5000/api/${recommandation.picture}`
+			recommandation.picture = !isEmpty(`/api/${recommandation.picture}`)
+				? `/api/${recommandation.picture}`
 				: null
-			recommandation.file = !isEmpty(`http://localhost:5000/api/${recommandation.file}`)
-				? `http://localhost:5000/api/${recommandation.file}`
-				: null
+			recommandation.file = !isEmpty(`/api/${recommandation.file}`) ? `/api/${recommandation.file}` : null
 			// Set component fields state
 			this.setState({
 				theme: recommandation.theme,
 				title: recommandation.title,
 				message: recommandation.message,
 				fileName: recommandation.fileName,
-				picture: `http://localhost:5000/api/${recommandation.picture}`,
-				file: `http://localhost:5000/api/${recommandation.file}`
+				picture: `/api/${recommandation.picture}`,
+				file: `/api/${recommandation.file}`
 			})
 		}
 	}
@@ -129,7 +127,7 @@ class Modal extends React.Component {
 	}
 	fileUpload(file, picture, theme, title, message, fileName) {
 		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/recommandation/${id}`
+		const url = `/api/recommandation/${id}`
 		const formData = new FormData()
 		formData.append('picture', picture)
 		formData.append('file', file)
@@ -162,7 +160,7 @@ class Modal extends React.Component {
 					onClose={() =>
 						this.handleClose(
 							'searchModal',
-							window.location.replace('/admin/menu/veillemedicale/recommandation&outils/')
+							window.location.replace('/#/admin/menu/veillemedicale/recommandation&outils/')
 						)}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"

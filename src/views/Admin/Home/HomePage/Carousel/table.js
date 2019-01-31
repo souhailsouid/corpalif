@@ -50,7 +50,7 @@ const Caroussel = ({ caroussel, classes }) => (
 							<div>
 								<div className={classes.coloredShadow} />
 								<img
-									src={`http://localhost:5000/api/${caroussel.picture}`}
+									src={`/api/${caroussel.picture}`}
 									alt="First slide"
 									className="slick-image"
 									style={{
@@ -67,7 +67,7 @@ const Caroussel = ({ caroussel, classes }) => (
 							</div>
 							<div>
 								<img
-									src={`http://localhost:5000/api/${caroussel.picture2}`}
+									src={`/api/${caroussel.picture2}`}
 									alt="Second slide"
 									className="slick-image"
 									style={{
@@ -84,7 +84,7 @@ const Caroussel = ({ caroussel, classes }) => (
 							</div>
 							<div>
 								<img
-									src={`http://localhost:5000/api/${caroussel.picture3}`}
+									src={`/api/${caroussel.picture3}`}
 									alt="Third slide"
 									className="slick-image"
 									style={{

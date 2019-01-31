@@ -98,7 +98,7 @@ class Modal extends React.Component {
 		this.setState({ picture: e.target.files[0] })
 	}
 	fileUpload(file, picture, theme, title, message, fileName) {
-		const url = `http://localhost:5000/api/offres`
+		const url = `/api/offres`
 		const formData = new FormData()
 		formData.append('picture', picture)
 		formData.append('file', file)

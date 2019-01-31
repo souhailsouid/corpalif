@@ -9,10 +9,10 @@ import Button from 'components/CustomButtons/Button.jsx'
 const FileUpload = ({ file, classes }) => (
 	<div>
 		<ListItem className={classes.listItem}>
-			<a href={"/formulaired'admission"} target="_blank" rel="noopener noreferrer">
+			<a href={"/#/formulaired'admission"} target="_blank" rel="noopener noreferrer">
 				<Tooltip
 					id="tooltip-bottom"
-					title="Télécharger le formulaire d'admission en unité de soins palliatif"
+					title="Télécharger le formulaire d'admission en unité de soins palliatifs"
 					placement="bottom"
 					classes={{ tooltip: classes.tooltip }}
 				>

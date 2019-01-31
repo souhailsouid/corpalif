@@ -243,7 +243,7 @@ class Modal extends React.Component {
 		lieu
 	) {
 		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/adherers/${id}`
+		const url = `/api/adherers/${id}`
 		const formData = new FormData()
 		formData.append('title', title)
 		formData.append('theme', theme)
@@ -276,7 +276,7 @@ class Modal extends React.Component {
 				'content-type': 'multipart/form-data'
 			}
 		}
-		window.location.assign('/admin/menu/coordinationregionale/adherer/adherer/')
+		window.location.assign('/#/admin/menu/coordinationregionale/adherer/adherer/')
 		return axios.patch(url, formData, config)
 	}
 

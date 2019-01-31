@@ -40,7 +40,7 @@ class Dashboard extends Component {
 		} else {
 			// Check if logged in user has profile data
 			if (Object.keys(profile).length > 0) {
-				dashboardContent = window.location.assign('/monprofile')
+				dashboardContent = window.location.assign('/#/monprofile')
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = (

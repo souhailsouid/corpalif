@@ -73,7 +73,7 @@ class Modal extends React.Component {
 
 	fileUpload(file) {
 		const id = this.props.match.params.id
-		const url = `178.62.100.224/api/register_file/${id}`
+		const url = `/api/register_file/${id}`
 		const formData = new FormData()
 		formData.append('file', file)
 
@@ -99,7 +99,7 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/'))}
+					onClose={() => this.handleClose('searchModal', window.location.replace('/#/admin/'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>

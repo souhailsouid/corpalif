@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.delete_Rencontre(this.props.match.params.id)
-		window.location.replace('/admin/menu/veillemedicale/rencontre')
+		window.location.replace('/#/admin/menu/veillemedicale/rencontre')
 	}
 
 	render() {
@@ -73,7 +73,7 @@ class Modal extends React.Component {
 						TransitionComponent={Transition}
 						keepMounted
 						onClose={() =>
-							this.handleClose(window.location.replace('/admin/menu/veillemedicale/rencontre/'))}
+							this.handleClose(window.location.replace('/#/admin/menu/veillemedicale/rencontre/'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -98,7 +98,7 @@ class Modal extends React.Component {
 								onClick={() =>
 									this.handleClose(
 										'liveDemo',
-										window.location.replace('/admin/menu/veillemedicale/rencontre/')
+										window.location.replace('/#/admin/menu/veillemedicale/rencontre/')
 									)}
 								color="secondary"
 							>

@@ -79,20 +79,16 @@ class Modal extends React.Component {
 			caroussel.title = !isEmpty(caroussel.title) ? caroussel.title : ''
 			caroussel.title3 = !isEmpty(caroussel.title3) ? caroussel.title3 : ''
 			caroussel.picture2 = !isEmpty(caroussel.picture2) ? caroussel.picture2 : ''
-			caroussel.picture = !isEmpty(`http://localhost:5000/api/${caroussel.picture}`)
-				? `http://localhost:5000/api/${caroussel.picture}`
-				: null
-			caroussel.picture3 = !isEmpty(`http://localhost:5000/api/${caroussel.picture3}`)
-				? `http://localhost:5000/api/${caroussel.picture3}`
-				: null
+			caroussel.picture = !isEmpty(`/api/${caroussel.picture}`) ? `/api/${caroussel.picture}` : null
+			caroussel.picture3 = !isEmpty(`/api/${caroussel.picture3}`) ? `/api/${caroussel.picture3}` : null
 			// Set component fields state
 			this.setState({
 				title2: caroussel.title2,
 				title: caroussel.title,
 				title3: caroussel.title3,
 				picture2: caroussel.picture2,
-				picture: `http://localhost:5000/api/${caroussel.picture}`,
-				picture3: `http://localhost:5000/api/${caroussel.picture3}`
+				picture: `/api/${caroussel.picture}`,
+				picture3: `/api/${caroussel.picture3}`
 			})
 		}
 	}
@@ -126,7 +122,7 @@ class Modal extends React.Component {
 	}
 	fileUpload(picture, picture2, picture3, title, title2, title3) {
 		const id = this.props.match.params.id
-		const url = `http://localhost:5000/api/caroussel/${id}`
+		const url = `/api/caroussel/${id}`
 		const formData = new FormData()
 		formData.append('picture', picture)
 		formData.append('picture2', picture2)

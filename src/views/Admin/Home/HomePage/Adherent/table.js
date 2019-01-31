@@ -41,7 +41,7 @@ const Adherent = ({ adherent, classes }) => (
 							<div>
 								<div className={classes.coloredShadow} />
 								<img
-									src={`http://localhost:5000/api/${adherent.picture}`}
+									src={`/api/${adherent.picture}`}
 									alt="First slide"
 									className="slick-image"
 									style={{

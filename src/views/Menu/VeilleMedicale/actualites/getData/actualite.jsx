@@ -46,7 +46,7 @@ const Actualite = ({ actualite, classes }) => (
 						{actualite.message}
 						<br />
 						<a
-							href={`/menu/veillemedicale/actualites/${actualite._id}`}
+							href={`#/menu/veillemedicale/actualites/${actualite._id}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

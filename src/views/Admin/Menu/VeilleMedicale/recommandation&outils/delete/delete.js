@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.delete_recommandation(this.props.match.params.id)
-		window.location.replace('/admin/menu/veillemedicale/recommandation&outils')
+		window.location.replace('/#/admin/menu/veillemedicale/recommandation&outils')
 	}
 
 	render() {
@@ -74,7 +74,7 @@ class Modal extends React.Component {
 						keepMounted
 						onClose={() =>
 							this.handleClose(
-								window.location.replace('/admin/menu/veillemedicale/recommandation&outils/')
+								window.location.replace('/#/admin/menu/veillemedicale/recommandation&outils/')
 							)}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
@@ -100,7 +100,7 @@ class Modal extends React.Component {
 								onClick={() =>
 									this.handleClose(
 										'liveDemo',
-										window.location.replace('/admin/menu/veillemedicale/recommandation&outils/')
+										window.location.replace('/#/admin/menu/veillemedicale/recommandation&outils/')
 									)}
 								color="secondary"
 							>

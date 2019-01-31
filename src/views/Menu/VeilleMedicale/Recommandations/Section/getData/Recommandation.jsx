@@ -46,7 +46,7 @@ const Recommandation = ({ recommandation, classes }) => (
 						{recommandation.message}
 						<br />
 						<a
-							href={`/menu/veillemedicale/recommandation&outils/${recommandation._id}`}
+							href={`/#/menu/veillemedicale/recommandation&outils/${recommandation._id}`}
 							style={{ color: 'rgb(51, 116, 103)' }}
 							target="_blank"
 							rel="noopener noreferrer"
