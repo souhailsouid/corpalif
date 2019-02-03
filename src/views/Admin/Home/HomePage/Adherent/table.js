@@ -45,8 +45,7 @@ const Adherent = ({ adherent, classes }) => (
 									alt="First slide"
 									className="slick-image"
 									style={{
-										width: '100%',
-										height: '500px'
+										width: '100%'
 									}}
 								/>
 								<div className="slick-caption">
