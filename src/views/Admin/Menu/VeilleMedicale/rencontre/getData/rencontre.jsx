@@ -73,7 +73,7 @@ const Rencontre = ({ rencontre, classes }) => (
 						{rencontre.message}
 						<br />
 						<a
-							href={`/menu/veillemedicale/nosrencontres/${rencontre.file}`}
+							href={`/#/menu/veillemedicale/nosrencontres/${rencontre.file}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

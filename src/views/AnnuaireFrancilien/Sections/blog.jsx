@@ -24,24 +24,24 @@ function SectionBlogs({ ...props }) {
 			<div className={classes.blog}>
 				<div className={classes.container}>
 					<GridContainer>
-						<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
-							<h1 className={classes.title} style={{ color: '#cc4949', textAlign: 'center' }}>
+						<GridItem xs={10} sm={8} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
+							<h2 className={classes.title} style={{ color: '#cc4949', textAlign: 'center' }}>
 								Offre de soins palliatifs en Ile-de-France
-							</h1>
-							<h4 className={classes.description}>
+							</h2>
+							<h4 className={classes.description} style={{ textAlign: 'center' }}>
 								Les structures de soins palliatifs sont régies par la circulaire DHOS du 25 mars 2008
 								relative à l'organisation des soins palliatifs.
 							</h4>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<United />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}> Unités de soins palliatifs (USP)</b>
@@ -63,14 +63,14 @@ function SectionBlogs({ ...props }) {
 							</Card>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<Reseaux />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}> Réseaux de soins palliatifs</b>
@@ -92,14 +92,14 @@ function SectionBlogs({ ...props }) {
 							</Card>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<Structures />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}> Hospitalisation à domicile (HAD)</b>
@@ -120,14 +120,14 @@ function SectionBlogs({ ...props }) {
 							</Card>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<Lits />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}>
@@ -152,14 +152,14 @@ function SectionBlogs({ ...props }) {
 							</Card>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<Teams />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}>
@@ -183,14 +183,14 @@ function SectionBlogs({ ...props }) {
 							</Card>
 							<Card plain blog className={classes.card}>
 								<GridContainer>
-									<GridItem xs={12} sm={5} md={3}>
+									<GridItem xs={12} sm={7} md={3}>
 										<CardHeader image plain>
 											<a href="#pablito" onClick={(e) => e.preventDefault()}>
 												<Associations />
 											</a>
 										</CardHeader>
 									</GridItem>
-									<GridItem xs={12} sm={8} md={8}>
+									<GridItem xs={12} sm={10} md={8}>
 										<Info>
 											<h5 className={classes.cardCategory} style={{ color: '#cc4949' }}>
 												<b style={{ color: '#cc4949' }}>

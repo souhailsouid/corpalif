@@ -182,7 +182,14 @@ class ForgotPassword extends React.Component {
 									>
 										<Button
 											type="submit"
-											style={{ backgroundColor: '#337467', height: 20, width: 10, marginTop: 20 }}
+											style={{
+												backgroundColor: '#337467',
+												width: 120,
+												padding: 0,
+												paddingBottom: 0,
+												margin: 0,
+												marginTop: 20
+											}}
 											simple
 											size="lg"
 										>

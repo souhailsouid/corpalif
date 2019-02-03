@@ -71,7 +71,7 @@ class SectionBlogs extends React.Component {
 												{recommandation.message}
 												<br />
 												<a
-													href={`/api/${recommandation.file}`}
+													href={`/#/api/${recommandation.file}`}
 													style={{ color: 'rgb(51, 116, 103)' }}
 												>
 													<i class="material-icons">library_books</i>

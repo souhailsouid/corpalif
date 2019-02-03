@@ -16,13 +16,13 @@ class InfoSubscribers extends React.Component {
 		const authLinks = (
 			<Link to="/menu/veillemedicale/infosforSubscribers">
 				<Button round color="red">
-					Acceder
+					Accéder
 				</Button>
 			</Link>
 		)
 		const ButtonGuest = (
 			<Button disabled round color="red">
-				Acceder
+				Accéder
 			</Button>
 		)
 

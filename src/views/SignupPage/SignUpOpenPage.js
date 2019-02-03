@@ -131,10 +131,11 @@ class SignUpOpen extends React.Component {
 						style={{
 							width: 120,
 							backgroundColor: '#fff',
-							color: '#000000',
-							paddingTop: 5,
-							marginTop: 10,
-							height: 20
+							padding: 0,
+							paddingBottom: 0,
+							margin: 0,
+							marginTop: 20,
+							color: '#000000'
 						}}
 					>
 						<Assignment /> Inscription

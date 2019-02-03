@@ -29,7 +29,8 @@ const SectionFooter = (props) => {
 						<div
 							style={{
 								justifyContent: 'space-between',
-								flexWrap: 'wrap'
+								flexWrap: 'wrap',
+								display: 'flex'
 							}}
 						>
 							<div className={classes.left}>
@@ -40,13 +41,11 @@ const SectionFooter = (props) => {
 										</a>
 									</ListItem>
 								</List>
-							</div>
+							</div>{' '}
 							<div>
-								{' '}
 								<img src={stripe} alt="..." />
 								<img src={sll} alt="..." />
 							</div>
-
 							<div className={classes.right}>@ {1900 + new Date().getYear()} Tous droits réservés</div>
 						</div>
 					}

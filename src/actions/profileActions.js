@@ -49,7 +49,7 @@ export const getProfileByHandle = (handle) => (dispatch) => {
 
 // Create Profile
 export const createProfile = (profileData, history) => (dispatch) => {
-	axios.post('/api/profile', profileData).then((res) => window.location.assign('/monprofile')).catch((err) =>
+	axios.post('/api/profile', profileData).then((res) => window.location.assign('/#/monprofile')).catch((err) =>
 		dispatch({
 			type: GET_ERRORS,
 			payload: err.response.data

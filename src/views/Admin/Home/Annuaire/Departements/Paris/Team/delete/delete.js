@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idTEAM(this.props.match.params.id)
-		window.location.replace('/admin/paris/equipesmobiles')
+		window.location.replace('/#/admin/paris/equipesmobiles')
 	}
 
 	render() {
@@ -72,7 +72,7 @@ class Modal extends React.Component {
 						open={this.state.liveDemo}
 						TransitionComponent={Transition}
 						keepMounted
-						onClose={() => this.handleClose(window.location.replace('/admin/paris/equipesmobiles'))}
+						onClose={() => this.handleClose(window.location.replace('/#/admin/paris/equipesmobiles'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -97,7 +97,7 @@ class Modal extends React.Component {
 								onClick={() =>
 									this.handleClose(
 										'liveDemo',
-										window.location.replace('/admin/paris/equipesmobiles')
+										window.location.replace('/#/admin/paris/equipesmobiles')
 									)}
 								color="secondary"
 							>

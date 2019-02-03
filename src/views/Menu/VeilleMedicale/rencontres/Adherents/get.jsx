@@ -34,7 +34,7 @@ class SectionRencontre extends React.Component {
 							<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
-									Special Adherents(contenus privées)
+									Special Adherents(contenus privés)
 								</h2>
 								<br />
 

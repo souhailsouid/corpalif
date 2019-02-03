@@ -87,7 +87,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructureReseaux(this.props.match.params.id, Data)
-		window.location.replace('/admin/YVELINES/reseaux')
+		window.location.replace('/#/admin/YVELINES/reseaux')
 	}
 
 	onChange(e) {
@@ -106,7 +106,8 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/YVELINES/reseaux'))}
+					onClose={() =>
+						this.handleClose('searchModal', window.location.replace('/#/admin/YVELINES/reseaux'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>

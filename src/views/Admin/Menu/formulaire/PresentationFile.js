@@ -24,13 +24,10 @@ class PresentationFile extends React.Component {
 				<HeaderSearchBar />
 
 				<div className={classNames(classes.main, classes.mainRaised)}>
-					<GridContainer justify="center">
-						<SectionfileAdmin />
-					</GridContainer>
+					<SectionfileAdmin />
+
 					<SectionFooter />
 				</div>
-
-				<div />
 			</div>
 		)
 	}

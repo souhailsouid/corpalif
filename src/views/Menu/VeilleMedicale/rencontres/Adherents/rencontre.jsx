@@ -45,7 +45,7 @@ const Rencontre = ({ privateInfoAdherent, classes }) => (
 						{privateInfoAdherent.message}
 						<br />
 						<a
-							href={`/menu/veillemedicale/nosrencontres/contenusadherents/${privateInfoAdherent._id}`}
+							href={`/#/menu/veillemedicale/nosrencontres/contenusadherents/${privateInfoAdherent._id}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

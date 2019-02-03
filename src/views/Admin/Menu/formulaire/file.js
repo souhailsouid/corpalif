@@ -32,13 +32,13 @@ class SectionfileAdmin extends React.Component {
 							<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
-									files
+									Formulaire d'admission
 								</h2>
 								<br />
-
-								{DataElements}
 							</GridItem>
 						</GridContainer>
+
+						{DataElements}
 					</div>
 				</div>
 			</div>

@@ -87,7 +87,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructureAssosMaps(this.props.match.params.id, Data)
-		window.location.replace('/admin/SEINESAINTDENIS/equipesmobiles')
+		window.location.replace('/#/admin/SEINESAINTDENIS/equipesmobiles')
 	}
 
 	onChange(e) {
@@ -109,7 +109,7 @@ class Modal extends React.Component {
 					onClose={() =>
 						this.handleClose(
 							'searchModal',
-							window.location.replace('/admin/SEINESAINTDENIS/equipesmobiles')
+							window.location.replace('/#/admin/SEINESAINTDENIS/equipesmobiles')
 						)}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"

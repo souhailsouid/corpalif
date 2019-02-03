@@ -111,7 +111,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructure_autres_structures(this.props.match.params.id, Data)
-		window.location.replace('/admin/SEINEETMARNE/autres_structures')
+		window.location.replace('/#/admin/SEINEETMARNE/autres_structures')
 	}
 
 	onChange(e) {
@@ -135,7 +135,7 @@ class Modal extends React.Component {
 					onClose={() =>
 						this.handleClose(
 							'searchModal',
-							window.location.replace('/admin/SEINEETMARNE/autres_structures')
+							window.location.replace('/#/admin/SEINEETMARNE/autres_structures')
 						)}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"

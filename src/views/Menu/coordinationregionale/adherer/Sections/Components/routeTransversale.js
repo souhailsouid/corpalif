@@ -134,13 +134,13 @@ class DetectStatus extends React.Component {
 		} else {
 			// Check if logged in user has profile data
 			if (user.status === 'individuel') {
-				dashboardContent = window.location.assign('/adherents/adherer/individuel')
+				dashboardContent = window.location.assign('/#/adherents/adherer/individuel')
 			} else {
 				// User is logged in but has no profile
-				dashboardContent = window.location.assign('/adherents/adherer/collectif')
+				dashboardContent = window.location.assign('/#/adherents/adherer/collectif')
 			}
 		}
-		const ButtonGuest = window.location.assign('/adherent')
+		const ButtonGuest = window.location.assign('/#/adherent')
 
 		return <div>{isAuthenticated ? dashboardContent : ButtonGuest}</div>
 	}

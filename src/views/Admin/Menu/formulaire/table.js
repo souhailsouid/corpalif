@@ -25,16 +25,16 @@ const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
 
 const FileUpload = ({ file, classes }) => (
 	<GridContainer>
-		<GridItem xs={12} sm={8} md={12}>
+		<GridItem xs={12} sm={12} md={12}>
+			<Grid item xs={4} style={{ textAlign: 'right' }}>
+				<Link to={`/admin/menu/formulaire/update/${file._id}`}>{update}</Link>
+			</Grid>
 			<embed
 				src={`/api/${file.file}`}
 				download
 				type="application/pdf"
 				style={{ width: '100%', height: '1000px' }}
 			/>
-			<Grid item xs={4} style={{ textAlign: 'right' }}>
-				<Link to={`/admin/menu/formulaire/update/${file._id}`}>{update}</Link>
-			</Grid>
 		</GridItem>
 	</GridContainer>
 )

@@ -18,7 +18,7 @@ const Section = ({ orientation, classes }) => (
 		</GridContainer>
 		<br />
 
-		<GridItem xs={12} sm={4} md={12}>
+		<GridItem xs={12} sm={12} md={12}>
 			<i class="material-icons" style={{ fontSize: '80px', color: '#337467' }}>
 				share
 			</i>
@@ -33,7 +33,7 @@ const Section = ({ orientation, classes }) => (
 		</GridItem>
 		<br />
 		<br />
-		<GridItem xs={12} sm={4} md={12}>
+		<GridItem xs={12} sm={12} md={12}>
 			<i class="material-icons" style={{ fontSize: '60px', color: '#337467' }}>
 				border_color
 			</i>

@@ -55,7 +55,7 @@ const Section = ({ adherentPage, classes }) => (
 			<h2 className={classes.title} style={{ textAlign: 'center' }}>
 				{adherentPage.subtitle2}
 			</h2>
-			<GridContainer>
+			<GridContainer justify="center" justifyContent="stretch">
 				<GridItem xs={12} sm={4} md={6}>
 					<InfoArea
 						title={adherentPage.InfoAreaTitle3}

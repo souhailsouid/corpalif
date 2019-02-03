@@ -87,7 +87,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateStructureAssosMaps(this.props.match.params.id, Data)
-		window.location.replace('/admin/VALDEMARNE/equipesmobiles')
+		window.location.replace('/#/admin/VALDEMARNE/equipesmobiles')
 	}
 
 	onChange(e) {
@@ -107,7 +107,7 @@ class Modal extends React.Component {
 					TransitionComponent={Transition}
 					keepMounted
 					onClose={() =>
-						this.handleClose('searchModal', window.location.replace('/admin/VALDEMARNE/equipesmobiles'))}
+						this.handleClose('searchModal', window.location.replace('/#/admin/VALDEMARNE/equipesmobiles'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>

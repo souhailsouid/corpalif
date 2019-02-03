@@ -25,8 +25,8 @@ class PresentationRencontre extends React.Component {
 					<GridContainer justify="center">
 						<SectionRencontre />
 					</GridContainer>
+					<Rencontre />
 				</div>
-				<Rencontre />
 
 				<SectionFooter />
 			</div>

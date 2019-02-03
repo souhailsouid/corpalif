@@ -13,19 +13,12 @@ import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections
 const Evenement = ({ evenement, classes }) => (
 	<div>
 		<Card plain blog className={classes.card}>
-			<GridContainer>
+			<GridContainer style={{ margin: 'auto' }}>
 				<GridItem xs={12} sm={4} md={4}>
 					<CardHeader image plain>
 						<a href="#pablito" onClick={(e) => e.preventDefault()}>
 							<img src={`/api/${evenement.picture}`} alt="" />
 						</a>
-						<div
-							className={classes.coloredShadow}
-							style={{
-								backgroundImage: `url(${`/api/${evenement.picture}`})`,
-								opacity: '1'
-							}}
-						/>
 						<div
 							className={classes.coloredShadow}
 							style={{
