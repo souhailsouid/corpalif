@@ -39,19 +39,37 @@ const Section = ({ mention, classes }) => (
 					<b>Hébergement </b>
 					<br />
 					<br />
-					Hébergeur : A2Hosting PO Box 2998 Ann Arbor, MI 48106 USA <br />Site Web :{' '}
-					<a style={{ color: 'rgb(51, 116, 103)' }} href="http://www.A2hosting.com">
-						www.A2hosting.com
+					Hébergeur : DIGITAL OCEAN, New York, NY, 101, 6th Avenue, USA <br />Site Web :{' '}
+					<a style={{ color: 'rgb(51, 116, 103)' }} href="https://www.digitalocean.com/">
+						https://www.digitalocean.com/
 					</a>
 					<br />
 					<br />
 					<b>Développement</b>
 					<br />
 					<br />
-					Wild Code School Paris<br /> Souid Souhail<br /> Adresse : 10 Allée Louis Aragon, A609 <br />Site
-					Web :{' '}
-					<a style={{ color: 'rgb(51, 116, 103)' }} href="http://www.souhailsouid.com">
-						www.souhailsouid.com
+					Wild Code School Paris<br /> Souhail SOUID<br /> <br />Site Web : <br />
+					<a
+						href="https://www.linkedin.com/in/souhail-souid-81181915b/"
+						target="_blank"
+						rel="noopener noreferrer"
+						style={{ color: 'rgb(0, 119, 181)' }}
+					>
+						<i className="fab fa-linkedin" /> Souhail SOUID
+					</a>
+					<br />
+					<br />
+					<b>Déploiement</b>
+					<br />
+					<br />
+					Wild Code School Paris<br /> Daniel DEUTSCH<br /> Site Web : <br />
+					<a
+						style={{ color: 'rgb(0, 119, 181)' }}
+						href="https://www.linkedin.com/in/daniel-deutsch-webdev"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<i className="fab fa-linkedin" /> Daniel DEUTSCH
 					</a>
 					<br />
 					<br />
@@ -68,14 +86,19 @@ const Section = ({ mention, classes }) => (
 					<b>Remerciement</b>
 					<br />
 					<br />
-					WILD CODE SCHOOL PARIS
+					<b> WILD CODE SCHOOL PARIS</b>
 					<br /> Adresse : 201 Rue Saint-Martin, 75003 Paris <br />Site Web :{' '}
 					<a style={{ color: 'rgb(51, 116, 103)' }} href="http://www.souhailsouid.com">
 						https://wildcodeschool.fr/
 					</a>
 					<br />
-					Equipes: Guillaume, Carlos, Phany, Mickaêl, Samuel, Pierre,<br /> Coordinateur: Abdou, Alexis <br />
-					<br />L'École Multimédia:
+					Managers: Marion, Mariane, Laura
+					<br />
+					Coordinateurs: Abdou, Alexis
+					<br />
+					Equipe: Guillaume, Carlos, Phany, Mickaêl, Samuel, Pierre,<br />
+					<br />
+					<b>L'École Multimédia</b>
 					<br />
 					Marion Jégu - Cheffe de projet <br />
 					Vinciane Bizet - Développeuse<br />
@@ -91,7 +114,7 @@ const Section = ({ mention, classes }) => (
 							www.corpalif.com
 						</a>) est proposé en différents langages web (HTML, HTML5, Javascript, CSS, React, NodeJs, etc…)
 						pour un meilleur confort d'utilisation et un graphisme plus agréable, nous vous recommandons de
-						recourir à des navigateurs modernes comme Safari, Firefox, Google Chrome, etc…
+						recourir à des navigateurs modernes comme Safari, Firefox, Google Chrome, Microsoft Edge.
 					</div>
 					<br />
 					<br />
