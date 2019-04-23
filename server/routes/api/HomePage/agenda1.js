@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const passport = require('passport')
 const Agenda1 = require('../../../models/HomePage/agenda/agenda1')
 const multer = require('multer')
 
@@ -37,11 +36,8 @@ router.post('/notification/', upload.fields([]), (req, res, next) => {
 	console.log(req.files)
 	const post = new Agenda1({
 		_id: new mongoose.Types.ObjectId(),
-		when: req.body.when,
 		theme: req.body.theme,
-		lieu: req.body.lieu,
-		rue: req.body.rue,
-		city: req.body.city
+		lieu: req.body.lieu
 	})
 	post
 		.save()
@@ -67,11 +63,8 @@ router.post('/notification/', upload.fields([]), (req, res, next) => {
 })
 router.patch('/:id', upload.fields([]), (req, res) => {
 	const updateOps = {
-		when: req.body.when,
 		theme: req.body.theme,
-		lieu: req.body.lieu,
-		rue: req.body.rue,
-		city: req.body.city
+		lieu: req.body.lieu
 	}
 	for (const [ key, value ] of Object.entries(updateOps)) {
 		console.log(key, value)

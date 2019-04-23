@@ -23,6 +23,15 @@ const CarousselSchema = mongoose.Schema({
 	title3: {
 		type: String
 	},
+	url1: {
+		type: String
+	},
+	url2: {
+		type: String
+	},
+	url3: {
+		type: String
+	},
 	date: {
 		type: Date,
 		default: Date.now

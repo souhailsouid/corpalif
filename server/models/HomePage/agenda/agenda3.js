@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Agenda2Schema = mongoose.Schema({
+const Agenda3Schema = mongoose.Schema({
 	_id: {
 		type: mongoose.Schema.Types.ObjectId
 	},
@@ -18,4 +18,4 @@ const Agenda2Schema = mongoose.Schema({
 	}
 })
 
-module.exports = mongoose.model('Agenda2', Agenda2Schema)
+module.exports = mongoose.model('Agenda3', Agenda3Schema)

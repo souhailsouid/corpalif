@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const Agenda2 = require('../../../models/HomePage/agenda/agenda2')
+const passport = require('passport')
+const Agenda3 = require('../../../models/HomePage/agenda/agenda3')
 const multer = require('multer')
 
 const storage = multer.diskStorage({
@@ -18,7 +19,7 @@ const upload = multer({
 })
 
 router.get('/', (req, res) => {
-	Agenda2.find()
+	Agenda3.find()
 		.then((agenda) => {
 			res.json(agenda)
 		})
@@ -26,15 +27,15 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-	Agenda2.findById(req.params.id)
-		.select('theme lieu ')
+	Agenda3.findById(req.params.id)
+		.select(' theme lieu ')
 		.exec()
 		.then((agenda) => res.json(agenda))
 		.catch((err) => res.status(404).json({ noagendafound: 'No agenda found with that ID' }))
 })
 router.post('/notification/', upload.fields([]), (req, res, next) => {
 	console.log(req.files)
-	const post = new Agenda2({
+	const post = new Agenda3({
 		_id: new mongoose.Types.ObjectId(),
 		theme: req.body.theme,
 		lieu: req.body.lieu
@@ -49,7 +50,7 @@ router.post('/notification/', upload.fields([]), (req, res, next) => {
 					_id: result._id,
 					request: {
 						type: 'GET',
-						url: 'http://localhost:3000/api/agenda2	/' + result._id
+						url: 'http://localhost:3000/api/agenda3	/' + result._id
 					}
 				}
 			})
@@ -69,8 +70,8 @@ router.patch('/:id', upload.fields([]), (req, res) => {
 	for (const [ key, value ] of Object.entries(updateOps)) {
 		console.log(key, value)
 	}
-	Agenda2.findByIdAndUpdate({ _id: req.params.id }, { $set: updateOps }).then((agenda) => {
-		Agenda2.findOne({ _id: req.params.id }).then((agenda) => res.send(agenda))
+	Agenda3.findByIdAndUpdate({ _id: req.params.id }, { $set: updateOps }).then((agenda) => {
+		Agenda3.findOne({ _id: req.params.id }).then((agenda) => res.send(agenda))
 	})
 })
 

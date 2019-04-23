@@ -114,6 +114,7 @@ const formations = require('./routes/api/offredemploi&formations/formations')
 //NOTIFICATION
 const agenda1 = require('./routes/api/HomePage/agenda1')
 const agenda2 = require('./routes/api/HomePage/agenda2')
+const agenda3 = require('./routes/api/HomePage/agenda3')
 const offre = require('./routes/api/HomePage/offre')
 
 // MAPS
@@ -340,6 +341,7 @@ app.use('/api/agenda', agenda)
 //AGENDA 1 & 	2
 app.use('/api/agenda1', agenda1)
 app.use('/api/agenda2', agenda2)
+app.use('/api/agenda3', agenda3)
 // Offre d'emploi & formations
 
 app.use('/api/offre', offre)

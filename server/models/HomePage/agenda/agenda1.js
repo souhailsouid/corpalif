@@ -14,15 +14,7 @@ const AgendaSchema = new Schema({
 	lieu: {
 		type: String
 	},
-	rue: {
-		type: String
-	},
-	city: {
-		type: String
-	},
-	when: {
-		type: String
-	},
+
 	date: {
 		type: Date,
 		default: Date.now
