@@ -4,13 +4,7 @@ import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
-import Dialog from '@material-ui/core/Dialog'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import DialogContent from '@material-ui/core/DialogContent'
-
-// @material-ui/icons
 import Grid from '@material-ui/core/Grid'
-import Close from '@material-ui/icons/Close'
 // core components
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -38,6 +32,9 @@ class Modal extends React.Component {
 			title: '',
 			title2: '',
 			title3: '',
+			url1: '',
+			url2: '',
+			url3: '',
 			picture: null,
 			picture2: null,
 
@@ -78,6 +75,9 @@ class Modal extends React.Component {
 			caroussel.title2 = !isEmpty(caroussel.title2) ? caroussel.title2 : ''
 			caroussel.title = !isEmpty(caroussel.title) ? caroussel.title : ''
 			caroussel.title3 = !isEmpty(caroussel.title3) ? caroussel.title3 : ''
+			caroussel.url1 = !isEmpty(caroussel.url1) ? caroussel.url1 : ''
+			caroussel.url2 = !isEmpty(caroussel.url2) ? caroussel.url2 : ''
+			caroussel.url3 = !isEmpty(caroussel.url3) ? caroussel.url3 : ''
 			caroussel.picture2 = !isEmpty(caroussel.picture2) ? caroussel.picture2 : ''
 			caroussel.picture = !isEmpty(`/api/${caroussel.picture}`) ? `/api/${caroussel.picture}` : null
 			caroussel.picture3 = !isEmpty(`/api/${caroussel.picture3}`) ? `/api/${caroussel.picture3}` : null
@@ -86,6 +86,9 @@ class Modal extends React.Component {
 				title2: caroussel.title2,
 				title: caroussel.title,
 				title3: caroussel.title3,
+				url1: caroussel.url1,
+				url2: caroussel.url2,
+				url3: caroussel.url3,
 				picture2: caroussel.picture2,
 				picture: `/api/${caroussel.picture}`,
 				picture3: `/api/${caroussel.picture3}`
@@ -101,7 +104,10 @@ class Modal extends React.Component {
 			this.state.picture3,
 			this.state.title,
 			this.state.title2,
-			this.state.title3
+			this.state.title3,
+			this.state.url1,
+			this.state.url2,
+			this.state.url3
 		).then((response) => {
 			console.log(response.data)
 		})
@@ -120,9 +126,10 @@ class Modal extends React.Component {
 	onChangePicture3(e) {
 		this.setState({ picture3: e.target.files[0] })
 	}
-	fileUpload(picture, picture2, picture3, title, title2, title3) {
+	fileUpload(picture, picture2, picture3, title, title2, title3, url1, url2, url3) {
 		const id = this.props.match.params.id
 		const url = `/api/caroussel/${id}`
+		const navigation = window.location.replace('/')
 		const formData = new FormData()
 		formData.append('picture', picture)
 		formData.append('picture2', picture2)
@@ -130,137 +137,156 @@ class Modal extends React.Component {
 		formData.append('title', title)
 		formData.append('title2', title2)
 		formData.append('title3', title3)
+		formData.append('url1', url1)
+		formData.append('url2', url2)
+		formData.append('url3', url3)
+
 		const config = {
 			headers: {
 				'content-type': 'multipart/form-data'
 			}
 		}
 
-		return axios.patch(url, formData, config)
+		return axios.patch(url, formData, config, navigation)
 	}
 
 	render() {
 		const { classes, ...rest } = this.props
 
 		return (
-			<div>
-				<Dialog
-					classes={{
-						root: classes.modalRoot,
-						paper: classes.modal + ' ' + classes.modalSearch
-					}}
-					open={this.state.searchModal}
-					TransitionComponent={Transition}
-					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/#/admin/carousel/'))}
-					aria-labelledby="search-modal-slide-title"
-					aria-describedby="search-modal-slide-description"
+			<GridContainer>
+				<GridItem
+					xs={12}
+					sm={12}
+					md={12}
+					className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
 				>
-					<Card plain className={classes.modalSearchCard}>
-						<DialogTitle id="search-modal-slide-title" disableTypography className={classes.modalHeader}>
-							<Button
-								simple
-								className={classes.modalCloseButton}
-								key="close"
-								aria-label="Close"
-								onClick={() => this.handleClose('searchModal')}
-							>
-								{' '}
-								<Close className={classes.modalClose} />
-							</Button>
-						</DialogTitle>
-						<DialogContent id="search-modal-slide-description" className={classes.modalBody}>
-							<div className="cd-section" {...rest}>
-								<div className={classes.features5}>
-									<GridContainer>
-										<GridContainer style={{ minWidth: 'auto', margin: 'auto', flexWrap: 'wrap' }}>
-											<GridItem
-												xs={12}
-												sm={12}
-												md={6}
-												className={`${classes.mlAuto} ${classes.mrAuto} ${classes.textCenter}`}
-											>
-												<h1 style={{ textAlign: 'center' }}>Editer </h1>
-											</GridItem>
-											<div className={classes.container}>
-												<GridContainer className={classes.gridContainer}>
-													<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
-														<form
-															onSubmit={this.onFormSubmit}
-															encType="multipart/form-data"
-															id="my-form"
-														>
-															<TextFieldGroup
-																type="title"
-																className={classes.margin}
-																name="title"
-																value={this.state.title}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<TextFieldGroup
-																type="title"
-																className={classes.margin}
-																name="title2"
-																value={this.state.title2}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<TextFieldGroup
-																type="title"
-																className={classes.margin}
-																name="title3"
-																value={this.state.title3}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<br /> <br />
-															<h4>Choisir une photo</h4>
-															<input
-																type="file"
-																name="picture"
-																onChange={this.onChangePicture}
-															/>
-															<br /> <br />
-															<h4>Choisir une photo 2</h4>
-															<input
-																type="file"
-																name="picture2"
-																onChange={this.onChangePicture2}
-															/>
-															<br /> <br />
-															<br /> <br />
-															<h4>Choisir une photo 3</h4>
-															<input
-																type="file"
-																name="picture3"
-																onChange={this.onChangePicture3}
-															/>
-															<Grid
-																container
-																direction="row"
-																justify="center"
-																style={{
-																	marginTop: 40,
-																	justifyContent: 'space-around'
-																}}
-															>
-																<Button type="submit" value="Submit" color="green">
-																	Modifier
-																</Button>
-															</Grid>
-														</form>
-													</GridItem>
-												</GridContainer>
-											</div>
-										</GridContainer>
-									</GridContainer>
-								</div>
-							</div>
-						</DialogContent>
-					</Card>
-				</Dialog>
-			</div>
+					<h1 style={{ textAlign: 'center' }}>Editer </h1>
+				</GridItem>
+				<div className={classes.container}>
+					<GridContainer className={classes.gridContainer}>
+						<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
+							<form onSubmit={this.onFormSubmit} encType="multipart/form-data" id="my-form">
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										Titre de l'image
+									</h3>
+									<TextFieldGroup
+										type="title"
+										className={classes.margin}
+										name="title"
+										value={this.state.title}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="title"
+										className={classes.margin}
+										name="title2"
+										value={this.state.title2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="title"
+										className={classes.margin}
+										name="title3"
+										value={this.state.title3}
+										onChange={this.onChange}
+									/>
+								</Card>
+								<br /> <br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										Choisir l'url sans le / <br />
+										<p>exemple url :</p>
+										<p style={{ textDecoration: 'none' }}>
+											<b style={{ color: '#cc4949' }}>corpalif/</b>menu/chocolat = menu/chocolat{' '}
+										</p>
+									</h3>
+									<TextFieldGroup
+										type="url1"
+										className={classes.margin}
+										name="url1"
+										value={this.state.url1}
+										onChange={this.onChange}
+									/>
+									<hr />
+									<TextFieldGroup
+										type="url2"
+										className={classes.margin}
+										name="url2"
+										value={this.state.url2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<hr />
+									<TextFieldGroup
+										type="url3"
+										className={classes.margin}
+										name="url3"
+										value={this.state.url3}
+										onChange={this.onChange}
+									/>
+								</Card>
+								<br /> <br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										Choisir une photo
+									</h3>
+									<input type="file" name="picture" onChange={this.onChangePicture} />
+									<br /> <br />
+									<h4>Choisir une photo 2</h4>
+									<input type="file" name="picture2" onChange={this.onChangePicture2} />
+									<br /> <br />
+									<h4>Choisir une photo 3</h4>
+									<input type="file" name="picture3" onChange={this.onChangePicture3} />
+								</Card>
+								<Grid
+									container
+									direction="row"
+									justify="center"
+									style={{
+										marginTop: 40,
+										justifyContent: 'space-around'
+									}}
+								>
+									<Button type="submit" value="Submit" color="green">
+										Modifier
+									</Button>
+								</Grid>
+							</form>
+						</GridItem>
+					</GridContainer>
+				</div>
+			</GridContainer>
 		)
 	}
 }

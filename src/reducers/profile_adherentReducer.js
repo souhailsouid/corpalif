@@ -1,7 +1,7 @@
 import { GET_PROFILE_ADHERENT, PROFILE_LOADING } from 'actions/types'
 
 const initialState = {
-	profile_adherent: null,
+	profile_adherent: {},
 	loading: false
 }
 

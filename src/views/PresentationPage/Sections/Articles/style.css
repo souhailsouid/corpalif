@@ -1,0 +1,75 @@
+.card {
+  background: white;
+  width: 12rem;
+  display: 'flex';
+
+}
+/* style={{ width: '22rem', display: 'flex', '&:hover': { color: '#337467 ' } }} */
+.card:hover {
+  background-color: #ece8e8;
+  color: #337467;
+}
+
+.agenda {
+  color: none;
+}
+
+.agenda:hover {
+  color: #cc4949;
+  font-weight: 700;
+
+}
+
+/* .icon {
+  fill: none
+} */
+.icon:hover {
+
+  fill: #cc4949;
+
+}
+
+.cardTitleMSN {
+  position: absolute;
+  bottom: 38px;
+  left: 16px;
+}
+
+.cardTitleMSN:hover {
+
+  text-decoration-line: underline !important;
+}
+
+.cardContainerMSN {
+  position: relative;
+  text-align: center;
+  color: white;
+
+}
+
+.cardContainerMSN:hover {
+  z-index: 4;
+  position: relative;
+  text-align: center;
+  color: white;
+
+}
+
+.cardArticle {
+  width: 22rem;
+  display: flex;
+
+}
+
+.cardArticle:hover {
+  color: #337467;
+}
+
+.article {
+  display: block;
+
+}
+
+.caroussel {
+  padding: 0;
+}

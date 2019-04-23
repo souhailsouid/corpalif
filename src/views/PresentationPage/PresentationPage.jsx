@@ -9,7 +9,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import HeaderSearchBar from 'views/Header/HeaderSearchBar.jsx'
 import SectionFooter from 'views/Footer/SectionFooter.jsx'
 import SectionMissions from 'views/PresentationPage/Sections/SectionMissions'
-
+import SectionActualite from 'views/PresentationPage/Sections/SectionActualite'
 // sections CSS
 import '../style.css'
 import SectionCarroussel from 'views/PresentationPage/Sections/SectionCarroussel'
@@ -23,6 +23,10 @@ function PresentationPage({ ...props }) {
 			<HeaderSearchBar />
 			<div className={classNames(classes.main, classes.mainRaised)}>
 				<SectionCarroussel />
+
+				<SectionActualite />
+				<br />
+
 				<SectionMissions />
 				<SectionAdherent />
 

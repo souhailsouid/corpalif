@@ -24,7 +24,8 @@ class SectionActualite extends React.Component {
 		const { classes, ...rest } = this.props
 		const { actualite } = this.props.actualite
 		const DataElements = actualite.map((actualite) => <Actualite actualite={actualite} />)
-
+		var my_array = DataElements
+		var last_element = my_array.reverse()
 		return (
 			<div className="cd-section" {...rest}>
 				<div className={classes.blog}>
@@ -37,7 +38,7 @@ class SectionActualite extends React.Component {
 								</h2>
 								<br />
 
-								{DataElements}
+								{last_element}
 							</GridItem>
 						</GridContainer>
 					</div>

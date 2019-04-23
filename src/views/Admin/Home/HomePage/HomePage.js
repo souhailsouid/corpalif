@@ -177,7 +177,7 @@ class HomePageAdminHome extends React.Component {
 																</Link>
 															</GridItem>
 															<GridItem xs={12} sm={12} md={8}>
-																<Link to="/admin/offre">
+																<Link to="/admin/agenda3">
 																	<Card
 																		background
 																		style={{
@@ -189,7 +189,7 @@ class HomePageAdminHome extends React.Component {
 																			className={classes.cardBody}
 																		>
 																			<h2 className={classes.cardTitleWhite}>
-																				Offre d'emploi
+																				Agenda 3
 																			</h2>
 																		</CardBody>
 																	</Card>

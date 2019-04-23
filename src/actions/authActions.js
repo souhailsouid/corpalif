@@ -13,7 +13,7 @@ export const registerUser = (newUser, history) => (dispatch) => {
 		})
 	)
 }
-// Register User - -  redirect to complete profile  in Payment PROCESS
+// Register User - -  redirect to complete user  in Payment PROCESS
 export const registerPayment = (newUser, history) => (dispatch) => {
 	axios.post('/api/users/register', newUser).then((res) => history.push('/adherent/login')).catch((err) =>
 		dispatch({
@@ -230,6 +230,15 @@ export const get_Adherent = (userData, history) => (dispatch) => {
 		dispatch({
 			type: GET_ERRORS,
 			payload: {}
+		})
+	)
+}
+
+export const updateUser = (userData, history) => (dispatch) => {
+	axios.post('/api/users/changedata', userData).catch((err) =>
+		dispatch({
+			type: GET_ERRORS,
+			payload: err.response.data
 		})
 	)
 }

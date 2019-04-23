@@ -53,9 +53,6 @@ const Rencontre = ({ privateInfoAdherent, classes }) => (
 							<i class="material-icons">library_books</i> <b> {privateInfoAdherent.fileName} </b>
 						</a>
 					</p>
-					<p className={classes.author}>
-						par <b>Sarah LACROIX</b>
-					</p>
 				</GridItem>
 			</GridContainer>
 		</Card>

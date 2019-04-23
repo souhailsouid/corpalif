@@ -103,7 +103,6 @@ const Caroussel = ({ caroussel, classes }) => (
 						</Carousel>
 					</Card>
 					<Grid item xs={4} style={{ textAlign: 'right' }}>
-						<Link to={`/admin/menu/caroussel/get/${caroussel._id}`}>{get}</Link>
 						<Link to={`/admin/menu/caroussel/update/${caroussel._id}`}>{update}</Link>
 					</Grid>
 				</GridItem>

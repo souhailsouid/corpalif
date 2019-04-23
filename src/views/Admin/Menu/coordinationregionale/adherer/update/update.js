@@ -13,7 +13,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
-
+import Card from 'components/Card/Card.jsx'
 // common
 import TextFieldGroup from 'views/common/TextFieldGroup'
 // Redux
@@ -297,40 +297,64 @@ class Modal extends React.Component {
 					<GridContainer className={classes.gridContainer}>
 						<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
 							<form onSubmit={this.onFormSubmit} encType="multipart/form-data" id="my-form">
-								<h1>1er section</h1>
-								<TextFieldGroup
-									label="title"
-									name="title"
-									value={this.state.title}
-									onChange={this.onChange}
-								/>
-								<MuiThemeProvider theme={theme}>
-									<TextField
-										label="Theme"
-										name="theme"
-										fullWidth
-										multiline
-										inputProps={{
-											rows: 3
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
 										}}
-										value={this.state.theme}
+									>
+										1st sections
+									</h3>
+									<TextFieldGroup
+										label="title"
+										name="title"
+										value={this.state.title}
 										onChange={this.onChange}
 									/>
-								</MuiThemeProvider>
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="Theme"
+											name="theme"
+											fullWidth
+											multiline
+											inputProps={{
+												rows: 3
+											}}
+											value={this.state.theme}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+								</Card>
 								<br /> <br />
-								<h1>2nd section</h1>
-								<h2 style={{ color: '#cc4949', textAlign: 'center' }}>titre</h2>
-								<TextFieldGroup
-									type="subtitle"
-									className={classes.margin}
-									name="subtitle"
-									multiline
-									value={this.state.subtitle}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
-								<h2 style={{ color: '#cc4949', textAlign: 'center' }}>Place icon</h2>
-								<MuiThemeProvider theme={theme}>
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										2nd sections
+									</h3>
+									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>titre</h2>
+									<TextFieldGroup
+										type="subtitle"
+										className={classes.margin}
+										name="subtitle"
+										multiline
+										value={this.state.subtitle}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>Place icon</h2>
 									<TextFieldGroup
 										type="InfoAreaTitle"
 										className={classes.margin}
@@ -377,8 +401,21 @@ class Modal extends React.Component {
 											onChange={this.onChange}
 										/>
 									</MuiThemeProvider>
-									<br /> <br />
-									<h1>3nd sections</h1>
+								</Card>
+								<br /> <br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										3rd sections
+									</h3>
 									<h2 style={{ color: '#cc4949', textAlign: 'center' }}>TITRE</h2>
 									<TextFieldGroup
 										type="subtitle2"
@@ -448,116 +485,138 @@ class Modal extends React.Component {
 										/>
 									</MuiThemeProvider>
 									<br /> <br />
-									<TextField
-										label="subtitle3"
-										className={classes.margin}
-										name="subtitle3"
-										fullWidth
-										multiline
-										value={this.state.subtitle3}
-										onChange={this.onChange}
-									/>
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="subtitle3"
+											className={classes.margin}
+											name="subtitle3"
+											fullWidth
+											multiline
+											value={this.state.subtitle3}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
 									<br /> <br />
 									<h1>Sections suivantes</h1>
 									<h4>Choisir une photo à titre collectif</h4>
 									<input type="file" name="imgCardCollectif" onChange={this.onChangePicture} />
 									<br /> <br />
-									<TextField
-										label="cardCategoryCollectifTitle"
-										className={classes.margin}
-										name="cardCategoryCollectifTitle"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryCollectifTitle}
-										onChange={this.onChange}
-									/>
-									<TextField
-										label="cardCategoryCollectifSubTitle"
-										className={classes.margin}
-										name="cardCategoryCollectifSubTitle"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryCollectifSubTitle}
-										onChange={this.onChange}
-									/>
-									<TextField
-										label="cardCategoryCollectifDescription"
-										className={classes.margin}
-										name="cardCategoryCollectifDescription"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryCollectifDescription}
-										onChange={this.onChange}
-									/>
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="cardCategoryCollectifTitle"
+											className={classes.margin}
+											name="cardCategoryCollectifTitle"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryCollectifTitle}
+											onChange={this.onChange}
+										/>
+
+										<TextField
+											label="cardCategoryCollectifSubTitle"
+											className={classes.margin}
+											name="cardCategoryCollectifSubTitle"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryCollectifSubTitle}
+											onChange={this.onChange}
+										/>
+										<TextField
+											label="cardCategoryCollectifDescription"
+											className={classes.margin}
+											name="cardCategoryCollectifDescription"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryCollectifDescription}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
 									<br /> <br />
 									<h4>Choisir une photo à titre individuel</h4>
 									<input type="file" name="imgCardIndividuel" onChange={this.onChangePicture2} />
 									<br /> <br />
-									<TextField
-										label="cardCategoryIndividuelTitle"
-										className={classes.margin}
-										name="cardCategoryIndividuelTitle"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryIndividuelTitle}
-										onChange={this.onChange}
-									/>>
-									<TextField
-										label="cardCategoryIndividuelSubTitle"
-										className={classes.margin}
-										name="cardCategoryIndividuelSubTitle"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryIndividuelSubTitle}
-										onChange={this.onChange}
-									/>
-									<TextField
-										label="cardCategoryIndividuelDescription"
-										className={classes.margin}
-										name="cardCategoryIndividuelDescription"
-										fullWidth
-										multiline
-										value={this.state.cardCategoryIndividuelDescription}
-										onChange={this.onChange}
-									/>
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="cardCategoryIndividuelTitle"
+											className={classes.margin}
+											name="cardCategoryIndividuelTitle"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryIndividuelTitle}
+											onChange={this.onChange}
+										/>
+										<TextField
+											label="cardCategoryIndividuelSubTitle"
+											className={classes.margin}
+											name="cardCategoryIndividuelSubTitle"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryIndividuelSubTitle}
+											onChange={this.onChange}
+										/>
+										<TextField
+											label="cardCategoryIndividuelDescription"
+											className={classes.margin}
+											name="cardCategoryIndividuelDescription"
+											fullWidth
+											multiline
+											value={this.state.cardCategoryIndividuelDescription}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
 									<h4> fichier d'adhesion</h4>
 									<input type="file" name="file" onChange={this.onChangeField} />
 									<br /> <br />
-									<TextField
-										label="file"
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="file"
+											className={classes.margin}
+											name="file"
+											fullWidth
+											multiline
+											value={this.state.file}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+								</Card>
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										Derniere sections, Adherer par chèques
+									</h3>
+									<TextFieldGroup
+										type="adresseName"
 										className={classes.margin}
-										name="file"
-										fullWidth
-										multiline
-										value={this.state.file}
+										name="adresseName"
+										value={this.state.adresseName}
 										onChange={this.onChange}
 									/>
-								</MuiThemeProvider>
-								<h1>Derniere sections, Adherer par chèques</h1>
-								<TextFieldGroup
-									type="adresseName"
-									className={classes.margin}
-									name="adresseName"
-									value={this.state.adresseName}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
-								<TextFieldGroup
-									type="adresseName2"
-									className={classes.margin}
-									name="adresseName2"
-									value={this.state.adresseName2}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
-								<TextFieldGroup
-									type="lieu"
-									className={classes.margin}
-									name="lieu"
-									value={this.state.lieu}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
+									<br /> <br />
+									<TextFieldGroup
+										type="adresseName2"
+										className={classes.margin}
+										name="adresseName2"
+										value={this.state.adresseName2}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<TextFieldGroup
+										type="lieu"
+										className={classes.margin}
+										name="lieu"
+										value={this.state.lieu}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+								</Card>
 								<MuiThemeProvider>
 									<Grid
 										container

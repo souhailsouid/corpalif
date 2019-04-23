@@ -12,7 +12,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
-
+import Card from 'components/Card/Card.jsx'
 // common
 import TextFieldGroup from 'views/common/TextFieldGroup'
 // Redux
@@ -132,7 +132,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateOrientation(this.props.match.params.id, Data)
-		window.location.assign('/admin/menu/coordinationregionale/orientation/orientation')
+		window.location.assign('/')
 	}
 
 	render() {
@@ -152,57 +152,83 @@ class Modal extends React.Component {
 					<GridContainer className={classes.gridContainer}>
 						<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
 							<form onSubmit={this.onSubmit}>
-								<h1>1er sections</h1>
-								<TextFieldGroup
-									label="Title"
-									name="title"
-									value={this.state.title}
-									onChange={this.onChange}
-								/>
-								<TextFieldGroup
-									label="Theme"
-									name="theme"
-									value={this.state.theme}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
-								<MuiThemeProvider theme={theme}>
-									<TextField
-										label="description"
-										className={classes.margin}
-										name="description"
-										inputProps={{
-											rows: 5
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
 										}}
-										fullWidth
-										multiline
-										value={this.state.description}
+									>
+										1er sections
+									</h3>
+									<TextFieldGroup
+										label="Title"
+										name="title"
+										value={this.state.title}
 										onChange={this.onChange}
 									/>
-								</MuiThemeProvider>
-								<br /> <br />
-								<h1>2nd sections</h1>
-								<TextFieldGroup
-									type="subtitle"
-									className={classes.margin}
-									name="subtitle"
-									value={this.state.subtitle}
-									onChange={this.onChange}
-								/>
-								<br /> <br />
-								<MuiThemeProvider theme={theme}>
-									<TextField
-										label="subtitleDescription"
-										className={classes.margin}
-										name="subtitleDescription"
-										inputProps={{
-											rows: 5
-										}}
-										fullWidth
-										multiline
-										value={this.state.subtitleDescription}
+									<TextFieldGroup
+										label="Theme"
+										name="theme"
+										value={this.state.theme}
 										onChange={this.onChange}
 									/>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="description"
+											className={classes.margin}
+											name="description"
+											inputProps={{
+												rows: 5
+											}}
+											fullWidth
+											multiline
+											value={this.state.description}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
+								</Card>
+								<br /> <br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										2nd sections
+									</h3>
+									<TextFieldGroup
+										type="subtitle"
+										className={classes.margin}
+										name="subtitle"
+										value={this.state.subtitle}
+										onChange={this.onChange}
+									/>
+									<br /> <br />
+									<MuiThemeProvider theme={theme}>
+										<TextField
+											label="subtitleDescription"
+											className={classes.margin}
+											name="subtitleDescription"
+											inputProps={{
+												rows: 5
+											}}
+											fullWidth
+											multiline
+											value={this.state.subtitleDescription}
+											onChange={this.onChange}
+										/>
+									</MuiThemeProvider>
 									<br /> <br />
 									<MuiThemeProvider theme={theme}>
 										<TextField
@@ -218,8 +244,21 @@ class Modal extends React.Component {
 											onChange={this.onChange}
 										/>
 									</MuiThemeProvider>
-									<br /> <br />
-									<h1>3nd sections</h1>
+								</Card>
+								<br /> <br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										3rd sections
+									</h3>
 									<TextFieldGroup
 										type="subtitle2"
 										className={classes.margin}
@@ -242,9 +281,22 @@ class Modal extends React.Component {
 											onChange={this.onChange}
 										/>
 									</MuiThemeProvider>
-									<br />
-									<br />
-									<h1>4nd sections</h1>
+								</Card>
+								<br />
+								<br />
+								<Card
+									plain
+									className={classes.modalSearchCard}
+									style={{ border: '1px solid gray', padding: 20 }}
+								>
+									<h3
+										style={{
+											textAlign: 'center',
+											textDecoration: 'underline'
+										}}
+									>
+										4th sections
+									</h3>
 									<TextFieldGroup
 										type="liensTitle"
 										className={classes.margin}
@@ -275,20 +327,20 @@ class Modal extends React.Component {
 										value={this.state.liensUrl2}
 										onChange={this.onChange}
 									/>
-									<Grid
-										container
-										direction="row"
-										justify="center"
-										style={{
-											marginTop: 40,
-											justifyContent: 'space-around'
-										}}
-									>
-										<Button type="submit" value="Submit" color="green">
-											Modifier
-										</Button>
-									</Grid>
-								</MuiThemeProvider>
+								</Card>
+								<Grid
+									container
+									direction="row"
+									justify="center"
+									style={{
+										marginTop: 40,
+										justifyContent: 'space-around'
+									}}
+								>
+									<Button type="submit" value="Submit" color="green">
+										Modifier
+									</Button>
+								</Grid>
 							</form>
 						</GridItem>
 					</GridContainer>

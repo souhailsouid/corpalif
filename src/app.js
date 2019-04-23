@@ -922,6 +922,9 @@ import SectionAgenda1Admin from 'views/Admin/Home/HomePage/notification/agenda1/
 // Agenda 2
 import UpdateAgenda2 from 'views/Admin/Home/HomePage/notification/agenda2/update/Header'
 import SectionAgenda2Admin from 'views/Admin/Home/HomePage/notification/agenda2/agenda'
+// Agenda 3
+import UpdateAgenda3 from 'views/Admin/Home/HomePage/notification/agenda3/update/Header'
+import SectionAgenda3Admin from 'views/Admin/Home/HomePage/notification/agenda3/agenda'
 // Offre d'emploi
 import UpdateOffre from 'views/Admin/Home/HomePage/notification/offre/update/Header'
 import SectionOffreAdmin from 'views/Admin/Home/HomePage/notification/offre/offre'
@@ -3659,6 +3662,7 @@ class App extends Component {
 									path="/menu/veillemedicale/infosforSubscribers"
 									component={PresentationInfoSubscribers}
 								/>
+
 								<PrivateRoute
 									exact
 									path="/menu/veillemedicale/infosforAdherents"
@@ -3912,6 +3916,10 @@ class App extends Component {
 								{/* Agenda2	*/}
 								<AdminRoute exact path="/admin/agenda2" component={SectionAgenda2Admin} />
 								<AdminRoute exact path="/admin/menu/agenda2/update/:id" component={UpdateAgenda2} />
+								{/* Agenda3	*/}
+								<AdminRoute exact path="/admin/agenda3" component={SectionAgenda3Admin} />
+								<AdminRoute exact path="/admin/menu/agenda3/update/:id" component={UpdateAgenda3} />
+
 								{/* Offre d'emploi	*/}
 								<AdminRoute exact path="/admin/offre" component={SectionOffreAdmin} />
 								<AdminRoute exact path="/admin/menu/offre/update/:id" component={UpdateOffre} />

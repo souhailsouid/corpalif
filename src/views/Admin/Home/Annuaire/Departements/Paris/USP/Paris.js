@@ -42,12 +42,12 @@ class Paris extends React.Component {
 		document.body.scrollTop = 0
 
 		this.props.getCurrentStructure()
-				this.props.getCurrentStructureMaps()
+		this.props.getCurrentStructureMaps()
 	}
 
 	render() {
 		const { mapusp } = this.props.mapusp
-			const Data = mapusp.map((mapusp) => <Map mapusp={mapusp} />)
+		const Data = mapusp.map((mapusp) => <Map mapusp={mapusp} />)
 		const ButtonMaps = mapusp.map((mapusp) => <TablesMaps mapusp={mapusp} />)
 		const { classes } = this.props
 		const { usp } = this.props.usp
@@ -110,7 +110,7 @@ class Paris extends React.Component {
 								</Link>
 							</Grid>
 
-						<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
+							<Grid xs={12} sm={10} md={12} style={{ textAlign: 'right', justifyContent: 'right' }}>
 								<b>Ajouter une structure sur la carte </b>
 								<Link to="/admin/post/paris/maps/usp">
 									<Button round variant="fab" color="green" aria-label="Add">
@@ -123,7 +123,7 @@ class Paris extends React.Component {
 
 							<div />
 						</GridItem>
-							<div>
+						<div>
 							<br />
 							<br />
 
@@ -174,8 +174,8 @@ Paris.propTypes = {
 	usp: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	deleteStructure_id: PropTypes.func.isRequired,
-mapusp: PropTypes.object.isRequired,
-		getCurrentStructureMaps: PropTypes.func.isRequired,
+	mapusp: PropTypes.object.isRequired,
+	getCurrentStructureMaps: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

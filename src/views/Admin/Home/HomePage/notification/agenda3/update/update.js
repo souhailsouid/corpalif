@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 import Slide from '@material-ui/core/Slide'
@@ -24,7 +25,7 @@ import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getCurrentAgenda1_id, updateAgenda1 } from 'actions/HomePage/notificationActions'
+import { getCurrentAgenda3_id, updateAgenda3 } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
 	return <Slide direction="down" {...props} />
@@ -58,22 +59,22 @@ class Modal extends React.Component {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
 
-		this.props.getCurrentAgenda1_id(this.props.match.params.id)
+		this.props.getCurrentAgenda3_id(this.props.match.params.id)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.agenda1.agenda1) {
-			const agenda1 = nextProps.agenda1.agenda1
+		if (nextProps.agenda3.agenda3) {
+			const agenda3 = nextProps.agenda3.agenda3
 
-			// If agenda1 field doesnt exist, make empty string
+			// If agenda3 field doesnt exist, make empty string
 
-			agenda1.theme = !isEmpty(agenda1.theme) ? agenda1.theme : ''
-			agenda1.lieu = !isEmpty(agenda1.lieu) ? agenda1.lieu : ''
+			agenda3.theme = !isEmpty(agenda3.theme) ? agenda3.theme : ''
+			agenda3.lieu = !isEmpty(agenda3.lieu) ? agenda3.lieu : ''
 
 			// Set component fields state
 			this.setState({
-				theme: agenda1.theme,
-				lieu: agenda1.lieu
+				theme: agenda3.theme,
+				lieu: agenda3.lieu
 			})
 		}
 	}
@@ -86,7 +87,7 @@ class Modal extends React.Component {
 			lieu: this.state.lieu
 		}
 
-		this.props.updateAgenda1(this.props.match.params.id, Data, window.location.replace('/admin/agenda1/'))
+		this.props.updateAgenda3(this.props.match.params.id, Data, window.location.replace('/admin/agenda3/'))
 	}
 
 	onChange(e) {
@@ -106,7 +107,7 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/agenda1/'))}
+					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/agenda3/'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>
@@ -141,15 +142,14 @@ class Modal extends React.Component {
 													<GridItem xs={12} sm={12} md={12} className={classes.gridItem}>
 														<form onSubmit={this.onSubmit}>
 															<TextFieldGroup
-																label="theme"
 																className={classes.margin}
+																label="Nom du lieu ET DATE"
 																name="theme"
 																value={this.state.theme}
 																onChange={this.onChange}
 															/>
 															<br /> <br />
 															<TextFieldGroup
-																label="Nom du lieu ET DATE"
 																className={classes.margin}
 																name="lieu"
 																value={this.state.lieu}
@@ -186,18 +186,18 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-	agenda1: PropTypes.object.isRequired,
-	getCurrentAgenda1_id: PropTypes.func.isRequired,
-	updateAgenda1: PropTypes.func.isRequired,
+	agenda3: PropTypes.object.isRequired,
+	getCurrentAgenda3_id: PropTypes.func.isRequired,
+	updateAgenda3: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
-	agenda1: state.agenda1,
+	agenda3: state.agenda3,
 	errors: state.errors,
 	auth: state.auth
 })
 export default compose(withStyles(presentationStyle))(
-	connect(mapStateTopProps, { getCurrentAgenda1_id, updateAgenda1 })(withRouter(Modal))
+	connect(mapStateTopProps, { getCurrentAgenda3_id, updateAgenda3 })(withRouter(Modal))
 )

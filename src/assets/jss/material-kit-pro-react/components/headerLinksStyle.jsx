@@ -8,13 +8,14 @@ import tooltip from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
 
 const headerLinksStyle = (theme) => ({
 	list: {
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up('lg')]: {
 			WebkitBoxAlign: 'center',
 			MsFlexAlign: 'center',
 			alignItems: 'center',
 			WebkitBoxOrient: 'horizontal',
 			WebkitBoxDirection: 'normal',
 			width: 'auto',
+			display: 'flex',
 			MsFlexDirection: 'row',
 			flexDirection: 'row'
 		},
@@ -22,7 +23,6 @@ const headerLinksStyle = (theme) => ({
 			display: 'block'
 		},
 		marginTop: '0px',
-		display: 'flex',
 		paddingLeft: '0',
 		marginBottom: '0',
 		listStyle: 'none',

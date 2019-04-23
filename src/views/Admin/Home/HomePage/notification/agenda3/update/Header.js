@@ -17,7 +17,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 
-class UpdateCaroussel1 extends React.Component {
+class UpdateAgenda3 extends React.Component {
 	componentDidMount() {
 		window.scrollTo(0, 0)
 		document.body.scrollTop = 0
@@ -34,8 +34,8 @@ class UpdateCaroussel1 extends React.Component {
 							src="http://image.noelshack.com/fichiers/2018/40/1/1538391836-corpalif-logo.png"
 							alt="logo"
 							style={{
-								width: 100,
-
+								width: 80,
+								maxWidth: '100%',
 								height: 'auto'
 							}}
 						/>
@@ -46,13 +46,12 @@ class UpdateCaroussel1 extends React.Component {
 						height: 400
 					}}
 				/>
-
 				<div>
 					<Parallax
 						image={require('assets/img/examples/city.jpg')}
 						className={classes.parallax}
 						small
-						style={{ minHeight: '15vh' }}
+						style={{ height: 400 }}
 					/>
 				</div>
 				<div className={classNames(classes.main, classes.mainRaised)}>
@@ -70,8 +69,8 @@ class UpdateCaroussel1 extends React.Component {
 	}
 }
 
-UpdateCaroussel1.propTypes = {
+UpdateAgenda3.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default compose(withStyles(profilePageStyle))(withRouter(UpdateCaroussel1))
+export default compose(withStyles(profilePageStyle))(withRouter(UpdateAgenda3))

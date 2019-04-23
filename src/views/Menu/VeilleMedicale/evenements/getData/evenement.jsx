@@ -47,9 +47,6 @@ const Evenement = ({ evenement, classes }) => (
 							<i class="material-icons">library_books</i> <b> {evenement.fileName} </b>
 						</a>
 					</p>
-					<p className={classes.author}>
-						par <b>Sarah LACROIX</b>
-					</p>
 				</GridItem>
 			</GridContainer>
 		</Card>

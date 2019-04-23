@@ -1,17 +1,13 @@
 import React from 'react'
-// react component for creating beautiful carousel
 
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
-// @material-ui/icons
 
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 import SectionAgenda from './SectionAgenda'
-import SectionOffres from './SectionOffres'
 
 import Caroussel from './Caroussel'
 // Redux
@@ -48,20 +44,42 @@ class SectionCarousel extends React.Component {
 		return (
 			<div className={classes.section} id="carousel">
 				<div className={classes.container}>
+					<br /> <br /> <br />
 					<GridContainer>
-						<GridItem xs={12} sm={12} md={8} className={classes.marginAuto} style={{ marginTop: 40 }}>
-							<h3 className={classes.title} style={{ paddingBottom: 10, color: '#cc4949' }}>
+						<GridItem
+							xs={12}
+							sm={12}
+							md={8}
+							className={classes.marginAuto}
+							style={{ marginLeft: 'auto', marginRight: 'auto', paddingBottom: '0px' }}
+						>
+							{/* <h5 className={classes.title} style={{ paddingBottom: 10, color: '#cc4949' }}>
 								<i class="material-icons" style={{ color: '#cc4949' }}>
 									description
 								</i>{' '}
 								ACTUALITÉS
-							</h3>
+							</h5> */}
+							<span
+								style={{
+									textDecoration: 'none',
+									fontFamily: 'Product Sans,Arial,sans-serif',
+									fontSize: '22px',
+									lineHeight: '74px',
+									top: '-1.5px',
+									verticalAlign: 'middle',
+									color: '#a80505',
+									marginLeft: '20px'
+								}}
+							>
+								ACTUALITÉS
+							</span>
 							{DataElements}
 						</GridItem>
 						<div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
 							<SectionAgenda />
-							<SectionOffres />
 						</div>
+						{/* <SectionOffres /> */}
+						{/* </div> */}
 					</GridContainer>
 				</div>
 			</div>

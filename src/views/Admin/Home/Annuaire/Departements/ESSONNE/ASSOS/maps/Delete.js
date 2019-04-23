@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idAssosMaps(this.props.match.params.id)
-		window.location.replace('/#/#/admin/ESSONNE/association')
+		window.location.replace('/#/admin/ESSONNE/association')
 	}
 
 	render() {

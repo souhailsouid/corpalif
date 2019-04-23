@@ -193,138 +193,136 @@ class HeaderLinks extends React.Component {
 		)
 
 		return (
-			<div>
-				<List className={classes.list + ' ' + classes.mlAuto}>
-					<ListItem className={classes.listItem}>
-						<CustomDropdown
-							noLiPadding
-							navDropdown
-							hoverColor="transparent"
-							buttonText="Coordination régionale"
-							buttonProps={{
-								className: classes.navLink,
-								color: 'transparent'
-							}}
-							buttonIcon={Apps}
-							dropdownList={[
-								<Link to="/menu/coordinationregionale/corpalif/" className={classes.dropdownLink}>
-									<div style={{ margin: 2 }}>
-										{<Apps className={classes.dropdownIcons} />}Notre association
-									</div>
-								</Link>,
-								<Link
-									to="/menu/coordinationregionale/orientationregionale/"
-									className={classes.dropdownLink}
-								>
-									<div style={{ margin: 2 }}>
-										{<ArtTrack className={classes.dropdownIcons} />}Orientations régionales
-									</div>
-								</Link>,
-								<Link to="/menu/coordinationregionale/adherer/" className={classes.dropdownLink}>
-									<div style={{ margin: 2 }}>
-										{<PersonAdd className={classes.dropdownIcons} />}Adhérer
-									</div>
-								</Link>,
-								<Link to="/menu/Contact" className={classes.dropdownLink}>
-									<div style={{ display: 'flex', color: 'rgb(51, 51, 51' }}>
-										{<Icon className={classes.dropdownIcons}>content_paste</Icon>}
-										<div style={{ display: 'flex', marginLeft: 5 }}>Contact</div>
-									</div>
-								</Link>
-							]}
-						/>
-					</ListItem>
-					<ListItem className={classes.listItem}>
-						<CustomDropdown
-							noLiPadding
-							navDropdown
-							hoverColor="transparent"
-							buttonText="Les soins palliatifs"
-							buttonProps={{
-								className: classes.navLink,
-								color: 'transparent'
-							}}
-							buttonIcon={ViewDay}
-							dropdownList={[
-								<Link to="/menu/soinspalliatifs/demarche-palliative/" className={classes.dropdownLink}>
-									<div style={{ margin: 2 }}>
-										{<Dns className={classes.dropdownIcons} />} La démarche palliative
-									</div>
-								</Link>,
-								<Link to="/annuaire-francilien" className={classes.dropdownLink}>
-									<div style={{ margin: 2 }}>
-										{<LocationCity className={classes.dropdownIcons} />}
-										Les structures de prise en charge
-									</div>
-								</Link>,
-								<Link to="/menu/soinspalliatifs/legislation" className={classes.dropdownLink}>
-									<div style={{ display: 'flex', color: '#333' }}>
-										{<ListIcon className={classes.dropdownIcons} />}
-										<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Législation</div>
-									</div>
-								</Link>,
-								<Link to="/menu/soinspalliatifs/accompagnement/" className={classes.dropdownLink}>
-									<div style={{ margin: 2 }}>
-										{<People className={classes.dropdownIcons} />} Accompagner son proche
-									</div>
-								</Link>
-							]}
-						/>
-					</ListItem>
+			<List className={classes.list + ' ' + classes.mlAuto}>
+				<ListItem className={classes.listItem}>
+					<CustomDropdown
+						noLiPadding
+						navDropdown
+						hoverColor="transparent"
+						buttonText="Coordination régionale"
+						buttonProps={{
+							className: classes.navLink,
+							color: 'transparent'
+						}}
+						buttonIcon={Apps}
+						dropdownList={[
+							<Link to="/menu/coordinationregionale/corpalif/" className={classes.dropdownLink}>
+								<div style={{ margin: 2 }}>
+									{<Apps className={classes.dropdownIcons} />}Notre association
+								</div>
+							</Link>,
+							<Link
+								to="/menu/coordinationregionale/orientationregionale/"
+								className={classes.dropdownLink}
+							>
+								<div style={{ margin: 2 }}>
+									{<ArtTrack className={classes.dropdownIcons} />}Orientations régionales
+								</div>
+							</Link>,
+							<Link to="/menu/coordinationregionale/adherer/" className={classes.dropdownLink}>
+								<div style={{ margin: 2 }}>
+									{<PersonAdd className={classes.dropdownIcons} />}Adhérer
+								</div>
+							</Link>,
+							<Link to="/menu/Contact" className={classes.dropdownLink}>
+								<div style={{ display: 'flex', color: 'rgb(51, 51, 51' }}>
+									{<Icon className={classes.dropdownIcons}>content_paste</Icon>}
+									<div style={{ display: 'flex', marginLeft: 5 }}>Contact</div>
+								</div>
+							</Link>
+						]}
+					/>
+				</ListItem>
+				<ListItem className={classes.listItem}>
+					<CustomDropdown
+						noLiPadding
+						navDropdown
+						hoverColor="transparent"
+						buttonText="Les soins palliatifs"
+						buttonProps={{
+							className: classes.navLink,
+							color: 'transparent'
+						}}
+						buttonIcon={ViewDay}
+						dropdownList={[
+							<Link to="/menu/soinspalliatifs/demarche-palliative/" className={classes.dropdownLink}>
+								<div style={{ margin: 2 }}>
+									{<Dns className={classes.dropdownIcons} />} La démarche palliative
+								</div>
+							</Link>,
+							<Link to="/annuaire-francilien" className={classes.dropdownLink}>
+								<div style={{ margin: 2 }}>
+									{<LocationCity className={classes.dropdownIcons} />}
+									Les structures de prise en charge
+								</div>
+							</Link>,
+							<Link to="/menu/soinspalliatifs/legislation" className={classes.dropdownLink}>
+								<div style={{ display: 'flex', color: '#333' }}>
+									{<ListIcon className={classes.dropdownIcons} />}
+									<div style={{ display: 'flex', color: '#333', marginLeft: 5 }}>Législation</div>
+								</div>
+							</Link>,
+							<Link to="/menu/soinspalliatifs/accompagnement/" className={classes.dropdownLink}>
+								<div style={{ margin: 2 }}>
+									{<People className={classes.dropdownIcons} />} Accompagner son proche
+								</div>
+							</Link>
+						]}
+					/>
+				</ListItem>
 
-					<ListItem className={classes.listItem}>
-						<CustomDropdown
-							noLiPadding
-							navDropdown
-							hoverColor="transparent"
-							buttonText="Veille médicale"
-							buttonProps={{
-								className: classes.navLink,
-								color: 'transparent'
-							}}
-							buttonIcon={Book}
-							dropdownList={[
-								<Link to="/menu/veillemedicale/recommandation&outils/" className={classes.dropdownLink}>
-									<AccountBalance className={classes.dropdownIcons} /> Recommandations et outils
-								</Link>,
-								<Link to="/menu/veillemedicale/actualites/" className={classes.dropdownLink}>
-									<ArtTrack className={classes.dropdownIcons} /> Actualités nationales et régionales
-								</Link>,
-								<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
-									<ViewQuilt className={classes.dropdownIcons} /> Evènements
-								</Link>,
-								<Link to="/menu/veillemedicale/nosrencontres" className={classes.dropdownLink}>
-									<LocationOn className={classes.dropdownIcons} /> Nos rencontres
-								</Link>
-							]}
-						/>
-					</ListItem>
+				<ListItem className={classes.listItem}>
+					<CustomDropdown
+						noLiPadding
+						navDropdown
+						hoverColor="transparent"
+						buttonText="Veille médicale"
+						buttonProps={{
+							className: classes.navLink,
+							color: 'transparent'
+						}}
+						buttonIcon={Book}
+						dropdownList={[
+							<Link to="/menu/veillemedicale/recommandation&outils/" className={classes.dropdownLink}>
+								<AccountBalance className={classes.dropdownIcons} /> Recommandations et outils
+							</Link>,
+							<Link to="/menu/veillemedicale/actualites/" className={classes.dropdownLink}>
+								<ArtTrack className={classes.dropdownIcons} /> Actualités nationales et régionales
+							</Link>,
+							<Link to="/menu/veillemedicale/evenements/" className={classes.dropdownLink}>
+								<ViewQuilt className={classes.dropdownIcons} /> Evènements
+							</Link>,
+							<Link to="/menu/veillemedicale/nosrencontres" className={classes.dropdownLink}>
+								<LocationOn className={classes.dropdownIcons} /> Nos rencontres
+							</Link>
+						]}
+					/>
+				</ListItem>
 
-					<ListItem className={classes.listItem}>
-						<CustomDropdown
-							noLiPadding
-							navDropdown
-							hoverColor="transparent"
-							buttonText="Emploi - Formation"
-							buttonProps={{
-								className: classes.navLink,
-								color: 'transparent'
-							}}
-							buttonIcon={Work}
-							dropdownList={[
-								<Link to="/offres-d'emplois" className={classes.dropdownLink}>
-									<Work className={classes.dropdownIcons} /> Offres d'emploi
-								</Link>,
-								<Link to="/formations" className={classes.dropdownLink}>
-									<Layers className={classes.dropdownIcons} /> Formations
-								</Link>
-							]}
-						/>
-					</ListItem>
-					<ListItem className={classes.listItem}>{File}</ListItem>
-					<ListItem className={classes.listItem}>{isAuthenticated ? authLinks : guestLinks}</ListItem>
-				</List>
-			</div>
+				<ListItem className={classes.listItem}>
+					<CustomDropdown
+						noLiPadding
+						navDropdown
+						hoverColor="transparent"
+						buttonText="Emploi - Formation"
+						buttonProps={{
+							className: classes.navLink,
+							color: 'transparent'
+						}}
+						buttonIcon={Work}
+						dropdownList={[
+							<Link to="/offres-d'emplois" className={classes.dropdownLink}>
+								<Work className={classes.dropdownIcons} /> Offres d'emploi
+							</Link>,
+							<Link to="/formations" className={classes.dropdownLink}>
+								<Layers className={classes.dropdownIcons} /> Formations
+							</Link>
+						]}
+					/>
+				</ListItem>
+				<ListItem className={classes.listItem}>{File}</ListItem>
+				<ListItem className={classes.listItem}>{isAuthenticated ? authLinks : guestLinks}</ListItem>
+			</List>
 		)
 	}
 }

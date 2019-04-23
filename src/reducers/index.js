@@ -12,6 +12,7 @@ import adherentReducer from './pagedaccueil/adherentReducer'
 import agendaReducer from './pagedaccueil/agendaReducer'
 import agenda1Reducer from './notifications/agenda1Reducer'
 import agenda2Reducer from './notifications/agenda2Reducer'
+import agenda3Reducer from './notifications/agenda3Reducer'
 import offreReducer from './notifications/offreReducer'
 import offresdemploisReducer from './menu/Offres&formations/offresdemploisReducer'
 import formationReducer from './menu/Offres&formations/formationReducer'
@@ -50,6 +51,7 @@ export default combineReducers({
 	agenda: agendaReducer,
 	agenda1: agenda1Reducer,
 	agenda2: agenda2Reducer,
+	agenda3: agenda3Reducer,
 	notificationoffre: offreReducer,
 	offreemploi: offresdemploisReducer,
 	formation: formationReducer,

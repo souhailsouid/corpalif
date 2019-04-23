@@ -2,12 +2,15 @@ import React from 'react'
 
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
+// @material-ui/icons
 
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
-import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
-import Adherent from 'views/PresentationPage/Sections/adherent'
 import GridItem from 'components/Grid/GridItem.jsx'
+
+import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
+
+import Offres from 'views/PresentationPage/Sections/offres/offres'
 // Redux
 import PropTypes from 'prop-types'
 import { compose } from 'redux'
@@ -15,7 +18,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getCurrentAdherent } from 'actions/HomePage/carousselActions'
 
-class SectionAdherent extends React.Component {
+class SectionOffres extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -38,22 +41,16 @@ class SectionAdherent extends React.Component {
 
 		const { classes } = this.props
 
-		const DataElements = adherent.map((adherent) => <Adherent adherent={adherent} />)
+		const DataElements = adherent.map((adherent) => <Offres adherent={adherent} />)
 		return (
-			<div className={classes.section} id="carousel">
-				<div className={classes.container}>
-					<GridContainer>
-						<GridItem xs={12} sm={12} md={12} className={`${classes.mlAuto} ${classes.mrAuto}`}>
-							<a href="/menu/coordinationregionale/adherer">{DataElements}</a>
-						</GridItem>
-					</GridContainer>
-				</div>
-			</div>
+			<GridContainer>
+				<a href="/#/offres-d'emplois">{DataElements}</a>
+			</GridContainer>
 		)
 	}
 }
 
-SectionAdherent.propTypes = {
+SectionOffres.propTypes = {
 	getCurrentAdherent: PropTypes.func.isRequired,
 	adherent: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
@@ -64,5 +61,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(withStyles(carouselStyle))(
-	connect(mapStateToProps, { getCurrentAdherent })(withRouter(SectionAdherent))
+	connect(mapStateToProps, { getCurrentAdherent })(withRouter(SectionOffres))
 )

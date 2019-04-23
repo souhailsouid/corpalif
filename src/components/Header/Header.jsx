@@ -68,17 +68,17 @@ class Header extends React.Component {
 						<Link to="/">{brand}</Link>
 					</Button>
 
-					<Hidden smDown implementation="css" className={classes.hidden}>
+					<Hidden mdDown implementation="css" className={classes.hidden}>
 						<div className={classes.collapse}>{links}</div>
 					</Hidden>
-					<Hidden mdUp>
+					<Hidden lgUp>
 						<IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}>
 							<Menu />
 						</IconButton>
 					</Hidden>
 				</Toolbar>
 
-				<Hidden mdUp implementation="css">
+				<Hidden smUp implementation="css" style={{ display: 'block' }}>
 					<Drawer
 						variant="temporary"
 						anchor={'right'}

@@ -23,7 +23,7 @@ const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
 	)
 })
 
-const Agenda = ({ agenda1, classes }) => (
+const Agenda = ({ agenda3, classes }) => (
 	<SnackbarContent
 		message={
 			<span
@@ -73,7 +73,7 @@ const Agenda = ({ agenda1, classes }) => (
 							color: '#3c4043'
 						}}
 					>
-						{agenda1.theme}
+						{agenda3.theme}
 					</span>
 				</div>{' '}
 				<hr />
@@ -87,7 +87,7 @@ const Agenda = ({ agenda1, classes }) => (
 						display: 'flex'
 					}}
 				>
-					<span style={{ marginLeft: '25px', fontSize: 16 }}> {agenda1.lieu}</span>
+					<span style={{ marginLeft: '25px', fontSize: 16 }}> {agenda3.lieu}</span>
 				</div>{' '}
 				<br />
 				<div
@@ -115,7 +115,7 @@ const Agenda = ({ agenda1, classes }) => (
 							</span>
 						</div>
 					</Link>
-					<Link to={`/admin/menu/agenda1/update/${agenda1._id}`}>{update}</Link>
+					<Link to={`/admin/menu/agenda3/update/${agenda3._id}`}>{update}</Link>
 				</div>
 			</span>
 		}

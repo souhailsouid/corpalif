@@ -54,9 +54,6 @@ const Recommandation = ({ recommandation, classes }) => (
 							<i class="material-icons">library_books</i> <b> {recommandation.fileName} </b>
 						</a>
 					</p>
-					<p className={classes.author}>
-						par <b>Sarah LACROIX</b>
-					</p>
 				</GridItem>
 			</GridContainer>
 		</Card>

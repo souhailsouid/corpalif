@@ -38,9 +38,6 @@ const Actualite = ({ actualite, classes }) => (
 							<i class="material-icons">library_books</i> <b> {actualite.fileName} </b>
 						</a>
 					</p>
-					<p className={classes.author}>
-						par <b>Sarah LACROIX</b>
-					</p>
 				</GridItem>
 			</GridContainer>
 		</Card>

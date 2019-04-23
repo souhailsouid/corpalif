@@ -1,29 +1,14 @@
 import React from 'react'
+
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
-// @material-ui/icons
-import Edit from '@material-ui/icons/Edit'
-// core components
-import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
-import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
-import { Link } from 'react-router-dom'
-
-// @material-ui/coßre components
-
 import Tooltip from '@material-ui/core/Tooltip'
 // core components
-import 'views/PresentationPage/Sections/Articles/style.css'
+import SnackbarContent from 'components/Snackbar/SnackbarContent.jsx'
+import { Link } from 'react-router-dom'
+import notificationsStyles from 'assets/jss/material-kit-pro-react/views/componentsSections/notificationsStyles.jsx'
 
-const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
-	return (
-		<Button round justIcon size="sm" color={prop.color} key={key}>
-			<prop.icon />
-		</Button>
-	)
-})
-
-const Agenda = ({ agenda1, classes }) => (
+const Agenda3 = ({ agenda3, classes }) => (
 	<SnackbarContent
 		message={
 			<span
@@ -62,6 +47,7 @@ const Agenda = ({ agenda1, classes }) => (
 							}}
 						/>
 					</Tooltip>
+					{'  '}
 					<span
 						style={{
 							marginLeft: '7px',
@@ -73,7 +59,7 @@ const Agenda = ({ agenda1, classes }) => (
 							color: '#3c4043'
 						}}
 					>
-						{agenda1.theme}
+						{agenda3.theme}
 					</span>
 				</div>{' '}
 				<hr />
@@ -87,7 +73,7 @@ const Agenda = ({ agenda1, classes }) => (
 						display: 'flex'
 					}}
 				>
-					<span style={{ marginLeft: '25px', fontSize: 16 }}> {agenda1.lieu}</span>
+					<span style={{ marginLeft: '25px', fontSize: 16 }}> {agenda3.lieu}</span>
 				</div>{' '}
 				<br />
 				<div
@@ -107,7 +93,7 @@ const Agenda = ({ agenda1, classes }) => (
 						}}
 					>
 						<div className="icon">
-							<svg width="20" height="20" viewBox="0 0 24 24" focusable="false" className="icon">
+							<svg width="20" height="20" viewBox="0 0 24 24" focusable="false" class="">
 								<path d="M18 17v-6c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v6H4v2h16v-2h-2zm-2 0H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zm-4 5c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z" />
 							</svg>{' '}
 							<span style={{ marginLeft: '6px', fontSize: 13 }} className="agenda">
@@ -115,11 +101,11 @@ const Agenda = ({ agenda1, classes }) => (
 							</span>
 						</div>
 					</Link>
-					<Link to={`/admin/menu/agenda1/update/${agenda1._id}`}>{update}</Link>
 				</div>
 			</span>
 		}
+		color="#999999"
 	/>
 )
 
-export default withStyles(notificationsStyles)(Agenda)
+export default withStyles(notificationsStyles)(Agenda3)

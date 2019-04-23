@@ -24,7 +24,7 @@ import TextFieldGroup from 'views/common/TextFieldGroup'
 import isEmpty from 'validation/is-empty'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { getCurrentAgenda2_id, updateAgenda2 } from 'actions/HomePage/notificationActions'
 
 function Transition(props) {
@@ -37,11 +37,7 @@ class Modal extends React.Component {
 		this.state = {
 			searchModal: true,
 			theme: '',
-			lieu: '',
-			rue: '',
-			city: '',
-			when: '',
-			line: ''
+			lieu: ''
 		}
 
 		this.onChange = this.onChange.bind(this)
@@ -71,21 +67,14 @@ class Modal extends React.Component {
 			const agenda2 = nextProps.agenda2.agenda2
 
 			// If agenda2 field doesnt exist, make empty string
-			agenda2.when = !isEmpty(agenda2.when) ? agenda2.when : ''
+
 			agenda2.theme = !isEmpty(agenda2.theme) ? agenda2.theme : ''
 			agenda2.lieu = !isEmpty(agenda2.lieu) ? agenda2.lieu : ''
-			agenda2.rue = !isEmpty(agenda2.rue) ? agenda2.rue : ''
-			agenda2.city = !isEmpty(agenda2.city) ? agenda2.city : ''
-			agenda2.line = !isEmpty(agenda2.line) ? agenda2.line : ''
 
 			// Set component fields state
 			this.setState({
 				theme: agenda2.theme,
-				lieu: agenda2.lieu,
-				line: agenda2.line,
-				when: agenda2.when,
-				rue: agenda2.rue,
-				city: agenda2.city
+				lieu: agenda2.lieu
 			})
 		}
 	}
@@ -95,14 +84,10 @@ class Modal extends React.Component {
 
 		const Data = {
 			theme: this.state.theme,
-			when: this.state.when,
-			rue: this.state.rue,
-			line: this.state.line,
-			lieu: this.state.lieu,
-			city: this.state.city
+			lieu: this.state.lieu
 		}
 
-		this.props.updateAgenda2(this.props.match.params.id, Data)
+		this.props.updateAgenda2(this.props.match.params.id, Data, window.location.replace('/admin/agenda2/'))
 	}
 
 	onChange(e) {
@@ -158,12 +143,7 @@ class Modal extends React.Component {
 														<form onSubmit={this.onSubmit}>
 															<TextFieldGroup
 																className={classes.margin}
-																name="when"
-																value={this.state.when}
-																onChange={this.onChange}
-															/>
-															<TextFieldGroup
-																className={classes.margin}
+																label="Nom du lieu ET DATE"
 																name="theme"
 																value={this.state.theme}
 																onChange={this.onChange}
@@ -171,28 +151,8 @@ class Modal extends React.Component {
 															<br /> <br />
 															<TextFieldGroup
 																className={classes.margin}
-																name="line"
-																value={this.state.line}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<TextFieldGroup
-																className={classes.margin}
 																name="lieu"
 																value={this.state.lieu}
-																onChange={this.onChange}
-															/>
-															<br /> <br />
-															<TextFieldGroup
-																className={classes.margin}
-																name="rue"
-																value={this.state.rue}
-																onChange={this.onChange}
-															/>
-															<TextFieldGroup
-																className={classes.margin}
-																name="city"
-																value={this.state.city}
 																onChange={this.onChange}
 															/>
 															<br /> <br />
@@ -205,11 +165,9 @@ class Modal extends React.Component {
 																	justifyContent: 'space-around'
 																}}
 															>
-																<Link to="/admin/agenda2">
-																	<Button type="submit" value="Submit" color="green">
-																		Modifier
-																	</Button>
-																</Link>
+																<Button type="submit" value="Submit" color="green">
+																	Modifier
+																</Button>
 															</Grid>
 														</form>
 													</GridItem>

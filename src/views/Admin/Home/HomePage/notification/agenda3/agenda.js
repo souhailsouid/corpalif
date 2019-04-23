@@ -1,5 +1,4 @@
 import React from 'react'
-
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
@@ -11,34 +10,35 @@ import blogsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections
 // Redux
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { getCurrentRecommandation } from 'actions/menu/veillemedicale/recommandationActions'
+import { getCurrentAgenda3 } from 'actions/HomePage/notificationActions'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import Recommandation from './Recommandation'
-class SectionRecommandations extends React.Component {
+import Agenda from './table'
+import HeaderComponent from 'views/Header/AppBar.jsx'
+class SectionAgenda3Admin extends React.Component {
 	componentDidMount() {
-		this.props.getCurrentRecommandation()
+		this.props.getCurrentAgenda3()
 	}
 
 	render() {
 		const { classes, ...rest } = this.props
-		const { recommandation } = this.props.recommandation
-		const DataElements = recommandation.map((recommandation) => <Recommandation recommandation={recommandation} />)
-		var my_array = DataElements
-		var last_element = my_array.reverse()
+		const { agenda3 } = this.props.agenda3
+		const DataElements = agenda3.map((agenda3) => <Agenda agenda3={agenda3} />)
+
 		return (
 			<div className="cd-section" {...rest}>
+				<HeaderComponent />
 				<div className={classes.blog}>
 					<div className={classes.container}>
 						<GridContainer>
-							<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
+							<GridItem xs={12} sm={10} md={4} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
-									Recommandations et outils
+									Agenda3
 								</h2>
 								<br />
 
-								{last_element}
+								{DataElements}
 							</GridItem>
 						</GridContainer>
 					</div>
@@ -48,16 +48,16 @@ class SectionRecommandations extends React.Component {
 	}
 }
 
-SectionRecommandations.propTypes = {
-	getCurrentRecommandation: PropTypes.func.isRequired,
-	recommandation: PropTypes.object.isRequired,
+SectionAgenda3Admin.propTypes = {
+	getCurrentAgenda3: PropTypes.func.isRequired,
+	agenda3: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-	recommandation: state.recommandation
+	agenda3: state.agenda3
 })
 
 export default compose(withStyles(blogsStyle))(
-	connect(mapStateToProps, { getCurrentRecommandation })(withRouter(SectionRecommandations))
+	connect(mapStateToProps, { getCurrentAgenda3 })(withRouter(SectionAgenda3Admin))
 )

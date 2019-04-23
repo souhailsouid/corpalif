@@ -36,7 +36,7 @@ class ProfileData extends React.Component {
 			structure: '',
 			company: '',
 			newsletter: '',
-
+			password: '',
 			member: '',
 			location: '',
 			fonction: '',
@@ -81,7 +81,8 @@ class ProfileData extends React.Component {
 				name: user.name,
 				last_name: user.last_name,
 				email: user.email,
-				status: user.status
+				status: user.status,
+				password: user.password
 			})
 		}
 	}
@@ -94,7 +95,8 @@ class ProfileData extends React.Component {
 			location: this.state.location,
 			fonction: this.state.fonction,
 			structure: this.state.structure,
-			newsletter: this.state.newsletter
+			newsletter: this.state.newsletter,
+			password: this.state.password
 		}
 		this.props.createProfile(profileData, this.props.history)
 	}
@@ -114,12 +116,14 @@ class ProfileData extends React.Component {
 	handleChange = (event) => {
 		this.setState({ value: event.target.value })
 	}
+
 	render() {
 		const { errors } = this.state
 		const { classes } = this.props
 		const { profile, loading } = this.props.profile
 
 		let dashboardContent
+		let end = new Date().getFullYear()
 
 		if (profile === null || loading) {
 			dashboardContent = <Spinner />
@@ -131,26 +135,53 @@ class ProfileData extends React.Component {
 					</div>
 				)
 			} else {
-				// User is logged in but has no contract
-				dashboardContent = (
-					<div>
+				console.log(profile.adherent[0])
+				if (Object.values(profile.adherent[0].date).slice(0, 4).join('') == end) {
+					dashboardContent = (
 						<div>
-							<h2 style={{ textAlign: 'center' }}>
-								Adhérent pour l'année <b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>{' '}
-								depuis le : <br />
-								<h3 style={{ textAlign: 'center' }}>
-									{' '}
+							<div>
+								<h2 style={{ textAlign: 'center' }}>
+									Adhérent pour l'année{' '}
 									<b>
-										{Object.values(profile.adherent[0].date).slice(8, 10)}-{Object.values(profile.adherent[0].date).slice(5, 7)}-{Object.values(profile.adherent[0].date).slice(0, 4)}
+										{parseInt(Object.values(profile.adherent[0].date).slice(0, 4).join(''))}{' '}
 									</b>{' '}
-									et jusqu'au 31 décembre{' '}
-									<b>{Object.values(profile.adherent[0].date).slice(0, 4)} </b>
-								</h3>
-							</h2>
+									depuis le : <br />
+									<h3 style={{ textAlign: 'center' }}>
+										{' '}
+										<b>
+											{Object.values(profile.adherent[0].date).slice(8, 10)}-{Object.values(profile.adherent[0].date).slice(5, 7)}-{Object.values(profile.adherent[0].date).slice(0, 4)}
+										</b>{' '}
+										et jusqu'au 31 décembre{' '}
+										<b>{Object.values(profile.adherent[0].date).slice(0, 4)}</b>
+									</h3>
+								</h2>
+							</div>
+							<AdherentsInfo />
 						</div>
-						<AdherentsInfo />
-					</div>
-				)
+					)
+				} else {
+					// console.log(Object.values(profile.adherent[0].date).slice(0, 4).join('') != end)
+					if (Object.values(profile.adherent[0].date).slice(0, 4).join('') != end) {
+						// profile.member = setFullYear() - profile.adherent[0].date - profile.adherent[0].date // 1 hour
+						// User is logged in but has no contract
+						dashboardContent = (
+							<div>
+								<h2 style={{ textAlign: 'center' }}>
+									Oups, l'année de votre adhésion à expirée, merci de votre fidelité ! <br />
+									<h3>
+										<b>L'équipe Corpalif</b>
+									</h3>
+								</h2>
+								<br />
+								<br />
+								<br />
+								<div>
+									<SectionAdherent />
+								</div>
+							</div>
+						)
+					}
+				}
 			}
 		}
 
@@ -218,6 +249,25 @@ class ProfileData extends React.Component {
 											name="name"
 											disabled
 											value={this.state.name}
+											onChange={this.onChange}
+											error={errors.profileName}
+											InputProps={{
+												startAdornment: (
+													<InputAdornment position="start">
+														<div>
+															{' '}
+															<Face />
+														</div>
+													</InputAdornment>
+												)
+											}}
+										/>
+										<br />
+										<TextFieldGroup
+											label="password"
+											name="password"
+											disabled
+											value={this.state.password}
 											onChange={this.onChange}
 											error={errors.profileName}
 											InputProps={{

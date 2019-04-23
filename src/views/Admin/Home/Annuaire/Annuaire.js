@@ -434,7 +434,7 @@ class AnnuaireAdminHome extends React.Component {
 												<GridItem xs={12} sm={12} md={7} className={classes.gridItem}>
 													<GridContainer className={classes.collections}>
 														<GridItem xs={12} sm={12} md={6}>
-															<Link to="/admin/SEINETMARNE/usp">
+															<Link to="/admin/SEINEETMARNE/USP">
 																<Card
 																	background
 																	style={{
