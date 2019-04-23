@@ -14,9 +14,8 @@ import Spinner from 'views/common/Spinner'
 import SectionAdherent from 'views/Dashboard/blockAdherent'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { getCurrentProfile } from 'actions/profileActions'
-import isEmpty from 'validation/is-empty'
 class PresentationInfoAdherents extends React.Component {
 	componentDidMount() {
 		this.props.getCurrentProfile()

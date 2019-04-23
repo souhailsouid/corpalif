@@ -33,8 +33,6 @@ class SectionArticles extends React.Component {
 	render() {
 		const { actualite } = this.props.actualite
 
-		const { classes } = this.props
-
 		const ActualiteElements = actualite.map((actualite) => <Article1 actualite={actualite} />)
 
 		var my_array = ActualiteElements

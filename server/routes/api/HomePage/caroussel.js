@@ -41,6 +41,9 @@ router.post(
 			title: req.body.title,
 			title2: req.body.title2,
 			title3: req.body.title3,
+			url1: req.body.url1,
+			url2: req.body.url2,
+			url3: req.body.url3,
 			picture: req.files['picture'][0].path,
 			picture2: req.files['picture2'][0].path,
 			picture3: req.files['picture3'][0].path
@@ -78,7 +81,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
 	Caroussel.findById(req.params.id)
-		.select('picture picture2 picture3 title title2 title3')
+		.select('picture picture2 picture3 title title2 title3 url1 url2 url3')
 		.exec()
 		.then((caroussel) => res.json(caroussel))
 		.catch((err) => res.status(404).json({ nopostfound: 'No post found with that ID' }))
@@ -104,6 +107,9 @@ router.patch(
 			title: req.body.title,
 			title2: req.body.title2,
 			title3: req.body.title3,
+			url1: req.body.url1,
+			url2: req.body.url2,
+			url3: req.body.url3,
 			picture: req.files['picture'][0].path,
 			picture2: req.files['picture2'][0].path,
 			picture3: req.files['picture3'][0].path

@@ -3,9 +3,6 @@ import React from 'react'
 import classNames from 'classnames'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-
-import GridContainer from 'components/Grid/GridContainer.jsx'
-
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
 import HeaderSearchBar from 'views/Header/HeaderSearchBar'
 import SectionFooter from 'views/Footer/SectionFooter'

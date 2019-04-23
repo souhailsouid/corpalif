@@ -2,14 +2,9 @@ import React from 'react'
 
 // @material-ui/coßre components
 import withStyles from '@material-ui/core/styles/withStyles'
-// @material-ui/icons
-
 // core components
 import GridContainer from 'components/Grid/GridContainer.jsx'
-import GridItem from 'components/Grid/GridItem.jsx'
-
 import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
-
 import Offres from 'views/PresentationPage/Sections/offres/offres'
 // Redux
 import PropTypes from 'prop-types'
@@ -38,9 +33,6 @@ class SectionOffres extends React.Component {
 	}
 	render() {
 		const { adherent } = this.props.adherent
-
-		const { classes } = this.props
-
 		const DataElements = adherent.map((adherent) => <Offres adherent={adherent} />)
 		return (
 			<GridContainer>

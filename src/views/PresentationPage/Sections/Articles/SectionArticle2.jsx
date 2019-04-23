@@ -30,7 +30,6 @@ class SectionArticle2 extends React.Component {
 	}
 	render() {
 		const { recommandation } = this.props.recommandation
-		const { classes } = this.props
 
 		const RecommandationElements = recommandation.map((recommandation) => (
 			<Article2 recommandation={recommandation} />

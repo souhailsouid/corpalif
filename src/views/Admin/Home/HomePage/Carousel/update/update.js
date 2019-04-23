@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
-import Slide from '@material-ui/core/Slide'
 import Grid from '@material-ui/core/Grid'
 // core components
 import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentationStyle.jsx'
@@ -19,10 +18,6 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getCurrentCaroussel_id } from 'actions/HomePage/carousselActions'
-
-function Transition(props) {
-	return <Slide direction="down" {...props} />
-}
 
 class Modal extends React.Component {
 	constructor(props) {
@@ -151,7 +146,7 @@ class Modal extends React.Component {
 	}
 
 	render() {
-		const { classes, ...rest } = this.props
+		const { classes } = this.props
 
 		return (
 			<GridContainer>

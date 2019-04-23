@@ -13,7 +13,7 @@ import presentationStyle from 'assets/jss/material-kit-pro-react/views/presentat
 import GridContainer from 'components/Grid/GridContainer.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
-import Card from 'components/Card/Card.jsx'
+
 // common
 import TextFieldGroup from 'views/common/TextFieldGroup'
 // Redux

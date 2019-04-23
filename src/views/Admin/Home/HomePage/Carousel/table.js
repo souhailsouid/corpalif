@@ -6,7 +6,6 @@ import withStyles from '@material-ui/core/styles/withStyles'
 // @material-ui/icons
 import LocationOn from '@material-ui/icons/LocationOn'
 import Edit from '@material-ui/icons/Edit'
-import Person from '@material-ui/icons/Person'
 // core components
 
 import GridContainer from 'components/Grid/GridContainer.jsx'
@@ -25,13 +24,7 @@ const settings = {
 	slidesToScroll: 1,
 	autoplay: true
 }
-const get = [ { color: 'info', icon: Person } ].map((prop, key) => {
-	return (
-		<Button round justIcon size="sm" color={prop.color} key={key}>
-			<prop.icon />
-		</Button>
-	)
-})
+
 const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
 	return (
 		<Button round justIcon size="sm" color={prop.color} key={key}>

@@ -30,8 +30,17 @@ const projectsSection = {
 		color: 'rgba(255, 255, 255, 0.7) !important',
 		marginTop: '10px'
 	},
+	// cardTitleWhite: {
+	// 	...cardTitle,
+	// 	'&:hover': {
+	// 		textDecoration: 'underline !important'
+	// 	},
+	// 	marginTop: '10px !important'
+	// },
+
 	cardTitleWhite: {
 		...cardTitle,
+		color: '#FFFFFF !important',
 		'&:hover': {
 			textDecoration: 'underline !important'
 		},
@@ -45,14 +54,6 @@ const projectsSection = {
 		marginTop: '40px !important'
 	},
 
-	cardTitleWhite: {
-		...cardTitle,
-		color: '#FFFFFF !important',
-		'&:hover': {
-			textDecoration: 'underline !important'
-		},
-		marginTop: '10px !important'
-	},
 	cardDescription: {
 		color: 'rgba(255, 255, 255, 0.7) !important'
 	},
