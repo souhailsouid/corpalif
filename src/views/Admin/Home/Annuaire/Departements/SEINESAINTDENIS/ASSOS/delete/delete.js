@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idAssos(this.props.match.params.id)
-		window.location.replace('/#/admin/SEINESAINTDENIS/association')
+		window.location.replace('/admin/SEINESAINTDENIS/association')
 	}
 
 	render() {
@@ -73,7 +73,7 @@ class Modal extends React.Component {
 						TransitionComponent={Transition}
 						keepMounted
 						onClose={() =>
-							this.handleClose(window.location.replace('/#/admin/SEINESAINTDENIS/association'))}
+							this.handleClose(window.location.replace('/admin/SEINESAINTDENIS/association'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -98,7 +98,7 @@ class Modal extends React.Component {
 								onClick={() =>
 									this.handleClose(
 										'liveDemo',
-										window.location.replace('/#/admin/SEINESAINTDENIS/association')
+										window.location.replace('/admin/SEINESAINTDENIS/association')
 									)}
 								color="secondary"
 							>

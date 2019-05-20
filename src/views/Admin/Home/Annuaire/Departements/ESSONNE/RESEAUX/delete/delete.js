@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idReseaux(this.props.match.params.id)
-		window.location.replace('/#/admin/ESSONNE/reseaux')
+		window.location.replace('/admin/ESSONNE/reseaux')
 	}
 
 	render() {
@@ -72,7 +72,7 @@ class Modal extends React.Component {
 						open={this.state.liveDemo}
 						TransitionComponent={Transition}
 						keepMounted
-						onClose={() => this.handleClose(window.location.replace('/#/admin/ESSONNE/reseaux'))}
+						onClose={() => this.handleClose(window.location.replace('/admin/ESSONNE/reseaux'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -95,7 +95,7 @@ class Modal extends React.Component {
 						<DialogActions className={classes.modalFooter}>
 							<Button
 								onClick={() =>
-									this.handleClose('liveDemo', window.location.replace('/#/admin/ESSONNE/reseaux'))}
+									this.handleClose('liveDemo', window.location.replace('/admin/ESSONNE/reseaux'))}
 								color="secondary"
 							>
 								Annuler

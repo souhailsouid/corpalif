@@ -173,7 +173,7 @@ class Modal extends React.Component {
 		}
 
 		this.props.updateLegislation(this.props.match.params.id, Data)
-		window.location.assign('/#/admin/menu/soinspalliatifs/legislation/')
+		window.location.assign('/admin/menu/soinspalliatifs/legislation/')
 	}
 
 	onChange(e) {

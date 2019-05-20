@@ -276,7 +276,7 @@ class Modal extends React.Component {
 				'content-type': 'multipart/form-data'
 			}
 		}
-		window.location.assign('/#/admin/menu/coordinationregionale/adherer/adherer/')
+		window.location.assign('/admin/menu/coordinationregionale/adherer/adherer/')
 		return axios.patch(url, formData, config)
 	}
 

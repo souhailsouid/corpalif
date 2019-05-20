@@ -28,7 +28,7 @@ class CompleteprofilePage extends Component {
 		} else {
 			// Check if logged in user has profile data
 			if (Object.keys(profile).length > 0) {
-				dashboardContent = window.location.assign('/#/adherent/check-profile')
+				dashboardContent = window.location.assign('/adherent/check-profile')
 			} else {
 				// User is logged in but has no profile
 				dashboardContent = (

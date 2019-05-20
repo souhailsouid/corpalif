@@ -404,7 +404,7 @@ class PaymentParticulier extends React.Component {
 					</Dialog>
 				)
 			} else {
-				dashboardContent = window.location.assign('/#/adherents/adherer/collectif')
+				dashboardContent = window.location.assign('/adherents/adherer/collectif')
 			}
 		}
 

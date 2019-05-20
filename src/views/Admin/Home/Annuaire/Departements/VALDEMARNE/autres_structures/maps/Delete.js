@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.deleteStructure_idAutresstructures(this.props.match.params.id)
-		window.location.replace('/#/admin/VALDEMARNE/autres_structures')
+		window.location.replace('/admin/VALDEMARNE/autres_structures')
 	}
 
 	render() {
@@ -73,7 +73,7 @@ class Modal extends React.Component {
 						TransitionComponent={Transition}
 						keepMounted
 						onClose={() =>
-							this.handleClose(window.location.replace('/#/admin/VALDEMARNE/autres_structures'))}
+							this.handleClose(window.location.replace('/admin/VALDEMARNE/autres_structures'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -98,7 +98,7 @@ class Modal extends React.Component {
 								onClick={() =>
 									this.handleClose(
 										'liveDemo',
-										window.location.replace('/#/admin/VALDEMARNE/autres_structures')
+										window.location.replace('/admin/VALDEMARNE/autres_structures')
 									)}
 								color="secondary"
 							>

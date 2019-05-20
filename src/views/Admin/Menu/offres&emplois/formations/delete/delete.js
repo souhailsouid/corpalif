@@ -45,7 +45,7 @@ class Modal extends React.Component {
 
 	onDeleteClick() {
 		this.props.delete_Formation(this.props.match.params.id)
-		window.location.replace('/#/#/admin/menu/formations/')
+		window.location.replace('/admin/menu/formations/')
 	}
 
 	render() {
@@ -72,7 +72,7 @@ class Modal extends React.Component {
 						open={this.state.liveDemo}
 						TransitionComponent={Transition}
 						keepMounted
-						onClose={() => this.handleClose(window.location.replace('/#/admin/menu/formations/'))}
+						onClose={() => this.handleClose(window.location.replace('/admin/menu/formations/'))}
 						aria-labelledby="classic-modal-slide-title"
 						aria-describedby="classic-modal-slide-description"
 					>
@@ -95,7 +95,7 @@ class Modal extends React.Component {
 						<DialogActions className={classes.modalFooter}>
 							<Button
 								onClick={() =>
-									this.handleClose('liveDemo', window.location.replace('/#/admin/menu/formations/'))}
+									this.handleClose('liveDemo', window.location.replace('/admin/menu/formations/'))}
 								color="secondary"
 							>
 								Annuler

@@ -154,7 +154,7 @@ class Modal extends React.Component {
 					onClose={() =>
 						this.handleClose(
 							'searchModal',
-							window.location.replace('/#/admin/menu/veillemedicale/privateinfo/')
+							window.location.replace('/admin/menu/veillemedicale/privateinfo/')
 						)}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"

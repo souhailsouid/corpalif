@@ -121,7 +121,7 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/#/admin/HomePage/'))}
+					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/HomePage/'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>
