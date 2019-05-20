@@ -36,7 +36,7 @@ class SectionOffres extends React.Component {
 		const DataElements = adherent.map((adherent) => <Offres adherent={adherent} />)
 		return (
 			<GridContainer>
-				<a href="/#/offres-d'emplois">{DataElements}</a>
+				<a href="/offres-d'emplois">{DataElements}</a>
 			</GridContainer>
 		)
 	}

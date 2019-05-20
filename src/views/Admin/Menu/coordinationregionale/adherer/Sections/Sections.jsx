@@ -168,7 +168,7 @@ const Section = ({ adherentPage, classes }) => (
 							</b>
 							Adresser le formulaire ci-joint à : <br />
 							<a
-								href={`/#/menu/coordinationregionale/adherer/formulaire/${adherentPage._id}`}
+								href={`/menu/coordinationregionale/adherer/formulaire/${adherentPage._id}`}
 								target="_blank"
 								rel="noopener noreferrer"
 								style={{ color: '#cc4949' }}

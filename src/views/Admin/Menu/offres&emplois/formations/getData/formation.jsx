@@ -73,7 +73,7 @@ const Formation = ({ formation, classes }) => (
 						{formation.message}
 						<br />
 						<a
-							href={`/#/formation/${formation._id}`}
+							href={`/formation/${formation._id}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

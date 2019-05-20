@@ -36,7 +36,7 @@ const SectionFooter = (props) => {
 							<div className={classes.left}>
 								<List className={classes.list}>
 									<ListItem className={classes.inlineBlock}>
-										<a href="/#/mentionlegale" className={classes.block}>
+										<a href="/mentionlegale" className={classes.block}>
 											Mentions légales
 										</a>
 									</ListItem>

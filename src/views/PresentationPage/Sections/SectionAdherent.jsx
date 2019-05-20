@@ -47,7 +47,7 @@ class SectionAdherent extends React.Component {
 				<div className={classes.container}>
 					<GridContainer>
 						<GridItem xs={12} sm={12} md={11} className={classes.marginAuto} style={{ marginTop: 40 }}>
-							<a href="/#/menu/coordinationregionale/adherer">{DataElements}</a>
+							<a href="/menu/coordinationregionale/adherer">{DataElements}</a>
 						</GridItem>
 					</GridContainer>
 				</div>

@@ -101,7 +101,7 @@ const Agenda = ({ agenda1, classes }) => (
 					}}
 				>
 					<Link
-						to={`/#/menu/veillemedicale/evenements/`}
+						to={`/menu/veillemedicale/evenements/`}
 						style={{
 							color: 'rgb(60, 64, 67)'
 						}}

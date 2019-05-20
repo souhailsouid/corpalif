@@ -28,8 +28,8 @@ const Recommandation = ({ caroussel, classes }) => (
 					<Card>
 						<Carousel {...settings}>
 							<div>
-								{/* <a href="/#/menu/veillemedicale/actualites/"> */}
-								<a href={`/#/${caroussel.url1}`}>
+								{/* <a href="/menu/veillemedicale/actualites/"> */}
+								<a href={`/${caroussel.url1}`}>
 									<div className={classes.coloredShadow} />
 
 									<img
@@ -69,7 +69,7 @@ const Recommandation = ({ caroussel, classes }) => (
 							</div>
 
 							<div>
-								<a href={`/#/${caroussel.url2}`}>
+								<a href={`/${caroussel.url2}`}>
 									<img
 										src={`/api/${caroussel.picture2}`}
 										alt="Second slide"
@@ -99,7 +99,7 @@ const Recommandation = ({ caroussel, classes }) => (
 								</a>
 							</div>
 							<div>
-								<a href={`/#/${caroussel.url3}`}>
+								<a href={`/${caroussel.url3}`}>
 									<img
 										src={`/api/${caroussel.picture3}`}
 										alt="Third slide"

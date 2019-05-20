@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import projectsStyle from 'assets/jss/material-kit-pro-react/views/sectionsSections/projectsStyle.jsx'
 import '.././Articles/style.css'
 const Offres = ({ adherent, classes }) => (
-	<Link to={`/#/offres-d'emplois`}>
+	<Link to={`/offres-d'emplois`}>
 		<GridItem xs={6} sm={8} md={12}>
 			<Card
 				className={classes.cardTitleFull}

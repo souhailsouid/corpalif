@@ -27,7 +27,7 @@ class SectionsOffres extends React.Component {
 		return (
 			<GridContainer>
 				<GridItem xs={12} sm={12} md={12}>
-					<a href="/#/offres-d'emplois/">
+					<a href="/offres-d'emplois/">
 						<div className={classes.container}>
 							<div className={classes.title}>
 								<h3 style={{ color: 'rgb(51, 116, 103)' }}>

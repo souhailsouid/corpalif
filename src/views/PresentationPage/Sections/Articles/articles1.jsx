@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import './style.css'
 
 const Article1 = ({ actualite, classes }) => (
-	<Link to={`/#/menu/veillemedicale/actualites`}>
+	<Link to={`/menu/veillemedicale/actualites`}>
 		<Card className="card">
 			<div style={{ display: 'flex' }}>
 				<img

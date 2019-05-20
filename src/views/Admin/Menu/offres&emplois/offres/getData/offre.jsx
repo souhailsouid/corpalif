@@ -73,7 +73,7 @@ const Offreemploi = ({ offreemploi, classes }) => (
 						{offreemploi.message}
 						<br />
 						<a
-							href={`/#/offres-d'emplois/${offreemploi._id}`}
+							href={`/offres-d'emplois/${offreemploi._id}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							style={{ color: 'rgb(51, 116, 103)' }}

@@ -11,7 +11,7 @@ import CardBody from 'components/Card/CardBody.jsx'
 import './style.css'
 
 const Article2 = ({ recommandation, classes }) => (
-	<Link to={`/#/menu/veillemedicale/recommandation&outils/`}>
+	<Link to={`/menu/veillemedicale/recommandation&outils/`}>
 		<Card className="card">
 			<div style={{ display: 'flex' }}>
 				<img
