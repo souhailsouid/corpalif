@@ -27,10 +27,7 @@ import ListIcon from '@material-ui/icons/List'
 import People from '@material-ui/icons/People'
 // core components
 
-import SignUp from 'views/SignupPage/SignUpPage'
-import SeConnecter from 'views/SigninPage/SigninPage'
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx'
-import Button from 'components/CustomButtons/Button.jsx'
 import headerLinksStyle from 'assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx'
 import FileUpload from './upload_file/getfile'
 
@@ -104,93 +101,6 @@ class HeaderLinks extends React.Component {
 		const File = file.map((file) => <FileUpload file={file} />)
 		const { classes } = this.props
 		const { isAuthenticated, user } = this.props.auth
-		let dashboardContent
-		let adminContent
-		if (user) {
-			// User is logged in but has no profile
-			dashboardContent = (
-				<div style={{ marginLeft: 12, marginTop: 10, display: 'flex', justifyContent: 'space-between' }}>
-					Bonjour
-					<b>
-						<p style={{ color: '#337467', marginLeft: 5 }}>
-							{''} {user.last_name}
-						</p>
-					</b>
-				</div>
-			)
-		}
-		if (user.isAdmin === 'true') {
-			// User is logged in but has no profile
-			adminContent = (
-				<div style={{ marginLeft: 12 }}>
-					<Link to="/admin" style={{ color: '#cc4949' }}>
-						{' '}
-						<b>Admin</b>
-					</Link>
-				</div>
-			)
-		}
-
-		const authLinks = (
-			<div>
-				<ListItem className={classes.listItem} style={{ display: 'flex' }}>
-					<div style={{ marginTop: 0 }}>
-						{dashboardContent}
-
-						{adminContent}
-					</div>
-					<CustomDropdown
-						left
-						caret={false}
-						hoverColor="transparent"
-						buttonText={
-							<i class="material-icons" style={{ fontSize: '30px' }}>
-								account_circle
-							</i>
-						}
-						buttonProps={{
-							className: classes.navLink + ' ' + classes.imageDropdownButton,
-							color: 'transparent'
-						}}
-						dropdownList={[
-							<Link
-								to="/dashboard"
-								style={{
-									color: '#000000',
-									display: 'flex'
-								}}
-							>
-								<i class="material-icons" style={{ marginRight: 5 }}>
-									account_circle
-								</i>{' '}
-								Mon profil
-							</Link>,
-
-							<Button
-								onClick={this.onLogoutClick.bind(this)}
-								style={{
-									padding: 10,
-									backgroundColor: '#cc4949'
-								}}
-							>
-								{' '}
-								<i class="material-icons" style={{ marginRight: 5 }}>
-									exit_to_app
-								</i>{' '}
-								Déconnexion
-							</Button>
-						]}
-					/>
-				</ListItem>
-			</div>
-		)
-
-		const guestLinks = (
-			<ListItem className={classes.listItem} style={{ marginLeft: 20, marginBottom: 25 }}>
-				<SeConnecter />
-				<SignUp />
-			</ListItem>
-		)
 
 		return (
 			<List className={classes.list + ' ' + classes.mlAuto}>
@@ -320,8 +230,6 @@ class HeaderLinks extends React.Component {
 						]}
 					/>
 				</ListItem>
-				<ListItem className={classes.listItem}>{File}</ListItem>
-				<ListItem className={classes.listItem}>{isAuthenticated ? authLinks : guestLinks}</ListItem>
 			</List>
 		)
 	}

@@ -13,22 +13,34 @@ import GridItem from 'components/Grid/GridItem.jsx'
 import Button from 'components/CustomButtons/Button.jsx'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'
-import carouselStyle from 'assets/jss/material-kit-pro-react/views/componentsSections/carouselStyle.jsx'
 
-const update = [ { color: 'success', icon: Edit } ].map((prop, key) => {
+import tooltipsStyle from 'assets/jss/material-kit-pro-react/tooltipsStyle.jsx'
+import Tooltip from '@material-ui/core/Tooltip'
+
+const update = [ { color: 'white', icon: Edit } ].map((prop, key, props) => {
 	return (
-		<Button round justIcon size="sm" color={prop.color} key={key}>
-			<prop.icon />
-		</Button>
+		<div>
+			<Button round color={prop.color} key={key} style={{ color: '#1b2150', textALign: 'center' }}>
+				Upload
+			</Button>
+		</div>
 	)
 })
 
 const FileUpload = ({ file, classes }) => (
 	<GridContainer>
 		<GridItem xs={12} sm={12} md={12}>
-			<Grid item xs={4} style={{ textAlign: 'right' }}>
-				<Link to={`/admin/menu/formulaire/update/${file._id}`}>{update}</Link>
+			<Grid item xs={4} style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: 30 }}>
+				<Tooltip
+					id="tooltip-right"
+					title="Fichier à uploader"
+					placement="left"
+					classes={{ tooltip: classes.tooltip }}
+				>
+					<Link to={`/menu/formulaire/update/${file._id}`}>{update}</Link>
+				</Tooltip>
 			</Grid>
+
 			<embed
 				src={`/api/${file.file}`}
 				download
@@ -39,4 +51,4 @@ const FileUpload = ({ file, classes }) => (
 	</GridContainer>
 )
 
-export default withStyles(carouselStyle)(FileUpload)
+export default withStyles(tooltipsStyle)(FileUpload)

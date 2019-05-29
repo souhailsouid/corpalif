@@ -1,15 +1,12 @@
 import React from 'react'
-// nodejs library that concatenates classes
-import classNames from 'classnames'
+
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles'
 // core components
-import SectionFooter from 'views/Footer/SectionFooter'
 import Header from 'components/Header/Header.jsx'
 import GridItem from 'components/Grid/GridItem.jsx'
-import HeaderLinks from 'components/Header/HeaderLinks.jsx'
 import Parallax from 'components/Parallax/Parallax.jsx'
-import Clearfix from 'components/Clearfix/Clearfix.jsx'
+
 import profilePageStyle from 'assets/jss/material-kit-pro-react/views/profilePageStyle.jsx'
 import Modal from './update'
 // Redux
@@ -31,16 +28,15 @@ class Updatefichier extends React.Component {
 				<Header
 					brand={
 						<img
-							src="http://image.noelshack.com/fichiers/2018/40/1/1538391836-corpalif-logo.png"
+							src="https://image.noelshack.com/fichiers/2019/22/3/1559102118-lesbonsartisansdef.png"
 							alt="logo"
 							style={{
-								width: 80,
+								width: 100,
 								maxWidth: '100%',
 								height: 'auto'
 							}}
 						/>
 					}
-					links={<HeaderLinks dropdownHoverColor="dark" />}
 					fixed
 					changeColorOnScroll={{
 						height: 400
@@ -50,20 +46,13 @@ class Updatefichier extends React.Component {
 					<Parallax
 						image={require('assets/img/examples/city.jpg')}
 						className={classes.parallax}
-						small
-						style={{ height: 400 }}
+						style={{ height: 1000 }}
 					/>
+
+					<GridItem xs={12} sm={12} md={12}>
+						<Modal />
+					</GridItem>
 				</div>
-				<div className={classNames(classes.main, classes.mainRaised)}>
-					<div className={classes.container}>
-						<GridItem xs={12} sm={10} md={12}>
-							<Modal />
-							<div />
-						</GridItem>
-						<Clearfix />
-					</div>
-				</div>
-				<SectionFooter />
 			</div>
 		)
 	}

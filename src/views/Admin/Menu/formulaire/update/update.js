@@ -73,7 +73,7 @@ class Modal extends React.Component {
 
 	fileUpload(file) {
 		const id = this.props.match.params.id
-		const url = `/api/register_file/${id}`
+		const url = `/api/file/${id}`
 		const formData = new FormData()
 		formData.append('file', file)
 
@@ -99,7 +99,7 @@ class Modal extends React.Component {
 					open={this.state.searchModal}
 					TransitionComponent={Transition}
 					keepMounted
-					onClose={() => this.handleClose('searchModal', window.location.replace('/admin/'))}
+					onClose={() => this.handleClose('searchModal', window.location.replace('/'))}
 					aria-labelledby="search-modal-slide-title"
 					aria-describedby="search-modal-slide-description"
 				>
@@ -138,7 +138,7 @@ class Modal extends React.Component {
 															id="my-form"
 														>
 															<br /> <br />
-															<h4>Choisir un fichier</h4>
+															<h3>Choisir un fichier</h3>
 															<input
 																type="file"
 																name="file"
@@ -153,7 +153,12 @@ class Modal extends React.Component {
 																	justifyContent: 'space-around'
 																}}
 															>
-																<Button type="submit" value="Submit" color="green">
+																<Button
+																	type="submit"
+																	round
+																	value="Submit"
+																	color="green"
+																>
 																	Modifier
 																</Button>
 															</Grid>
@@ -177,13 +182,11 @@ Modal.propTypes = {
 	file: PropTypes.object.isRequired,
 	getCurrentfile_id: PropTypes.func.isRequired,
 	errors: PropTypes.object.isRequired,
-	classes: PropTypes.object.isRequired,
-	auth: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired
 }
 const mapStateTopProps = (state) => ({
 	file: state.file,
-	errors: state.errors,
-	auth: state.auth
+	errors: state.errors
 })
 export default compose(withStyles(presentationStyle))(
 	connect(mapStateTopProps, { getCurrentfile_id })(withRouter(Modal))

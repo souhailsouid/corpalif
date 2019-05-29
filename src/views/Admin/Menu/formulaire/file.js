@@ -32,7 +32,7 @@ class SectionfileAdmin extends React.Component {
 							<GridItem xs={12} sm={10} md={10} className={`${classes.mlAuto} ${classes.mrAuto}`}>
 								<h2 className={classes.title} style={{ textAlign: 'center' }}>
 									{' '}
-									Formulaire d'admission
+									Fichier à uploader
 								</h2>
 								<br />
 							</GridItem>
