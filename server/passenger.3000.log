@@ -1,0 +1,641 @@
+[ N 2019-07-06 12:19:53.4730 4237/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 12:19:53.5079 4239/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 12:19:53.5085 4239/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 12:19:53.5263 4239/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 4239
+[ N 2019-07-06 12:19:55.8121 4239/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 4255 output: internal/modules/cjs/loader.js:611
+App 4255 output:     throw err;
+App 4255 output:     ^
+App 4255 output: 
+App 4255 output: Error: Cannot find module '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/app.js'
+App 4255 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)
+App 4255 output:     at Function.Module._load (internal/modules/cjs/loader.js:535:25)
+App 4255 output:     at Module.require (internal/modules/cjs/loader.js:663:17)
+App 4255 output:     at Module.require (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:80:25)
+App 4255 output:     at require (internal/modules/cjs/helpers.js:20:18)
+App 4255 output:     at loadApplication (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:243:2)
+App 4255 output:     at setupEnvironment (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:214:2)
+App 4255 output:     at Object.<anonymous> (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:133:1)
+App 4255 output:     at Module._compile (internal/modules/cjs/loader.js:734:30)
+App 4255 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+[ E 2019-07-06 12:19:56.1531 4239/Tj age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server: The application process exited prematurely.
+  Error ID: 21b6292a
+  Error details saved to: /var/folders/q4/9mxs5pzj2cv68tdv4wb59km00000gn/T//passenger-error-jaHhRx.html
+
+[ E 2019-07-06 12:19:56.1638 4239/T8 age/Cor/Con/CheckoutSession.cpp:276 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is 21b6292a. Please see earlier logs for details about the error.
+
+[ N 2019-07-06 12:19:56.1841 4239/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 12:19:56.1841 4239/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 12:19:56.1842 4239/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 12:19:56.1842 4239/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 12:19:56.1842 4239/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 12:19:56.1842 4239/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 12:19:56.1843 4239/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 12:19:56.1843 4239/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 12:19:56.1843 4239/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 12:19:56.1844 4239/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 12:19:56.1846 4239/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 12:19:56.1846 4239/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 12:19:56.4895 4239/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 12:20:03.7702 4308/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 12:20:03.8030 4310/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 12:20:03.8033 4310/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 12:20:03.8197 4310/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 4310
+[ N 2019-07-06 12:20:06.1270 4310/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 4326 output: Server running on port 5000
+App 4326 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+App 4326 output: MongoDB Connected
+App 4326 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+App 4326 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+
+[ N 2019-07-06 12:21:19.6724 4310/T9 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 12:21:19.6725 4310/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 12:21:19.6725 4310/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 4326, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 12:21:19.6727 4310/T9 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 12:21:19.6728 4310/T9 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 12:21:19.6729 4310/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 12:21:19.6729 4310/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 12:21:19.6729 4310/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 12:21:19.6730 4310/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 12:21:19.6730 4310/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 12:21:19.6730 4310/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 12:21:19.6734 4310/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 12:21:19.6735 4310/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 12:21:19.6738 4310/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 4326, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 12:21:20.0733 4310/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 13:41:40.1007 8092/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 13:41:40.1445 8094/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 13:41:40.1448 8094/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 13:41:40.1627 8094/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8094
+2019/07/06 13:41:42 [error] 8097#0: *4 "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+[ N 2019-07-06 13:41:42.4633 8094/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+2019/07/06 13:41:56 [error] 8097#0: *5 "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET / HTTP/1.1", host: "0.0.0.0:3000"
+2019/07/06 13:41:57 [error] 8097#0: *5 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "0.0.0.0:3000"
+
+[ N 2019-07-06 14:03:28.6446 8094/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 14:03:28.6448 8094/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 14:03:28.6449 8094/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 14:03:28.6450 8094/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 14:03:28.6450 8094/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 14:03:28.6450 8094/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 14:03:28.6449 8094/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 14:03:28.6450 8094/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 14:03:28.6451 8094/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 14:03:28.6451 8094/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 14:03:28.6452 8094/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 14:03:28.6452 8094/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 14:03:28.9521 8094/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 14:04:15.5159 8545/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 14:04:15.5609 8547/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 14:04:15.5611 8547/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 14:04:15.5768 8547/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8547
+2019/07/06 14:04:17 [error] 8550#0: *4 "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+[ N 2019-07-06 14:04:17.8733 8547/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+2019/07/06 14:04:24 [error] 8550#0: *5 "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET / HTTP/1.1", host: "0.0.0.0:3000"
+2019/07/06 14:04:25 [error] 8550#0: *5 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "0.0.0.0:3000"
+
+[ N 2019-07-06 14:04:46.1967 8547/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 14:04:46.1968 8547/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 14:04:46.1968 8547/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 14:04:46.1968 8547/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 14:04:46.1969 8547/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 14:04:46.1969 8547/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 14:04:46.1969 8547/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 14:04:46.1970 8547/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 14:04:46.1970 8547/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 14:04:46.1969 8547/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 14:04:46.1971 8547/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 14:04:46.1971 8547/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 14:04:46.4988 8547/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 14:04:59.3405 8598/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 14:04:59.3738 8600/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 14:04:59.3740 8600/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 14:04:59.3919 8600/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8600
+[ N 2019-07-06 14:05:01.6889 8600/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 8616 output: internal/modules/cjs/loader.js:611
+App 8616 output:     throw err;
+App 8616 output:     ^
+App 8616 output: 
+App 8616 output: Error: Cannot find module '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/index.js'
+App 8616 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)
+App 8616 output:     at Function.Module._load (internal/modules/cjs/loader.js:535:25)
+App 8616 output:     at Module.require (internal/modules/cjs/loader.js:663:17)
+App 8616 output:     at Module.require (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:80:25)
+App 8616 output:     at require (internal/modules/cjs/helpers.js:20:18)
+App 8616 output:     at loadApplication (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:243:2)
+App 8616 output:     at setupEnvironment (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:214:2)
+App 8616 output:     at Object.<anonymous> (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:133:1)
+App 8616 output:     at Module._compile (internal/modules/cjs/loader.js:734:30)
+App 8616 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+[ E 2019-07-06 14:05:02.0108 8600/Tj age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server: The application process exited prematurely.
+  Error ID: 66282342
+  Error details saved to: /var/folders/q4/9mxs5pzj2cv68tdv4wb59km00000gn/T//passenger-error-z1Mw7Q.html
+
+[ E 2019-07-06 14:05:02.0208 8600/T8 age/Cor/Con/CheckoutSession.cpp:276 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is 66282342. Please see earlier logs for details about the error.
+
+[ N 2019-07-06 14:05:04.5444 8600/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 14:05:04.5444 8600/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 14:05:04.5445 8600/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 14:05:04.5445 8600/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 14:05:04.5446 8600/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 14:05:04.5446 8600/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 14:05:04.5446 8600/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 14:05:04.5446 8600/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 14:05:04.5447 8600/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 14:05:04.5447 8600/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 14:05:04.5448 8600/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 14:05:04.5448 8600/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 14:05:04.8493 8600/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 14:05:10.6023 8669/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 14:05:10.6413 8671/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 14:05:10.6416 8671/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 14:05:10.6587 8671/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8671
+[ N 2019-07-06 14:05:12.9631 8671/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 8687 output: Server running on port 5000
+App 8687 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+App 8687 output: MongoDB Connected
+
+[ N 2019-07-06 14:07:05.6520 8671/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 14:07:05.6521 8671/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 14:07:05.6522 8671/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 8687, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 14:07:05.6527 8671/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 14:07:05.6528 8671/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 14:07:05.6527 8671/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 14:07:05.6527 8671/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 14:07:05.6528 8671/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 14:07:05.6528 8671/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 14:07:05.6528 8671/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 14:07:05.6529 8671/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 14:07:05.6528 8671/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 14:07:05.6530 8671/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 14:07:05.6532 8671/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 8687, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 14:07:06.0569 8671/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 15:30:03.2608 9033/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 15:30:03.3033 9035/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 15:30:03.3040 9035/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 15:30:03.3206 9035/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 9035
+[ E 2019-07-06 15:30:05.3328 9035/T5 age/Cor/SecurityUpdateChecker.h:507 ]: Security update check failed: Couldn't resolve host name while connecting to https://securitycheck.phusionpassenger.com/v1/check.json (check your DNS) (next check in 24 hours)
+App 9051 output: Server running on port 5000
+App 9051 output: { Error: getaddrinfo ENOTFOUND ds151892.mlab.com ds151892.mlab.com:51892
+App 9051 output:     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:58:26)
+App 9051 output:   errno: 'ENOTFOUND',
+App 9051 output:   code: 'ENOTFOUND',
+App 9051 output:   syscall: 'getaddrinfo',
+App 9051 output:   hostname: 'ds151892.mlab.com',
+App 9051 output:   host: 'ds151892.mlab.com',
+App 9051 output:   port: 51892 }
+App 9051 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+App 9051 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/client/build/index.html/uploads'
+
+[ N 2019-07-06 15:39:22.4540 9035/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 15:39:22.4541 9035/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 15:39:22.4542 9035/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 9051, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 15:39:22.4545 9035/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 15:39:22.4545 9035/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 15:39:22.4547 9035/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 15:39:22.4547 9035/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 15:39:22.4547 9035/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 15:39:22.4547 9035/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 15:39:22.4547 9035/Tf Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 15:39:22.4548 9035/Tf Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 15:39:22.4550 9035/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 15:39:22.4550 9035/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 15:39:22.4554 9035/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 9051, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 15:39:22.9194 9035/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+2019/07/06 15:52:59 [emerg] 10150#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 15:52:59 [emerg] 10150#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 15:52:59 [emerg] 10150#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 15:52:59 [emerg] 10150#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 15:52:59 [emerg] 10150#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 15:52:59 [emerg] 10150#0: still could not bind()
+[ N 2019-07-06 16:16:21.8182 11357/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:16:21.8785 11359/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:16:21.8789 11359/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:16:21.8956 11359/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 11359
+[ N 2019-07-06 16:16:24.1875 11359/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 11376 output: Server running on port 5000
+App 11376 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11376 output: MongoDB Connected
+App 11376 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11376 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+
+[ N 2019-07-06 16:17:23.4429 11359/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:17:23.4430 11359/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:17:23.4430 11359/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11376, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:17:23.4432 11359/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:17:23.4432 11359/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:17:23.4433 11359/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:17:23.4432 11359/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:17:23.4433 11359/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:17:23.4434 11359/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:17:23.4434 11359/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:17:23.4434 11359/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:17:23.4435 11359/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:17:23.4436 11359/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:17:23.4438 11359/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11376, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:17:23.8484 11359/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:17:27.5513 11463/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:17:27.5843 11465/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:17:27.5847 11465/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:17:27.6029 11465/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 11465
+[ N 2019-07-06 16:17:29.8958 11465/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 11481 output: Server running on port 5000
+App 11481 output: MongoDB Connected
+App 11481 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11481 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11481 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11481 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+App 11481 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html/uploads'
+
+[ N 2019-07-06 16:21:15.2144 11465/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:21:15.2145 11465/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:21:15.2145 11465/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11481, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:21:15.2147 11465/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:21:15.2147 11465/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:21:15.2147 11465/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:21:15.2147 11465/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:21:15.2149 11465/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:21:15.2149 11465/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:21:15.2149 11465/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:21:15.2149 11465/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:21:15.2150 11465/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:21:15.2150 11465/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:21:15.2154 11465/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11481, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:21:15.6223 11465/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:21:28.0176 11710/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:21:28.0550 11712/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:21:28.0557 11712/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:21:28.0736 11712/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 11712
+[ N 2019-07-06 16:21:30.3636 11712/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 11728 output: Server running on port 5000
+App 11728 output: MongoDB Connected
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11728 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+
+[ N 2019-07-06 16:25:02.5882 11712/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:25:02.5883 11712/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:25:02.5884 11712/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11728, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:25:02.5885 11712/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:25:02.5886 11712/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:25:02.5887 11712/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:25:02.5888 11712/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:25:02.5889 11712/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:25:02.5890 11712/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:25:02.5890 11712/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:25:02.5891 11712/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:25:02.5893 11712/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:25:02.5893 11712/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:25:02.5898 11712/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11728, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:25:03.0052 11712/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:25:03.8062 11876/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:25:03.8427 11878/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:25:03.8430 11878/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:25:03.8615 11878/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 11878
+[ N 2019-07-06 16:25:06.1510 11878/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 11894 output: Server running on port 5000
+App 11894 output: MongoDB Connected
+App 11894 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11894 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11894 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 11894 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+
+[ N 2019-07-06 16:32:39.8839 11878/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:32:39.8839 11878/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:32:39.8840 11878/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11894, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:32:39.8842 11878/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:32:39.8842 11878/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:32:39.8842 11878/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:32:39.8843 11878/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:32:39.8842 11878/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:32:39.8844 11878/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:32:39.8844 11878/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:32:39.8845 11878/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:32:39.8846 11878/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:32:39.8847 11878/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:32:39.8852 11878/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 11894, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:32:40.2921 11878/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:32:43.7272 12175/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:32:43.7632 12177/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:32:43.7635 12177/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:32:43.7823 12177/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 12177
+[ N 2019-07-06 16:32:46.0762 12177/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 12193 output: Server running on port 5000
+App 12193 output: MongoDB Connected
+App 12193 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 12193 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 12193 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 12193 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+App 12193 output: Error: ENOTDIR: not a directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html/uploads'
+
+[ N 2019-07-06 16:41:05.0911 12177/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:41:05.0912 12177/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:41:05.0912 12177/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12193, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:41:05.0914 12177/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:41:05.0914 12177/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:41:05.0914 12177/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:41:05.0915 12177/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:41:05.0916 12177/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:41:05.0915 12177/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:41:05.0916 12177/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:41:05.0916 12177/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:41:05.0917 12177/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:41:05.0917 12177/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:41:05.0920 12177/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12193, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:41:05.4982 12177/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:41:06.1678 12493/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:41:06.2021 12495/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:41:06.2029 12495/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:41:06.2209 12495/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 12495
+[ N 2019-07-06 16:41:08.5206 12495/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 12511 output: Server running on port 5000
+App 12511 output: MongoDB Connected
+
+[ N 2019-07-06 16:42:17.3068 12495/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:42:17.3069 12495/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:42:17.3069 12495/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12511, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:42:17.3093 12495/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:42:17.3094 12495/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:42:17.3096 12495/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:42:17.3096 12495/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:42:17.3097 12495/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:42:17.3096 12495/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:42:17.3098 12495/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:42:17.3099 12495/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:42:17.3101 12495/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:42:17.3101 12495/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:42:17.3106 12495/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12511, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:42:17.7232 12495/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:42:18.8093 12591/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:42:18.8470 12593/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:42:18.8476 12593/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:42:18.8642 12593/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 12593
+[ N 2019-07-06 16:42:21.1714 12593/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 12609 output: Server running on port 5000
+App 12609 output: MongoDB Connected
+App 12609 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/build/index.html'
+
+[ N 2019-07-06 16:51:04.7826 12593/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 16:51:04.7827 12593/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 16:51:04.7827 12593/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12609, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:51:04.7828 12593/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 16:51:04.7829 12593/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 16:51:04.7830 12593/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 16:51:04.7830 12593/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 16:51:04.7831 12593/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 16:51:04.7831 12593/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 16:51:04.7832 12593/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 16:51:04.7833 12593/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 16:51:04.7834 12593/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 16:51:04.7834 12593/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 16:51:04.7836 12593/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12609, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 16:51:05.1923 12593/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 16:51:06.5144 12890/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 16:51:06.5508 12892/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 16:51:06.5511 12892/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 16:51:06.5716 12892/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 12892
+[ N 2019-07-06 16:51:08.8745 12892/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 12908 output: Server running on port 5000
+App 12908 output: MongoDB Connected
+App 12908 output: theme Congrès de la SFAP
+App 12908 output: title Paris, 13 au 15 juin 2019
+App 12908 output: message La Société Française d'Accompagnement et de soins Palliatifs organise son 25ème congrès, du 13 au 15 juin 2019 à Paris. La SFAP célébrera ses 30 ans à l'occasion du congrès qui aura lieu en collaboration avec la Fédération francophone Internationale en Soins Palliatifs.
+App 12908 output: picture uploads/veillemedicale/2019-07-06T15:05:03.433Zcity.58a713c7.jpg
+App 12908 output: file uploads/veillemedicale/2019-07-06T15:05:03.443Z9.pdf
+App 12908 output: fileName Appel à communication
+App 12908 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+
+[ N 2019-07-06 17:08:10.2479 12892/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 17:08:10.2480 12892/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 17:08:10.2481 12892/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12908, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:08:10.2483 12892/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 17:08:10.2483 12892/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 17:08:10.2483 12892/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 17:08:10.2483 12892/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 17:08:10.2486 12892/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 17:08:10.2487 12892/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 17:08:10.2487 12892/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 17:08:10.2487 12892/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 17:08:10.2488 12892/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 17:08:10.2489 12892/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 17:08:10.2492 12892/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 12908, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:08:10.6589 12892/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 17:12:28.4776 13472/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 17:12:28.5178 13474/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 17:12:28.5181 13474/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 17:12:28.5354 13474/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 13474
+[ N 2019-07-06 17:12:30.9289 13474/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 13491 output: Server running on port 5000
+App 13491 output: MongoDB Connected
+App 13491 output: theme Les parcours patient
+App 13491 output: title Parcours patient
+App 13491 output: message Après Paris et le PSG, Rome et l'AS Rome ? Le Corriere dello Sport a annoncé mardi que Qatar Sports Investments (QSI), le propriétaire du club parisien depuis 
+App 13491 output: 
+App 13491 output: picture uploads/veillemedicale/2019-07-06T15:14:58.740Zparis.e73ac952.jpg
+App 13491 output: file uploads/veillemedicale/2019-07-06T15:14:58.756Z6.pdf
+App 13491 output: fileName formulaire de santé
+App 13491 output: theme Seminaire Santé
+App 13491 output: title Seminaire Santé
+App 13491 output: message Après Paris et le PSG, Rome et l'AS Rome ? Le Corriere dello Sport a annoncé mardi que Qatar Sports Investments (QSI), le propriétaire du club parisien depuis 
+App 13491 output: 
+App 13491 output: picture uploads/veillemedicale/2019-07-06T15:15:58.467Zcity.58a713c7.jpg
+App 13491 output: file uploads/veillemedicale/2019-07-06T15:15:58.472ZAnnexe3.pdf
+App 13491 output: fileName formulaire novembre 2018
+
+[ N 2019-07-06 17:23:46.6730 13474/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 17:23:46.6731 13474/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 17:23:46.6732 13474/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 13491, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:23:46.6735 13474/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 17:23:46.6735 13474/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 17:23:46.6735 13474/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 17:23:46.6736 13474/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 17:23:46.6738 13474/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 17:23:46.6740 13474/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 17:23:46.6741 13474/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 17:23:46.6749 13474/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 17:23:46.6749 13474/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 17:23:46.6750 13474/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 17:23:46.6770 13474/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 13491, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:23:47.1520 13474/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 17:23:48.4402 14010/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 17:23:48.4867 14012/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 17:23:48.4870 14012/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 17:23:48.5043 14012/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 14012
+[ N 2019-07-06 17:23:50.8072 14012/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 14028 output: Server running on port 5000
+App 14028 output: MongoDB Connected
+App 14028 output: (node:14028) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+App 14028 output: theme Les parcours patient
+App 14028 output: title ADHERER A LA CORPALIF
+App 14028 output: message D'où vient-il? Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, "Lorem ipsum dolor sit amet...", proviennent de la section 1.10.32. 
+App 14028 output: picture uploads/veillemedicale/2019-07-06T15:27:02.278Zcity.58a713c7.jpg
+App 14028 output: file uploads/veillemedicale/2019-07-06T15:27:02.290ZJavaScriptNotesForProfessionals.pdf
+App 14028 output: fileName Le programme
+App 14028 output: Error: ENOENT: no such file or directory, open 'uploads/offresdemplois/2019-07-06T15:29:12.588Zcode.jpeg'
+
+[ N 2019-07-06 17:29:53.2767 14012/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 17:29:53.2767 14012/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 17:29:53.2767 14012/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14028, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:29:53.2786 14012/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 17:29:53.2787 14012/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 17:29:53.2788 14012/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 17:29:53.2788 14012/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 17:29:53.2789 14012/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 17:29:53.2789 14012/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 17:29:53.2789 14012/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 17:29:53.2790 14012/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 17:29:53.2794 14012/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 17:29:53.2794 14012/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 17:29:53.2807 14012/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14028, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:29:53.6830 14012/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 17:29:54.4793 14276/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 17:29:54.5131 14278/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 17:29:54.5133 14278/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 17:29:54.5312 14278/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 14278
+[ N 2019-07-06 17:29:56.8208 14278/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 14294 output: Server running on port 5000
+App 14294 output: MongoDB Connected
+App 14294 output: Error: ENOENT: no such file or directory, open 'uploads/offresdemplois/2019-07-06T15:30:30.774Zcode.jpeg'
+
+[ N 2019-07-06 17:32:39.5628 14278/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 17:32:39.5636 14278/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 17:32:39.5636 14278/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14294, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:32:39.5641 14278/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 17:32:39.5642 14278/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 17:32:39.5642 14278/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 17:32:39.5643 14278/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 17:32:39.5645 14278/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 17:32:39.5646 14278/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 17:32:39.5646 14278/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 17:32:39.5646 14278/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 17:32:39.5663 14278/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 17:32:39.5664 14278/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 17:32:39.5673 14278/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14294, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-06 17:32:39.9722 14278/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 17:32:41.8374 14452/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 17:32:41.8707 14454/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 17:32:41.8710 14454/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 17:32:41.8895 14454/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 14454
+[ N 2019-07-06 17:32:44.1869 14454/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 14470 output: Server running on port 5000
+App 14470 output: MongoDB Connected
+App 14470 output: Error: ENOENT: no such file or directory, open 'uploads/offresdemplois/2019-07-06T15:33:29.209Zcode.jpeg'
+App 14470 output: theme Journée régionale
+App 14470 output: title Parcours patient
+App 14470 output: message 
+App 14470 output: DescriptionUn texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+App 14470 output: picture uploads/offresdemplois/2019-07-06T15:34:53.696Zcode.jpeg
+App 14470 output: file uploads/offresdemplois/2019-07-06T15:34:53.705Ztest.pdf
+App 14470 output: fileName Offre d'emploi
+App 14470 output: Error: ENOENT: no such file or directory, open 'uploads/formations/2019-07-06T15:36:52.205Zcode.jpeg'
+App 14470 output: theme Journée régionale
+App 14470 output: title ADHERER A LA CORPALIF
+App 14470 output: message 
+App 14470 output: DescriptionUn texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku
+App 14470 output: picture uploads/formations/2019-07-06T15:37:37.101Zcode.jpeg
+App 14470 output: file uploads/formations/2019-07-06T15:37:37.105Ztest.pdf
+App 14470 output: fileName formation
+App 14470 output: file uploads/formulairedadmission/2019-07-06T15:38:25.942Ztest-vue-clementine.pdf
+App 14470 output: theme Seminaire Santé
+App 14470 output: title Seminaire Santé
+App 14470 output: message Après Paris et le PSG, Rome et l'AS Rome ? Le Corriere dello Sport a annoncé mardi que Qatar Sports Investments (QSI), le propriétaire du club parisien depuis 
+App 14470 output: 
+App 14470 output: picture uploads/veillemedicale/2019-07-06T15:42:19.121Zcode.jpeg
+App 14470 output: file uploads/veillemedicale/2019-07-06T15:42:19.125Zurl (2).pdf
+App 14470 output: fileName formulaire novembre 2018
+App 14470 output: theme TEST
+App 14470 output: title ADHERER A LA CORPALIF
+App 14470 output: message D'où vient-il? Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, "Lorem ipsum dolor sit amet...", proviennent de la section 1.10.32. 
+App 14470 output: picture uploads/veillemedicale/2019-07-06T15:43:15.826Zblog8.f038c7dc.jpg
+App 14470 output: file uploads/veillemedicale/2019-07-06T15:43:15.829Zurl (2) (1).pdf
+App 14470 output: fileName Le programme
+App 14470 output: [Object: null prototype] {
+App 14470 output:   picture:
+App 14470 output:    [ { fieldname: 'picture',
+App 14470 output:        originalname: 'office2.d57fa885.jpg',
+App 14470 output:        encoding: '7bit',
+App 14470 output:        mimetype: 'image/jpeg',
+App 14470 output:        destination: './uploads/veillemedicale',
+App 14470 output:        filename: '2019-07-06T15:44:22.982Zoffice2.d57fa885.jpg',
+App 14470 output:        path:
+App 14470 output:         'uploads/veillemedicale/2019-07-06T15:44:22.982Zoffice2.d57fa885.jpg',
+App 14470 output:        size: 220039 } ],
+App 14470 output:   file:
+App 14470 output:    [ { fieldname: 'file',
+App 14470 output:        originalname: 'url (2).pdf',
+App 14470 output:        encoding: '7bit',
+App 14470 output:        mimetype: 'application/pdf',
+App 14470 output:        destination: './uploads/veillemedicale',
+App 14470 output:        filename: '2019-07-06T15:44:22.986Zurl (2).pdf',
+App 14470 output:        path: 'uploads/veillemedicale/2019-07-06T15:44:22.986Zurl (2).pdf',
+App 14470 output:        size: 687616 } ] }
+App 14470 output: { _id: 5d20c1d7ffdf8b3886885a9a,
+App 14470 output:   theme: 'TEST 2',
+App 14470 output:   title: 'Parcours patient 2',
+App 14470 output:   message:
+App 14470 output:    `aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouv`,
+App 14470 output:   fileName: '',
+App 14470 output:   picture:
+App 14470 output:    'uploads/veillemedicale/2019-07-06T15:44:22.982Zoffice2.d57fa885.jpg',
+App 14470 output:   file: 'uploads/veillemedicale/2019-07-06T15:44:22.986Zurl (2).pdf',
+App 14470 output:   date: 2019-07-06T15:44:23.004Z,
+App 14470 output:   __v: 0 }
+
+[ N 2019-07-07 10:32:21.1839 14454/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-07 10:32:21.1851 14454/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-07 10:32:21.1854 14454/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14470, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-07 10:32:21.1860 14454/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-07 10:32:21.1860 14454/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-07 10:32:21.1860 14454/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-07 10:32:21.1860 14454/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-07 10:32:21.1862 14454/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-07 10:32:21.1863 14454/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-07 10:32:21.1866 14454/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-07 10:32:21.1867 14454/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-07 10:32:21.1870 14454/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-07 10:32:21.1874 14454/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-07 10:32:21.1878 14454/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 14470, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-07 10:32:21.6479 14454/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-07 10:32:23.0571 29664/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-07 10:32:23.0991 29666/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-07 10:32:23.0995 29666/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-07 10:32:23.1283 29666/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 29666
+[ N 2019-07-07 10:32:25.4882 29666/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 29682 output: Server running on port 5000
+App 29682 output: MongoDB Connected
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+App 29682 output: Error: ENOENT: no such file or directory, stat '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/build/index.html'
+2019/07/07 11:14:16 [alert] 29668#0: unlink() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server/passenger.3000.pid" failed (2: No such file or directory)
+
+[ N 2019-07-07 11:14:16.2546 29666/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-07 11:14:16.2567 29666/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-07 11:14:16.2569 29666/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 29682, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-07 11:14:16.2592 29666/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-07 11:14:16.2592 29666/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-07 11:14:16.2592 29666/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-07 11:14:16.2593 29666/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-07 11:14:16.2607 29666/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-07 11:14:16.2608 29666/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-07 11:14:16.2610 29666/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-07 11:14:16.2617 29666/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-07 11:14:16.2617 29666/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-07 11:14:16.2618 29666/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-07 11:14:16.2662 29666/T1 age/Cor/CoreMain.cpp:1146 ]: Checking whether to disconnect long-running connections for process 29682, application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server (development)
+[ N 2019-07-07 11:14:16.9032 29666/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished

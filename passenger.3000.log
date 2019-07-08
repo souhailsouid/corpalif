@@ -1,0 +1,106 @@
+[ N 2019-07-06 13:40:06.4374 8030/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 13:40:06.4714 8032/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 13:40:06.4717 8032/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 13:40:06.4882 8032/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8032
+[ N 2019-07-06 13:40:08.8670 8032/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+2019/07/06 13:40:33 [error] 8035#0: *6 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "0.0.0.0:3000"
+
+[ N 2019-07-06 13:41:34.1727 8032/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 13:41:34.1728 8032/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 13:41:34.1736 8032/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 13:41:34.1737 8032/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 13:41:34.1737 8032/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 13:41:34.1737 8032/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 13:41:34.1738 8032/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 13:41:34.1738 8032/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 13:41:34.1738 8032/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 13:41:34.1738 8032/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 13:41:34.1740 8032/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 13:41:34.1740 8032/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 13:41:34.4915 8032/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+2019/07/06 14:03:18 [emerg] 8430#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 14:03:18 [emerg] 8430#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 14:03:18 [emerg] 8430#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 14:03:18 [emerg] 8430#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 14:03:18 [emerg] 8430#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 14:03:18 [emerg] 8430#0: still could not bind()
+[ N 2019-07-06 14:03:31.8996 8463/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 14:03:31.9363 8465/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 14:03:31.9365 8465/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 14:03:31.9554 8465/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8465
+[ N 2019-07-06 14:03:34.2601 8465/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+2019/07/06 14:03:51 [error] 8468#0: *6 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "0.0.0.0:3000"
+
+[ N 2019-07-06 14:04:05.1567 8465/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 14:04:05.1568 8465/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 14:04:05.1570 8465/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 14:04:05.1570 8465/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 14:04:05.1571 8465/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 14:04:05.1571 8465/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 14:04:05.1571 8465/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 14:04:05.1571 8465/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 14:04:05.1572 8465/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 14:04:05.1572 8465/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 14:04:05.1578 8465/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 14:04:05.1578 8465/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 14:04:05.4486 8465/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 15:25:06.9647 8888/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 15:25:07.0090 8890/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 15:25:07.0092 8890/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 15:25:07.0263 8890/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8890
+[ E 2019-07-06 15:25:09.0410 8890/T5 age/Cor/SecurityUpdateChecker.h:507 ]: Security update check failed: Couldn't resolve host name while connecting to https://securitycheck.phusionpassenger.com/v1/check.json (check your DNS) (next check in 24 hours)
+App 8906 output: internal/modules/cjs/loader.js:611
+App 8906 output:     throw err;
+App 8906 output:     ^
+App 8906 output: 
+App 8906 output: Error: Cannot find module '/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/server.js'
+App 8906 output:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)
+App 8906 output:     at Function.Module._load (internal/modules/cjs/loader.js:535:25)
+App 8906 output:     at Module.require (internal/modules/cjs/loader.js:663:17)
+App 8906 output:     at Module.require (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:80:25)
+App 8906 output:     at require (internal/modules/cjs/helpers.js:20:18)
+App 8906 output:     at loadApplication (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:243:2)
+App 8906 output:     at setupEnvironment (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:214:2)
+App 8906 output:     at Object.<anonymous> (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:133:1)
+App 8906 output:     at Module._compile (internal/modules/cjs/loader.js:734:30)
+App 8906 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+[ E 2019-07-06 15:25:36.2390 8890/Tj age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif: The application process exited prematurely.
+  Error ID: c9a9993c
+  Error details saved to: /var/folders/q4/9mxs5pzj2cv68tdv4wb59km00000gn/T//passenger-error-aXbTOb.html
+
+[ E 2019-07-06 15:25:36.2493 8890/T8 age/Cor/Con/CheckoutSession.cpp:276 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is c9a9993c. Please see earlier logs for details about the error.
+
+[ N 2019-07-06 15:26:38.1592 8890/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 15:26:38.1593 8890/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 15:26:38.1595 8890/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 15:26:38.1596 8890/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 15:26:38.1597 8890/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 15:26:38.1597 8890/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 15:26:38.1598 8890/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 15:26:38.1599 8890/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 15:26:38.1599 8890/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 15:26:38.1600 8890/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 15:26:38.1601 8890/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 15:26:38.1602 8890/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ E 2019-07-06 15:26:38.1801 8890/T1 age/Cor/TelemetryCollector.h:455 ]: Error contacting anonymous telemetry server: Could not resolve host: anontelemetry.phusionpassenger.com
+[ N 2019-07-06 15:26:38.2343 8890/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished
+[ N 2019-07-06 15:26:40.4379 8963/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 15:26:40.4778 8965/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 15:26:40.4781 8965/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 15:26:40.4970 8965/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 8965
+[ E 2019-07-06 15:26:42.5103 8965/T5 age/Cor/SecurityUpdateChecker.h:507 ]: Security update check failed: Couldn't resolve host name while connecting to https://securitycheck.phusionpassenger.com/v1/check.json (check your DNS) (next check in 24 hours)
+
+[ N 2019-07-06 15:29:54.7127 8965/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 15:29:54.7127 8965/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 15:29:54.7129 8965/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 15:29:54.7129 8965/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 15:29:54.7129 8965/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 15:29:54.7130 8965/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 15:29:54.7130 8965/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 15:29:54.7130 8965/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 15:29:54.7129 8965/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 15:29:54.7130 8965/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 15:29:54.7132 8965/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 15:29:54.7132 8965/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ E 2019-07-06 15:29:54.7308 8965/T1 age/Cor/TelemetryCollector.h:455 ]: Error contacting anonymous telemetry server: Could not resolve host: anontelemetry.phusionpassenger.com
+[ N 2019-07-06 15:29:54.7910 8965/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished

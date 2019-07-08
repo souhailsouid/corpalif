@@ -276,7 +276,7 @@ router.post('/forgot_password', function(req, res, next) {
 					'Veuillez ouvrir ce lien pour poursuivre:  \n\n' +
 					'http://' +
 					'www.corpalif.com' +
-					'/#/reset/' +
+					'/reset/' +
 					token +
 					'\n\n' +
 					'Ps: Ce lien est valable uniquement une heure.\n' +

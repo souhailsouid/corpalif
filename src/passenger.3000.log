@@ -1,0 +1,65 @@
+2019/07/06 12:21:10 [emerg] 4521#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 12:21:10 [emerg] 4521#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 12:21:10 [emerg] 4521#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 12:21:10 [emerg] 4521#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 12:21:10 [emerg] 4521#0: bind() to 0.0.0.0:3000 failed (48: Address already in use)
+2019/07/06 12:21:10 [emerg] 4521#0: still could not bind()
+[ N 2019-07-06 12:21:24.4172 4556/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 12:21:24.4497 4558/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 12:21:24.4500 4558/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 12:21:24.4671 4558/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 4558
+[ N 2019-07-06 12:21:26.7664 4558/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 4574 output: /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/src/index.js:1
+App 4574 output: (function (exports, require, module, __filename, __dirname) { import React from 'react'
+App 4574 output:                                                                      ^^^^^
+App 4574 output: 
+App 4574 output: SyntaxError: Unexpected identifier
+App 4574 output:     at new Script (vm.js:84:7)
+App 4574 output:     at createScript (vm.js:264:10)
+App 4574 output:     at Object.runInThisContext (vm.js:312:10)
+App 4574 output:     at Object.vm.runInThisContext (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:117:19)
+App 4574 output:     at Module._compile (internal/modules/cjs/loader.js:694:28)
+App 4574 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+App 4574 output:     at Module.load (internal/modules/cjs/loader.js:626:32)
+App 4574 output:     at tryModuleLoad (internal/modules/cjs/loader.js:566:12)
+App 4574 output:     at Function.Module._load (internal/modules/cjs/loader.js:558:3)
+App 4574 output:     at Module.require (internal/modules/cjs/loader.js:663:17)
+[ E 2019-07-06 12:21:26.8610 4558/Tj age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/src: The application process exited prematurely.
+  Error ID: bb91f0ba
+  Error details saved to: /var/folders/q4/9mxs5pzj2cv68tdv4wb59km00000gn/T//passenger-error-mWwMFc.html
+
+[ E 2019-07-06 12:21:26.8712 4558/T8 age/Cor/Con/CheckoutSession.cpp:276 ]: [Client 1-1] Cannot checkout session because a spawning error occurred. The identifier of the error is bb91f0ba. Please see earlier logs for details about the error.
+App 4604 output: /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/src/index.js:1
+App 4604 output: (function (exports, require, module, __filename, __dirname) { import React from 'react'
+App 4604 output:                                                                      ^^^^^
+App 4604 output: 
+App 4604 output: SyntaxError: Unexpected identifier
+App 4604 output:     at new Script (vm.js:84:7)
+App 4604 output:     at createScript (vm.js:264:10)
+App 4604 output:     at Object.runInThisContext (vm.js:312:10)
+App 4604 output:     at Object.vm.runInThisContext (/usr/local/Cellar/passenger/6.0.2_4/libexec/src/helper-scripts/node-loader.js:117:19)
+App 4604 output:     at Module._compile (internal/modules/cjs/loader.js:694:28)
+App 4604 output:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+App 4604 output:     at Module.load (internal/modules/cjs/loader.js:626:32)
+App 4604 output:     at tryModuleLoad (internal/modules/cjs/loader.js:566:12)
+App 4604 output:     at Function.Module._load (internal/modules/cjs/loader.js:558:3)
+App 4604 output:     at Module.require (internal/modules/cjs/loader.js:663:17)
+[ E 2019-07-06 12:21:43.3181 4558/To age/Cor/App/Implementation.cpp:221 ]: Could not spawn process for application /Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/src: The application process exited prematurely.
+  Error ID: 21ccbcf7
+  Error details saved to: /var/folders/q4/9mxs5pzj2cv68tdv4wb59km00000gn/T//passenger-error-qxYMPE.html
+
+[ E 2019-07-06 12:21:43.3283 4558/Ta age/Cor/Con/CheckoutSession.cpp:276 ]: [Client 2-1] Cannot checkout session because a spawning error occurred. The identifier of the error is 21ccbcf7. Please see earlier logs for details about the error.
+
+[ N 2019-07-06 12:24:43.4603 4558/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2019-07-06 12:24:43.4610 4558/T1 age/Cor/CoreMain.cpp:1245 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2019-07-06 12:24:43.4611 4558/T8 Ser/Server.h:901 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2019-07-06 12:24:43.4612 4558/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2019-07-06 12:24:43.4613 4558/Te Ser/Server.h:901 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2019-07-06 12:24:43.4613 4558/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2019-07-06 12:24:43.4614 4558/Ta Ser/Server.h:901 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2019-07-06 12:24:43.4614 4558/Tc Ser/Server.h:901 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2019-07-06 12:24:43.4615 4558/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2019-07-06 12:24:43.4615 4558/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2019-07-06 12:24:43.4618 4558/Tg Ser/Server.h:901 ]: [ApiServer] Freed 0 spare client objects
+[ N 2019-07-06 12:24:43.4618 4558/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2019-07-06 12:24:43.7617 4558/T1 age/Cor/CoreMain.cpp:1324 ]: Passenger core shutdown finished

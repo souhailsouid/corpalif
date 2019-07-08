@@ -1,0 +1,8 @@
+[ N 2019-07-06 11:01:16.1073 1851/T1 age/Wat/WatchdogMain.cpp:1366 ]: Starting Passenger watchdog...
+[ N 2019-07-06 11:01:16.1465 1853/T1 age/Cor/CoreMain.cpp:1339 ]: Starting Passenger core...
+[ N 2019-07-06 11:01:16.1473 1853/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2019-07-06 11:01:16.2015 1853/T1 age/Cor/CoreMain.cpp:1014 ]: Passenger core online, PID 1853
+[ N 2019-07-06 11:01:19.0984 1853/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+2019/07/06 11:01:44 [error] 1856#0: *7 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "127.0.0.1:4000"
+2019/07/06 13:45:53 [error] 1856#0: *19 open() "/Users/souhailsouid/Desktop/dossier sans titre 2/corpalif/public/content.bundle.js.map" failed (2: No such file or directory), client: 127.0.0.1, server: _, request: "GET /content.bundle.js.map HTTP/1.1", host: "0.0.0.0:4000"
+2019/07/06 15:59:13 [alert] 1855#0: worker process 1856 exited on signal 9
